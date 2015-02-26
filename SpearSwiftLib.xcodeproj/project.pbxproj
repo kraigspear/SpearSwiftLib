@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A942A98C1A9F251800C69271 /* SpearSwiftLib.h in Headers */ = {isa = PBXBuildFile; fileRef = A942A98B1A9F251800C69271 /* SpearSwiftLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A942A9921A9F251900C69271 /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
+		A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A942A9931A9F251900C69271 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A942A97D1A9F251800C69271 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A942A9851A9F251800C69271;
+			remoteInfo = SpearSwiftLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A942A98A1A9F251800C69271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A942A98B1A9F251800C69271 /* SpearSwiftLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLib.h; sourceTree = "<group>"; };
+		A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A942A9971A9F251900C69271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpearSwiftLibTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A942A9821A9F251800C69271 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A942A98E1A9F251900C69271 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A942A9921A9F251900C69271 /* SpearSwiftLib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A942A97C1A9F251800C69271 = {
+			isa = PBXGroup;
+			children = (
+				A942A9881A9F251800C69271 /* SpearSwiftLib */,
+				A942A9951A9F251900C69271 /* SpearSwiftLibTests */,
+				A942A9871A9F251800C69271 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A942A9871A9F251800C69271 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A942A9861A9F251800C69271 /* SpearSwiftLib.framework */,
+				A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A942A9881A9F251800C69271 /* SpearSwiftLib */ = {
+			isa = PBXGroup;
+			children = (
+				A942A98B1A9F251800C69271 /* SpearSwiftLib.h */,
+				A942A9891A9F251800C69271 /* Supporting Files */,
+			);
+			path = SpearSwiftLib;
+			sourceTree = "<group>";
+		};
+		A942A9891A9F251800C69271 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A942A98A1A9F251800C69271 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A942A9951A9F251900C69271 /* SpearSwiftLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */,
+				A942A9961A9F251900C69271 /* Supporting Files */,
+			);
+			path = SpearSwiftLibTests;
+			sourceTree = "<group>";
+		};
+		A942A9961A9F251900C69271 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A942A9971A9F251900C69271 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A942A9831A9F251800C69271 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A942A98C1A9F251800C69271 /* SpearSwiftLib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A942A9851A9F251800C69271 /* SpearSwiftLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A942A99C1A9F251900C69271 /* Build configuration list for PBXNativeTarget "SpearSwiftLib" */;
+			buildPhases = (
+				A942A9811A9F251800C69271 /* Sources */,
+				A942A9821A9F251800C69271 /* Frameworks */,
+				A942A9831A9F251800C69271 /* Headers */,
+				A942A9841A9F251800C69271 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpearSwiftLib;
+			productName = SpearSwiftLib;
+			productReference = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A942A9901A9F251900C69271 /* SpearSwiftLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A942A99F1A9F251900C69271 /* Build configuration list for PBXNativeTarget "SpearSwiftLibTests" */;
+			buildPhases = (
+				A942A98D1A9F251900C69271 /* Sources */,
+				A942A98E1A9F251900C69271 /* Frameworks */,
+				A942A98F1A9F251900C69271 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A942A9941A9F251900C69271 /* PBXTargetDependency */,
+			);
+			name = SpearSwiftLibTests;
+			productName = SpearSwiftLibTests;
+			productReference = A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A942A97D1A9F251800C69271 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = spearware;
+				TargetAttributes = {
+					A942A9851A9F251800C69271 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					A942A9901A9F251900C69271 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = A942A9801A9F251800C69271 /* Build configuration list for PBXProject "SpearSwiftLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A942A97C1A9F251800C69271;
+			productRefGroup = A942A9871A9F251800C69271 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A942A9851A9F251800C69271 /* SpearSwiftLib */,
+				A942A9901A9F251900C69271 /* SpearSwiftLibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A942A9841A9F251800C69271 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A942A98F1A9F251900C69271 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A942A9811A9F251800C69271 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A942A98D1A9F251900C69271 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A942A9941A9F251900C69271 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A942A9851A9F251800C69271 /* SpearSwiftLib */;
+			targetProxy = A942A9931A9F251900C69271 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A942A99A1A9F251900C69271 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A942A99B1A9F251900C69271 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A942A99D1A9F251900C69271 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A942A99E1A9F251900C69271 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A942A9A01A9F251900C69271 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A942A9A11A9F251900C69271 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A942A9801A9F251800C69271 /* Build configuration list for PBXProject "SpearSwiftLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A942A99A1A9F251900C69271 /* Debug */,
+				A942A99B1A9F251900C69271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A942A99C1A9F251900C69271 /* Build configuration list for PBXNativeTarget "SpearSwiftLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A942A99D1A9F251900C69271 /* Debug */,
+				A942A99E1A9F251900C69271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A942A99F1A9F251900C69271 /* Build configuration list for PBXNativeTarget "SpearSwiftLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A942A9A01A9F251900C69271 /* Debug */,
+				A942A9A11A9F251900C69271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A942A97D1A9F251800C69271 /* Project object */;
+}
