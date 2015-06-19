@@ -8,8 +8,10 @@
 
 import UIKit
 import XCTest
+import SpearSwiftLib
 
-class SpearSwiftLibTests: XCTestCase {
+class SpearSwiftLibTests: XCTestCase
+{
     
     override func setUp() {
         super.setUp()
@@ -21,9 +23,31 @@ class SpearSwiftLibTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testNetworkOperation()
+    {
+      let networkOperation = NetworkOperation(urlStr: "http://forecast.weather.gov/MapClick.php")
+      
+      networkOperation.addParam("lat", value: "42.9612")
+      networkOperation.addParam("lon", value: "-85.6557")
+      networkOperation.addParam("FcstType", value: "json")
+      
+      let readyExpectation = expectationWithDescription("ready")
+
+      networkOperation.fetchJSON({ (dictionary) -> Void in
+        
+        XCTAssertNotNil(dictionary["currentobservation"])
+        readyExpectation.fulfill()
+        })
+        { (error) -> Void in
+          XCTAssertTrue(false, "Error calling fetchJSON")
+          readyExpectation.fulfill()
+        }
+      
+      waitForExpectationsWithTimeout(10) { (error) -> Void in
+        XCTAssertNil(error, "Error")
+      }
+      
+      
     }
     
     func testPerformanceExample() {
