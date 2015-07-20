@@ -34,6 +34,15 @@ class StringTests: XCTestCase {
       XCTAssertTrue(myStr.any("bla", "crap", "text"))
       XCTAssertFalse(myStr.any("abc", "def", "hijk"))
     }
+  
+    func testLeft()
+    {
+      var myStr = "abcdefg"
+      
+      myStr.left(1)
+      
+      XCTAssertTrue(myStr == "abcdef")
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

@@ -19,6 +19,8 @@ public enum FetchError : ErrorType
   case None
 }
 
+
+
 // Fetch JSON Async
 public protocol JSONFetcher
 {
@@ -76,9 +78,13 @@ public class NetworkOperation : JSONFetcher
               success(json: jsonObject)
             }
           }
+          catch let jsonError as NSError
+          {
+            failure(error: FetchError.JSONError(jsonError))
+          }
           catch
           {
-            failure(error: error)
+            failure(error: FetchError.None)
           }
         }
       }

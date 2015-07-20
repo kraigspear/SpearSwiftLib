@@ -35,7 +35,7 @@ extension Array {
     }
     
     /// Return a copy of `self` with its elements shuffled
-    func shuffled() -> [T] {
+    func shuffled() -> [Element] {
         var list = self
         list.shuffle()
         return list

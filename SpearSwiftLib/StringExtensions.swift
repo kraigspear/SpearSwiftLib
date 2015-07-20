@@ -26,4 +26,9 @@ extension String
     }
     return false
   }
+  
+  mutating public func left(numberOfChars:Int)
+  {
+     self.removeAtIndex(self.endIndex.predecessor())
+  }
 }
