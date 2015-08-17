@@ -21,7 +21,7 @@ public enum FetchError : ErrorType
 
 
 
-// Fetch JSON Async
+// Fetches JSON async. 
 public protocol JSONFetcher
 {
   func fetchJSON(success:JsonBlock, failure:ErrorBlock)
@@ -90,7 +90,7 @@ public class NetworkOperation : JSONFetcher
       }
     }
     
-    task!.resume()
+    task.resume()
   }
   
   private func stringFromQueryParameters() -> String
