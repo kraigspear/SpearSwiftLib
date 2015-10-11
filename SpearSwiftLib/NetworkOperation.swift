@@ -99,12 +99,18 @@ public class NetworkOperation : JSONFetcher
     
     for (name, value) in self.params
     {
+      
+      let nameStr = name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        
+      let valueStr = value.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        
       let part = NSString(format: "%@=%@",
-        name.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!,
-        value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+        nameStr,
+        valueStr)
       parts.append(part as String)
     }
-    return "&".join(parts)
+    
+    return parts.joinWithSeparator("&")
   }
   
   private func NSURLByAppendingQueryParameters(url:NSURL) -> NSURL

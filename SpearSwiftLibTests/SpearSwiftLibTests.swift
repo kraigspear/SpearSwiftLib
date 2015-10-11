@@ -8,10 +8,11 @@
 
 import UIKit
 import XCTest
-import SpearSwiftLib
+@testable import SpearSwiftLib
 
 class SpearSwiftLibTests: XCTestCase
 {
+   
     
     override func setUp() {
         super.setUp()
@@ -50,11 +51,52 @@ class SpearSwiftLibTests: XCTestCase
       
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+    func testAddDay()
+    {
+        let date = NSDate(timeIntervalSince1970: 1444441866) //Oct 9, 2015
+        let dayPlus1 = date.addDays(1)
+        let day = NSCalendar.currentCalendar().component(NSCalendarUnit.Day, fromDate: dayPlus1)
+        XCTAssertEqual(10, day)
     }
+    
+    func testIsSameDay()
+    {
+        let date1 = NSDate()
+        let date2 = NSDate()
+        
+        XCTAssertTrue(date1.isSameDay(date2))
+        
+        let date3 = date1.addDays(5)
+        
+        XCTAssertFalse(date1.isSameDay(date3))
+    }
+    
+    func testSubtractDates()
+    {
+        let date1 = NSDate()
+        let date2 = date1.addDays(2)
+        
+        let diff = date1.subtractDate(date2)
+        
+        XCTAssertEqual(2, diff.day)
+        
+    }
+    
+    func testSubtractDateOperator()
+    {
+        let date1 = NSDate()
+        let date2 = date1.addDays(4)
+        
+        let diff = date1 - date2
+        
+        XCTAssertEqual(4, diff.day)
+    }
+    
+    
+    class TestClass
+    {
+        var someStr = "SomeStr"
+    }
+    
     
 }
