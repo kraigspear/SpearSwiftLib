@@ -11,7 +11,7 @@ import Foundation
 
 public class Event<T>
 {
-    
+    //Inspired by http://blog.scottlogic.com/2015/02/05/swift-events.html
     public init() {
         
     }

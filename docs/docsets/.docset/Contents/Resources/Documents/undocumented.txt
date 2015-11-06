@@ -1,0 +1,62 @@
+ScrollViewExtensions.swift
+	public func scrollToBottom(animated:Bool = false)
+AsyncAwait.swift
+	public class AsyncAwait
+	public func Async(asyncOn:VoidBlock, awaitOn:VoidBlock)
+ImageCache.swift
+	public func fetchImages(urlStrs: [String], completed:ImagesBlock)
+	public func fetchImage(ulrStr: String) -> UIImage?
+	public func fetchImageFakeScale(urlStr:String, completed:ImageBlock)
+StringExtensions.swift
+	public func contains(otherString: String) -> Bool
+	public func any(equalTo:String...) -> Bool
+	mutating public func left(numberOfChars:Int)
+Timer.swift
+	public protocol TimerProtocol
+	func start()
+	func stop()
+	var fired:Event<Void> {get}
+	var isRunning:Bool {get}
+	public init(interval:NSTimeInterval)
+	public func start()
+	@objc func timerFired()
+	public var isRunning:Bool
+	public func stop()
+	public let fired:Event<Void> = Event<Void>()
+Event.swift
+	public class Event<T>
+	public init()
+	public func raise(data: T)
+	public func addHandler<U: AnyObject>(target: U,
+        handler: (U) -> EventHandler) -> Disposable
+	public protocol Disposable
+	func dispose()
+StringBuilder.swift
+	let delimiter:String
+	public init(delimiter:String)
+	public func append(otherStr:String) -> StringBuilder
+	public var numberOfStrings:Int
+	public func build() -> String
+DictionaryExtensions.swift
+	public func toFloat(key:Key) -> Float?
+	public func toDouble(key:Key) -> Double?
+	public func toDate(key:Key) -> NSDate?
+	public func toInt(key:Key) -> Int?
+NetworkOperation.swift
+	public enum FetchError : ErrorType
+	case HTTPError(Int)
+	case JSONError(NSError)
+	case None
+	public protocol JSONFetcher
+	func fetchJSON(success:JsonBlock, failure:ErrorBlock)
+	public class NetworkOperation : JSONFetcher
+	public var fetchError:FetchError = FetchError.None
+	public func addParam(key:String, value:String)
+	public init(urlStr:String)
+	public func fetchJSON(success:JsonBlock, failure:ErrorBlock)
+DateExtensions.swift
+	public func -(left:NSDate, right:NSDate) -> (month:Int, day:Int, year:Int, hour:Int, minute:Int, second:Int)
+	public func addDays(numberOfDays:Int) -> NSDate
+FileManagerExtensions.swift
+	public func cachePathFile(fileName:String) -> String
+	public func fileDateTime(fileName:String) -> NSDate?
