@@ -9,4 +9,7 @@
 import Foundation
 
 public typealias VoidBlock = () -> Void
+public typealias NSErrorBlock = (error:NSError?) -> Void
+public typealias DateBlock = (date:NSDate?) -> Void
+public typealias DateErrorBlock = (date:NSDate?, error:NSError?) -> Void
 

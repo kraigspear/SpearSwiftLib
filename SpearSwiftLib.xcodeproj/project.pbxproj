@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91890B61B6CE866005CA6B3 /* ImageCache.swift */; };
+		A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
 		A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */; };
 		A92CC47E1B3BF55500593257 /* LocalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92CC47D1B3BF55500593257 /* LocalExtensions.swift */; };
 		A93479591BDF75770069B2BC /* StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93479581BDF75770069B2BC /* StringBuilder.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		A91890B61B6CE866005CA6B3 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A92424A61BF3519E00175774 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		A92CC47D1B3BF55500593257 /* LocalExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalExtensions.swift; sourceTree = "<group>"; };
 		A93479581BDF75770069B2BC /* StringBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringBuilder.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				A9C088991BD62FB3000C16D3 /* Timer.swift */,
 				A93479581BDF75770069B2BC /* StringBuilder.swift */,
 				A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */,
+				A92424A61BF3519E00175774 /* BaseOperation.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */,
 				A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */,
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
+				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
 				A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */,
 				A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */,
 				A942A9A31A9F252F00C69271 /* Shuffle.swift in Sources */,
