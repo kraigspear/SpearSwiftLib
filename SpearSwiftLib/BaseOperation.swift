@@ -8,11 +8,33 @@
 
 import Foundation
 
+
 public class BaseOperation : NSOperation {
 
     ///Indicates if there was an error executing the operation. Nil if the operation was a
     ///Success or an error otherwise.
     public var error:NSError?
+    
+    public override func main()
+    {
+        self.executing = true
+        self.finished = false
+    }
+    
+    var anyDependencyHasErrors:Bool
+    {
+        for dependency in self.dependencies
+        {
+            if let baseOperation = dependency as? BaseOperation
+            {
+                if baseOperation.error != nil
+                {
+                    return true
+                }
+            }
+        }
+        return false
+    }
     
     override public var asynchronous:Bool {
         return true
@@ -47,7 +69,7 @@ public class BaseOperation : NSOperation {
     }
     
     ///Set this operation as being completed. Needs to always be called no matter if the operation
-    ///Is successulf or not
+    ///is successful or not
     public func done() {
         self.executing = false
         self.finished = true
