@@ -15,10 +15,16 @@ public class BaseOperation : NSOperation {
     ///Success or an error otherwise.
     public var error:NSError?
     
-    public override func main()
-    {
-        self.executing = true
-        self.finished = false
+    override public func start() {
+        if self.cancelled
+        {
+            self.finished = true
+        }
+        else
+        {
+            self.executing = true
+            self.main()
+        }
     }
     
     var anyDependencyHasErrors:Bool
