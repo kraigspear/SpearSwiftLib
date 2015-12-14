@@ -19,9 +19,7 @@ public enum FetchError : ErrorType
   case None
 }
 
-
-
-// Fetches JSON async. 
+// Fetches JSON async.
 public protocol JSONFetcher
 {
   func fetchJSON(success:JsonBlock, failure:ErrorBlock)

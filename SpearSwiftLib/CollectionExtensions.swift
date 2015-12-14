@@ -24,4 +24,11 @@ public extension Array
         }
         return false
     }
+    
+    public func isValidIndex(index:Int) -> Bool {
+        if index < 0 {
+            return false
+        }
+        return index <= self.count - 1
+    }
 }
