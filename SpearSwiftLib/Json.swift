@@ -31,6 +31,7 @@ public struct PathElement {
     public var isArrayElement:Bool {
         return self.index != noIndex
     }
+    
 }
 
 public struct JsonPath {
@@ -45,7 +46,7 @@ public struct JsonPath {
     
 }
 
-public class Json {
+public final class Json {
     
     private let jsonData:JSON
     private let paths:[JsonPath]
@@ -54,6 +55,7 @@ public class Json {
     public init(jsonData:JSON, paths:JsonPath...) throws {
         self.jsonData = jsonData
         self.paths = paths
+        try! setupPaths()
     }
     
     private func setupPaths() throws {
@@ -91,6 +93,19 @@ public class Json {
         self.foundJson[path.name] = jsonElement
     }
     
+    
+    /**
+     Gets the value at the path with this key as a Float
+     - Parameter pathName:The name of the path to get the value from
+     - Parameter key:The key of the element to get the value from
+     - Throws JsonError.KeyNotFound: When the key was not found
+     - Throws JsonError.ConversionError: When the key was not found
+     ~~~
+     
+     let temperature:Float = try json.floatValue(observation, key: tempKey)
+     
+     ~~~
+     */
     public func floatValue(pathName:String, key:String) throws -> Float {
         guard let foundJson = self.foundJson[pathName] else {
             throw JsonError.KeyNotFound(key: pathName)

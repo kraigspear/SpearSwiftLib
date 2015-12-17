@@ -77,7 +77,7 @@ public extension Dictionary   {
         } else if let valNum = value as? NSNumber {
             return valNum.integerValue
         } else {
-            throw DictionaryConvertError.ConversionError
+            return 0
         }
 
     }
@@ -103,7 +103,7 @@ public extension Dictionary   {
     public func toFloat(key:Key) throws -> Float {
         
         let value = try self.unwrappedValue(key)
-        
+       
         if let valStr = value as? String {
             
             if let floatVal = Float(valStr) {
@@ -115,7 +115,7 @@ public extension Dictionary   {
         } else if let valNum = value as? NSNumber {
             return valNum.floatValue
         } else {
-            throw DictionaryConvertError.ConversionError
+            return 0.0
         }
         
     }
@@ -135,7 +135,7 @@ public extension Dictionary   {
         } else if let valNum = value as? NSNumber {
             return valNum.doubleValue
         } else {
-            throw DictionaryConvertError.ConversionError
+            return 0.0
         }
         
     }
