@@ -27,16 +27,15 @@ class JsonTest: XCTestCase {
         let data = NSData(contentsOfFile: path)
         self.jsonData = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! JSON
         
-        let pathElementResponse = PathElement(name: "response")
-        let pathElementResponsesObservation = PathElement(name: "responses", index: 0)
-        let obElement = PathElement(name: "ob")
+        let rootPath = PathElement(name: "response")
         
-        let observationJsonPath = [pathElementResponse,
-            pathElementResponsesObservation,
-            pathElementResponse,
-            obElement]
+        rootPath.withChild("responses", childAtIndex: 0)
+            .withChild("response")
+            .withChild("ob")
         
-        let observationPath = JsonPath(name: observation, pathsElements: observationJsonPath)
+        print(rootPath)
+        
+        let observationPath = JsonPath(name: observation, rootPath: rootPath)
         
         self.json = try! Json(jsonData: self.jsonData!, paths: observationPath)
     }

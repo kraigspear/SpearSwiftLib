@@ -17,34 +17,62 @@ public enum JsonError : ErrorType {
     case ConversionError(key:String, value:AnyObject)
 }
 
-public struct PathElement {
+public final class PathElement : CustomStringConvertible {
     
     let noIndex = -1
     public let name:String
     public let index:Int
+    public var childPath:PathElement?
     
-    public init(name:String, index:Int = -1) {
+    public init(name:String, childAtIndex:Int = -1) {
         self.name = name
-        self.index = index
+        self.index = childAtIndex
     }
     
     public var isArrayElement:Bool {
         return self.index != noIndex
     }
     
+    var elementDescription: String {
+        return "name: \(name) index: \(index)"
+    }
+    
+    public func withChild(name:String, childAtIndex:Int = -1) -> PathElement {
+        let child = PathElement(name: name, childAtIndex: childAtIndex)
+        return self.withChild(child)
+    }
+    
+    public func withChild(child:PathElement) -> PathElement {
+        self.childPath = child
+        return child
+    }
+    
+    public var description: String {
+        var str:String = self.elementDescription
+        
+        var child:PathElement? = self.childPath
+        
+        while child != nil {
+            str += "\n" + child!.elementDescription
+            child = child!.childPath
+        }
+        
+        return str
+    }
 }
 
 public struct JsonPath {
     
     public let name:String
-    public let pathsElements:[PathElement]
+    public let rootPath:PathElement
     
-    public init(name:String, pathsElements:[PathElement]) {
+    public init(name:String, rootPath:PathElement) {
         self.name = name
-        self.pathsElements = pathsElements
+        self.rootPath = rootPath
     }
     
 }
+
 
 public final class Json {
     
@@ -61,38 +89,53 @@ public final class Json {
     private func setupPaths() throws {
         
         for path in paths {
-           try setupPath(path)
+            try addPathToFoundJson(path)
         }
         
     }
     
-    private func setupPath(path:JsonPath) throws {
+    private func addPathToFoundJson(path:JsonPath) throws {
         
         var jsonElement:JSON = jsonData
         
-        for pathElement in path.pathsElements {
+        var pathElement:PathElement! = path.rootPath
+        
+        //Finding the last item. It's the one we assocaite the name with so that we can reference it later
+        repeat {
             
-            if pathElement.isArrayElement {
-                if let elementArray = jsonElement[pathElement.name] as? [JSON] {
-                    if !elementArray.isValidIndex(pathElement.index) {
-                        throw JsonError.PathIndexNotFound(path: pathElement)
-                    } else {
-                        jsonElement = elementArray[pathElement.index]
-                    }
-                }
-                
-            } else {
-               if let element = jsonElement[pathElement.name] as? JSON {
-                  jsonElement = element
-               } else {
-                  throw JsonError.PathNotFound(path: path)
-               }
-            }
+            jsonElement = try pathElementToJsonElement(pathElement, path: path, jsonElement: jsonElement)
+            pathElement = pathElement.childPath
             
-        }
+        } while pathElement != nil
+        
         self.foundJson[path.name] = jsonElement
     }
     
+    private func pathElementToJsonElement(pathElement:PathElement, path:JsonPath, jsonElement:JSON) throws -> JSON {
+        
+        var foundJsonElement:JSON = jsonElement
+        
+        if pathElement.isArrayElement {
+            
+            if let elementArray = jsonElement[pathElement.name] as? [JSON] {
+                if !elementArray.isValidIndex(pathElement.index) {
+                    throw JsonError.PathIndexNotFound(path: pathElement)
+                } else {
+                    foundJsonElement = elementArray[pathElement.index]
+                }
+            }
+            
+        } else {
+            
+            if let element = jsonElement[pathElement.name] as? JSON {
+                foundJsonElement = element
+            } else {
+                throw JsonError.PathNotFound(path: path)
+            }
+        }
+        
+        return foundJsonElement
+    }
     
     /**
      Gets the value at the path with this key as a Float
@@ -112,11 +155,11 @@ public final class Json {
         }
         
         do {
-          return try foundJson.toFloat(key)
+            return try foundJson.toFloat(key)
         } catch DictionaryConvertError.MissingKey {
-           throw JsonError.KeyNotFound(key: key)
+            throw JsonError.KeyNotFound(key: key)
         } catch DictionaryConvertError.ConversionError {
-           throw JsonError.ConversionError(key: key, value: foundJson[key]!)
+            throw JsonError.ConversionError(key: key, value: foundJson[key]!)
         }
         
     }
@@ -140,7 +183,7 @@ public final class Json {
      let temperature:Int = try json.intValue(observation, key: tempKey)
      
      ~~~
-    */
+     */
     public func intValue(pathName:String, key:String) throws -> Int {
         
         guard let foundJson = self.foundJson[pathName] else {
@@ -168,7 +211,7 @@ public final class Json {
         
         return strValue
     }
-
+    
     
     
 }
