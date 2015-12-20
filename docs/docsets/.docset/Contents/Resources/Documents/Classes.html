@@ -26,10 +26,13 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="Classes.html">Classes</a>
+            <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Classes/AsyncAwait.html">AsyncAwait</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/BaseOperation.html">BaseOperation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Event.html">Event</a>
@@ -38,7 +41,19 @@
                 <a href="Classes/ImageCache.html">ImageCache</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/Json.html">Json</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LocalNotification.html">LocalNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LocationNotificationMock.html">LocationNotificationMock</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/NetworkOperation.html">NetworkOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PathElement.html">PathElement</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/StringBuilder.html">StringBuilder</a>
@@ -49,15 +64,21 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Enums.html">Enums</a>
+            <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Enums/DictionaryConvertError.html">DictionaryConvertError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/FetchError.html">FetchError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/JsonError.html">JsonError</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Extensions.html">Extensions</a>
+            <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Extensions/Array.html">Array</a>
@@ -83,21 +104,15 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Functions.html">Functions</a>
+            <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Functions.html#/s:ZF13SpearSwiftLiboi1sFTCSo6NSDateS0__T5monthSi3daySi4yearSi4hourSi6minuteSi6secondSi_">-(_:_:)</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Functions.html#/s:F13SpearSwiftLib7shuffleuRq_Ss21MutableCollectionTypezqq_Ss16MutableIndexable5IndexSizqqq_S1_5IndexSs16ForwardIndexType8DistanceSizqqq_S1_5IndexS2_19_DisabledRangeIndexSizqqqq_S1_5IndexS2_8DistanceSs25IntegerLiteralConvertible18IntegerLiteralTypeSi_FRq_T_">shuffle(_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Functions.html#/s:F13SpearSwiftLib8shuffleduRq_Ss21MutableCollectionTypezqq_Ss16MutableIndexable5IndexSizqqq_S1_5IndexSs16ForwardIndexType8DistanceSizqqq_S1_5IndexS2_19_DisabledRangeIndexSizqqqq_S1_5IndexS2_8DistanceSs25IntegerLiteralConvertible18IntegerLiteralTypeSi_Fq_q_">shuffled(_:)</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Protocols.html">Protocols</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/Disposable.html">Disposable</a>
@@ -106,7 +121,32 @@
                 <a href="Protocols/JSONFetcher.html">JSONFetcher</a>
               </li>
               <li class="nav-group-task">
+                <a href="Protocols/LocationNotificationProtocol.html">LocationNotificationProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/TimerProtocol.html">TimerProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/JsonPath.html">JsonPath</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:13SpearSwiftLib10ErrorBlock">ErrorBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:13SpearSwiftLib9JsonBlock">JsonBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:13SpearSwiftLib12JsonKeyValue">JsonKeyValue</a>
               </li>
             </ul>
           </li>
@@ -159,15 +199,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <ul>
-<li>Loads an image from cache or downloads the image, stores in cache.</li>
-</ul>
+                        <p>Loads an image from cache or downloads the image, stores in cache.</p>
 
                         <a href="Classes/ImageCache.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ImageCache</span></code></pre>
 
@@ -199,7 +237,7 @@
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Timer</span> <span class="p">:</span> <span class="kt">TimerProtocol</span></code></pre>
 
@@ -251,15 +289,144 @@
                       <div class="abstract">
                         <p>Builds a string with a deliminter. Useful for CSV, TSV ext&hellip;</p>
 
+<p>Instead of concating strings with str1 + delimiter + str2
+ sb.append(str1).append(str2).build() can be used</p>
+
+<pre class="highlight swift"><code>    <span class="kd">func</span> <span class="nf">testExample</span><span class="p">()</span> <span class="p">{</span>
+         <span class="k">let</span> <span class="nv">first</span> <span class="o">=</span> <span class="s">"Kraig"</span>
+         <span class="k">let</span> <span class="nv">last</span> <span class="o">=</span> <span class="s">"Spear"</span>
+         <span class="k">let</span> <span class="nv">address</span> <span class="o">=</span> <span class="s">"7556 Hometown CT SE"</span>
+         <span class="k">let</span> <span class="nv">deliminter</span> <span class="o">=</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span>
+         <span class="k">let</span> <span class="nv">expected</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="n">deliminter</span> <span class="o">+</span> <span class="n">last</span> <span class="o">+</span> <span class="n">deliminter</span> <span class="o">+</span> <span class="n">address</span>
+
+         <span class="k">let</span> <span class="nv">sb</span> <span class="o">=</span> <span class="kt">StringBuilder</span><span class="p">(</span><span class="nv">delimiter</span><span class="p">:</span><span class="n">deliminter</span><span class="p">)</span>
+         <span class="k">let</span> <span class="nv">combined</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">first</span><span class="p">)</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">last</span><span class="p">)</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">address</span><span class="p">)</span><span class="o">.</span><span class="nf">build</span><span class="p">()</span>
+
+         <span class="kt">XCTAssertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">combined</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre>
+
                         <a href="Classes/StringBuilder.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">StringBuilder</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C13SpearSwiftLib24LocationNotificationMock"></a>
+                    <a name="//apple_ref/swift/Class/LocationNotificationMock" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C13SpearSwiftLib24LocationNotificationMock">LocationNotificationMock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/LocationNotificationMock.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C13SpearSwiftLib17LocalNotification"></a>
+                    <a name="//apple_ref/swift/Class/LocalNotification" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C13SpearSwiftLib17LocalNotification">LocalNotification</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/LocalNotification.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C13SpearSwiftLib11PathElement"></a>
+                    <a name="//apple_ref/swift/Class/PathElement" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C13SpearSwiftLib11PathElement">PathElement</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/PathElement.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C13SpearSwiftLib4Json"></a>
+                    <a name="//apple_ref/swift/Class/Json" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C13SpearSwiftLib4Json">Json</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/Json.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C13SpearSwiftLib13BaseOperation"></a>
+                    <a name="//apple_ref/swift/Class/BaseOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C13SpearSwiftLib13BaseOperation">BaseOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/BaseOperation.html" class="slightly-smaller">See more</a>
                       </div>
                     </section>
                   </div>
@@ -281,9 +448,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
+                        
                         <a href="Classes/NetworkOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkOperation</span><span class="p">:</span> <span class="kt">JSONFetcher</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -293,8 +467,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-11-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-12-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -73,14 +73,16 @@ public struct JsonPath {
     
 }
 
-
 public final class Json {
     
-    private let jsonData:JSON
+    ///The JSON data that is being processed
+    private let jsonData: JsonKeyValue
+    ///The paths that are being binded to
     private let paths:[JsonPath]
-    private var foundJson:[String : JSON] = [:]
+    ///
+    private var foundJson:[String :JsonKeyValue] = [:]
     
-    public init(jsonData:JSON, paths:JsonPath...) throws {
+    public init(jsonData: JsonKeyValue, paths:JsonPath...) throws {
         self.jsonData = jsonData
         self.paths = paths
         try! setupPaths()
@@ -96,7 +98,7 @@ public final class Json {
     
     private func addPathToFoundJson(path:JsonPath) throws {
         
-        var jsonElement:JSON = jsonData
+        var jsonElement: JsonKeyValue = jsonData
         
         var pathElement:PathElement! = path.rootPath
         
@@ -111,13 +113,13 @@ public final class Json {
         self.foundJson[path.name] = jsonElement
     }
     
-    private func pathElementToJsonElement(pathElement:PathElement, path:JsonPath, jsonElement:JSON) throws -> JSON {
+    private func pathElementToJsonElement(pathElement:PathElement, path:JsonPath, jsonElement: JsonKeyValue) throws -> JsonKeyValue {
         
-        var foundJsonElement:JSON = jsonElement
+        var foundJsonElement: JsonKeyValue = jsonElement
         
         if pathElement.isArrayElement {
             
-            if let elementArray = jsonElement[pathElement.name] as? [JSON] {
+            if let elementArray = jsonElement[pathElement.name] as? [JsonKeyValue] {
                 if !elementArray.isValidIndex(pathElement.index) {
                     throw JsonError.PathIndexNotFound(path: pathElement)
                 } else {
@@ -127,7 +129,7 @@ public final class Json {
             
         } else {
             
-            if let element = jsonElement[pathElement.name] as? JSON {
+            if let element = jsonElement[pathElement.name] as? JsonKeyValue {
                 foundJsonElement = element
             } else {
                 throw JsonError.PathNotFound(path: path)
@@ -200,6 +202,10 @@ public final class Json {
         
     }
     
+    /**
+    Gets a sring value from the given path with the given key
+     - Parameter pathName:The path
+    */
     public func stringValue(pathName:String, key:String) throws -> String {
         guard let foundJson = self.foundJson[pathName] else {
             throw JsonError.InvalidPath(pathName: pathName)

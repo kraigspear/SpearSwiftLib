@@ -19,7 +19,6 @@ Timer.swift
 	var isRunning:Bool {get}
 	public init(interval:NSTimeInterval)
 	public func start()
-	@objc func timerFired()
 	public var isRunning:Bool
 	public func stop()
 	public let fired:Event<Void> = Event<Void>()
@@ -31,32 +30,81 @@ Event.swift
         handler: (U) -> EventHandler) -> Disposable
 	public protocol Disposable
 	func dispose()
-StringBuilder.swift
-	let delimiter:String
-	public init(delimiter:String)
-	public func append(otherStr:String) -> StringBuilder
-	public var numberOfStrings:Int
-	public func build() -> String
+LocalNotification.swift
+	public protocol LocationNotificationProtocol
+	var body:String? {get set}
+	var action:String? {get set}
+	var date:NSDate? {get set}
+	var category:String? {get set}
+	func schedule()
+	func register()
+	public class LocationNotificationMock : LocationNotificationProtocol
+	public var body:String?
+	public var action:String?
+	public var date:NSDate?
+	public var category:String?
+	public func schedule()
+	public func register()
+	public class LocalNotification : LocationNotificationProtocol
+	public var body:String?
+	public var action:String?
+	public var date:NSDate?
+	public var category:String?
+	public init() {}
+	public func schedule()
+	public func register()
+Json.swift
+	public enum JsonError : ErrorType
+	case PathNotFound(path:JsonPath)
+	case InvalidPath(pathName:String)
+	case KeyNotFound(key:String)
+	case ConversionError(key:String, value:AnyObject)
+	public final class PathElement : CustomStringConvertible
+	public let name:String
+	public let index:Int
+	public var childPath:PathElement?
+	public init(name:String, childAtIndex:Int = -1)
+	public var isArrayElement:Bool
+	public func withChild(name:String, childAtIndex:Int = -1) -> PathElement
+	public func withChild(child:PathElement) -> PathElement
+	public var description: String
+	public struct JsonPath
+	public let name:String
+	public let rootPath:PathElement
+	public init(name:String, rootPath:PathElement)
+	public final class Json
+	public init(jsonData: JsonKeyValue, paths:JsonPath...) throws
+	public func dateValue(pathName:String, key:String) throws -> NSDate
 DictionaryExtensions.swift
+	public enum DictionaryConvertError : ErrorType
+	case MissingKey
+	case ConversionError
 	public func toFloat(key:Key) -> Float?
 	public func toDouble(key:Key) -> Double?
 	public func toDate(key:Key) -> NSDate?
+	public func unwrappedValue(key:Key) throws -> Value
+	public func toDate(key:Key) throws -> NSDate
+	public func toDouble(key:Key) throws -> Double
 	public func toInt(key:Key) -> Int?
+BaseOperation.swift
+	public class BaseOperation : NSOperation
+	override public func start()
+	override public var asynchronous:Bool
+	override public var executing:Bool
+	override public var finished:Bool
 NetworkOperation.swift
-	public enum FetchError : ErrorType
 	case HTTPError(Int)
 	case JSONError(NSError)
 	case None
-	public protocol JSONFetcher
-	func fetchJSON(success:JsonBlock, failure:ErrorBlock)
-	public class NetworkOperation : JSONFetcher
-	public var fetchError:FetchError = FetchError.None
-	public func addParam(key:String, value:String)
-	public init(urlStr:String)
-	public func fetchJSON(success:JsonBlock, failure:ErrorBlock)
+	public var fetchError: FetchError = FetchError.None
+	public func addParam(key: String, value: String)
+	public init(urlStr: String)
+	public func fetchJSON(success: JsonBlock, failure: ErrorBlock)
 DateExtensions.swift
 	public func -(left:NSDate, right:NSDate) -> (month:Int, day:Int, year:Int, hour:Int, minute:Int, second:Int)
 	public func addDays(numberOfDays:Int) -> NSDate
+CollectionExtensions.swift
+	public func isValidIndex(index:Int) -> Bool
 FileManagerExtensions.swift
 	public func cachePathFile(fileName:String) -> String
 	public func fileDateTime(fileName:String) -> NSDate?

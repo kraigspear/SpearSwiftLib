@@ -21,8 +21,40 @@ class StringBuilderTest: XCTestCase {
         super.tearDown()
     }
 
-    func testAddingStrings() {
+    func testBuiltStringHasElementsAndDelimiter() {
         
+        let firstStr = "str1"
+        let secondStr = "str2"
+        let deliminter = "\t"
+        
+        let sb = StringBuilder(delimiter:deliminter)
+        sb.append(firstStr).append(secondStr)
+        
+        XCTAssertEqual(2, sb.numberOfStrings)
+        
+        let builtString = sb.build()
+        
+        let parts = builtString.componentsSeparatedByString(deliminter)
+        XCTAssertEqual(2, parts.count)
+        XCTAssertEqual(firstStr, parts[0])
+        XCTAssertEqual(secondStr, parts[1])
+    }
+    
+    func testExample() {
+        let first = "Kraig"
+        let last = "Spear"
+        let address = "7556 Hometown CT SE"
+        let deliminter = "\t"
+        
+        let expected = first + deliminter + last + deliminter + address
+        
+        let sb = StringBuilder(delimiter:deliminter)
+        let combined = sb.append(first).append(last).append(address).build()
+        
+        XCTAssertEqual(expected, combined)
+    }
+    
+    func testEndOfStringIsNotTheDelimiter() {
         let firstStr = "str1"
         let secondStr = "str2"
         let deliminter = "\t"
@@ -35,12 +67,6 @@ class StringBuilderTest: XCTestCase {
         let builtString = sb.build()
         let lastChar = builtString[builtString.endIndex.advancedBy(-1)]
         XCTAssertFalse(lastChar == "\t")
-        
-        let parts = builtString.componentsSeparatedByString(deliminter)
-        XCTAssertEqual(2, parts.count)
-        XCTAssertEqual(firstStr, parts[0])
-        XCTAssertEqual(secondStr, parts[1])
-        
     }
 
 }

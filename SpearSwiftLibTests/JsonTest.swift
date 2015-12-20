@@ -11,7 +11,7 @@ import SpearSwiftLib
 
 class JsonTest: XCTestCase {
 
-    var jsonData:JSON!
+    var jsonData: JsonKeyValue!
     var json:Json!
     let observation = "observation"
     
@@ -25,7 +25,7 @@ class JsonTest: XCTestCase {
         let bundle = NSBundle(forClass: JsonTest.self)
         let path = bundle.pathForResource("Aeris", ofType: "json")!
         let data = NSData(contentsOfFile: path)
-        self.jsonData = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! JSON
+        self.jsonData = try! NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! JsonKeyValue
         
         let rootPath = PathElement(name: "response")
         
