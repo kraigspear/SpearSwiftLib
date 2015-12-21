@@ -59,15 +59,6 @@ Json.swift
 	case InvalidPath(pathName:String)
 	case KeyNotFound(key:String)
 	case ConversionError(key:String, value:AnyObject)
-	public final class PathElement : CustomStringConvertible
-	public let name:String
-	public let index:Int
-	public var childPath:PathElement?
-	public init(name:String, childAtIndex:Int = -1)
-	public var isArrayElement:Bool
-	public func withChild(name:String, childAtIndex:Int = -1) -> PathElement
-	public func withChild(child:PathElement) -> PathElement
-	public var description: String
 	public struct JsonPath
 	public let name:String
 	public let rootPath:PathElement

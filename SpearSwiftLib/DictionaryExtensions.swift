@@ -94,6 +94,14 @@ public extension Dictionary   {
         return NSDate(timeIntervalSince1970: dblValue)
     }
     
+    public func toString(key:Key) throws -> String {
+        let value = try self.unwrappedValue(key)
+        if let strValue = value as? String {
+            return strValue
+        }
+        throw DictionaryConvertError.ConversionError
+    }
+    
     /**
      Converts a value from the dictionary to a float
      - Parameter key: The key from the dictionary to get the float from
@@ -139,8 +147,6 @@ public extension Dictionary   {
         }
         
     }
-
-
 
     public func toInt(key:Key) -> Int? {
 

@@ -13,7 +13,7 @@
     <a title="PathElement Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (25% documented)</p>
+        <p><a href="../index.html"> Docs</a> (32% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -157,7 +157,31 @@
         <section>
           <section class="section">
             <h1>PathElement</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">PathElement</span> <span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a path inside of a JSON file.
+This path can then be used later to refer to that location using only a name and not the full path</p>
+
+<pre class="highlight swift"><code>  <span class="c1">//The first element (or root) in the path</span>
+  <span class="k">let</span> <span class="nv">rootPath</span> <span class="o">=</span> <span class="kt">PathElement</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"response"</span><span class="p">)</span>
+  <span class="c1">//The rest of the path is now the first element in the responses array, followed by a response</span>
+  <span class="c1">//node followed by an ob node</span>
+  <span class="n">rootPath</span><span class="o">.</span><span class="nf">withChild</span><span class="p">(</span><span class="s">"responses"</span><span class="p">,</span> <span class="nv">childAtIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+   <span class="o">.</span><span class="nf">withChild</span><span class="p">(</span><span class="s">"response"</span><span class="p">)</span>
+   <span class="o">.</span><span class="nf">withChild</span><span class="p">(</span><span class="s">"ob"</span><span class="p">)</span>
+  <span class="c1">//The name (or key) that can be used to refer to this path later</span>
+  <span class="k">let</span> <span class="nv">observation</span> <span class="o">=</span> <span class="s">"observation"</span>
+  <span class="c1">//Assign this path to a JsonPath which combines the path with the name</span>
+  <span class="k">let</span> <span class="nv">observationPath</span> <span class="o">=</span> <span class="kt">JsonPath</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="n">observation</span><span class="p">,</span> <span class="nv">rootPath</span><span class="p">:</span> <span class="n">rootPath</span><span class="p">)</span>
+  <span class="c1">//Instantiate a Json object giving the json data and paths (in this case, just 1)</span>
+  <span class="k">let</span> <span class="nv">json</span> <span class="o">=</span> <span class="n">try</span> <span class="kt">Json</span><span class="p">(</span><span class="nv">jsonData</span><span class="p">:</span> <span class="n">json</span><span class="p">,</span> <span class="nv">paths</span><span class="p">:</span><span class="n">observationPath</span><span class="p">)</span>
+  <span class="c1">//Now a value can be retrived, using the string key and an element name</span>
+  <span class="k">let</span> <span class="nv">temperature</span><span class="p">:</span><span class="kt">Int</span> <span class="o">=</span> <span class="n">try</span> <span class="n">json</span><span class="o">.</span><span class="nf">intValue</span><span class="p">(</span><span class="n">observation</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="n">tempKey</span><span class="p">)</span>
+</code></pre>
 
           </section>
           <section class="section task-group-section">
@@ -176,8 +200,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The name of this element, that is found in the JSON file</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -195,8 +227,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The index of the element, for elements that are part of an array</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">index</span><span class="p">:</span><span class="kt">Int</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -214,8 +254,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The child path linked to this Path. PathElements are tree structures mimicking the tree structure
+of a JSON structure.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">childPath</span><span class="p">:</span><span class="kt">PathElement</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -233,8 +282,60 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Instantiate the PathElement using the name of the element and an optional childIndex
+ChildIndex is only reliviant if this element is one of the elments in an array</p>
 
+<div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter name: Name of this element, that is found in the JSON file
+
+        </div><div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter index: he index of the element, for elements that are part of an array
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">childAtIndex</span><span class="p">:</span><span class="kt">Int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Name of this element, that is found in the JSON file</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>he index of the element, for elements that are part of an array</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -252,8 +353,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Is this element part of an Array</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isArrayElement</span><span class="p">:</span><span class="kt">Bool</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -271,8 +380,64 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Convience method used to optionally add elements in one statement
+   <code>Swift
+   rootPath.withChild(&quot;responses&quot;, childAtIndex: 0)
+       .withChild(&quot;response&quot;)
+       .withChild(&quot;ob&quot;)
+</code></p>
 
+<div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter name:The name of this new element
+
+        </div><div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter childAtIndex:The element of the array if this element is an index in an array.
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">withChild</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">childAtIndex</span><span class="p">:</span><span class="kt">Int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PathElement</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of this new element</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childAtIndex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The element of the array if this element is an index in an array.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -290,8 +455,47 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Convience method used to optionally add elements in one statement</p>
 
+<pre class="highlight plaintext"><code>rootPath.withChild("responses", childAtIndex: 0)
+.withChild("response")
+.withChild("ob")
+</code></pre>
+
+<div class="aside aside-parameter">
+          <p class="aside-title">Parameter</p>
+          Parameter name:The name of this new element
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">withChild</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span><span class="kt">PathElement</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PathElement</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of this new element</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -309,8 +513,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Text description of this PathElement</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

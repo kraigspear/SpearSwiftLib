@@ -21,8 +21,6 @@
 		A942A9A31A9F252F00C69271 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942A9A21A9F252F00C69271 /* Shuffle.swift */; };
 		A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */; };
 		A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */; };
-		A9851B361C1ED3ED000B16ED /* JsonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9851B351C1ED3ED000B16ED /* JsonTest.swift */; };
-		A98B6C991C1C655C008ED40A /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B6C981C1C655C008ED40A /* Json.swift */; };
 		A9B2F1211C086337000F5367 /* OperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2F1201C086337000F5367 /* OperationTest.swift */; };
 		A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */; };
 		A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */; };
@@ -66,8 +64,6 @@
 		A942A9A21A9F252F00C69271 /* Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
 		A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureTypes.swift; sourceTree = "<group>"; };
 		A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncAwait.swift; sourceTree = "<group>"; };
-		A9851B351C1ED3ED000B16ED /* JsonTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonTest.swift; sourceTree = "<group>"; };
-		A98B6C981C1C655C008ED40A /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		A9B2F1201C086337000F5367 /* OperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTest.swift; sourceTree = "<group>"; };
 		A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
@@ -137,11 +133,10 @@
 		A942A9881A9F251800C69271 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
-				A91890B61B6CE866005CA6B3 /* ImageCache.swift */,
 				A92CC47C1B3BF53700593257 /* Extensions */,
+				A91890B61B6CE866005CA6B3 /* ImageCache.swift */,
 				A942A9A21A9F252F00C69271 /* Shuffle.swift */,
 				A942A98B1A9F251800C69271 /* SpearSwiftLib.h */,
-				A942A9891A9F251800C69271 /* Supporting Files */,
 				A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */,
 				A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */,
 				A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */,
@@ -150,7 +145,7 @@
 				A93479581BDF75770069B2BC /* StringBuilder.swift */,
 				A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */,
 				A92424A61BF3519E00175774 /* BaseOperation.swift */,
-				A98B6C981C1C655C008ED40A /* Json.swift */,
+				A942A9891A9F251800C69271 /* Supporting Files */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -175,7 +170,6 @@
 				A934795A1BDF7B450069B2BC /* StringBuilderTest.swift */,
 				A9B6DA311BFB29490033CB85 /* ArrayTest.swift */,
 				A9B2F1201C086337000F5367 /* OperationTest.swift */,
-				A9851B351C1ED3ED000B16ED /* JsonTest.swift */,
 			);
 			path = SpearSwiftLibTests;
 			sourceTree = "<group>";
@@ -306,7 +300,6 @@
 				A93479591BDF75770069B2BC /* StringBuilder.swift in Sources */,
 				A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */,
 				A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */,
-				A98B6C991C1C655C008ED40A /* Json.swift in Sources */,
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
 				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
 				A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */,
@@ -325,7 +318,6 @@
 				A9C088981BD4E633000C16D3 /* EventTest.swift in Sources */,
 				A93FB8951B3245DD0017E3E9 /* StringTests.swift in Sources */,
 				A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */,
-				A9851B361C1ED3ED000B16ED /* JsonTest.swift in Sources */,
 				A934795B1BDF7B450069B2BC /* StringBuilderTest.swift in Sources */,
 				A9B2F1211C086337000F5367 /* OperationTest.swift in Sources */,
 				A9C0889C1BD6334C000C16D3 /* TimerTest.swift in Sources */,

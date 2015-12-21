@@ -25,6 +25,15 @@ public extension Array
         return false
     }
     
+    public func first(fn: (Element) -> Bool) -> Element? {
+        for e in self {
+            if fn(e) {
+               return e
+            }
+        }
+        return nil
+    }
+    
     public func isValidIndex(index:Int) -> Bool {
         if index < 0 {
             return false
