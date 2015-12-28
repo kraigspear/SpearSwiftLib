@@ -52,4 +52,17 @@ public extension NSDate
             second:components.second)
     }
     
+    /**
+     Extract out the m/d/y parts of a date into a Tuple
+     - Returns:A tuple as three ints that include month day year
+    */
+    public func toMonthDayYear() -> (month:Int, day:Int, year:Int) {
+        let flags:NSCalendarUnit = [.Month, .Day, .Year]
+        let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
+        let m = components.month
+        let d = components.day
+        let y = components.year
+        return (month:m, day:d, year:y)
+    }
+    
 }

@@ -92,11 +92,21 @@ class SpearSwiftLibTests: XCTestCase
         XCTAssertEqual(4, diff.day)
     }
     
-    
-    class TestClass
-    {
-        var someStr = "SomeStr"
+    func testDateComponets() {
+        let date = NSDate(timeIntervalSince1970: 1444441866) //Oct 9, 2015
+        let mdy = date.toMonthDayYear()
+        XCTAssertEqual(10, mdy.month)
+        XCTAssertEqual(9, mdy.day)
+        XCTAssertEqual(2015, mdy.year)
     }
     
+   
+    func testDegreesToRadians() {
+        let degrees = 90.0
+        let radians = degrees.toRadians()
+        XCTAssertTrue( (1.5707963267949 - radians) < 0.00001 )
+        let convertedDegrees = radians.toDegrees()
+        XCTAssertEqual(degrees, convertedDegrees)
+    }
     
 }

@@ -11,7 +11,7 @@ import Foundation
 
 public class AsyncAwait
 {
-    public func Async(asyncOn:VoidBlock, awaitOn:VoidBlock)
+    public static func Async(asyncOn:VoidBlock, awaitOn:VoidBlock)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             asyncOn()

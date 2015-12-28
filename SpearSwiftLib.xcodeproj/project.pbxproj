@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91890B61B6CE866005CA6B3 /* ImageCache.swift */; };
+		A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9232F8E1C2D669C00232118 /* NumberExtensions.swift */; };
 		A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
 		A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */; };
 		A92CC47E1B3BF55500593257 /* LocalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92CC47D1B3BF55500593257 /* LocalExtensions.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		A91890B61B6CE866005CA6B3 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A9232F8E1C2D669C00232118 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		A92424A61BF3519E00175774 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		A92CC47D1B3BF55500593257 /* LocalExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalExtensions.swift; sourceTree = "<group>"; };
@@ -101,13 +103,14 @@
 		A92CC47C1B3BF53700593257 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A93FB8921B3244FE0017E3E9 /* StringExtensions.swift */,
-				A92CC47D1B3BF55500593257 /* LocalExtensions.swift */,
-				A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */,
-				A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */,
-				A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */,
-				A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */,
 				A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */,
+				A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */,
+				A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */,
+				A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */,
+				A92CC47D1B3BF55500593257 /* LocalExtensions.swift */,
+				A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */,
+				A93FB8921B3244FE0017E3E9 /* StringExtensions.swift */,
+				A9232F8E1C2D669C00232118 /* NumberExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */,
 				A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */,
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
+				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
 				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
 				A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */,
 				A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */,

@@ -103,6 +103,21 @@ public extension Dictionary   {
     }
     
     /**
+     Converts a value from the dictionary to a bool
+     - Parameter key: The key from the dictionary to get the bool from
+     - Returns: Converted Bool
+     - Throws: DictionaryConvertError.ConversionError if the value can't be converted to a bool
+     */
+    public func toBool(key:Key) throws -> Bool {
+        
+        guard let value = try self.unwrappedValue(key) as? NSNumber else {
+            throw DictionaryConvertError.ConversionError
+        }
+        
+        return value.boolValue
+    }
+    
+    /**
      Converts a value from the dictionary to a float
      - Parameter key: The key from the dictionary to get the float from
      - Returns: Converted float
