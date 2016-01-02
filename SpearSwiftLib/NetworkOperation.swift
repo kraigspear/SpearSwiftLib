@@ -41,7 +41,7 @@ public protocol JSONFetcher {
 /**
 
 */
-public class NetworkOperation: JSONFetcher {
+public final class NetworkOperation: JSONFetcher {
 
     private let urlStr: String
     private var params: [String:String] = [:]
@@ -111,6 +111,6 @@ public class NetworkOperation: JSONFetcher {
         let URLString: NSString = NSString(format: "%@?%@", url.absoluteString, self.stringFromQueryParameters())
         return NSURL(string: URLString as String)!
     }
-
-
 }
+
+
