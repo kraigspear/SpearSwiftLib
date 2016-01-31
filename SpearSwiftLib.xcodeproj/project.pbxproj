@@ -23,6 +23,7 @@
 		A942A9A31A9F252F00C69271 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942A9A21A9F252F00C69271 /* Shuffle.swift */; };
 		A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */; };
 		A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */; };
+		A99916F71C490326002AF3AD /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
 		A9B2F1211C086337000F5367 /* OperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2F1201C086337000F5367 /* OperationTest.swift */; };
 		A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */; };
 		A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */; };
@@ -32,8 +33,10 @@
 		A9C0889A1BD62FB3000C16D3 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C088991BD62FB3000C16D3 /* Timer.swift */; };
 		A9C0889C1BD6334C000C16D3 /* TimerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0889B1BD6334C000C16D3 /* TimerTest.swift */; };
 		A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */; };
+		A9D9CE4D1C472D6C00D39DE3 /* SpearSwiftLibOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */; };
 		A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */; };
+		A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1DCE31C5CD99B00870301 /* Json.swift */; };
 		A9E976D91C1ED19A003BB1D7 /* Aeris.json in Resources */ = {isa = PBXBuildFile; fileRef = A9E976D81C1ED19A003BB1D7 /* Aeris.json */; };
 		A9FE2F501B7C8AB400EE5F3F /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -77,8 +80,12 @@
 		A9C088991BD62FB3000C16D3 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		A9C0889B1BD6334C000C16D3 /* TimerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerTest.swift; sourceTree = "<group>"; };
 		A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
+		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		A9E1DCE31C5CD99B00870301 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		A9E976D81C1ED19A003BB1D7 /* Aeris.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Aeris.json; sourceTree = "<group>"; };
 		A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +103,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A942A9921A9F251900C69271 /* SpearSwiftLib.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D9CE461C472D6C00D39DE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,15 +136,18 @@
 			children = (
 				A942A9881A9F251800C69271 /* SpearSwiftLib */,
 				A942A9951A9F251900C69271 /* SpearSwiftLibTests */,
+				A9D9CE4B1C472D6C00D39DE3 /* SpearSwiftLibOSX */,
 				A942A9871A9F251800C69271 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		A942A9871A9F251800C69271 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				A942A9861A9F251800C69271 /* SpearSwiftLib.framework */,
 				A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */,
+				A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +155,7 @@
 		A942A9881A9F251800C69271 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
+				A9E1DCE21C5CD97000870301 /* JSON */,
 				A92CC47C1B3BF53700593257 /* Extensions */,
 				A91890B61B6CE866005CA6B3 /* ImageCache.swift */,
 				A942A9A21A9F252F00C69271 /* Shuffle.swift */,
@@ -188,6 +206,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9D9CE4B1C472D6C00D39DE3 /* SpearSwiftLibOSX */ = {
+			isa = PBXGroup;
+			children = (
+				A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */,
+				A9D9CE4E1C472D6C00D39DE3 /* Info.plist */,
+			);
+			path = SpearSwiftLibOSX;
+			sourceTree = "<group>";
+		};
+		A9E1DCE21C5CD97000870301 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A9E1DCE31C5CD99B00870301 /* Json.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -196,6 +231,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A942A98C1A9F251800C69271 /* SpearSwiftLib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D9CE471C472D6C00D39DE3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D9CE4D1C472D6C00D39DE3 /* SpearSwiftLibOSX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +281,24 @@
 			productReference = A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A9D9CE491C472D6C00D39DE3 /* SpearSwiftLibMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9D9CE511C472D6C00D39DE3 /* Build configuration list for PBXNativeTarget "SpearSwiftLibMac" */;
+			buildPhases = (
+				A9D9CE451C472D6C00D39DE3 /* Sources */,
+				A9D9CE461C472D6C00D39DE3 /* Frameworks */,
+				A9D9CE471C472D6C00D39DE3 /* Headers */,
+				A9D9CE481C472D6C00D39DE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpearSwiftLibMac;
+			productName = SpearSwiftLibOSX;
+			productReference = A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -253,6 +314,9 @@
 					};
 					A942A9901A9F251900C69271 = {
 						CreatedOnToolsVersion = 6.1.1;
+					};
+					A9D9CE491C472D6C00D39DE3 = {
+						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
@@ -270,6 +334,7 @@
 			targets = (
 				A942A9851A9F251800C69271 /* SpearSwiftLib */,
 				A942A9901A9F251900C69271 /* SpearSwiftLibTests */,
+				A9D9CE491C472D6C00D39DE3 /* SpearSwiftLibMac */,
 			);
 		};
 /* End PBXProject section */
@@ -287,6 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E976D91C1ED19A003BB1D7 /* Aeris.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D9CE481C472D6C00D39DE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +382,7 @@
 				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
 				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
 				A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */,
+				A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */,
 				A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */,
 				A942A9A31A9F252F00C69271 /* Shuffle.swift in Sources */,
 				A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */,
@@ -330,6 +403,14 @@
 				A9C0889C1BD6334C000C16D3 /* TimerTest.swift in Sources */,
 				A9B6DA321BFB29490033CB85 /* ArrayTest.swift in Sources */,
 				A924A58A1C32982400181C17 /* DateTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D9CE451C472D6C00D39DE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99916F71C490326002AF3AD /* BaseOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +580,55 @@
 			};
 			name = Release;
 		};
+		A9D9CE4F1C472D6C00D39DE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibOSX;
+				PRODUCT_NAME = SpearSwiftLib;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTSFOLDERPATH)/Headers";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A9D9CE501C472D6C00D39DE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibOSX;
+				PRODUCT_NAME = SpearSwiftLib;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTSFOLDERPATH)/Headers";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -525,6 +655,15 @@
 			buildConfigurations = (
 				A942A9A01A9F251900C69271 /* Debug */,
 				A942A9A11A9F251900C69271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9D9CE511C472D6C00D39DE3 /* Build configuration list for PBXNativeTarget "SpearSwiftLibMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D9CE4F1C472D6C00D39DE3 /* Debug */,
+				A9D9CE501C472D6C00D39DE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

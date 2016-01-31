@@ -7,6 +7,11 @@
 		<key>SpearSwiftLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>SpearSwiftLibOSX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
 	</dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>A942A9901A9F251900C69271</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A9D9CE491C472D6C00D39DE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

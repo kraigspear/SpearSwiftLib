@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public class BaseOperation : NSOperation {
 
     ///Indicates if there was an error executing the operation. Nil if the operation was a

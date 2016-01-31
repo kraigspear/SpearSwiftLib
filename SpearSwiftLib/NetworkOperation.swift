@@ -8,10 +8,6 @@
 
 import Foundation
 
-///The base type of Json a key value pair
-public typealias JsonKeyValue = Dictionary<String, AnyObject>
-///Block for receving a JsonKeyValue
-public typealias JsonBlock = ((json:JsonKeyValue) -> Void)
 ///Block for receving an error
 public typealias ErrorBlock = ((error:ErrorType) -> Void)
 
@@ -39,7 +35,7 @@ public protocol JSONFetcher {
 }
 
 /**
-
+  A network operation that fetches JSON
 */
 public final class NetworkOperation: JSONFetcher {
 

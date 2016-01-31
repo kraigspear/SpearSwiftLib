@@ -21,7 +21,6 @@ class Operation : BaseOperation
         self.done()
     }
     
-    
 }
 
 class OperationTest: XCTestCase {
