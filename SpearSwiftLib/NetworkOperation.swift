@@ -25,7 +25,7 @@ public enum FetchError: ErrorType {
 }
 
 ///Fetches JSON async.
-public protocol JSONFetcher {
+public protocol JSONFetchable {
 
     ///  fetchJSON: Fetches JSON calling success with the JSON on success, or failure if there was an error getting the JSON
     ///
@@ -37,7 +37,7 @@ public protocol JSONFetcher {
 /**
   A network operation that fetches JSON
 */
-public final class NetworkOperation: JSONFetcher {
+public final class NetworkOperation: JSONFetchable {
 
     private let urlStr: String
     private var params: [String:String] = [:]

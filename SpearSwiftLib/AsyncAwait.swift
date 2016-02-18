@@ -9,16 +9,18 @@
 import Foundation
 
 
+
 public class AsyncAwait
 {
-    public static func Async(asyncOn:VoidBlock, awaitOn:VoidBlock)
-    {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            asyncOn()
-            dispatch_async(dispatch_get_main_queue()) {
-               awaitOn()
-            }
-        }
-    }
+	public static func Await<T>(asyncOn:() -> T, awaitOn:(T) -> Void)
+	{
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+			let obj = asyncOn()
+			dispatch_async(dispatch_get_main_queue()) {
+				awaitOn(obj)
+			}
+		}
+	}
+
 }
 

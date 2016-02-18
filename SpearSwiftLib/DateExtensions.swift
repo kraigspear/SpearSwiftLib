@@ -134,6 +134,14 @@ public extension NSDate
         
         return gregorian.dateFromComponents(components)        
     }
+	
+	/**
+	Is this date between startDate and endDate
+	*/
+	public func isBetween(startDate: NSDate, endDate: NSDate) -> Bool {
+		return timeIntervalSinceReferenceDate >= startDate.timeIntervalSinceReferenceDate &&
+		       timeIntervalSinceReferenceDate <= endDate.timeIntervalSinceReferenceDate
+	}
 
     
     
