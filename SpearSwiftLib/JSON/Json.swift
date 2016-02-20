@@ -52,6 +52,8 @@ public enum FieldType {
 	case StringArray
     case JsonKeyValueArray
 	case JsonKeyValue
+	case IntArray
+	case DateArray
 }
 
 /**
@@ -96,6 +98,26 @@ public extension JsonFieldable {
 		case .StringArray:
 			let array: [String] = try fetchArray(keyValue)
 			val = array
+		case .IntArray:
+			let array: [String] = try fetchArray(keyValue)
+			let intArray: [Int] = array.map({
+				guard let intVal = Int($0) else {
+					return 0
+				}
+				return intVal
+			})
+			val = intArray
+		case .DateArray:
+			let array: [String] = try fetchArray(keyValue)
+			
+			let dateArray: [NSDate] = try array.map({
+				guard let doubleValue = Double($0) else {
+					throw EnumFieldError.ConversionError(fieldName: self.fieldName)
+				}
+				return NSDate(timeIntervalSince1970: doubleValue)
+			})
+			
+			val = dateArray
 		}
 		
 		if let valR = val as? T {
