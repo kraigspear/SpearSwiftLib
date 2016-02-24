@@ -8,6 +8,23 @@
 
 import Foundation
 
+public func AllSameSize(arraysToCheck: Array<AnyObject>...) -> Bool {
+	
+	guard let firstItem = arraysToCheck.first else {
+		return false
+	}
+	
+	let count = firstItem.count
+	
+	for i in 1..<arraysToCheck.count {
+		let array = arraysToCheck[i]
+		if array.count != count {
+			return false
+		}
+	}
+	
+	return true
+}
 
 public extension Array
 {

@@ -21,6 +21,7 @@ public enum EnumFieldError: ErrorType {
 	case MissingField(fieldName: String)
 	case ConversionError(fieldName: String)
 	case DateParseError(fieldName: String)
+	case MissingPath(fieldName: String)
 }
 
 // MARK: - JsonExtractiable
@@ -53,17 +54,20 @@ public enum FieldType {
     case JsonKeyValueArray
 	case JsonKeyValue
 	case IntArray
+	case FloatArray
 	case DateArray
 }
 
 /**
- A field inside of a JSON
+ Protocol to be extended by an enum that defines fields found inside of a JSON file
 */
 public protocol JsonFieldable {
 	///The name of the field in JSON that can be used to extract the value
 	var fieldName: String {get}
 	///The type of the field that allows extracting in a type safe manor
 	var fieldType: FieldType {get}
+	///The path to the field
+	var path: [String] {get}
 }
 
 // MARK: - Extracting
@@ -72,6 +76,8 @@ public protocol JsonFieldable {
   Extension to extract a value from a JsonKeyValue in a type safe mannor
 */
 public extension JsonFieldable {
+	
+	
 	
 	/**
 	Extract a value from a JsonKeyValue
@@ -107,6 +113,15 @@ public extension JsonFieldable {
 				return intVal
 			})
 			val = intArray
+		case .FloatArray:
+			let array: [String] = try fetchArray(keyValue)
+			let floatArray: [Float] = array.map({
+				guard let floatVal = Float($0) else {
+					return 0
+				}
+				return floatVal
+			})
+			val = floatArray
 		case .DateArray:
 			let array: [String] = try fetchArray(keyValue)
 			
@@ -129,6 +144,7 @@ public extension JsonFieldable {
 	}
 	
 	private func fetchJsonKeyValue(keyValue: JsonKeyValue) throws -> JsonKeyValue {
+		let keyValue = try keyValueForPath(keyValue)
 		if let value = keyValue[self.fieldName] as? JsonKeyValue {
 			return value
 		} else {
@@ -137,6 +153,7 @@ public extension JsonFieldable {
 	}
 	
 	private func fetchArray<T>(keyValue: JsonKeyValue) throws -> [T] {
+		let keyValue = try keyValueForPath(keyValue)
 		if let value = keyValue[self.fieldName] as? [T] {
 			return value
 		} else {
@@ -150,6 +167,7 @@ public extension JsonFieldable {
 	- Throws: `EnumFieldError.ConversionError` If the value can't be convered from the field type
 	*/
 	private func fetchString(keyValue: JsonKeyValue) throws -> String {
+		let keyValue = try keyValueForPath(keyValue)
 		if let value = keyValue[self.fieldName] as? String {
 			return value
 		} else {
@@ -187,6 +205,28 @@ public extension JsonFieldable {
 			throw EnumFieldError.ConversionError(fieldName: self.fieldName)
 		}
 		
+	}
+	
+	/**
+	Find the JsonKeyValue element for this Element
+	- Parameter keyValue: The JsonKeyValue that this KeyValue is found in
+	- Throws: `EnumFieldError.MissingField`
+	*/
+	private func keyValueForPath(keyValue: JsonKeyValue) throws -> JsonKeyValue {
+		if path.count < 1 {
+			return keyValue
+		}
+		
+		var pathKeyValue = keyValue
+		
+		for pathElement in path {
+			guard let thisKeyValue = keyValue[pathElement] as? JsonKeyValue else {
+				throw EnumFieldError.MissingField(fieldName: self.fieldName)
+			}
+			pathKeyValue = thisKeyValue
+		}
+		
+		return pathKeyValue
 	}
 	
 }
