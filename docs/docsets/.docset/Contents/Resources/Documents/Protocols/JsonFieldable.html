@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AsyncAwait Class Reference</title>
+    <title>JsonFieldable Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/AsyncAwait" class="dashAnchor"></a>
-    <a title="AsyncAwait Class Reference"></a>
+    <a name="//apple_ref/swift/Protocol/JsonFieldable" class="dashAnchor"></a>
+    <a title="JsonFieldable Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (29% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AsyncAwait Class Reference
+        JsonFieldable Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -158,8 +158,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AsyncAwait</h1>
-            <p>Undocumented</p>
+            <h1>JsonFieldable</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonFieldable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Protocol to be extended by an enum that defines fields found inside of a JSON file</p>
 
           </section>
           <section class="section task-group-section">
@@ -168,9 +174,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC13SpearSwiftLib10AsyncAwait5AwaiturFMS0_FTFT_q_7awaitOnFq_T__T_"></a>
-                    <a name="//apple_ref/swift/Method/Await(_:awaitOn:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC13SpearSwiftLib10AsyncAwait5AwaiturFMS0_FTFT_q_7awaitOnFq_T__T_">Await(_:awaitOn:)</a>
+                    <a name="/s:vP13SpearSwiftLib13JsonFieldable9fieldNameSS"></a>
+                    <a name="//apple_ref/swift/Property/fieldName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP13SpearSwiftLib13JsonFieldable9fieldNameSS">fieldName</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,8 +184,106 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The name of the field in JSON that can be used to extract the value</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">fieldName</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span><span class="k">get</span><span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP13SpearSwiftLib13JsonFieldable9fieldTypeOS_9FieldType"></a>
+                    <a name="//apple_ref/swift/Property/fieldType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP13SpearSwiftLib13JsonFieldable9fieldTypeOS_9FieldType">fieldType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the field that allows extracting in a type safe manor</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">fieldType</span><span class="p">:</span> <span class="kt">FieldType</span> <span class="p">{</span><span class="k">get</span><span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP13SpearSwiftLib13JsonFieldable4pathGSaSS_"></a>
+                    <a name="//apple_ref/swift/Property/path" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP13SpearSwiftLib13JsonFieldable4pathGSaSS_">path</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The path to the field</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">path</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span><span class="k">get</span><span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FeRq_13SpearSwiftLib13JsonFieldable_S_S0_7extractu__Rq_S0__Fq_FzGVSs10DictionarySSPSs9AnyObject__qd__"></a>
+                    <a name="//apple_ref/swift/Method/extract(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FeRq_13SpearSwiftLib13JsonFieldable_S_S0_7extractu__Rq_S0__Fq_FzGVSs10DictionarySSPSs9AnyObject__qd__">extract(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extract a value from a JsonKeyValue
+- Parameter keyValue: The source of the data to extract the value from
+- Throws: <code><a href="../Enums/EnumFieldError.html#/s:FO13SpearSwiftLib14EnumFieldError15ConversionErrorFMS0_FT9fieldNameSS_S0_">EnumFieldError.ConversionError</a></code> If the value can&rsquo;t be convered from the field type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">extract</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">keyValue</span><span class="p">:</span> <span class="kt">JsonKeyValue</span><span class="p">)</span> <span class="n">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

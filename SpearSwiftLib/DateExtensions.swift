@@ -15,17 +15,37 @@ public func -(left:NSDate, right:NSDate) -> (month:Int, day:Int, year:Int, hour:
 
 public extension NSDate
 {
-    public func addDays(numberOfDays:Int) -> NSDate
+	/**
+	Adds a certain number of days to this date
+	
+	- Parameter numberOfDays: The number of days to add
+	
+	- Returns: A new date with numberOfDays added
+	
+	```swift
+	  let oct172015 = NSDate(timeIntervalSince1970: 1445077917)
+	  let aDayLater = oct172015.addDays(1)
+	  let mdy = aDayLater.toMonthDayYear()
+	  XCTAssertEqual(18, mdy.day)
+	```
+	
+	*/
+    public func addDays(numberOfDays: Int) -> NSDate
     {
         let dayComponent = NSDateComponents()
         dayComponent.day = numberOfDays
         let calendar = NSCalendar.currentCalendar()
         return calendar.dateByAddingComponents(dayComponent, toDate: self, options: NSCalendarOptions(rawValue: 0))!
     }
-    
-    /// Is this day the same day as the other date? Ignoreing time
-    /// :param:date The other day to compare this day to.
-    public func isSameDay(date:NSDate) -> Bool
+	
+	/**
+	Is this day the same day as the other date? Ignoreing time
+	
+	- Parameter date: The date to compare this time with
+	
+	- Returns: true if the two days occure on the same day
+    */
+    public func isSameDay(date: NSDate) -> Bool
     {
         let calendar = NSCalendar.currentCalendar()
         let components1 = calendar.components([.Month, .Day, .Year], fromDate:self)
@@ -37,8 +57,10 @@ public extension NSDate
     }
     
     /// Subtract two dates and return them as a tuple. 
-    /// :param: The other date to compare with
-    /// :returns: The difference in the two dates.
+	///
+    /// - Parameter otherDate: The other date to compare with
+	///
+    /// - Returns: The difference in the two dates as m/d/y/h/m/s
     public func subtractDate(otherDate:NSDate) -> (month:Int, day:Int, year:Int, hour:Int, minute:Int, second:Int)
     {
         let calendar = NSCalendar.currentCalendar()
@@ -69,7 +91,8 @@ public extension NSDate
     
     /**
      Extract out the m/d/y parts of a date into a Tuple
-     - Returns:A tuple as three ints that include month day year
+	
+     - Returns: A tuple as three ints that include month day year
     */
     public func toMonthDayYear() -> (month:Int, day:Int, year:Int) {
         let flags:NSCalendarUnit = [.Month, .Day, .Year]

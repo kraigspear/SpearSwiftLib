@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FetchError Enum Reference</title>
+    <title>JsonExtractiable Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/FetchError" class="dashAnchor"></a>
-    <a title="FetchError Enum Reference"></a>
+    <a name="//apple_ref/swift/Protocol/JsonExtractiable" class="dashAnchor"></a>
+    <a title="JsonExtractiable Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (29% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FetchError Enum Reference
+        JsonExtractiable Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -158,17 +158,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>FetchError</h1>
+            <h1>JsonExtractiable</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FetchError</span><span class="p">:</span> <span class="kt">ErrorType</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonExtractiable</span></code></pre>
 
                 </div>
               </div>
-            <p>Errors that can happen when fetching data.
-- HTTPError: Any status other than 200
-- JSONError: The data received could not be converted into JSON
-- None: An error was not received</p>
+            <p>A protocol that can extract JSON</p>
 
           </section>
           <section class="section task-group-section">
@@ -177,9 +174,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO13SpearSwiftLib10FetchError9HTTPErrorFMS0_FSiS0_"></a>
-                    <a name="//apple_ref/swift/Element/HTTPError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO13SpearSwiftLib10FetchError9HTTPErrorFMS0_FSiS0_">HTTPError</a>
+                    <a name="/s:vP13SpearSwiftLib16JsonExtractiable8jsonDataGVSs10DictionarySSPSs9AnyObject__"></a>
+                    <a name="//apple_ref/swift/Property/jsonData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP13SpearSwiftLib16JsonExtractiable8jsonDataGVSs10DictionarySSPSs9AnyObject__">jsonData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The JsonKeyValue to extract data from</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">jsonData</span><span class="p">:</span> <span class="kt">JsonKeyValue</span> <span class="p">{</span><span class="k">get</span><span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP13SpearSwiftLib16JsonExtractiable7extractuRq_S0__Fq_FzT_qq_S0_13ExtractedType"></a>
+                    <a name="//apple_ref/swift/Method/extract()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP13SpearSwiftLib16JsonExtractiable7extractuRq_S0__Fq_FzT_qq_S0_13ExtractedType">extract()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -194,7 +218,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FetchError</span><span class="p">:</span> <span class="kt">ErrorType</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonExtractiable</span></code></pre>
 
                         </div>
                       </div>
@@ -208,10 +232,13 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO13SpearSwiftLib10FetchError9JSONErrorFMS0_FCSo7NSErrorS0_"></a>
-                    <a name="//apple_ref/swift/Element/JSONError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO13SpearSwiftLib10FetchError9JSONErrorFMS0_FCSo7NSErrorS0_">JSONError</a>
+                    <a name="/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_7extractu__Rq_S0__Fq_FzPS_13JsonFieldable_qd__"></a>
+                    <a name="//apple_ref/swift/Method/extract(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_7extractu__Rq_S0__Fq_FzPS_13JsonFieldable_qd__">extract(_:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -225,24 +252,23 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FetchError</span><span class="p">:</span> <span class="kt">ErrorType</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonExtractiable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO13SpearSwiftLib10FetchError4NoneFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/None" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO13SpearSwiftLib10FetchError4NoneFMS0_S0_">None</a>
+                    <a name="/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_7extractu__Rq_S0__Fq_FzTPS_13JsonFieldable_12defaultValueqd___qd__"></a>
+                    <a name="//apple_ref/swift/Method/extract(_:defaultValue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_7extractu__Rq_S0__Fq_FzTPS_13JsonFieldable_12defaultValueqd___qd__">extract(_:defaultValue:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -256,7 +282,97 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FetchError</span><span class="p">:</span> <span class="kt">ErrorType</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonExtractiable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_13extractStringuRq_S0__Fq_FzPS_13JsonFieldable_SS"></a>
+                    <a name="//apple_ref/swift/Method/extractString(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_13extractStringuRq_S0__Fq_FzPS_13JsonFieldable_SS">extractString(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonExtractiable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_12extractFloatuRq_S0__Fq_FzPS_13JsonFieldable_Sf"></a>
+                    <a name="//apple_ref/swift/Method/extractFloat(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_12extractFloatuRq_S0__Fq_FzPS_13JsonFieldable_Sf">extractFloat(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonExtractiable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_10extractIntuRq_S0__Fq_FzPS_13JsonFieldable_Si"></a>
+                    <a name="//apple_ref/swift/Method/extractInt(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FeRq_13SpearSwiftLib16JsonExtractiable_S_S0_10extractIntuRq_S0__Fq_FzPS_13JsonFieldable_Si">extractInt(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JsonExtractiable</span></code></pre>
 
                         </div>
                       </div>

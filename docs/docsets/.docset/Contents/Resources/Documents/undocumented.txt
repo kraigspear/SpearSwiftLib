@@ -2,7 +2,7 @@ ScrollViewExtensions.swift
 	public func scrollToBottom(animated:Bool = false)
 AsyncAwait.swift
 	public class AsyncAwait
-	public func Async(asyncOn:VoidBlock, awaitOn:VoidBlock)
+	public static func Await<T>(asyncOn:() -> T, awaitOn:(T) -> Void)
 ImageCache.swift
 	public func fetchImages(urlStrs: [String], completed:ImagesBlock)
 	public func fetchImage(ulrStr: String) -> UIImage?
@@ -53,19 +53,6 @@ LocalNotification.swift
 	public init() {}
 	public func schedule()
 	public func register()
-Json.swift
-	public enum JsonError : ErrorType
-	case PathNotFound(path:JsonPath)
-	case InvalidPath(pathName:String)
-	case KeyNotFound(key:String)
-	case ConversionError(key:String, value:AnyObject)
-	public struct JsonPath
-	public let name:String
-	public let rootPath:PathElement
-	public init(name:String, rootPath:PathElement)
-	public final class Json
-	public init(jsonData: JsonKeyValue, paths:JsonPath...) throws
-	public func dateValue(pathName:String, key:String) throws -> NSDate
 DictionaryExtensions.swift
 	public enum DictionaryConvertError : ErrorType
 	case MissingKey
@@ -75,8 +62,12 @@ DictionaryExtensions.swift
 	public func toDate(key:Key) -> NSDate?
 	public func unwrappedValue(key:Key) throws -> Value
 	public func toDate(key:Key) throws -> NSDate
+	public func toString(key:Key) throws -> String
 	public func toDouble(key:Key) throws -> Double
 	public func toInt(key:Key) -> Int?
+NumberExtensions.swift
+	public func toDegrees() -> Double
+	public func toRadians() -> Double
 BaseOperation.swift
 	public class BaseOperation : NSOperation
 	override public func start()
@@ -91,10 +82,36 @@ NetworkOperation.swift
 	public func addParam(key: String, value: String)
 	public init(urlStr: String)
 	public func fetchJSON(success: JsonBlock, failure: ErrorBlock)
+Json.swift
+	public enum EnumFieldError: ErrorType
+	case MissingField(fieldName: String)
+	case ConversionError(fieldName: String)
+	case DateParseError(fieldName: String)
+	case MissingPath(fieldName: String)
+	func extract() throws -> ExtractedType
+	case Int
+	case Float
+	case String
+	case StringArray
+	case JsonKeyValueArray
+	case JsonKeyValue
+	case IntArray
+	case FloatArray
+	case DateArray
+	func extract<T>(field: JsonFieldable) throws -> T
+	func extract<T>(field: JsonFieldable, defaultValue: T) throws -> T
+	func extractString(field: JsonFieldable) throws -> String
+	func extractFloat(field: JsonFieldable) throws -> Float
+	func extractInt(field: JsonFieldable) throws -> Int
 DateExtensions.swift
 	public func -(left:NSDate, right:NSDate) -> (month:Int, day:Int, year:Int, hour:Int, minute:Int, second:Int)
-	public func addDays(numberOfDays:Int) -> NSDate
+	public func toMonthDayYearHourMinutesSeconds() -> (month:Int, day:Int, year:Int, hour:Int, minutes:Int, seconds:Int)
+	public func toJullianDayNumber() -> Double
+	public static func fromMonth(month:Int, day:Int, year:Int) -> NSDate?
+	public func fromDay(percentage:Double) -> NSDate?
 CollectionExtensions.swift
+	public func AllSameSize(arraysToCheck: Array<AnyObject>...) -> Bool
+	public func first(fn: (Element) -> Bool) -> Element?
 	public func isValidIndex(index:Int) -> Bool
 FileManagerExtensions.swift
 	public func cachePathFile(fileName:String) -> String

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AsyncAwait Class Reference</title>
+    <title>JSONFetchable Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/AsyncAwait" class="dashAnchor"></a>
-    <a title="AsyncAwait Class Reference"></a>
+    <a name="//apple_ref/swift/Protocol/JSONFetchable" class="dashAnchor"></a>
+    <a title="JSONFetchable Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (29% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AsyncAwait Class Reference
+        JSONFetchable Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -158,8 +158,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AsyncAwait</h1>
-            <p>Undocumented</p>
+            <h1>JSONFetchable</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">JSONFetchable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Fetch JSON from a source, such as a file or network operation</p>
 
           </section>
           <section class="section task-group-section">
@@ -168,9 +174,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC13SpearSwiftLib10AsyncAwait5AwaiturFMS0_FTFT_q_7awaitOnFq_T__T_"></a>
-                    <a name="//apple_ref/swift/Method/Await(_:awaitOn:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC13SpearSwiftLib10AsyncAwait5AwaiturFMS0_FTFT_q_7awaitOnFq_T__T_">Await(_:awaitOn:)</a>
+                    <a name="/s:FP13SpearSwiftLib13JSONFetchable9fetchJSONuRq_S0__Fq_FTFT4jsonGVSs10DictionarySSPSs9AnyObject___T_7failureFT5errorPSs9ErrorType__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchJSON(_:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP13SpearSwiftLib13JSONFetchable9fetchJSONuRq_S0__Fq_FTFT4jsonGVSs10DictionarySSPSs9AnyObject___T_7failureFT5errorPSs9ErrorType__T__T_">fetchJSON(_:failure:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,8 +184,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>fetchJSON: Fetches JSON calling success with the JSON on success, or failure if there was an error getting the JSON</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchJSON</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kt">JsonBlock</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt">ErrorBlock</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called with the JSON on success</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called with an error when there was an error getting the JSON</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

@@ -47,10 +47,21 @@ class DateTest: XCTestCase {
     func testJulianDay() {
         let expected = Double(2457313.6)
         let date = NSDate(timeIntervalSince1970: 1445077917)
-        
         let j = date.toJullianDayNumber()
-        
         XCTAssertEqual(expected, j)
     }
+	
+	func testAddDays() {
+		let oct172015 = NSDate(timeIntervalSince1970: 1445077917)
+		let aDayLater = oct172015.addDays(1)
+		let mdy = aDayLater.toMonthDayYear()
+		XCTAssertEqual(18, mdy.day)
+	}
+	
+	func testIsSameDay() {
+		let oct172015 = NSDate(timeIntervalSince1970: 1445077917)
+		let laterThatSameDay = NSDate(timeIntervalSince1970: 1445114196)
+		XCTAssertTrue(oct172015.isSameDay(laterThatSameDay))
+	}
 
 }
