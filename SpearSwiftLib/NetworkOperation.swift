@@ -24,7 +24,9 @@ public enum FetchError: ErrorType {
     case None
 }
 
-///Fetches JSON async.
+/**
+ Fetch JSON from a source, such as a file or network operation
+*/
 public protocol JSONFetchable {
 
     ///  fetchJSON: Fetches JSON calling success with the JSON on success, or failure if there was an error getting the JSON
