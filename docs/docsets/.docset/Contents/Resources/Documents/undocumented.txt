@@ -19,6 +19,7 @@ Timer.swift
 	var isRunning:Bool {get}
 	public init(interval:NSTimeInterval)
 	public func start()
+	@objc func timerFired()
 	public var isRunning:Bool
 	public func stop()
 	public let fired:Event<Void> = Event<Void>()
@@ -30,6 +31,8 @@ Event.swift
         handler: (U) -> EventHandler) -> Disposable
 	public protocol Disposable
 	func dispose()
+StringBuilder.swift
+	let delimiter:String
 LocalNotification.swift
 	public protocol LocationNotificationProtocol
 	var body:String? {get set}
@@ -43,7 +46,9 @@ LocalNotification.swift
 	public var action:String?
 	public var date:NSDate?
 	public var category:String?
+	var scheduled:Int = 0
 	public func schedule()
+	var registered:Int = 0
 	public func register()
 	public class LocalNotification : LocationNotificationProtocol
 	public var body:String?
@@ -66,14 +71,22 @@ DictionaryExtensions.swift
 	public func toDouble(key:Key) throws -> Double
 	public func toInt(key:Key) -> Int?
 NumberExtensions.swift
+	let halfDegrees = 180.0
 	public func toDegrees() -> Double
 	public func toRadians() -> Double
 BaseOperation.swift
 	public class BaseOperation : NSOperation
 	override public func start()
+	var anyDependencyHasErrors:Bool
 	override public var asynchronous:Bool
 	override public var executing:Bool
 	override public var finished:Bool
+CurrentDateTime.swift
+	public protocol CurrentDateFetchable
+	func currentDateTime() -> NSDate
+	public struct CurrentDateFetcher: CurrentDateFetchable
+	public init()
+	public func currentDateTime() -> NSDate
 NetworkOperation.swift
 	case HTTPError(Int)
 	case JSONError(NSError)

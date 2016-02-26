@@ -34,6 +34,7 @@
 		A9C0889C1BD6334C000C16D3 /* TimerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0889B1BD6334C000C16D3 /* TimerTest.swift */; };
 		A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */; };
 		A9D9CE4D1C472D6C00D39DE3 /* SpearSwiftLibOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */; };
 		A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */; };
 		A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */; };
 		A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1DCE31C5CD99B00870301 /* Json.swift */; };
@@ -83,6 +84,7 @@
 		A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDateTime.swift; sourceTree = "<group>"; };
 		A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		A9E1DCE31C5CD99B00870301 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
@@ -155,19 +157,20 @@
 		A942A9881A9F251800C69271 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
-				A9E1DCE21C5CD97000870301 /* JSON */,
 				A92CC47C1B3BF53700593257 /* Extensions */,
+				A9E1DCE21C5CD97000870301 /* JSON */,
+				A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */,
+				A92424A61BF3519E00175774 /* BaseOperation.swift */,
+				A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */,
+				A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */,
+				A9C088951BD4E4C6000C16D3 /* Event.swift */,
 				A91890B61B6CE866005CA6B3 /* ImageCache.swift */,
+				A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */,
+				A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */,
 				A942A9A21A9F252F00C69271 /* Shuffle.swift */,
 				A942A98B1A9F251800C69271 /* SpearSwiftLib.h */,
-				A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */,
-				A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */,
-				A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */,
-				A9C088951BD4E4C6000C16D3 /* Event.swift */,
-				A9C088991BD62FB3000C16D3 /* Timer.swift */,
 				A93479581BDF75770069B2BC /* StringBuilder.swift */,
-				A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */,
-				A92424A61BF3519E00175774 /* BaseOperation.swift */,
+				A9C088991BD62FB3000C16D3 /* Timer.swift */,
 				A942A9891A9F251800C69271 /* Supporting Files */,
 			);
 			path = SpearSwiftLib;
@@ -381,6 +384,7 @@
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
 				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
 				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
+				A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */,
 				A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */,
 				A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */,
 				A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */,
