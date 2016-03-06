@@ -38,6 +38,13 @@ public extension NSDate
         return calendar.dateByAddingComponents(dayComponent, toDate: self, options: NSCalendarOptions(rawValue: 0))!
     }
 	
+	public func addHours(numberOfHours: Int) -> NSDate {
+		let dayComponent = NSDateComponents()
+		dayComponent.hour = numberOfHours
+		let calendar = NSCalendar.currentCalendar()
+		return calendar.dateByAddingComponents(dayComponent, toDate: self, options: NSCalendarOptions(rawValue: 0))!
+	}
+	
 	/**
 	Is this day the same day as the other date? Ignoreing time
 	

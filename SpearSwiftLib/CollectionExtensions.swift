@@ -50,6 +50,21 @@ public extension Array
         }
         return nil
     }
+	
+	/**
+	Return the item at a specific index, or nil if the index is not valid
+	
+	- Parameter index: The index to check / retrive
+	
+	- Returns: The item at the index, or nil if the index is not valid
+	*/
+	public func at(index: Int) -> Element? {
+		guard isValidIndex(index) else {
+			return nil
+		}
+		
+		return self[index]
+	}
     
     public func isValidIndex(index:Int) -> Bool {
         if index < 0 {
