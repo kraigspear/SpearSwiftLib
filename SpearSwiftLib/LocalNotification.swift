@@ -25,12 +25,12 @@ public class LocationNotificationMock : LocationNotificationProtocol {
 
     var scheduled:Int = 0
     public func schedule() {
-        scheduled++
+        scheduled+=1
     }
     
     var registered:Int = 0
     public func register() {
-        registered++
+        registered+=1
     }
 }
 

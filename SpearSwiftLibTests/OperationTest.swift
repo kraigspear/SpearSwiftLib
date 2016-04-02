@@ -45,7 +45,7 @@ class OperationTest: XCTestCase {
         var completedCount = 0
         
         operation.completionBlock = {
-            completedCount++
+            completedCount += 1
             print("completionBlock called")
             readyExpectation.fulfill()
         }

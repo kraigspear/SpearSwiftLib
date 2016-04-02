@@ -15,14 +15,25 @@ public typealias ErrorBlock = ((error:ErrorType) -> Void)
   Errors that can happen when fetching data.
   - HTTPError: Any status other than 200
   - JSONError: The data received could not be converted into JSON
+  - ResponseError: An error was return from the network call
+  - InvalidUrl: The URL wasn't valid
   - None: An error was not received
 */
 public enum FetchError: ErrorType {
 
     case HTTPError(Int)
     case JSONError(NSError)
+	case InvalidUrl(String)
+	case ResponseError(NSError)
     case None
 }
+
+public enum ImageFetchError: ErrorType {
+	case HTTPError(Int)
+	case ResponseError(NSError)
+}
+
+public typealias ImageFetchErrorBlock = (ImageFetchError) -> Void
 
 /**
  Fetch JSON from a source, such as a file or network operation
@@ -36,6 +47,30 @@ public protocol JSONFetchable {
     func fetchJSON(success: JsonBlock, failure: ErrorBlock)
 }
 
+public enum ResponseCode: Int {
+	case success = 200
+}
+
+public enum HTTPMethod: String {
+	case GET = "GET"
+}
+
+extension NSHTTPURLResponse {
+	var isStatusOk: Bool {
+		guard let status = ResponseCode.init(rawValue: statusCode) else {
+			return false
+		}
+		return status == .success
+	}
+}
+
+extension NSData {
+	func toImage() -> UIImage? {
+		return UIImage(data: self)
+	}
+}
+
+public typealias NetworkImageDownloadBlock = (image: UIImage) -> Void
 /**
   A network operation that fetches JSON
 */
@@ -53,14 +88,55 @@ public final class NetworkOperation: JSONFetchable {
     public init(urlStr: String) {
         self.urlStr = urlStr
     }
-
+	
+	lazy private var session: NSURLSession = {
+		let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+		return NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+	}()
+	
+	private func createRequest() throws -> NSMutableURLRequest {
+		guard var url = NSURL(string: urlStr) else {
+			throw FetchError.InvalidUrl(urlStr)
+		}
+		
+		url = NSURLByAppendingQueryParameters(url)
+		
+		return NSMutableURLRequest(URL: url)
+	}
+	
+	public func fetchUIImage(success: NetworkImageDownloadBlock, failure: ImageFetchErrorBlock) {
+		let request = try! createRequest()
+		request.HTTPMethod = HTTPMethod.GET.rawValue
+		
+		//Add caching
+		let handler = {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+			if let error = error {
+				failure(ImageFetchError.ResponseError(error))
+			} else {
+				let urlResponse = (response as! NSHTTPURLResponse)
+				if urlResponse.isStatusOk {
+					precondition(data != nil, "We are in a success state, but data is invalid?")
+					if let image = data!.toImage() {
+						dispatch_async(dispatch_get_main_queue()) {
+							  success(image: image)
+						}
+					}
+				} else {
+					dispatch_async(dispatch_get_main_queue()) {
+						failure(ImageFetchError.HTTPError(urlResponse.statusCode))
+					}
+				}
+			}
+		}
+		
+		let task = session.dataTaskWithRequest(request, completionHandler: handler)
+		task.resume()
+	}
+	
+	
     public func fetchJSON(success: JsonBlock, failure: ErrorBlock) {
-        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-        var URL = NSURL(string: self.urlStr)
-        URL = NSURLByAppendingQueryParameters(URL!)
-
-        let request = NSMutableURLRequest(URL: URL!)
+		
+		let request = try! createRequest()
 		
 		let handler = {[weak self] (data: NSData?, response: NSURLResponse?, error: NSError?) in
 			
@@ -129,7 +205,6 @@ public final class NetworkOperation: JSONFetchable {
 		guard let cached = NSURLCache.sharedURLCache().cachedResponseForRequest(request) else {
 			return nil
 		}
-		
 		return cached.data
 	}
 

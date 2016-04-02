@@ -20,7 +20,7 @@ func shuffle<C: MutableCollectionType where C.Index == Int>(inout list: C)
 }
 
 /// Return a collection containing the shuffled elements of `list`.
-func shuffled<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
+func shuffled<C: MutableCollectionType where C.Index == Int>(inout list: C) -> C {
     shuffle(&list)
     return list
 }

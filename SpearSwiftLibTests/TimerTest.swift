@@ -48,7 +48,7 @@ class TimerTest: XCTestCase {
     var timerFiredCount:Int = 0
     
     func timerFired() {
-        timerFiredCount++
+        timerFiredCount += 1
         if timerFiredCount >= 3 {
             firedExpitation!.fulfill()
         }

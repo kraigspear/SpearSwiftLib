@@ -32,7 +32,7 @@ public class Timer : TimerProtocol  {
             return
         }
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(interval, target:self, selector:Selector("timerFired"), userInfo:nil, repeats:true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(interval, target:self, selector:#selector(Timer.timerFired), userInfo:nil, repeats:true)
     }
     
     @objc func timerFired() {

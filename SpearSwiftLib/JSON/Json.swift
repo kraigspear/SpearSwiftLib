@@ -32,7 +32,7 @@ public enum EnumFieldError: ErrorType {
 */
 public protocol JsonExtractiable {
 	
-	typealias ExtractedType
+	associatedtype ExtractedType
 	
 	///The JsonKeyValue to extract data from
 	var jsonData: JsonKeyValue {get}
