@@ -56,6 +56,8 @@ public enum FieldType {
 	case IntArray
 	case FloatArray
 	case DateArray
+	case DateMilliseconds
+	case Bool
 }
 
 /**
@@ -133,6 +135,11 @@ public extension JsonFieldable {
 			})
 			
 			val = dateArray
+		case .DateMilliseconds:
+			let dateInt = try fetchInt(keyValue)
+			val = NSDate(timeIntervalSince1970: Double(dateInt / 1000))
+		case .Bool:
+			val = try fetchBool(keyValue)
 		}
 		
 		if let valR = val as? T {
@@ -181,6 +188,13 @@ public extension JsonFieldable {
 	- Throws: `EnumFieldError.ConversionError` If the value can't be convered from the field type
 	*/
 	private func fetchFloat(keyValue: JsonKeyValue) throws -> Float {
+		
+		let keyValue = try keyValueForPath(keyValue)
+		
+		if let value = keyValue[self.fieldName] as? Float {
+			return value
+		}
+		
 		let strValue = try fetchString(keyValue)
 		
 		if let floatValue = Float(strValue) {
@@ -197,6 +211,12 @@ public extension JsonFieldable {
 	*/
 	private func fetchInt(keyValue: JsonKeyValue) throws -> Int {
 		
+		let keyValue = try keyValueForPath(keyValue)
+		
+		if let value = keyValue[self.fieldName] as? Int {
+			return value
+		}
+		
 		let strValue = try fetchString(keyValue)
 		
 		if let intValue = Int(strValue) {
@@ -205,6 +225,22 @@ public extension JsonFieldable {
 			throw EnumFieldError.ConversionError(fieldName: self.fieldName)
 		}
 		
+	}
+	
+	private func fetchBool(keyValue: JsonKeyValue) throws -> Bool {
+		let keyValue = try keyValueForPath(keyValue)
+		
+		if let value = keyValue[self.fieldName] as? Bool {
+			return value
+		}
+		
+		let strValue = try fetchString(keyValue)
+		
+		if !(strValue == "true" || strValue == "false") {
+			throw EnumFieldError.ConversionError(fieldName: self.fieldName)
+		}
+		
+		return strValue == "true"
 	}
 	
 	/**

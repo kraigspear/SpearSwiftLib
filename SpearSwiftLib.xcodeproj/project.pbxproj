@@ -30,6 +30,7 @@
 		A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */; };
 		A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */; };
 		A9B6DA321BFB29490033CB85 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA311BFB29490033CB85 /* ArrayTest.swift */; };
+		A9B89A5D1CB7AF1000DB2A5F /* JSONTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B89A5C1CB7AF1000DB2A5F /* JSONTest.swift */; };
 		A9C088961BD4E4C6000C16D3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C088951BD4E4C6000C16D3 /* Event.swift */; };
 		A9C088981BD4E633000C16D3 /* EventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C088971BD4E633000C16D3 /* EventTest.swift */; };
 		A9C0889A1BD62FB3000C16D3 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C088991BD62FB3000C16D3 /* Timer.swift */; };
@@ -40,7 +41,6 @@
 		A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */; };
 		A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */; };
 		A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1DCE31C5CD99B00870301 /* Json.swift */; };
-		A9E976D91C1ED19A003BB1D7 /* Aeris.json in Resources */ = {isa = PBXBuildFile; fileRef = A9E976D81C1ED19A003BB1D7 /* Aeris.json */; };
 		A9FE2F501B7C8AB400EE5F3F /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +80,7 @@
 		A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		A9B6DA311BFB29490033CB85 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
+		A9B89A5C1CB7AF1000DB2A5F /* JSONTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTest.swift; sourceTree = "<group>"; };
 		A9C088951BD4E4C6000C16D3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		A9C088971BD4E633000C16D3 /* EventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTest.swift; sourceTree = "<group>"; };
 		A9C088991BD62FB3000C16D3 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		A9E1DCE31C5CD99B00870301 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
-		A9E976D81C1ED19A003BB1D7 /* Aeris.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Aeris.json; sourceTree = "<group>"; };
 		A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 		A942A9951A9F251900C69271 /* SpearSwiftLibTests */ = {
 			isa = PBXGroup;
 			children = (
-				A9E976D81C1ED19A003BB1D7 /* Aeris.json */,
 				A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */,
 				A942A9961A9F251900C69271 /* Supporting Files */,
 				A93FB8941B3245DD0017E3E9 /* StringTests.swift */,
@@ -203,6 +202,7 @@
 				A9B6DA311BFB29490033CB85 /* ArrayTest.swift */,
 				A9B2F1201C086337000F5367 /* OperationTest.swift */,
 				A924A5891C32982400181C17 /* DateTest.swift */,
+				A9B89A5C1CB7AF1000DB2A5F /* JSONTest.swift */,
 			);
 			path = SpearSwiftLibTests;
 			sourceTree = "<group>";
@@ -360,7 +360,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E976D91C1ED19A003BB1D7 /* Aeris.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +409,7 @@
 				A9C088981BD4E633000C16D3 /* EventTest.swift in Sources */,
 				A93FB8951B3245DD0017E3E9 /* StringTests.swift in Sources */,
 				A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */,
+				A9B89A5D1CB7AF1000DB2A5F /* JSONTest.swift in Sources */,
 				A934795B1BDF7B450069B2BC /* StringBuilderTest.swift in Sources */,
 				A9B2F1211C086337000F5367 /* OperationTest.swift in Sources */,
 				A9C0889C1BD6334C000C16D3 /* TimerTest.swift in Sources */,

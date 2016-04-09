@@ -27,10 +27,10 @@ class SpearSwiftLibTests: XCTestCase
     func testNetworkOperation()
     {
       let networkOperation = NetworkOperation(urlStr: "http://forecast.weather.gov/MapClick.php")
-      
-      networkOperation.addParam("lat", value: "42.9612")
-      networkOperation.addParam("lon", value: "-85.6557")
-      networkOperation.addParam("FcstType", value: "json")
+		
+      networkOperation.parameters.addParam("lat", value: "42.9612")
+      networkOperation.parameters.addParam("lon", value: "-85.6557")
+      networkOperation.parameters.addParam("FcstType", value: "json")
       
       let readyExpectation = expectationWithDescription("ready")
 
