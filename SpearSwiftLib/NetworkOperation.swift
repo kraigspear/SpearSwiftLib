@@ -119,7 +119,6 @@ extension NetworkOperation {
 		let handler = {[weak self] (data: NSData?, response: NSURLResponse?, error: NSError?) in
 			
 			if let error = error {
-				print(error)
 				if let cachedData = self?.fetchCachedResponseData(request) {
 					do {
 						if let cachedJson = try self?.jsonFromData(cachedData) {
