@@ -21,6 +21,16 @@ public class AsyncAwait
 			}
 		}
 	}
+	
+	public static func Await<T>(que: dispatch_queue_t!, asyncOn:() -> T, awaitOn:(T) -> Void)
+	{
+		dispatch_async(que) {
+			let obj = asyncOn()
+			dispatch_async(dispatch_get_main_queue()) {
+				awaitOn(obj)
+			}
+		}
+	}
 
 }
 
