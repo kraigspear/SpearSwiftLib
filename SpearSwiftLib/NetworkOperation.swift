@@ -277,6 +277,7 @@ public final class NetworkOperation: JSONFetchable {
 			method = .GET
 		}
 		
+		print("body = \(body.json)")
 		headers.addToRequest(request)
 		body.addToRequest(request)
 		

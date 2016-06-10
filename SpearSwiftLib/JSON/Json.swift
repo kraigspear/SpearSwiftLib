@@ -41,6 +41,29 @@ public protocol JsonExtractiable {
 	
 }
 
+public extension JsonExtractiable {
+	public func intField(fieldName: String) -> Int {
+		return jsonData[fieldName] as! Int
+	}
+	
+	public func floatField(fieldName: String) -> Float {
+		return jsonData[fieldName] as! Float
+	}
+	
+	public func dateField(fieldName: String) -> NSDate {
+		let interval = Double(intField(fieldName) / 1000)
+		return NSDate(timeIntervalSince1970: interval)
+	}
+	
+	public func stringField(fieldName: String) -> String {
+		return jsonData[fieldName] as! String
+	}
+	
+	public func arrayField(fieldName: String) -> [JsonKeyValue] {
+		return jsonData[fieldName] as! [JsonKeyValue]
+	}
+}
+
 // MARK: - Fields
 
 /**
@@ -78,9 +101,6 @@ public protocol JsonFieldable {
   Extension to extract a value from a JsonKeyValue in a type safe mannor
 */
 public extension JsonFieldable {
-	
-	
-	
 	/**
 	Extract a value from a JsonKeyValue
 	- Parameter keyValue: The source of the data to extract the value from
@@ -160,7 +180,7 @@ public extension JsonFieldable {
 	}
 	
 	private func fetchArray<T>(keyValue: JsonKeyValue) throws -> [T] {
-		let keyValue = try keyValueForPath(keyValue)
+		let keyValues = try keyValuesForPath(keyValue)
 		if let value = keyValue[self.fieldName] as? [T] {
 			return value
 		} else {
@@ -243,6 +263,29 @@ public extension JsonFieldable {
 		return strValue == "true"
 	}
 	
+	private func keyValuesForPath(keyValue: JsonKeyValue) throws -> [JsonKeyValue] {
+		if path.count < 1 {
+			return [keyValue]
+		}
+		
+		var pathKeyValue = keyValue
+		
+		for pathElement in path {
+			
+			if let jsonKeyValueArray = pathKeyValue[pathElement] as? [JsonKeyValue] {
+				return jsonKeyValueArray
+			}
+			
+			guard let thisKeyValue = pathKeyValue[pathElement] as? JsonKeyValue else {
+				throw EnumFieldError.MissingField(fieldName: self.fieldName)
+			}
+			
+			pathKeyValue = thisKeyValue
+		}
+		
+		return [pathKeyValue]
+	}
+	
 	/**
 	Find the JsonKeyValue element for this Element
 	- Parameter keyValue: The JsonKeyValue that this KeyValue is found in
@@ -256,7 +299,8 @@ public extension JsonFieldable {
 		var pathKeyValue = keyValue
 		
 		for pathElement in path {
-			guard let thisKeyValue = keyValue[pathElement] as? JsonKeyValue else {
+			
+			guard let thisKeyValue = pathKeyValue[pathElement] as? JsonKeyValue else {
 				throw EnumFieldError.MissingField(fieldName: self.fieldName)
 			}
 			pathKeyValue = thisKeyValue
