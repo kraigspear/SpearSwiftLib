@@ -14,7 +14,7 @@
     <a title="ForegroundNotifyable Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (21% documented)</p>
+        <p><a href="../index.html"> Docs</a> (28% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -35,9 +35,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/BaseOperation.html">BaseOperation</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Event.html">Event</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ForegroundNotification.html">ForegroundNotification</a>
@@ -69,25 +66,19 @@
               <li class="nav-group-task">
                 <a href="../Classes/StringBuilder.html">StringBuilder</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Timer.html">Timer</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/ConvertError.html">ConvertError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/DictionaryConvertError.html">DictionaryConvertError</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/EnumFieldError.html">EnumFieldError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/FetchError.html">FetchError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/FieldType.html">FieldType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/ImageFetchError.html">ImageFetchError</a>
@@ -159,9 +150,6 @@
                 <a href="../Protocols/CurrentDateFetchable.html">CurrentDateFetchable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Disposable.html">Disposable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/ForegroundNotificationDelegate.html">ForegroundNotificationDelegate</a>
               </li>
               <li class="nav-group-task">
@@ -177,12 +165,6 @@
                 <a href="../Protocols/JSONFetchable.html">JSONFetchable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/JsonExtractiable.html">JsonExtractiable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/JsonFieldable.html">JsonFieldable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/LocationFindable.html">LocationFindable</a>
               </li>
               <li class="nav-group-task">
@@ -191,9 +173,6 @@
               <li class="nav-group-task">
                 <a href="../Protocols/NetworkParameterType.html">NetworkParameterType</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TimerProtocol.html">TimerProtocol</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -201,6 +180,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/CurrentDateFetcher.html">CurrentDateFetcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OrderedDictionary.html">OrderedDictionary</a>
               </li>
             </ul>
           </li>
@@ -224,7 +206,43 @@
         <section>
           <section class="section">
             <h1>ForegroundNotifyable</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ForegroundNotifyable</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+
+                </div>
+              </div>
+            <p>To be implemented by a type that knows how to notify its delegate that the App
+has entered the foreground</p>
+
+<pre class="highlight swift"><code>
+<span class="kd">private</span> <span class="k">let</span> <span class="nv">foregroundNotification</span><span class="p">:</span> <span class="kt">ForegroundNotifyable</span>
+
+<span class="k">self</span><span class="o">.</span><span class="n">foregroundNotification</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+
+
+<span class="c1">//If this is the Active ViewModel? Is it visible?</span>
+
+<span class="k">var</span> <span class="nv">active</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">{</span>
+    <span class="k">didSet</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">active</span> <span class="p">{</span>
+            <span class="n">foregroundNotification</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">foregroundNotification</span><span class="o">.</span><span class="nf">stop</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//Receiving the event, we can do what we need to do when the App become active,</span>
+<span class="c1">//like refresh</span>
+
+<span class="kd">extension</span> <span class="kt">SummaryViewModel</span><span class="p">:</span> <span class="kt">ForegroundNotificationDelegate</span> <span class="p">{</span>
+    <span class="n">fun</span> <span class="nf">enteredForeground</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">refresh</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
 
           </section>
           <section class="section task-group-section">
@@ -243,8 +261,37 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Receives the message from NSNotification that the device has entered the
+foreground</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">foregroundNotification</span><span class="p">(</span><span class="nv">notification</span><span class="p">:</span> <span class="kt">NSNotification</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>notification</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>NSNotification for the Foreground notification</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -262,8 +309,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Start listening for notifications</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -281,8 +336,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Stop listening for notifications</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">stop</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -300,8 +363,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Gets / Sets the delegate that gets notified when then the App has entered
+the foreground</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ForegroundNotificationDelegate.html">ForegroundNotificationDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -311,8 +383,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-10)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-07-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

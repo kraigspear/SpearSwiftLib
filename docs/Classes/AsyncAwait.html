@@ -14,7 +14,7 @@
     <a title="AsyncAwait Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (21% documented)</p>
+        <p><a href="../index.html"> Docs</a> (28% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -35,9 +35,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/BaseOperation.html">BaseOperation</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Event.html">Event</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ForegroundNotification.html">ForegroundNotification</a>
@@ -69,25 +66,19 @@
               <li class="nav-group-task">
                 <a href="../Classes/StringBuilder.html">StringBuilder</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Timer.html">Timer</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/ConvertError.html">ConvertError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/DictionaryConvertError.html">DictionaryConvertError</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/EnumFieldError.html">EnumFieldError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/FetchError.html">FetchError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/FieldType.html">FieldType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/ImageFetchError.html">ImageFetchError</a>
@@ -159,9 +150,6 @@
                 <a href="../Protocols/CurrentDateFetchable.html">CurrentDateFetchable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/Disposable.html">Disposable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/ForegroundNotificationDelegate.html">ForegroundNotificationDelegate</a>
               </li>
               <li class="nav-group-task">
@@ -177,12 +165,6 @@
                 <a href="../Protocols/JSONFetchable.html">JSONFetchable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/JsonExtractiable.html">JsonExtractiable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/JsonFieldable.html">JsonFieldable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/LocationFindable.html">LocationFindable</a>
               </li>
               <li class="nav-group-task">
@@ -191,9 +173,6 @@
               <li class="nav-group-task">
                 <a href="../Protocols/NetworkParameterType.html">NetworkParameterType</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TimerProtocol.html">TimerProtocol</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -201,6 +180,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/CurrentDateFetcher.html">CurrentDateFetcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OrderedDictionary.html">OrderedDictionary</a>
               </li>
             </ul>
           </li>
@@ -224,7 +206,27 @@
         <section>
           <section class="section">
             <h1>AsyncAwait</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AsyncAwait</span></code></pre>
+
+                </div>
+              </div>
+            <p>Provides an easier way to run code on a separate thread, and return the results 
+to the main thread</p>
+
+<pre class="highlight plaintext"><code>//This will execute on another thread
+let async = {() -&gt; TypeToReturnFromWorkerThread in
+    //Fetch the object from the network ext...
+    let myObj = DoSomeStuff()
+    return myObj
+}
+
+AsyncAwait.Await(async) { (someObj: someObj) in
+    //Back on the main thread, after async above ran code on another thread.
+}
+
+</code></pre>
 
           </section>
           <section class="section task-group-section">
@@ -243,27 +245,50 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Execute this code block on another thread, calling back on await after the 
+ code in this blocks executes</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZFC13SpearSwiftLib10AsyncAwait5AwaiturFTGSQPSo17OS_dispatch_queue__7asyncOnFT_x7awaitOnFxT__T_"></a>
-                    <a name="//apple_ref/swift/Method/Await(_:asyncOn:awaitOn:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC13SpearSwiftLib10AsyncAwait5AwaiturFTGSQPSo17OS_dispatch_queue__7asyncOnFT_x7awaitOnFxT__T_">Await(_:asyncOn:awaitOn:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="kt">Await</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">as</span><span class="nv">yncOn</span><span class="p">:()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">awaitOn</span><span class="p">:(</span><span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>asyncOn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Code to execute on a separate thread</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>awaitOn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Code to execute back on the main thread</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -273,8 +298,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-10)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-07-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

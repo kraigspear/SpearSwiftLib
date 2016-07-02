@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (21% documented)</p>
+        <p><a href="index.html"> Docs</a> (28% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -34,9 +34,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/BaseOperation.html">BaseOperation</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/Event.html">Event</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ForegroundNotification.html">ForegroundNotification</a>
@@ -68,25 +65,19 @@
               <li class="nav-group-task">
                 <a href="Classes/StringBuilder.html">StringBuilder</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Classes/Timer.html">Timer</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Enums/ConvertError.html">ConvertError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/DictionaryConvertError.html">DictionaryConvertError</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/EnumFieldError.html">EnumFieldError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/FetchError.html">FetchError</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/FieldType.html">FieldType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/ImageFetchError.html">ImageFetchError</a>
@@ -158,9 +149,6 @@
                 <a href="Protocols/CurrentDateFetchable.html">CurrentDateFetchable</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/Disposable.html">Disposable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/ForegroundNotificationDelegate.html">ForegroundNotificationDelegate</a>
               </li>
               <li class="nav-group-task">
@@ -176,12 +164,6 @@
                 <a href="Protocols/JSONFetchable.html">JSONFetchable</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/JsonExtractiable.html">JsonExtractiable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/JsonFieldable.html">JsonFieldable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/LocationFindable.html">LocationFindable</a>
               </li>
               <li class="nav-group-task">
@@ -190,9 +172,6 @@
               <li class="nav-group-task">
                 <a href="Protocols/NetworkParameterType.html">NetworkParameterType</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Protocols/TimerProtocol.html">TimerProtocol</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -200,6 +179,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Structs/CurrentDateFetcher.html">CurrentDateFetcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/OrderedDictionary.html">OrderedDictionary</a>
               </li>
             </ul>
           </li>
@@ -242,9 +224,31 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides an easier way to run code on a separate thread, and return the results 
+to the main thread</p>
+
+<pre class="highlight plaintext"><code>//This will execute on another thread
+let async = {() -&gt; TypeToReturnFromWorkerThread in
+    //Fetch the object from the network ext...
+    let myObj = DoSomeStuff()
+    return myObj
+}
+
+AsyncAwait.Await(async) { (someObj: someObj) in
+    //Back on the main thread, after async above ran code on another thread.
+}
+
+</code></pre>
 
                         <a href="Classes/AsyncAwait.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">AsyncAwait</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -301,62 +305,6 @@
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ImageCache</span></code></pre>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C13SpearSwiftLib5Timer"></a>
-                    <a name="//apple_ref/swift/Class/Timer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C13SpearSwiftLib5Timer">Timer</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Simplified timer. TimerProtocol can be used in unit test.</p>
-
-                        <a href="Classes/Timer.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Timer</span> <span class="p">:</span> <span class="kt">TimerProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C13SpearSwiftLib5Event"></a>
-                    <a name="//apple_ref/swift/Class/Event" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C13SpearSwiftLib5Event">Event</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/Event.html" class="slightly-smaller">See more</a>
                       </div>
                     </section>
                   </div>
@@ -471,9 +419,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides a better implementation of NSOperation</p>
+
+<p>Allows finishing the operation by calling done.</p>
+
+<p>This class is meant to be inherited</p>
+
+<pre class="highlight plaintext"><code>
+final class AddLocationOperation: BaseOperation {
+   let location: WeatherLocationType
+
+   init(location: WeatherLocationType) {
+      self.location = location
+   }
+
+   override func main() {
+      //Do our work here. This will execute on another thread, (See NSOperation)
+      let dbLocation = addToLocalDatabase()
+      fetchWeatherForLocation(dbLocation)
+
+      //Done executing code we call done.
+      done()
+    }
+
+}
+
+
+</code></pre>
 
                         <a href="Classes/BaseOperation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">BaseOperation</span> <span class="p">:</span> <span class="kt">NSOperation</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -510,7 +492,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NetworkOperation</span><span class="p">:</span> <span class="kt">JSONFetchable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NetworkOperation</span><span class="p">:</span> <span class="kt"><a href="Protocols/JSONFetchable.html">JSONFetchable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -598,9 +580,47 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Implementation of ForegroundNotifyable</p>
+
+<pre class="highlight swift"><code>
+<span class="kd">private</span> <span class="k">let</span> <span class="nv">foregroundNotification</span><span class="p">:</span> <span class="kt">ForegroundNotifyable</span>
+
+<span class="k">self</span><span class="o">.</span><span class="n">foregroundNotification</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+
+
+<span class="c1">//If this is the Active ViewModel? Is it visible?</span>
+
+<span class="k">var</span> <span class="nv">active</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">{</span>
+    <span class="k">didSet</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">active</span> <span class="p">{</span>
+            <span class="n">foregroundNotification</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">foregroundNotification</span><span class="o">.</span><span class="nf">stop</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="c1">//Receiving the event, we can do what we need to do when the App become active,</span>
+<span class="c1">//like refresh</span>
+
+<span class="kd">extension</span> <span class="kt">SummaryViewModel</span><span class="p">:</span> <span class="kt">ForegroundNotificationDelegate</span> <span class="p">{</span>
+    <span class="n">fun</span> <span class="nf">enteredForeground</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">refresh</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
 
                         <a href="Classes/ForegroundNotification.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ForegroundNotification</span><span class="p">:</span> <span class="kt"><a href="Protocols/ForegroundNotifyable.html">ForegroundNotifyable</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -610,8 +630,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-06-10)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-07-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

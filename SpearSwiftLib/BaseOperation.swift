@@ -8,13 +8,48 @@
 
 import Foundation
 
+/**
+Provides a better implementation of NSOperation
+
+Allows finishing the operation by calling done.
+
+This class is meant to be inherited
+
+```
+
+final class AddLocationOperation: BaseOperation {
+   let location: WeatherLocationType
+
+   init(location: WeatherLocationType) {
+      self.location = location
+   }
+
+   override func main() {
+      //Do our work here. This will execute on another thread, (See NSOperation)
+      let dbLocation = addToLocalDatabase()
+      fetchWeatherForLocation(dbLocation)
+
+	  //Done executing code we call done.
+	  done()
+    }
+
+}
+
+
+```
+
+*/
 public class BaseOperation : NSOperation {
 
     ///Indicates if there was an error executing the operation. Nil if the operation was a
     ///Success or an error otherwise.
     public var error:NSError?
-    
-    override public func start() {
+	
+	/**
+	Override of NSOperation start.
+	Not intended to be overridden in BaseOperation child classes
+	*/
+    final override public func start() {
         if self.cancelled
         {
             self.finished = true
@@ -26,7 +61,7 @@ public class BaseOperation : NSOperation {
         }
     }
     
-    var anyDependencyHasErrors:Bool
+    final var anyDependencyHasErrors:Bool
     {
         for dependency in self.dependencies
         {
@@ -40,15 +75,19 @@ public class BaseOperation : NSOperation {
         }
         return false
     }
-    
-    override public var asynchronous:Bool {
+	
+	/**
+	Always true.
+	Not intended to be overriden
+	*/
+    final override public var asynchronous: Bool {
         return true
     }
     
     private var _executing:Bool = false
     
     private let executingKey = "isExecuting"
-    override public var executing:Bool {
+    final override public var executing:Bool {
         get {
             return _executing
         }
@@ -60,9 +99,12 @@ public class BaseOperation : NSOperation {
     }
     
     private var _finished:Bool = false
-    
     private let finishedKey = "isFinished"
-    override public var finished:Bool {
+	
+	/**
+	True if the operation is finished
+	*/
+    final override public var finished: Bool {
         get {
             return _finished
         }
@@ -75,7 +117,7 @@ public class BaseOperation : NSOperation {
     
     ///Set this operation as being completed. Needs to always be called no matter if the operation
     ///is successful or not
-    public func done() {
+    public final func done() {
         self.executing = false
         self.finished = true
     }
