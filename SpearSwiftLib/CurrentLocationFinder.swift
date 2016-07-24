@@ -61,9 +61,13 @@ public protocol FoundLocationType {
 	var location: CLLocation {get}
 }
 
-struct FoundLocation: FoundLocationType {
+struct FoundLocation: FoundLocationType, CustomStringConvertible {
 	let placemark: CLPlacemark
 	let location: CLLocation
+	
+	var description: String {
+		return "location: \(location) placemark: \(placemark)"
+	}
 }
 
 final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegate {

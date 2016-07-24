@@ -9,12 +9,22 @@
 import Foundation
 
 extension NSLocale {
-  /// Is this device setup for metric
-  public var isMetric:Bool {
-	guard let usesMetric = objectForKey(NSLocaleUsesMetricSystem),
-		metricBool = usesMetric.boolValue else {
-			return false
+	/// Is this device setup for metric
+	public var isMetric: Bool {
+		guard let usesMetric = objectForKey(NSLocaleUsesMetricSystem),
+			metricBool = usesMetric.boolValue else {
+				return false
+		}
+		return metricBool
 	}
-	return metricBool
-  }
+	
+	/**
+	The distance as Miles (mi) or Kilometers (km) for the device settings
+	*/
+	public var distanceAbbreviation: String {
+		return isMetric ? "km" : "mi"
+	}
+	
+	
 }
+

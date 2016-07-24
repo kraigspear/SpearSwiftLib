@@ -173,8 +173,13 @@ public extension NSDate
 		       timeIntervalSinceReferenceDate <= endDate.timeIntervalSinceReferenceDate
 	}
 
-    
-    
-
-    
+	public func numberOfMinutesBetween(otherDate: NSDate) -> Int {
+		let calendarUnit: NSCalendarUnit = [.Minute]
+		let difference = NSCalendar.currentCalendar().components(calendarUnit, fromDate: self, toDate: otherDate, options: [])
+		return difference.minute
+	}
+	
+	public func numberOfMinutesBetweenNow() -> Int {
+		return numberOfMinutesBetween(NSDate())
+	}
 }

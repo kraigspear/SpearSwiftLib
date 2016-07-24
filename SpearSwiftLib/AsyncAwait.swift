@@ -40,11 +40,21 @@ public final class AsyncAwait
 	*/
 	public static func Await<T>(asyncOn:() -> T, awaitOn:(T) -> Void)
 	{
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+		AsyncAwait.Await(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), asyncOn: asyncOn, awaitOn: awaitOn)
+	}
+	
+	public static func Await<T>(que: dispatch_queue_t, asyncOn:() -> T, awaitOn:(T) -> Void) {
+		dispatch_async(que) {
 			let obj = asyncOn()
 			dispatch_async(dispatch_get_main_queue()) {
 				awaitOn(obj)
 			}
+		}
+	}
+	
+	public static func OnMain(onMain: () -> Void) {
+		dispatch_async(dispatch_get_main_queue()) {
+			onMain()
 		}
 	}
 }

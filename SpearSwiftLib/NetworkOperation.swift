@@ -164,40 +164,9 @@ extension NetworkOperation {
 }
 
 public protocol NetworkParameterType {
-	func addParam(key: String, value: String)
+	mutating func addParam(key: String, value: String) -> NetworkParameterType
 	func stringFromQueryParameters() -> String
 	func NSURLByAppendingQueryParameters(url: NSURL) -> NSURL
-}
-
-class NetworkParameters: NetworkParameterType {
-	private var params: [String:String] = [:]
-	
-	func addParam(key: String, value: String) {
-		params[key] = value
-	}
-	
-	func stringFromQueryParameters() -> String {
-		var parts: [String] = []
-		
-		for (name, value) in params {
-			
-			let nameStr = name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-			
-			let valueStr = value.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-			
-			let part = NSString(format: "%@=%@",
-			                    nameStr,
-			                    valueStr)
-			parts.append(part as String)
-		}
-		
-		return parts.joinWithSeparator("&")
-	}
-	
-	func NSURLByAppendingQueryParameters(url: NSURL) -> NSURL {
-		let URLString: NSString = NSString(format: "%@?%@", url.absoluteString, stringFromQueryParameters())
-		return NSURL(string: URLString as String)!
-	}
 }
 
 public class RequestHeaders {
@@ -245,7 +214,7 @@ public final class NetworkOperation: JSONFetchable {
 	private var method: Method = .GET
 	public var fetchError: FetchError = FetchError.None
 	
-	public let parameters: NetworkParameterType = NetworkParameters()
+	public var parameters: NetworkParameterType = NetworkParameters()
 	public let body: RequestBody = RequestBody()
 	public let headers = RequestHeaders()
 	

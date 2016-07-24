@@ -26,7 +26,7 @@ class SpearSwiftLibTests: XCTestCase
     
     func testNetworkOperation()
     {
-      let networkOperation = NetworkOperation(urlStr: "http://forecast.weather.gov/MapClick.php")
+      var networkOperation = NetworkOperation(urlStr: "http://forecast.weather.gov/MapClick.php")
 		
       networkOperation.parameters.addParam("lat", value: "42.9612")
       networkOperation.parameters.addParam("lon", value: "-85.6557")
