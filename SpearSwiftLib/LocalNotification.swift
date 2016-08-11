@@ -11,7 +11,7 @@ import Foundation
 public protocol LocationNotificationProtocol {
     var body:String? {get set}
     var action:String? {get set}
-    var date:NSDate? {get set}
+    var date:Date? {get set}
     var category:String? {get set}
     func schedule()
     func register()
@@ -20,7 +20,7 @@ public protocol LocationNotificationProtocol {
 public class LocationNotificationMock : LocationNotificationProtocol {
     public var body:String?
     public var action:String?
-    public var date:NSDate?
+    public var date:Date?
     public var category:String?
 
     var scheduled:Int = 0
@@ -38,7 +38,7 @@ public class LocalNotification : LocationNotificationProtocol {
     
     public var body:String?
     public var action:String?
-    public var date:NSDate?
+    public var date:Date?
     public var category:String?
     
     public init() {}
@@ -49,12 +49,12 @@ public class LocalNotification : LocationNotificationProtocol {
         notification.alertAction = action
         notification.fireDate = date
         notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        UIApplication.shared.scheduleLocalNotification(notification)
     }
     
     public func register() {
-        let types:UIUserNotificationType = ([UIUserNotificationType.Alert, UIUserNotificationType.Badge,  UIUserNotificationType.Sound])
-        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        let types:UIUserNotificationType = ([UIUserNotificationType.alert, UIUserNotificationType.badge,  UIUserNotificationType.sound])
+        let settings = UIUserNotificationSettings(types: types, categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
     }
 }

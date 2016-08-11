@@ -22,7 +22,6 @@
 		A942A98C1A9F251800C69271 /* SpearSwiftLib.h in Headers */ = {isa = PBXBuildFile; fileRef = A942A98B1A9F251800C69271 /* SpearSwiftLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A942A9921A9F251900C69271 /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
 		A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */; };
-		A942A9A31A9F252F00C69271 /* Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942A9A21A9F252F00C69271 /* Shuffle.swift */; };
 		A95F04F41D3C17B2001DE4EF /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04ED1D3C17B2001DE4EF /* AES256CBC.swift */; };
 		A95F04F51D3C17B2001DE4EF /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04EE1D3C17B2001DE4EF /* BaseDestination.swift */; };
 		A95F04F61D3C17B2001DE4EF /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04EF1D3C17B2001DE4EF /* ConsoleDestination.swift */; };
@@ -42,7 +41,8 @@
 		A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */; };
 		A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */; };
 		A9B6DA321BFB29490033CB85 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA311BFB29490033CB85 /* ArrayTest.swift */; };
-		A9C0964C1D45305A00E39778 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0964B1D45305A00E39778 /* MKMapViewExtensions.swift */; };
+		A9C0964F1D475EE500E39778 /* MKCoordinateRegionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */; };
+		A9CF4FF31D4B547E006EB51B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */; };
 		A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */; };
 		A9D9CE4D1C472D6C00D39DE3 /* SpearSwiftLibOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */; };
@@ -81,7 +81,6 @@
 		A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942A9971A9F251900C69271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpearSwiftLibTests.swift; sourceTree = "<group>"; };
-		A942A9A21A9F252F00C69271 /* Shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shuffle.swift; sourceTree = "<group>"; };
 		A95F04ED1D3C17B2001DE4EF /* AES256CBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AES256CBC.swift; sourceTree = "<group>"; };
 		A95F04EE1D3C17B2001DE4EF /* BaseDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDestination.swift; sourceTree = "<group>"; };
 		A95F04EF1D3C17B2001DE4EF /* ConsoleDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleDestination.swift; sourceTree = "<group>"; };
@@ -99,7 +98,8 @@
 		A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		A9B6DA311BFB29490033CB85 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
-		A9C0964B1D45305A00E39778 /* MKMapViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtensions.swift; sourceTree = "<group>"; };
+		A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCoordinateRegionExtensions.swift; sourceTree = "<group>"; };
+		A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
@@ -149,7 +149,8 @@
 				A93FB8921B3244FE0017E3E9 /* StringExtensions.swift */,
 				A9232F8E1C2D669C00232118 /* NumberExtensions.swift */,
 				A962FB8E1C8AE70200B66192 /* NavigationBarExtensions.swift */,
-				A9C0964B1D45305A00E39778 /* MKMapViewExtensions.swift */,
+				A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */,
+				A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -191,7 +192,6 @@
 				A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */,
 				A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */,
 				A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */,
-				A942A9A21A9F252F00C69271 /* Shuffle.swift */,
 				A942A98B1A9F251800C69271 /* SpearSwiftLib.h */,
 				A93479581BDF75770069B2BC /* StringBuilder.swift */,
 				A942A9891A9F251800C69271 /* Supporting Files */,
@@ -345,14 +345,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = spearware;
 				TargetAttributes = {
 					A942A9851A9F251800C69271 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 					A942A9901A9F251900C69271 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 					A9D9CE491C472D6C00D39DE3 = {
 						CreatedOnToolsVersion = 7.2;
@@ -407,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C0964F1D475EE500E39778 /* MKCoordinateRegionExtensions.swift in Sources */,
 				A95F04F91D3C17B2001DE4EF /* SBPlatformDestination.swift in Sources */,
 				A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */,
 				A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */,
@@ -428,9 +431,7 @@
 				A95F04F61D3C17B2001DE4EF /* ConsoleDestination.swift in Sources */,
 				A95F04F41D3C17B2001DE4EF /* AES256CBC.swift in Sources */,
 				A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */,
-				A9C0964C1D45305A00E39778 /* MKMapViewExtensions.swift in Sources */,
 				A95F04F51D3C17B2001DE4EF /* BaseDestination.swift in Sources */,
-				A942A9A31A9F252F00C69271 /* Shuffle.swift in Sources */,
 				A95F04F81D3C17B2001DE4EF /* Filter.swift in Sources */,
 				A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */,
 				A92CC47E1B3BF55500593257 /* LocalExtensions.swift in Sources */,
@@ -439,6 +440,7 @@
 				A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */,
 				A95F04F71D3C17B2001DE4EF /* FileDestination.swift in Sources */,
 				A927F5AC1CC62893009A025E /* ForegroundNotification.swift in Sources */,
+				A9CF4FF31D4B547E006EB51B /* UIImageExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,8 +490,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -499,6 +503,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -511,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -535,8 +540,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -545,13 +552,14 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -577,6 +585,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -595,6 +604,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -613,6 +624,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -627,6 +639,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -676,6 +690,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTSFOLDERPATH)/Headers";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};

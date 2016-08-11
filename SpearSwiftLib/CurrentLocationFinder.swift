@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public enum LocationFindableError: ErrorType {
+public enum LocationFindableError: Error {
 	case permissions
 	case notEnabled
 	case notAuthorized(status: CLAuthorizationStatus)
@@ -24,7 +24,7 @@ public protocol LocationFindable {
 	func find()
 }
 
-public enum LocationFinderBuilderError: ErrorType {
+public enum LocationFinderBuilderError: Error {
 	case missingSuccess
 	case missingFailure
 }
@@ -114,7 +114,7 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 		
 		initManager()
 		
-		if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+		if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
 			requestedLocation = true
 			locationManager!.requestLocation()
 		} else {
@@ -125,7 +125,7 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 	
 	//MARK: - CLLocationManagerDelegate
 	
-	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		print("didUpdateLocations")
 		if let location = locations.first {
 			reverseGeocode(location)
@@ -134,27 +134,28 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 		}
 	}
 	
-	func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		failure(error: .locationManagerError(error: error))
 	}
 	
-	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+	
+	
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		
 		if requestedLocation {
 			return
 		}
 		
 		switch status {
-		case .Denied:
+		case .denied:
 			failure(error: .notAuthorized(status: status))
-		case .AuthorizedAlways, .AuthorizedWhenInUse, .NotDetermined, .Restricted:
+		case .authorizedAlways, .authorizedWhenInUse, .notDetermined, .restricted:
 			find()
 		}
 	}
 	
-	private func reverseGeocode(location: CLLocation) {
-		
-		let complete: CLGeocodeCompletionHandler = {[weak self] (placemarks: [CLPlacemark]?, error: NSError?) in
+	private func reverseGeocode(_ location: CLLocation) {
+		let complete: CLGeocodeCompletionHandler = {[weak self] (placemarks: [CLPlacemark]?, error: Error?) in
 			if let error = error {
 				self?.failure(error: LocationFindableError.geocodeError(error: error))
 				return

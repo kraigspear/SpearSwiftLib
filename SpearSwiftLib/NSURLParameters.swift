@@ -9,35 +9,44 @@
 import Foundation
 
 public struct NetworkParameters: NetworkParameterType {
-	private var params: [String:String] = [:]
+	
+	private var keys: [String] = []
+	private var values: [String] = []
 	
 	public init() {}
 	
-	public mutating func addParam(key: String, value: String) -> NetworkParameterType {
-		params[key] = value
+	public mutating func addParam(_ key: String, value: String) -> NetworkParameterType {
+		assert(keys.count == values.count)
+		keys.append(key)
+		values.append(value)
+		assert(keys.count == values.count)
 		return self
 	}
 	
 	public func stringFromQueryParameters() -> String {
 		var parts: [String] = []
 		
-		for (name, value) in params {
+		assert(keys.count == values.count)
+		
+		for i in 0..<keys.count {
+			let key = keys[i]
+			let value = values[i]
 			
-			let nameStr = name.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-			
-			let valueStr = value.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+			let nameStr = key.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+			let valueStr = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 			
 			let part = NSString(format: "%@=%@",
 			                    nameStr,
 			                    valueStr)
 			parts.append(part as String)
+			
 		}
 		
-		return parts.joinWithSeparator("&")
+		return parts.joined(separator: "&")
 	}
 	
-	public func NSURLByAppendingQueryParameters(url: NSURL) -> NSURL {
+	public func NSURLByAppendingQueryParameters(_ url: URL) -> URL {
 		let URLString: NSString = NSString(format: "%@?%@", url.absoluteString, stringFromQueryParameters())
-		return NSURL(string: URLString as String)!
+		return URL(string: URLString as String)!
 	}
 }

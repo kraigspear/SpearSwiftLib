@@ -45,7 +45,7 @@ public class StringBuilder {
     ///
     /// - Parameter otherString: The string to add to this StringBuilder
     ///
-    public func append(otherStr:String) -> StringBuilder {
+    public func append(_ otherStr:String) -> StringBuilder {
         strings.append(otherStr)
         return self
     }

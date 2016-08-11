@@ -13,14 +13,19 @@ public class ConsoleDestination: BaseDestination {
 
     public var useNSLog = false
 
-    override public var defaultHashValue: Int {return 1}
+    override public var defaultHashValue: Int { return 1 }
+    override public var colored: Bool {
+        // in Xcode 8 no color is possible so it is always false
+        get { return false }
+        set {}
+    }
 
     public override init() {
         super.init()
     }
 
     // print to Xcode Console. uses full base class functionality
-    override public func send(level: SwiftyBeaver.Level, msg: String, thread: String,
+    override public func send(_ level: SwiftyBeaver.Level, msg: String, thread: String,
         path: String, function: String, line: Int) -> String? {
         let formattedString = super.send(level, msg: msg, thread: thread, path: path, function: function, line: line)
 
@@ -33,4 +38,5 @@ public class ConsoleDestination: BaseDestination {
         }
         return formattedString
     }
+
 }

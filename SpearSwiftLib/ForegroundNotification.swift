@@ -69,7 +69,7 @@ public protocol ForegroundNotifyable: class {
 	im
 	- parameter notification: NSNotification for the Foreground notification
 	*/
-	func foregroundNotification(notification: NSNotification)
+	func foregroundNotification(_ notification: Notification)
 	/**
 	Start listening for notifications
 	*/
@@ -140,17 +140,17 @@ public final class ForegroundNotification: ForegroundNotifyable {
 		guard listening else {
 			return
 		}
-		NSNotificationCenter.defaultCenter().removeObserver(self)
+		NotificationCenter.default.removeObserver(self)
 		listening = false
 	}
 	
 	private func initNotification() {
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ForegroundNotification.foregroundNotification(_:)), name:
-			UIApplicationWillEnterForegroundNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(ForegroundNotification.foregroundNotification(_:)), name:
+			NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
 		listening = true
 	}
 	
-	@objc public func foregroundNotification(notification: NSNotification) {
+	@objc public func foregroundNotification(_ notification: Notification) {
 		delegate?.enteredForeground()
 	}
 	

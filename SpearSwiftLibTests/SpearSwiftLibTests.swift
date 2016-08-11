@@ -32,7 +32,7 @@ class SpearSwiftLibTests: XCTestCase
       networkOperation.parameters.addParam("lon", value: "-85.6557")
       networkOperation.parameters.addParam("FcstType", value: "json")
       
-      let readyExpectation = expectationWithDescription("ready")
+      let readyExpectation = expectation(description: "ready")
 
       networkOperation.fetchJSON({ (dictionary) -> Void in
         
@@ -44,7 +44,7 @@ class SpearSwiftLibTests: XCTestCase
           readyExpectation.fulfill()
         }
       
-      waitForExpectationsWithTimeout(10) { (error) -> Void in
+      waitForExpectations(timeout: 10) { (error) -> Void in
         XCTAssertNil(error, "Error")
       }
       
@@ -53,16 +53,16 @@ class SpearSwiftLibTests: XCTestCase
     
     func testAddDay()
     {
-        let date = NSDate(timeIntervalSince1970: 1444441866) //Oct 9, 2015
+        let date = Date(timeIntervalSince1970: 1444441866) //Oct 9, 2015
         let dayPlus1 = date.addDays(1)
-        let day = NSCalendar.currentCalendar().component(NSCalendarUnit.Day, fromDate: dayPlus1)
+		let day = Calendar.current.component(Calendar.Component.day, from: dayPlus1)
         XCTAssertEqual(10, day)
     }
     
     func testIsSameDay()
     {
-        let date1 = NSDate()
-        let date2 = NSDate()
+        let date1 = Date()
+        let date2 = Date()
         
         XCTAssertTrue(date1.isSameDay(date2))
         
@@ -73,7 +73,7 @@ class SpearSwiftLibTests: XCTestCase
     
     func testSubtractDates()
     {
-        let date1 = NSDate()
+        let date1 = Date()
         let date2 = date1.addDays(2)
         
         let diff = date1.subtractDate(date2)
@@ -84,7 +84,7 @@ class SpearSwiftLibTests: XCTestCase
     
     func testSubtractDateOperator()
     {
-        let date1 = NSDate()
+        let date1 = Date()
         let date2 = date1.addDays(4)
         
         let diff = date1 - date2
@@ -93,7 +93,7 @@ class SpearSwiftLibTests: XCTestCase
     }
     
     func testDateComponets() {
-        let date = NSDate(timeIntervalSince1970: 1444441866) //Oct 9, 2015
+        let date = Date(timeIntervalSince1970: 1444441866) //Oct 9, 2015
         let mdy = date.toMonthDayYear()
         XCTAssertEqual(10, mdy.month)
         XCTAssertEqual(9, mdy.day)

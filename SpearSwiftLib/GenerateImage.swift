@@ -11,12 +11,12 @@ import UIKit
 public typealias GenerateImage = (rect: CGRect) -> UIImage?
 
 public protocol ImageRequestable {
-	func imageForSize(size: CGSize) -> (image: UIImage?, refreshed: Bool)
+	func imageForSize(_ size: CGSize) -> (image: UIImage?, refreshed: Bool)
 }
 
 public class RequestImage: ImageRequestable {
 	
-	private var size: CGSize = CGSizeZero
+	private var size: CGSize = CGSize.zero
 	private var image: UIImage?
 	private let generateImage: GenerateImage
 	
@@ -24,16 +24,16 @@ public class RequestImage: ImageRequestable {
 		self.generateImage = generateImage
 	}
 	
-	public func imageForSize(size: CGSize) -> (image: UIImage?, refreshed: Bool) {
+	public func imageForSize(_ size: CGSize) -> (image: UIImage?, refreshed: Bool) {
 		
 		if let image = self.image {
-			if CGSizeEqualToSize(size, self.size) {
+			if size.equalTo(self.size) {
 				print("same size not refreshing")
 				return (image: image, refreshed: false)
 			}
 		}
 		
-		let rect = CGRectMake(0, 0, size.width, size.height)
+		let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 		self.size = size
 		
 		let generated = generateImage(rect: rect)

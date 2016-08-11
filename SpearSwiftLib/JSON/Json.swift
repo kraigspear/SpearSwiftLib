@@ -8,12 +8,12 @@
 
 import Foundation
 
-public enum ConvertError: ErrorType {
-	case InvalidConversion
+public enum ConvertError: Error {
+	case invalidConversion
 }
 
-public extension Dictionary where Key: StringLiteralConvertible, Value: AnyObject {
-	func toInt(key: Key) throws -> Int {
+public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObject {
+	func toInt(_ key: Key) throws -> Int {
 		
 		if let intVal = self[key] as? Int {
 			return intVal
@@ -28,10 +28,10 @@ public extension Dictionary where Key: StringLiteralConvertible, Value: AnyObjec
 			return Int(dblValue)
 		}
 		
-		throw ConvertError.InvalidConversion
+		throw ConvertError.invalidConversion
 	}
 	
-	func toFloat(key: Key) throws -> Float {
+	func toFloat(_ key: Key) throws -> Float {
 		if let floatVal = self[key] as? Float {
 			return floatVal
 		}
@@ -42,10 +42,10 @@ public extension Dictionary where Key: StringLiteralConvertible, Value: AnyObjec
 			return floatVal
 		}
 		
-		throw ConvertError.InvalidConversion
+		throw ConvertError.invalidConversion
 	}
 	
-	func toDouble(key: Key) throws -> Double {
+	func toDouble(_ key: Key) throws -> Double {
 		if let dblValue = self[key] as? Double {
 			return dblValue
 		}
@@ -56,19 +56,19 @@ public extension Dictionary where Key: StringLiteralConvertible, Value: AnyObjec
 			return dblValue
 		}
 		
-		throw ConvertError.InvalidConversion
+		throw ConvertError.invalidConversion
 	}
 	
-	func toString(key: Key) throws -> String {
+	func toString(_ key: Key) throws -> String {
 		guard let strVal = self[key] as? String else {
-			throw ConvertError.InvalidConversion
+			throw ConvertError.invalidConversion
 		}
 		return strVal
 	}
 	
-	func toDate(key: Key) throws -> NSDate {
+	func toDate(_ key: Key) throws -> Date {
 		let dblDate = try! toDouble(key)
-		return NSDate(timeIntervalSince1970: dblDate)
+		return Date(timeIntervalSince1970: dblDate)
 	}
 	
 }

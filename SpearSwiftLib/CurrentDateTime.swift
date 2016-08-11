@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol CurrentDateFetchable {
-	func currentDateTime() -> NSDate
+	func currentDateTime() -> Date
 }
 
 public struct CurrentDateFetcher: CurrentDateFetchable {
@@ -18,8 +18,8 @@ public struct CurrentDateFetcher: CurrentDateFetchable {
 		
 	}
 	
-	public func currentDateTime() -> NSDate {
-		return NSDate()
+	public func currentDateTime() -> Date {
+		return Date()
 	}
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias ImageBlock = ( (image:UIImage?) -> Void)?
+public typealias ImageBlock = ( (image:UIImage?) -> Void)
 public typealias ImagesBlock = ( (image:[UIImage]) -> Void)?
 
 /**
@@ -19,11 +19,11 @@ public final class ImageCache
 	/// One shared instance
 	public static let sharedInstance = ImageCache()
 	
-	private let memoryCache: NSCache
+	private let memoryCache: NSCache<AnyObject, AnyObject>
 	
 	private init()
 	{
-		memoryCache = NSCache()
+		memoryCache = NSCache<AnyObject, AnyObject>()
 	}
 	
  /**
@@ -32,17 +32,16 @@ public final class ImageCache
  - parameter urlStrs: Array of URL's to download
  - parameter completed: Called when all of the images have been fetched
  */
-	public func fetchImages(urlStrs: [String], completed: ImagesBlock)
+	public func fetchImages(_ urlStrs: [String], completed: ImagesBlock)
 	{
 		if let unwrapCompleted = completed
 		{
-			let que = dispatch_queue_create(
-				"com.st.imageque", DISPATCH_QUEUE_CONCURRENT)
+			let que = DispatchQueue(
+				label: "com.sw.imageque")
 			
 			var images:[UIImage] = [UIImage]()
 			
-			dispatch_async(que,
-			               {
+			que.async(execute: {
 							for urlStr in urlStrs
 							{
 								if let image = self.fetchImage(urlStr)
@@ -51,7 +50,7 @@ public final class ImageCache
 								}
 							}
 							
-							dispatch_async(dispatch_get_main_queue())
+							DispatchQueue.main.async
 							{
 								unwrapCompleted(image: images)
 							}
@@ -66,7 +65,7 @@ public final class ImageCache
 	 - parameter ulrStr: URL of the image to fetch
 	 - returns: The image, or nil if it can't be loaded
 	*/
-	public func fetchImage(ulrStr: String) -> UIImage?
+	public func fetchImage(_ ulrStr: String) -> UIImage?
 	{
 		if let fromMemory = self.fetchFromMemory(ulrStr)
 		{
@@ -86,12 +85,12 @@ public final class ImageCache
 		}
 	}
 	
-	private func fetchFromMemory(urlStr: String) -> UIImage?
+	private func fetchFromMemory(_ urlStr: String) -> UIImage?
 	{
-		return self.memoryCache.objectForKey(urlStr) as? UIImage
+		return self.memoryCache.object(forKey: urlStr) as? UIImage
 	}
 	
-	private func fetchFromDisk(urlStr: String) -> UIImage?
+	private func fetchFromDisk(_ urlStr: String) -> UIImage?
 	{
 		let fileNameCache = self.fileNameFromCache(urlStr)
 		
@@ -106,18 +105,18 @@ public final class ImageCache
 		return nil
 	}
 	
-	private func fetchFromUrl(urlStr: String) -> UIImage?
+	private func fetchFromUrl(_ urlStr: String) -> UIImage?
 	{
 		let fileNameCache = self.fileNameFromCache(urlStr)
 		
-		if let url = NSURL(string: urlStr)
+		if let url = URL(string: urlStr)
 		{
-			if let imageData = NSData(contentsOfURL: url)
+			if let imageData = try? Data(contentsOf: url)
 			{
 				if let imageFromURL = UIImage(data: imageData)
 				{
 					self.memoryCache.setObject(imageFromURL, forKey: self.fileForUrl(urlStr))
-					imageData.writeToFile(fileNameCache, atomically: true)
+					try? imageData.write(to: URL(fileURLWithPath: fileNameCache))
 					return imageFromURL
 				}
 			}
@@ -130,29 +129,23 @@ public final class ImageCache
 	All loading is done on a separate thread, so the caller doesn't have to worry about creating one.
 	The callback (completed) is done back on the main thread.
 	
-	- parameter urlStr:    A url string where the file can be downloaded
+	- parameter fromUrl:   A url string where the file can be downloaded
 	- parameter completed: Called with a valid image or nil, if the file can't be loaded
 	*/
-	public func fetchImage(urlStr: String, completed:ImageBlock)
+	public func fetchImage(fromUrl: String, completed: ImageBlock)
 	{
-		if let unwrapCompleted = completed
-		{
-			dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) { () -> Void in
-				
-				if let image = self.fetchImage(urlStr)
-				{
-					dispatch_async(dispatch_get_main_queue())
-					{
-						unwrapCompleted(image:image)
+		DispatchQueue.global().async {[weak self] in
+			if let this = self {
+				if let image = this.fetchImage(fromUrl) {
+					DispatchQueue.main.async {
+						completed(image: image)
 					}
 				}
 				else
 				{
 					//Not able to load the image.
-					dispatch_async(dispatch_get_main_queue())
-					{
-						print("failed to load image \(urlStr)")
-						unwrapCompleted(image: nil)
+					DispatchQueue.main.async {
+						completed(image: nil)
 					}
 				}
 			}
@@ -166,9 +159,9 @@ public final class ImageCache
 	
 	:returns: true if this file is in the cache
 	*/
-	private func fileExistInCacheDirectory(urlStr: String) -> Bool
+	private func fileExistInCacheDirectory(_ urlStr: String) -> Bool
 	{
-		return NSFileManager.defaultManager().fileExistsAtPath(fileNameFromCache(urlStr))
+		return FileManager.default.fileExists(atPath: fileNameFromCache(urlStr))
 	}
 	
 	/**
@@ -178,7 +171,7 @@ public final class ImageCache
 	
 	:returns: File name where this file for the URL is stored
 	*/
-	private func fileNameFromCache(urlStr:String) -> String
+	private func fileNameFromCache(_ urlStr:String) -> String
 	{
 		let fileName = fileForUrl(urlStr)
 		let cachDirFileName = cacheDirectoryAppendFileName(fileName) as String
@@ -192,7 +185,7 @@ public final class ImageCache
 	
 	:returns: Filename for this URL
 	*/
-	private func fileForUrl(urlStr:String) -> String
+	private func fileForUrl(_ urlStr:String) -> String
 	{
 		let urlStr = urlStr as NSString
 		return urlStr.lastPathComponent
@@ -205,15 +198,15 @@ public final class ImageCache
 	
 	:returns: File and the cache path
 	*/
-	private func cacheDirectoryAppendFileName(fileName:String) -> NSString
+	private func cacheDirectoryAppendFileName(_ fileName:String) -> NSString
 	{
-		return self.cacheDirectory.stringByAppendingPathExtension(fileName)!
+		return self.cacheDirectory.appendingPathExtension(fileName)!
 	}
 	
 	/// The location of the cache directory
 	private lazy var cacheDirectory: NSString =
   {
-	let cacheDirectory = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as NSString
+	let cacheDirectory = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] as NSString
 	
 	return cacheDirectory
 	}()

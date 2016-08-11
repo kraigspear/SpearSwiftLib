@@ -34,7 +34,7 @@ class StringBuilderTest: XCTestCase {
         
         let builtString = sb.build()
         
-        let parts = builtString.componentsSeparatedByString(deliminter)
+        let parts = builtString.components(separatedBy: deliminter)
         XCTAssertEqual(2, parts.count)
         XCTAssertEqual(firstStr, parts[0])
         XCTAssertEqual(secondStr, parts[1])
@@ -65,7 +65,7 @@ class StringBuilderTest: XCTestCase {
         XCTAssertEqual(2, sb.numberOfStrings)
         
         let builtString = sb.build()
-        let lastChar = builtString[builtString.endIndex.advancedBy(-1)]
+        let lastChar = builtString[builtString.characters.index(builtString.endIndex, offsetBy: -1)]
         XCTAssertFalse(lastChar == "\t")
     }
 

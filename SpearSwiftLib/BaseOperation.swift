@@ -39,7 +39,7 @@ final class AddLocationOperation: BaseOperation {
 ```
 
 */
-public class BaseOperation : NSOperation {
+public class BaseOperation : Operation {
 
     ///Indicates if there was an error executing the operation. Nil if the operation was a
     ///Success or an error otherwise.
@@ -50,13 +50,13 @@ public class BaseOperation : NSOperation {
 	Not intended to be overridden in BaseOperation child classes
 	*/
     final override public func start() {
-        if self.cancelled
+        if self.isCancelled
         {
-            self.finished = true
+            self.isFinished = true
         }
         else
         {
-            self.executing = true
+            self.isExecuting = true
             self.main()
         }
     }
@@ -80,21 +80,21 @@ public class BaseOperation : NSOperation {
 	Always true.
 	Not intended to be overriden
 	*/
-    final override public var asynchronous: Bool {
+    final override public var isAsynchronous: Bool {
         return true
     }
     
     private var _executing:Bool = false
     
     private let executingKey = "isExecuting"
-    final override public var executing:Bool {
+    final override public var isExecuting:Bool {
         get {
             return _executing
         }
         set {
-            self.willChangeValueForKey(executingKey)
+            self.willChangeValue(forKey: executingKey)
             _executing = newValue
-            self.didChangeValueForKey(executingKey)
+            self.didChangeValue(forKey: executingKey)
         }
     }
     
@@ -104,22 +104,22 @@ public class BaseOperation : NSOperation {
 	/**
 	True if the operation is finished
 	*/
-    final override public var finished: Bool {
+    final override public var isFinished: Bool {
         get {
             return _finished
         }
         set {
-            self.willChangeValueForKey(finishedKey)
+            self.willChangeValue(forKey: finishedKey)
             _finished = newValue
-            self.didChangeValueForKey(finishedKey)
+            self.didChangeValue(forKey: finishedKey)
         }
     }
     
     ///Set this operation as being completed. Needs to always be called no matter if the operation
     ///is successful or not
     public final func done() {
-        self.executing = false
-        self.finished = true
+        self.isExecuting = false
+        self.isFinished = true
     }
     
 }

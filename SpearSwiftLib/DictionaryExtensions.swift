@@ -8,14 +8,14 @@
 
 import Foundation
 
-public enum DictionaryConvertError : ErrorType {
-    case MissingKey
-    case ConversionError
+public enum DictionaryConvertError : Error {
+    case missingKey
+    case conversionError
 }
 
 public extension Dictionary   {
     
-    public func toFloat(key:Key) -> Float? {
+    public func toFloat(_ key:Key) -> Float? {
         
         if let valStr = self[key] as? String {
             return Float(valStr)
@@ -27,7 +27,7 @@ public extension Dictionary   {
     }
     
     
-    public func toDouble(key:Key) -> Double? {
+    public func toDouble(_ key:Key) -> Double? {
         
         if let valStr = self[key] as? String {
             return Double(valStr)
@@ -38,19 +38,19 @@ public extension Dictionary   {
         }
     }
     
-    public func toDate(key:Key) -> NSDate? {
+    public func toDate(_ key:Key) -> Date? {
         
         if let dblValue:Double = self.toDouble(key) {
-            return NSDate(timeIntervalSince1970: dblValue)
+            return Date(timeIntervalSince1970: dblValue)
         } else {
             return nil
         }
     }
 
-    public func unwrappedValue(key:Key) throws -> Value {
+    public func unwrappedValue(_ key:Key) throws -> Value {
 
         guard let value = self[key] else {
-            throw DictionaryConvertError.MissingKey
+            throw DictionaryConvertError.missingKey
         }
 
         return value
@@ -62,7 +62,7 @@ public extension Dictionary   {
      - Returns: Converted Int
      - Throws: DictionaryConvertError.ConversionError if the value can't be converted to a Int
      */
-    public func toInt(key:Key) throws -> Int {
+    public func toInt(_ key:Key) throws -> Int {
 
         let value = try self.unwrappedValue(key)
 
@@ -71,35 +71,35 @@ public extension Dictionary   {
             if let intVal = Int(valStr) {
                 return intVal
             } else {
-                throw DictionaryConvertError.ConversionError
+                throw DictionaryConvertError.conversionError
             }
             
         } else if let valNum = value as? NSNumber {
-            return valNum.integerValue
+            return valNum.intValue
         } else {
             return 0
         }
 
     }
     
-    public func toDate(key:Key) throws -> NSDate {
+    public func toDate(_ key:Key) throws -> Date {
         let value = try self.unwrappedValue(key)
         
-        if let dateVal = value as? NSDate {
+        if let dateVal = value as? Date {
             return dateVal
         }
         
         let dblValue:Double = try self.toDouble(key)
         
-        return NSDate(timeIntervalSince1970: dblValue)
+        return Date(timeIntervalSince1970: dblValue)
     }
     
-    public func toString(key:Key) throws -> String {
+    public func toString(_ key:Key) throws -> String {
         let value = try self.unwrappedValue(key)
         if let strValue = value as? String {
             return strValue
         }
-        throw DictionaryConvertError.ConversionError
+        throw DictionaryConvertError.conversionError
     }
     
     /**
@@ -108,10 +108,10 @@ public extension Dictionary   {
      - Returns: Converted Bool
      - Throws: DictionaryConvertError.ConversionError if the value can't be converted to a bool
      */
-    public func toBool(key:Key) throws -> Bool {
+    public func toBool(_ key:Key) throws -> Bool {
         
         guard let value = try self.unwrappedValue(key) as? NSNumber else {
-            throw DictionaryConvertError.ConversionError
+            throw DictionaryConvertError.conversionError
         }
         
         return value.boolValue
@@ -123,7 +123,7 @@ public extension Dictionary   {
      - Returns: Converted float
      - Throws: DictionaryConvertError.ConversionError if the value can't be converted to a float
     */
-    public func toFloat(key:Key) throws -> Float {
+    public func toFloat(_ key:Key) throws -> Float {
         
         let value = try self.unwrappedValue(key)
        
@@ -132,7 +132,7 @@ public extension Dictionary   {
             if let floatVal = Float(valStr) {
                 return floatVal
             } else {
-                throw DictionaryConvertError.ConversionError
+                throw DictionaryConvertError.conversionError
             }
             
         } else if let valNum = value as? NSNumber {
@@ -143,7 +143,7 @@ public extension Dictionary   {
         
     }
     
-    public func toDouble(key:Key) throws -> Double {
+    public func toDouble(_ key:Key) throws -> Double {
         
         let value = try self.unwrappedValue(key)
         
@@ -152,7 +152,7 @@ public extension Dictionary   {
             if let dblValue = Double(valStr) {
                 return dblValue
             } else {
-                throw DictionaryConvertError.ConversionError
+                throw DictionaryConvertError.conversionError
             }
             
         } else if let valNum = value as? NSNumber {
@@ -163,12 +163,12 @@ public extension Dictionary   {
         
     }
 
-    public func toInt(key:Key) -> Int? {
+    public func toInt(_ key:Key) -> Int? {
 
         if let valStr = self[key] as? String {
             return Int(valStr)
         } else if let valNum = self[key] as? NSNumber {
-            return valNum.integerValue
+            return valNum.intValue
         } else {
             return nil
         }

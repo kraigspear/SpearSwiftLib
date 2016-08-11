@@ -13,9 +13,9 @@ extension UIScrollView {
     Scroll this ScrollView to the bottom
     :param: animated Animate the scroll
     */
-    public func scrollToBottom(animated:Bool = false) {
+    public func scrollToBottom(_ animated:Bool = false) {
         self.layoutIfNeeded()
-        let bottomOffset = CGPointMake(0, self.contentSize.height - bounds.size.height)
+        let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - bounds.size.height)
         self.setContentOffset(bottomOffset, animated: animated)
     }
 }

@@ -8,14 +8,10 @@
 
 import Foundation
 
-extension NSLocale {
+extension Locale {
 	/// Is this device setup for metric
 	public var isMetric: Bool {
-		guard let usesMetric = objectForKey(NSLocaleUsesMetricSystem),
-			metricBool = usesMetric.boolValue else {
-				return false
-		}
-		return metricBool
+		return usesMetricSystem
 	}
 	
 	/**

@@ -18,7 +18,7 @@ public struct OrderedDictionary<KeyType: Hashable, ValueType> {
 	
 	public init() {}
 	
-	public mutating func insert(value: ValueType, key: KeyType)  {
+	public mutating func insert(_ value: ValueType, key: KeyType)  {
 		let existingValue = dictionary[key]
 		
 		if existingValue == nil {

@@ -10,7 +10,7 @@ import UIKit
 
 public extension UINavigationItem {
 	func removeBackbuttonTitle() {
-		backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+		backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 	}
 }
 

@@ -10,12 +10,7 @@ import Foundation
 
 extension String
 {
-	public func contains(otherString: String) -> Bool
-	{
-		return self.rangeOfString(otherString) != nil
-	}
-	
-	public func any(equalTo:String...) -> Bool
+	public func any(_ equalTo:String...) -> Bool
 	{
 		for astr in equalTo
 		{
@@ -31,8 +26,8 @@ extension String
 		return Int(self) != nil
 	}
 	
-	mutating public func left(numberOfChars:Int)
+	mutating public func left(_ numberOfChars:Int)
 	{
-		self.removeAtIndex(self.endIndex.predecessor())
+		self.remove(at: self.index(before: self.endIndex))
 	}
 }

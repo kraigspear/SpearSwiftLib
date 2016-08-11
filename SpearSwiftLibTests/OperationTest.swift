@@ -25,11 +25,11 @@ class Operation : BaseOperation
 
 class OperationTest: XCTestCase {
     
-    var que:NSOperationQueue!
+    var que:OperationQueue!
     
     override func setUp() {
         super.setUp()
-        que = NSOperationQueue()
+        que = OperationQueue()
     }
     
     override func tearDown() {
@@ -39,7 +39,7 @@ class OperationTest: XCTestCase {
     
     func testCompletedCalledOnce()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let operation = Operation()
         
         var completedCount = 0
@@ -52,7 +52,7 @@ class OperationTest: XCTestCase {
         
         self.que.addOperation(operation)
         
-        waitForExpectationsWithTimeout(10) { (error) -> Void in
+        waitForExpectations(timeout: 10) { (error) -> Void in
             XCTAssertNil(error, "Error")
         }
         

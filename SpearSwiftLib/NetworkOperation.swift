@@ -10,7 +10,7 @@ import Foundation
 
 public typealias NetworkImageDownloadBlock = (image: UIImage) -> Void
 ///Block for receving an error
-public typealias ErrorBlock = ((error:ErrorType) -> Void)
+public typealias ErrorBlock = ((error:Error) -> Void)
 
 /**
 Errors that can happen when fetching data.
@@ -20,18 +20,18 @@ Errors that can happen when fetching data.
 - InvalidUrl: The URL wasn't valid
 - None: An error was not received
 */
-public enum FetchError: ErrorType {
+public enum FetchError: Error {
 	
-	case HTTPError(Int)
-	case JSONError(NSError)
-	case InvalidUrl(String)
-	case ResponseError(NSError)
-	case None
+	case httpError(Int)
+	case jsonError(Error)
+	case invalidUrl(String)
+	case responseError(Error)
+	case none
 }
 
-public enum ImageFetchError: ErrorType {
-	case HTTPError(Int)
-	case ResponseError(NSError)
+public enum ImageFetchError: Error {
+	case httpError(Int)
+	case responseError(NSError)
 }
 
 public typealias ImageFetchErrorBlock = (ImageFetchError) -> Void
@@ -45,14 +45,14 @@ public protocol JSONFetchable {
 	///
 	///  - parameter success:Called with the JSON on success
 	///  - parameter failure:Called with an error when there was an error getting the JSON
-	func fetchJSON(success: JsonBlock, failure: ErrorBlock)
+	func fetchJSON(_ success: JsonBlock, failure: ErrorBlock)
 }
 
 public enum ResponseCode: Int {
 	case success = 200
 }
 
-extension NSHTTPURLResponse {
+extension HTTPURLResponse {
 	var isStatusOk: Bool {
 		guard let status = ResponseCode.init(rawValue: statusCode) else {
 			return false
@@ -61,7 +61,7 @@ extension NSHTTPURLResponse {
 	}
 }
 
-extension NSData {
+extension Data {
 	func toImage() -> UIImage? {
 		return UIImage(data: self)
 	}
@@ -74,105 +74,107 @@ public enum Method: String {
 	/**
 	Sets the method for NSMutableURLRequest
 	*/
-	func setMethod(request: NSMutableURLRequest) {
-		request.HTTPMethod = self.rawValue
+	func setMethod(_ request: URLRequest) -> URLRequest {
+		var r = request
+		r.httpMethod = rawValue
+		return r
 	}
 }
 
 //MARK: - Fetch Image
 extension NetworkOperation {
-	public func fetchUIImage(success: NetworkImageDownloadBlock, failure: ImageFetchErrorBlock) {
-		let request = try! createRequest()
+	public func fetchUIImage(_ success: NetworkImageDownloadBlock, failure: ImageFetchErrorBlock) {
+		let request: URLRequest = try! createRequest()
 		
 		//Add caching
-		let handler = {(data: NSData?, response: NSURLResponse?, error: NSError?) in
+		let handler = {(data: Data?, response: URLResponse?, error: Error?) in
 			if let error = error {
-				failure(ImageFetchError.ResponseError(error))
+				failure(ImageFetchError.responseError(error))
 			} else {
-				let urlResponse = (response as! NSHTTPURLResponse)
+				let urlResponse = (response as! HTTPURLResponse)
 				if urlResponse.isStatusOk {
 					precondition(data != nil, "We are in a success state, but data is invalid?")
 					if let image = data!.toImage() {
-						dispatch_async(dispatch_get_main_queue()) {
+						DispatchQueue.main.async {
 							success(image: image)
 						}
 					}
 				} else {
-					dispatch_async(dispatch_get_main_queue()) {
-						failure(ImageFetchError.HTTPError(urlResponse.statusCode))
+					DispatchQueue.main.async {
+						failure(ImageFetchError.httpError(urlResponse.statusCode))
 					}
 				}
 			}
 		}
 		
-		let task = session.dataTaskWithRequest(request, completionHandler: handler)
+		let task = session.dataTask(with: request, completionHandler: handler)
 		task.resume()
 	}
 }
 
 //MARK: - Fetch JSON
 extension NetworkOperation {
-	public func fetchJSON(success: JsonBlock, failure: ErrorBlock) {
+	public func fetchJSON(_ success: JsonBlock, failure: ErrorBlock) {
 		
 		let request = try! createRequest()
 		
-		let handler = {[weak self] (data: NSData?, response: NSURLResponse?, error: NSError?) in
+		let handler = {[weak self] (data: Data?, response: URLResponse?, error: Error?) in
 			
 			if let error = error {
-				if let cachedData = self?.fetchCachedResponseData(request) {
+				if let cachedData = self?.fetchCachedResponseData(request as URLRequest) {
 					do {
 						if let cachedJson = try self?.jsonFromData(cachedData) {
 							success(json: cachedJson)
 						}
 					} catch let jsonCachedError as NSError {
-						failure(error: FetchError.JSONError(jsonCachedError))
+						failure(error: FetchError.jsonError(jsonCachedError))
 					}
 					
 				} else {
-					failure(error: FetchError.HTTPError(error.code))
+					failure(error: FetchError.responseError(error))
 				}
 				return
 			}
 			
-			if let response = response as? NSHTTPURLResponse {
+			if let response = response as? HTTPURLResponse {
 				if response.statusCode != 200 {
-					self?.fetchError = FetchError.HTTPError(response.statusCode)
-					failure(error: FetchError.HTTPError(response.statusCode))
+					self?.fetchError = FetchError.httpError(response.statusCode)
+					failure(error: FetchError.httpError(response.statusCode))
 				} else if let data = data {
 					
-					self?.storeReponse(request, response: response, data: data)
+					self?.storeReponse(request as URLRequest, response: response, data: data)
 					
 					do {
 						if let jsonObject = try self?.jsonFromData(data) {
 							success(json: jsonObject)
 						}
 					} catch let jsonError as NSError {
-						failure(error: FetchError.JSONError(jsonError))
+						failure(error: FetchError.jsonError(jsonError))
 					}
 				}
 			}
 			
 		}
 		
-		let task = session.dataTaskWithRequest(request, completionHandler: handler)
+		let task = session.dataTask(with: request, completionHandler: handler)
 		task.resume()
 	}
 	
-	private func jsonFromData(data: NSData) throws -> JsonKeyValue? {
-		return try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject>
+	private func jsonFromData(_ data: Data) throws -> JsonKeyValue? {
+		return try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? Dictionary<String, AnyObject>
 	}
 }
 
 public protocol NetworkParameterType {
-	mutating func addParam(key: String, value: String) -> NetworkParameterType
+	mutating func addParam(_ key: String, value: String) -> NetworkParameterType
 	func stringFromQueryParameters() -> String
-	func NSURLByAppendingQueryParameters(url: NSURL) -> NSURL
+	func NSURLByAppendingQueryParameters(_ url: URL) -> URL
 }
 
 public class RequestHeaders {
-	private var headers: [String:String] = [:]
+	private var headers: [String : String] = [ : ]
 	
-	public func addHeader(key: String, value: String) {
+	public func addHeader(_ key: String, value: String) {
 		headers[key] = value
 	}
 	
@@ -180,28 +182,36 @@ public class RequestHeaders {
 		headers["Content-Type"] = "application/json"
 	}
 
-	func addToRequest(request: NSMutableURLRequest) {
+	func addToRequest(_ request: URLRequest) -> URLRequest {
+		
+		var r = request
 		
 		for (name, value) in headers {
-			request.addValue(value, forHTTPHeaderField: name)
+			r.addValue(value, forHTTPHeaderField: name)
 		}
+		
+		return r
 	}
 }
 
 public class RequestBody {
 	private var json: JsonKeyValue = [:]
 	
-	public func addValue(key: String, value: AnyObject) {
+	public func addValue(_ key: String, value: AnyObject) {
 		json[key] = value
 	}
 	
-	func addToRequest(request: NSMutableURLRequest) {
+	func addToRequest(_ request: URLRequest) -> URLRequest {
+		
+		var r = request
 		
 		guard json.count >= 1 else {
-			return
+			return r
 		}
 		
-		request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: [])
+		r.httpBody = try! JSONSerialization.data(withJSONObject: json, options: [])
+		
+		return r
 	}
 }
 
@@ -212,7 +222,7 @@ public final class NetworkOperation: JSONFetchable {
 	
 	private let urlStr: String
 	private var method: Method = .GET
-	public var fetchError: FetchError = FetchError.None
+	public var fetchError: FetchError = FetchError.none
 	
 	public var parameters: NetworkParameterType = NetworkParameters()
 	public let body: RequestBody = RequestBody()
@@ -224,31 +234,30 @@ public final class NetworkOperation: JSONFetchable {
 	}
 	
 	//MARK: - session
-	lazy private var session: NSURLSession = {
-		let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-		return NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+	lazy private var session: URLSession = {
+		let sessionConfig = URLSessionConfiguration.default
+		return URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 	}()
 	
 	//MARK: - request
-	private func createRequest() throws -> NSMutableURLRequest {
-		guard var url = NSURL(string: urlStr) else {
-			throw FetchError.InvalidUrl(urlStr)
+	private func createRequest() throws -> URLRequest {
+		guard var url = URL(string: urlStr) else {
+			throw FetchError.invalidUrl(urlStr)
 		}
 		
 		url = parameters.NSURLByAppendingQueryParameters(url)
 		
-		let request = NSMutableURLRequest(URL: url)
+		var request = URLRequest(url: url)
 		
 		if body.json.count > 0 {
 			method = .POST
-			method.setMethod(request)
+			request = method.setMethod(request)
 		} else {
 			method = .GET
 		}
 		
-		print("body = \(body.json)")
-		headers.addToRequest(request)
-		body.addToRequest(request)
+		request = headers.addToRequest(request)
+		request = body.addToRequest(request)
 		
 		return request
 	}
@@ -259,9 +268,9 @@ public final class NetworkOperation: JSONFetchable {
 	- Parameter response: The reponse to cache
 	- Parameter data: The data to cache
 	*/
-	private func storeReponse(request: NSURLRequest, response: NSURLResponse, data: NSData) {
-		let cached = NSCachedURLResponse(response: response, data: data)
-		NSURLCache.sharedURLCache().storeCachedResponse(cached, forRequest: request)
+	private func storeReponse(_ request: URLRequest, response: URLResponse, data: Data) {
+		let cached = CachedURLResponse(response: response, data: data)
+		URLCache.shared.storeCachedResponse(cached, for: request)
 	}
 	
 	//MARK: - Cache
@@ -270,8 +279,8 @@ public final class NetworkOperation: JSONFetchable {
 	- Parameter request: The request to fetch
 	- Returns: The data for the cached request, or nil if it couldn't be fetched
 	*/
-	private func fetchCachedResponseData(request: NSURLRequest) -> NSData? {
-		guard let cached = NSURLCache.sharedURLCache().cachedResponseForRequest(request) else {
+	private func fetchCachedResponseData(_ request: URLRequest) -> Data? {
+		guard let cached = URLCache.shared.cachedResponse(for: request) else {
 			return nil
 		}
 		return cached.data
