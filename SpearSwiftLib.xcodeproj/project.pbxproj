@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91627371D609E1700387B5F /* GifExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91627361D609E1700387B5F /* GifExtractor.swift */; };
 		A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91890B61B6CE866005CA6B3 /* ImageCache.swift */; };
 		A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9232F8E1C2D669C00232118 /* NumberExtensions.swift */; };
 		A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A91627361D609E1700387B5F /* GifExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifExtractor.swift; sourceTree = "<group>"; };
 		A91890B61B6CE866005CA6B3 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A9232F8E1C2D669C00232118 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		A92424A61BF3519E00175774 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				A927F5AD1CC6300E009A025E /* CurrentLocationFinder.swift */,
 				A927F5AB1CC62893009A025E /* ForegroundNotification.swift */,
 				A9A426981CAFB04A0098F179 /* GenerateImage.swift */,
+				A91627361D609E1700387B5F /* GifExtractor.swift */,
 				A91890B61B6CE866005CA6B3 /* ImageCache.swift */,
 				A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */,
 				A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */,
@@ -437,6 +440,7 @@
 				A92CC47E1B3BF55500593257 /* LocalExtensions.swift in Sources */,
 				A9A426991CAFB04A0098F179 /* GenerateImage.swift in Sources */,
 				A9FE2F501B7C8AB400EE5F3F /* FileManagerExtensions.swift in Sources */,
+				A91627371D609E1700387B5F /* GifExtractor.swift in Sources */,
 				A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */,
 				A95F04F71D3C17B2001DE4EF /* FileDestination.swift in Sources */,
 				A927F5AC1CC62893009A025E /* ForegroundNotification.swift in Sources */,
