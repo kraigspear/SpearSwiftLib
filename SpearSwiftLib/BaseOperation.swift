@@ -39,7 +39,7 @@ final class AddLocationOperation: BaseOperation {
 ```
 
 */
-public class BaseOperation : Operation {
+open class BaseOperation : Operation {
 
     ///Indicates if there was an error executing the operation. Nil if the operation was a
     ///Success or an error otherwise.

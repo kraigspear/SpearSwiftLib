@@ -8,9 +8,9 @@
 
 import Foundation
 
-public typealias NetworkImageDownloadBlock = (image: UIImage) -> Void
+public typealias NetworkImageDownloadBlock = (_ image: UIImage) -> Void
 ///Block for receving an error
-public typealias ErrorBlock = ((error:Error) -> Void)
+public typealias ErrorBlock = ((_ error:Error) -> Void)
 
 /**
 Errors that can happen when fetching data.
@@ -21,7 +21,6 @@ Errors that can happen when fetching data.
 - None: An error was not received
 */
 public enum FetchError: Error {
-	
 	case httpError(Int)
 	case jsonError(Error)
 	case invalidUrl(String)
@@ -45,7 +44,7 @@ public protocol JSONFetchable {
 	///
 	///  - parameter success:Called with the JSON on success
 	///  - parameter failure:Called with an error when there was an error getting the JSON
-	func fetchJSON(_ success: JsonBlock, failure: ErrorBlock)
+	func fetchJSON(success: @escaping JsonBlock, failure: @escaping ErrorBlock)
 }
 
 public enum ResponseCode: Int {
@@ -83,20 +82,20 @@ public enum Method: String {
 
 //MARK: - Fetch Image
 extension NetworkOperation {
-	public func fetchUIImage(_ success: NetworkImageDownloadBlock, failure: ImageFetchErrorBlock) {
+	public func fetchUIImage(_ success: @escaping NetworkImageDownloadBlock, failure: @escaping ImageFetchErrorBlock) {
 		let request: URLRequest = try! createRequest()
 		
 		//Add caching
 		let handler = {(data: Data?, response: URLResponse?, error: Error?) in
 			if let error = error {
-				failure(ImageFetchError.responseError(error))
+				failure(ImageFetchError.responseError(error as NSError))
 			} else {
 				let urlResponse = (response as! HTTPURLResponse)
 				if urlResponse.isStatusOk {
 					precondition(data != nil, "We are in a success state, but data is invalid?")
 					if let image = data!.toImage() {
 						DispatchQueue.main.async {
-							success(image: image)
+							success(image)
 						}
 					}
 				} else {
@@ -114,7 +113,7 @@ extension NetworkOperation {
 
 //MARK: - Fetch JSON
 extension NetworkOperation {
-	public func fetchJSON(_ success: JsonBlock, failure: ErrorBlock) {
+	public func fetchJSON(success: @escaping JsonBlock, failure: @escaping ErrorBlock) {
 		
 		let request = try! createRequest()
 		
@@ -124,14 +123,14 @@ extension NetworkOperation {
 				if let cachedData = self?.fetchCachedResponseData(request as URLRequest) {
 					do {
 						if let cachedJson = try self?.jsonFromData(cachedData) {
-							success(json: cachedJson)
+							success(cachedJson)
 						}
 					} catch let jsonCachedError as NSError {
-						failure(error: FetchError.jsonError(jsonCachedError))
+						failure(FetchError.jsonError(jsonCachedError))
 					}
 					
 				} else {
-					failure(error: FetchError.responseError(error))
+					failure(FetchError.responseError(error))
 				}
 				return
 			}
@@ -139,17 +138,17 @@ extension NetworkOperation {
 			if let response = response as? HTTPURLResponse {
 				if response.statusCode != 200 {
 					self?.fetchError = FetchError.httpError(response.statusCode)
-					failure(error: FetchError.httpError(response.statusCode))
+					failure(FetchError.httpError(response.statusCode))
 				} else if let data = data {
 					
 					self?.storeReponse(request as URLRequest, response: response, data: data)
 					
 					do {
 						if let jsonObject = try self?.jsonFromData(data) {
-							success(json: jsonObject)
+							success(jsonObject)
 						}
 					} catch let jsonError as NSError {
-						failure(error: FetchError.jsonError(jsonError))
+						failure(FetchError.jsonError(jsonError))
 					}
 				}
 			}
@@ -195,7 +194,7 @@ public class RequestHeaders {
 }
 
 public class RequestBody {
-	private var json: JsonKeyValue = [:]
+	internal var json: JsonKeyValue = [:]
 	
 	public func addValue(_ key: String, value: AnyObject) {
 		json[key] = value
@@ -234,13 +233,13 @@ public final class NetworkOperation: JSONFetchable {
 	}
 	
 	//MARK: - session
-	lazy private var session: URLSession = {
+	lazy internal var session: URLSession = {
 		let sessionConfig = URLSessionConfiguration.default
 		return URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 	}()
 	
 	//MARK: - request
-	private func createRequest() throws -> URLRequest {
+	func createRequest() throws -> URLRequest {
 		guard var url = URL(string: urlStr) else {
 			throw FetchError.invalidUrl(urlStr)
 		}
@@ -268,7 +267,7 @@ public final class NetworkOperation: JSONFetchable {
 	- Parameter response: The reponse to cache
 	- Parameter data: The data to cache
 	*/
-	private func storeReponse(_ request: URLRequest, response: URLResponse, data: Data) {
+	func storeReponse(_ request: URLRequest, response: URLResponse, data: Data) {
 		let cached = CachedURLResponse(response: response, data: data)
 		URLCache.shared.storeCachedResponse(cached, for: request)
 	}
@@ -279,7 +278,7 @@ public final class NetworkOperation: JSONFetchable {
 	- Parameter request: The request to fetch
 	- Returns: The data for the cached request, or nil if it couldn't be fetched
 	*/
-	private func fetchCachedResponseData(_ request: URLRequest) -> Data? {
+	internal func fetchCachedResponseData(_ request: URLRequest) -> Data? {
 		guard let cached = URLCache.shared.cachedResponse(for: request) else {
 			return nil
 		}

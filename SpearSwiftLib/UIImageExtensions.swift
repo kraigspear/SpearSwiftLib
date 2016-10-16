@@ -22,7 +22,7 @@ public extension UIImage {
 		context.setBlendMode(.multiply)
 		context.setAlpha(alpha)
 		
-		context.draw(in: area, image: cgImage!)
+		context.draw(cgImage!, in: area)
 		
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()

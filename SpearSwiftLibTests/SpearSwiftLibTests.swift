@@ -26,7 +26,7 @@ class SpearSwiftLibTests: XCTestCase
     
     func testNetworkOperation()
     {
-      var networkOperation = NetworkOperation(urlStr: "http://forecast.weather.gov/MapClick.php")
+      let networkOperation = NetworkOperation(urlStr: "http://forecast.weather.gov/MapClick.php")
 		
       networkOperation.parameters.addParam("lat", value: "42.9612")
       networkOperation.parameters.addParam("lon", value: "-85.6557")
@@ -34,7 +34,7 @@ class SpearSwiftLibTests: XCTestCase
       
       let readyExpectation = expectation(description: "ready")
 
-      networkOperation.fetchJSON({ (dictionary) -> Void in
+      networkOperation.fetchJSON(success: { (dictionary) -> Void in
         
         XCTAssertNotNil(dictionary["currentobservation"])
         readyExpectation.fulfill()

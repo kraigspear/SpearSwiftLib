@@ -38,12 +38,12 @@ public final class AsyncAwait
 	 - parameter awaitOn: Code to execute back on the main thread
 	
 	*/
-	public static func Await<T>(_ asyncOn:() -> T, awaitOn:(T) -> Void)
+	public static func Await<T>(asyncOn:@escaping () -> T, awaitOn:@escaping (T) -> Void)
 	{
 		AsyncAwait.Await(DispatchQueue.global(), asyncOn: asyncOn, awaitOn: awaitOn)
 	}
 	
-	public static func Await<T>(_ que: DispatchQueue, asyncOn:() -> T, awaitOn:(T) -> Void) {
+	public static func Await<T>(_ que: DispatchQueue, asyncOn:@escaping () -> T, awaitOn:@escaping (T) -> Void) {
 		que.async {
 			let obj = asyncOn()
 			DispatchQueue.main.async {
@@ -52,7 +52,7 @@ public final class AsyncAwait
 		}
 	}
 	
-	public static func OnMain(_ onMain: () -> Void) {
+	public static func OnMain(_ onMain: @escaping () -> Void) {
 		DispatchQueue.main.async {
 			onMain()
 		}

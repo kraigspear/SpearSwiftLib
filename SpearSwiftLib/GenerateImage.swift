@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias GenerateImage = (rect: CGRect) -> UIImage?
+public typealias GenerateImage = (_ rect: CGRect) -> UIImage?
 
 public protocol ImageRequestable {
 	func imageForSize(_ size: CGSize) -> (image: UIImage?, refreshed: Bool)
@@ -20,7 +20,7 @@ public class RequestImage: ImageRequestable {
 	private var image: UIImage?
 	private let generateImage: GenerateImage
 	
-	public init(generateImage: GenerateImage) {
+	public init(generateImage: @escaping GenerateImage) {
 		self.generateImage = generateImage
 	}
 	
@@ -36,7 +36,7 @@ public class RequestImage: ImageRequestable {
 		let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 		self.size = size
 		
-		let generated = generateImage(rect: rect)
+		let generated = generateImage(rect)
 		self.image = generated
 		
 		return (image: generated, refreshed: true)

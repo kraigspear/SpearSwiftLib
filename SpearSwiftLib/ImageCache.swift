@@ -8,8 +8,8 @@
 
 import UIKit
 
-public typealias ImageBlock = ( (image:UIImage?) -> Void)
-public typealias ImagesBlock = ( (image:[UIImage]) -> Void)?
+public typealias ImageBlock = ( (_ image:UIImage?) -> Void)
+public typealias ImagesBlock = ( (_ image:[UIImage]) -> Void)?
 
 /**
 *  Loads an image from cache or downloads the image, stores in cache.
@@ -52,7 +52,7 @@ public final class ImageCache
 							
 							DispatchQueue.main.async
 							{
-								unwrapCompleted(image: images)
+								unwrapCompleted(images)
 							}
 							
 			});
@@ -87,7 +87,7 @@ public final class ImageCache
 	
 	private func fetchFromMemory(_ urlStr: String) -> UIImage?
 	{
-		return self.memoryCache.object(forKey: urlStr) as? UIImage
+		return self.memoryCache.object(forKey: urlStr as AnyObject) as? UIImage
 	}
 	
 	private func fetchFromDisk(_ urlStr: String) -> UIImage?
@@ -98,7 +98,7 @@ public final class ImageCache
 		{
 			if let imageFromCache = UIImage(contentsOfFile: fileNameCache)
 			{
-				self.memoryCache.setObject(imageFromCache, forKey: urlStr)
+				self.memoryCache.setObject(imageFromCache, forKey: urlStr as AnyObject)
 				return imageFromCache
 			}
 		}
@@ -115,7 +115,7 @@ public final class ImageCache
 			{
 				if let imageFromURL = UIImage(data: imageData)
 				{
-					self.memoryCache.setObject(imageFromURL, forKey: self.fileForUrl(urlStr))
+					self.memoryCache.setObject(imageFromURL, forKey: self.fileForUrl(urlStr) as AnyObject)
 					try? imageData.write(to: URL(fileURLWithPath: fileNameCache))
 					return imageFromURL
 				}
@@ -132,20 +132,20 @@ public final class ImageCache
 	- parameter fromUrl:   A url string where the file can be downloaded
 	- parameter completed: Called with a valid image or nil, if the file can't be loaded
 	*/
-	public func fetchImage(fromUrl: String, completed: ImageBlock)
+	public func fetchImage(fromUrl: String, completed: @escaping ImageBlock)
 	{
 		DispatchQueue.global().async {[weak self] in
 			if let this = self {
 				if let image = this.fetchImage(fromUrl) {
 					DispatchQueue.main.async {
-						completed(image: image)
+						completed(image)
 					}
 				}
 				else
 				{
 					//Not able to load the image.
 					DispatchQueue.main.async {
-						completed(image: nil)
+						completed(nil)
 					}
 				}
 			}
@@ -198,7 +198,7 @@ public final class ImageCache
 	
 	:returns: File and the cache path
 	*/
-	private func cacheDirectoryAppendFileName(_ fileName:String) -> NSString
+	private func cacheDirectoryAppendFileName(_ fileName:String) -> String
 	{
 		return self.cacheDirectory.appendingPathExtension(fileName)!
 	}

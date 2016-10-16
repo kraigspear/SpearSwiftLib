@@ -9,8 +9,8 @@ public final class GifExtractor {
 	
 	public init(imageData: NSData) {
 		self.imageData = imageData
-		let options: CFDictionary = [String(kCGImageSourceShouldCache) : kCFBooleanFalse]
-		self.imageSource = CGImageSourceCreateWithData(imageData, options)!
+		let options: [String : AnyObject] = [kCGImageSourceShouldCache as String : kCFBooleanFalse]
+		self.imageSource = CGImageSourceCreateWithData(imageData, options as CFDictionary?)!
 	}
 	
 	public func extracted() -> [UIImage] {

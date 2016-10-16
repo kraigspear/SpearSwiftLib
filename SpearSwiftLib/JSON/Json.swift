@@ -79,5 +79,5 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObj
 ///The base type of Json a key value pair
 public typealias JsonKeyValue = Dictionary<String, AnyObject>
 ///Block for receving a JsonKeyValue
-public typealias JsonBlock = ((json:JsonKeyValue) -> Void)
+public typealias JsonBlock = ((_ json:JsonKeyValue) -> Void)
 

@@ -17,8 +17,8 @@ public enum LocationFindableError: Error {
 	case locationManagerError(error: NSError)
 }
 
-public typealias LocationFindErrorClosure = (error: LocationFindableError) -> Void
-public typealias LocationFinderSuccessClosure = (foundLocation: FoundLocationType) -> Void
+public typealias LocationFindErrorClosure = (_ error: LocationFindableError) -> Void
+public typealias LocationFinderSuccessClosure = (_ foundLocation: FoundLocationType) -> Void
 
 public protocol LocationFindable {
 	func find()
@@ -79,8 +79,8 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 	private let failure: LocationFindErrorClosure
 	
 	init(accuracy: CLLocationAccuracy,
-	     success: LocationFinderSuccessClosure,
-	     failure: LocationFindErrorClosure) {
+	     success: @escaping LocationFinderSuccessClosure,
+	     failure: @escaping LocationFindErrorClosure) {
 		self.accuracy = accuracy
 		self.success = success
 		self.failure = failure
@@ -108,7 +108,7 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 	func find() {
 		
 		if !CLLocationManager.locationServicesEnabled() {
-			failure(error: LocationFindableError.notEnabled)
+			failure(LocationFindableError.notEnabled)
 			return
 		}
 		
@@ -135,7 +135,7 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		failure(error: .locationManagerError(error: error))
+		failure(.locationManagerError(error: error as NSError))
 	}
 	
 	
@@ -148,7 +148,7 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 		
 		switch status {
 		case .denied:
-			failure(error: .notAuthorized(status: status))
+			failure(.notAuthorized(status: status))
 		case .authorizedAlways, .authorizedWhenInUse, .notDetermined, .restricted:
 			find()
 		}
@@ -157,14 +157,14 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 	private func reverseGeocode(_ location: CLLocation) {
 		let complete: CLGeocodeCompletionHandler = {[weak self] (placemarks: [CLPlacemark]?, error: Error?) in
 			if let error = error {
-				self?.failure(error: LocationFindableError.geocodeError(error: error))
+				self?.failure(LocationFindableError.geocodeError(error: error as NSError))
 				return
 			}
 			
 			if let placemarks = placemarks {
 				if let firstPlacemark = placemarks.first {
 					let foundLocation = FoundLocation(placemark: firstPlacemark, location: location)
-					self?.success(foundLocation: foundLocation)
+					self?.success(foundLocation)
 				}
 			}
 			
