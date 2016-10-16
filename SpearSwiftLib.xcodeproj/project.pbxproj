@@ -23,18 +23,12 @@
 		A942A98C1A9F251800C69271 /* SpearSwiftLib.h in Headers */ = {isa = PBXBuildFile; fileRef = A942A98B1A9F251800C69271 /* SpearSwiftLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A942A9921A9F251900C69271 /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
 		A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */; };
-		A95F04F41D3C17B2001DE4EF /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04ED1D3C17B2001DE4EF /* AES256CBC.swift */; };
-		A95F04F51D3C17B2001DE4EF /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04EE1D3C17B2001DE4EF /* BaseDestination.swift */; };
-		A95F04F61D3C17B2001DE4EF /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04EF1D3C17B2001DE4EF /* ConsoleDestination.swift */; };
-		A95F04F71D3C17B2001DE4EF /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04F01D3C17B2001DE4EF /* FileDestination.swift */; };
-		A95F04F81D3C17B2001DE4EF /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04F11D3C17B2001DE4EF /* Filter.swift */; };
-		A95F04F91D3C17B2001DE4EF /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04F21D3C17B2001DE4EF /* SBPlatformDestination.swift */; };
-		A95F04FA1D3C17B2001DE4EF /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95F04F31D3C17B2001DE4EF /* SwiftyBeaver.swift */; };
 		A962FB8F1C8AE70300B66192 /* NavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A962FB8E1C8AE70200B66192 /* NavigationBarExtensions.swift */; };
 		A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */; };
 		A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */; };
 		A96916AB1D26B27700D1F164 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96916AA1D26B27700D1F164 /* OrderedDictionary.swift */; };
 		A96916AC1D27183000D1F164 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96916AA1D26B27700D1F164 /* OrderedDictionary.swift */; };
+		A96EE6111DB3B09C00E55997 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */; };
 		A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */; };
 		A99916F71C490326002AF3AD /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
 		A9A426991CAFB04A0098F179 /* GenerateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A426981CAFB04A0098F179 /* GenerateImage.swift */; };
@@ -83,17 +77,11 @@
 		A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942A9971A9F251900C69271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpearSwiftLibTests.swift; sourceTree = "<group>"; };
-		A95F04ED1D3C17B2001DE4EF /* AES256CBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AES256CBC.swift; sourceTree = "<group>"; };
-		A95F04EE1D3C17B2001DE4EF /* BaseDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDestination.swift; sourceTree = "<group>"; };
-		A95F04EF1D3C17B2001DE4EF /* ConsoleDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleDestination.swift; sourceTree = "<group>"; };
-		A95F04F01D3C17B2001DE4EF /* FileDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDestination.swift; sourceTree = "<group>"; };
-		A95F04F11D3C17B2001DE4EF /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		A95F04F21D3C17B2001DE4EF /* SBPlatformDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlatformDestination.swift; sourceTree = "<group>"; };
-		A95F04F31D3C17B2001DE4EF /* SwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		A962FB8E1C8AE70200B66192 /* NavigationBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtensions.swift; sourceTree = "<group>"; };
 		A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureTypes.swift; sourceTree = "<group>"; };
 		A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncAwait.swift; sourceTree = "<group>"; };
 		A96916AA1D26B27700D1F164 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
+		A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLParameters.swift; sourceTree = "<group>"; };
 		A9A426981CAFB04A0098F179 /* GenerateImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateImage.swift; sourceTree = "<group>"; };
 		A9B2F1201C086337000F5367 /* OperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTest.swift; sourceTree = "<group>"; };
@@ -118,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96EE6111DB3B09C00E55997 /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,10 +149,10 @@
 		A942A97C1A9F251800C69271 = {
 			isa = PBXGroup;
 			children = (
-				A95F04EC1D3C17B2001DE4EF /* SwifyBeaver */,
 				A942A9881A9F251800C69271 /* SpearSwiftLib */,
 				A9D9CE4B1C472D6C00D39DE3 /* SpearSwiftLibOSX */,
 				A942A9871A9F251800C69271 /* Products */,
+				A96EE60F1DB3B09C00E55997 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -234,18 +223,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A95F04EC1D3C17B2001DE4EF /* SwifyBeaver */ = {
+		A96EE60F1DB3B09C00E55997 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A95F04ED1D3C17B2001DE4EF /* AES256CBC.swift */,
-				A95F04EE1D3C17B2001DE4EF /* BaseDestination.swift */,
-				A95F04EF1D3C17B2001DE4EF /* ConsoleDestination.swift */,
-				A95F04F01D3C17B2001DE4EF /* FileDestination.swift */,
-				A95F04F11D3C17B2001DE4EF /* Filter.swift */,
-				A95F04F21D3C17B2001DE4EF /* SBPlatformDestination.swift */,
-				A95F04F31D3C17B2001DE4EF /* SwiftyBeaver.swift */,
+				A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */,
 			);
-			path = SwifyBeaver;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A9D9CE4B1C472D6C00D39DE3 /* SpearSwiftLibOSX */ = {
@@ -413,7 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C0964F1D475EE500E39778 /* MKCoordinateRegionExtensions.swift in Sources */,
-				A95F04F91D3C17B2001DE4EF /* SBPlatformDestination.swift in Sources */,
 				A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */,
 				A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */,
 				A927F5AE1CC6300E009A025E /* CurrentLocationFinder.swift in Sources */,
@@ -423,7 +405,6 @@
 				A93479591BDF75770069B2BC /* StringBuilder.swift in Sources */,
 				A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */,
 				A962FB8F1C8AE70300B66192 /* NavigationBarExtensions.swift in Sources */,
-				A95F04FA1D3C17B2001DE4EF /* SwiftyBeaver.swift in Sources */,
 				A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */,
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
 				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
@@ -431,18 +412,13 @@
 				A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */,
 				A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */,
 				A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */,
-				A95F04F61D3C17B2001DE4EF /* ConsoleDestination.swift in Sources */,
-				A95F04F41D3C17B2001DE4EF /* AES256CBC.swift in Sources */,
 				A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */,
-				A95F04F51D3C17B2001DE4EF /* BaseDestination.swift in Sources */,
-				A95F04F81D3C17B2001DE4EF /* Filter.swift in Sources */,
 				A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */,
 				A92CC47E1B3BF55500593257 /* LocalExtensions.swift in Sources */,
 				A9A426991CAFB04A0098F179 /* GenerateImage.swift in Sources */,
 				A9FE2F501B7C8AB400EE5F3F /* FileManagerExtensions.swift in Sources */,
 				A91627371D609E1700387B5F /* GifExtractor.swift in Sources */,
 				A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */,
-				A95F04F71D3C17B2001DE4EF /* FileDestination.swift in Sources */,
 				A927F5AC1CC62893009A025E /* ForegroundNotification.swift in Sources */,
 				A9CF4FF31D4B547E006EB51B /* UIImageExtensions.swift in Sources */,
 			);
@@ -581,9 +557,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -601,9 +581,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
