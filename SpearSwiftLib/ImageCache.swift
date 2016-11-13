@@ -8,8 +8,8 @@
 
 import UIKit
 
-public typealias ImageBlock = ( (_ image:UIImage?) -> Void)
-public typealias ImagesBlock = ( (_ image:[UIImage]) -> Void)?
+public typealias ImageBlock = ( (_ image: UIImage?) -> Void)
+public typealias ImagesBlock = ( (_ image: [UIImage]) -> Void)?
 
 /**
 *  Loads an image from cache or downloads the image, stores in cache.

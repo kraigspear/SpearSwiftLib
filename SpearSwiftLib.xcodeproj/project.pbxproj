@@ -11,51 +11,32 @@
 		A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91890B61B6CE866005CA6B3 /* ImageCache.swift */; };
 		A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9232F8E1C2D669C00232118 /* NumberExtensions.swift */; };
 		A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
-		A924A58A1C32982400181C17 /* DateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A924A5891C32982400181C17 /* DateTest.swift */; };
 		A927F5AC1CC62893009A025E /* ForegroundNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927F5AB1CC62893009A025E /* ForegroundNotification.swift */; };
 		A927F5AE1CC6300E009A025E /* CurrentLocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927F5AD1CC6300E009A025E /* CurrentLocationFinder.swift */; };
 		A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */; };
 		A92CC47E1B3BF55500593257 /* LocalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92CC47D1B3BF55500593257 /* LocalExtensions.swift */; };
 		A93479591BDF75770069B2BC /* StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93479581BDF75770069B2BC /* StringBuilder.swift */; };
-		A934795B1BDF7B450069B2BC /* StringBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A934795A1BDF7B450069B2BC /* StringBuilderTest.swift */; };
 		A93FB8931B3244FE0017E3E9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93FB8921B3244FE0017E3E9 /* StringExtensions.swift */; };
-		A93FB8951B3245DD0017E3E9 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93FB8941B3245DD0017E3E9 /* StringTests.swift */; };
 		A942A98C1A9F251800C69271 /* SpearSwiftLib.h in Headers */ = {isa = PBXBuildFile; fileRef = A942A98B1A9F251800C69271 /* SpearSwiftLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A942A9921A9F251900C69271 /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
-		A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */; };
 		A962FB8F1C8AE70300B66192 /* NavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A962FB8E1C8AE70200B66192 /* NavigationBarExtensions.swift */; };
 		A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */; };
 		A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */; };
 		A96916AB1D26B27700D1F164 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96916AA1D26B27700D1F164 /* OrderedDictionary.swift */; };
-		A96916AC1D27183000D1F164 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96916AA1D26B27700D1F164 /* OrderedDictionary.swift */; };
 		A96EE6111DB3B09C00E55997 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */; };
 		A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */; };
-		A99916F71C490326002AF3AD /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
 		A9A426991CAFB04A0098F179 /* GenerateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A426981CAFB04A0098F179 /* GenerateImage.swift */; };
-		A9B2F1211C086337000F5367 /* OperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2F1201C086337000F5367 /* OperationTest.swift */; };
+		A9ADA0081DD141C0006BD025 /* CoordinateBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA0071DD141C0006BD025 /* CoordinateBoundaries.swift */; };
 		A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */; };
 		A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */; };
-		A9B6DA321BFB29490033CB85 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA311BFB29490033CB85 /* ArrayTest.swift */; };
 		A9C0964F1D475EE500E39778 /* MKCoordinateRegionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */; };
 		A9CF4FF31D4B547E006EB51B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */; };
 		A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */; };
-		A9D9CE4D1C472D6C00D39DE3 /* SpearSwiftLibOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */; };
 		A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */; };
 		A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */; };
 		A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1DCE31C5CD99B00870301 /* Json.swift */; };
 		A9FE2F501B7C8AB400EE5F3F /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A942A9931A9F251900C69271 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A942A97D1A9F251800C69271 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A942A9851A9F251800C69271;
-			remoteInfo = SpearSwiftLib;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A91627361D609E1700387B5F /* GifExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifExtractor.swift; sourceTree = "<group>"; };
@@ -74,7 +55,6 @@
 		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942A98A1A9F251800C69271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A942A98B1A9F251800C69271 /* SpearSwiftLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLib.h; sourceTree = "<group>"; };
-		A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942A9971A9F251900C69271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A942A9981A9F251900C69271 /* SpearSwiftLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpearSwiftLibTests.swift; sourceTree = "<group>"; };
 		A962FB8E1C8AE70200B66192 /* NavigationBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtensions.swift; sourceTree = "<group>"; };
@@ -84,6 +64,7 @@
 		A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLParameters.swift; sourceTree = "<group>"; };
 		A9A426981CAFB04A0098F179 /* GenerateImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateImage.swift; sourceTree = "<group>"; };
+		A9ADA0071DD141C0006BD025 /* CoordinateBoundaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateBoundaries.swift; sourceTree = "<group>"; };
 		A9B2F1201C086337000F5367 /* OperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTest.swift; sourceTree = "<group>"; };
 		A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
@@ -91,7 +72,6 @@
 		A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCoordinateRegionExtensions.swift; sourceTree = "<group>"; };
 		A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDateTime.swift; sourceTree = "<group>"; };
@@ -107,21 +87,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A96EE6111DB3B09C00E55997 /* SwiftyBeaver.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A942A98E1A9F251900C69271 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A942A9921A9F251900C69271 /* SpearSwiftLib.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9D9CE461C472D6C00D39DE3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,8 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				A942A9861A9F251800C69271 /* SpearSwiftLib.framework */,
-				A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */,
-				A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,11 +133,11 @@
 		A942A9881A9F251800C69271 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
-				A92CC47C1B3BF53700593257 /* Extensions */,
-				A9E1DCE21C5CD97000870301 /* JSON */,
+				A942A98B1A9F251800C69271 /* SpearSwiftLib.h */,
 				A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */,
 				A92424A61BF3519E00175774 /* BaseOperation.swift */,
 				A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */,
+				A9ADA0071DD141C0006BD025 /* CoordinateBoundaries.swift */,
 				A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */,
 				A927F5AD1CC6300E009A025E /* CurrentLocationFinder.swift */,
 				A927F5AB1CC62893009A025E /* ForegroundNotification.swift */,
@@ -184,11 +147,12 @@
 				A92BE2681BEC9E3200AF5B6E /* LocalNotification.swift */,
 				A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */,
 				A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */,
-				A942A98B1A9F251800C69271 /* SpearSwiftLib.h */,
-				A93479581BDF75770069B2BC /* StringBuilder.swift */,
-				A942A9891A9F251800C69271 /* Supporting Files */,
-				A942A9951A9F251900C69271 /* SpearSwiftLibTests */,
 				A96916AA1D26B27700D1F164 /* OrderedDictionary.swift */,
+				A93479581BDF75770069B2BC /* StringBuilder.swift */,
+				A92CC47C1B3BF53700593257 /* Extensions */,
+				A9E1DCE21C5CD97000870301 /* JSON */,
+				A942A9951A9F251900C69271 /* SpearSwiftLibTests */,
+				A942A9891A9F251800C69271 /* Supporting Files */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -259,14 +223,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A9D9CE471C472D6C00D39DE3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9D9CE4D1C472D6C00D39DE3 /* SpearSwiftLibOSX.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -288,42 +244,6 @@
 			productReference = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A942A9901A9F251900C69271 /* SpearSwiftLibTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A942A99F1A9F251900C69271 /* Build configuration list for PBXNativeTarget "SpearSwiftLibTests" */;
-			buildPhases = (
-				A942A98D1A9F251900C69271 /* Sources */,
-				A942A98E1A9F251900C69271 /* Frameworks */,
-				A942A98F1A9F251900C69271 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A942A9941A9F251900C69271 /* PBXTargetDependency */,
-			);
-			name = SpearSwiftLibTests;
-			productName = SpearSwiftLibTests;
-			productReference = A942A9911A9F251900C69271 /* SpearSwiftLibTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A9D9CE491C472D6C00D39DE3 /* SpearSwiftLibMac */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9D9CE511C472D6C00D39DE3 /* Build configuration list for PBXNativeTarget "SpearSwiftLibMac" */;
-			buildPhases = (
-				A9D9CE451C472D6C00D39DE3 /* Sources */,
-				A9D9CE461C472D6C00D39DE3 /* Frameworks */,
-				A9D9CE471C472D6C00D39DE3 /* Headers */,
-				A9D9CE481C472D6C00D39DE3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SpearSwiftLibMac;
-			productName = SpearSwiftLibOSX;
-			productReference = A9D9CE4A1C472D6C00D39DE3 /* SpearSwiftLib.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -337,13 +257,6 @@
 					A942A9851A9F251800C69271 = {
 						CreatedOnToolsVersion = 6.1.1;
 						LastSwiftMigration = 0800;
-					};
-					A942A9901A9F251900C69271 = {
-						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 0800;
-					};
-					A9D9CE491C472D6C00D39DE3 = {
-						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
@@ -360,28 +273,12 @@
 			projectRoot = "";
 			targets = (
 				A942A9851A9F251800C69271 /* SpearSwiftLib */,
-				A942A9901A9F251900C69271 /* SpearSwiftLibTests */,
-				A9D9CE491C472D6C00D39DE3 /* SpearSwiftLibMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A942A9841A9F251800C69271 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A942A98F1A9F251900C69271 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9D9CE481C472D6C00D39DE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -407,6 +304,7 @@
 				A962FB8F1C8AE70300B66192 /* NavigationBarExtensions.swift in Sources */,
 				A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */,
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
+				A9ADA0081DD141C0006BD025 /* CoordinateBoundaries.swift in Sources */,
 				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
 				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
 				A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */,
@@ -424,37 +322,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A942A98D1A9F251900C69271 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A96916AC1D27183000D1F164 /* OrderedDictionary.swift in Sources */,
-				A93FB8951B3245DD0017E3E9 /* StringTests.swift in Sources */,
-				A942A9991A9F251900C69271 /* SpearSwiftLibTests.swift in Sources */,
-				A934795B1BDF7B450069B2BC /* StringBuilderTest.swift in Sources */,
-				A9B2F1211C086337000F5367 /* OperationTest.swift in Sources */,
-				A9B6DA321BFB29490033CB85 /* ArrayTest.swift in Sources */,
-				A924A58A1C32982400181C17 /* DateTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9D9CE451C472D6C00D39DE3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A99916F71C490326002AF3AD /* BaseOperation.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A942A9941A9F251900C69271 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A942A9851A9F251800C69271 /* SpearSwiftLib */;
-			targetProxy = A942A9931A9F251900C69271 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A942A99A1A9F251900C69271 /* Debug */ = {
@@ -563,8 +431,9 @@
 				);
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -587,98 +456,13 @@
 				);
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		A942A9A01A9F251900C69271 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		A942A9A11A9F251900C69271 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		A9D9CE4F1C472D6C00D39DE3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibOSX;
-				PRODUCT_NAME = SpearSwiftLib;
-				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTSFOLDERPATH)/Headers";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A9D9CE501C472D6C00D39DE3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibOSX;
-				PRODUCT_NAME = SpearSwiftLib;
-				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTSFOLDERPATH)/Headers";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -699,24 +483,6 @@
 			buildConfigurations = (
 				A942A99D1A9F251900C69271 /* Debug */,
 				A942A99E1A9F251900C69271 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A942A99F1A9F251900C69271 /* Build configuration list for PBXNativeTarget "SpearSwiftLibTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A942A9A01A9F251900C69271 /* Debug */,
-				A942A9A11A9F251900C69271 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9D9CE511C472D6C00D39DE3 /* Build configuration list for PBXNativeTarget "SpearSwiftLibMac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9D9CE4F1C472D6C00D39DE3 /* Debug */,
-				A9D9CE501C472D6C00D39DE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

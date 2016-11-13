@@ -126,7 +126,6 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 	//MARK: - CLLocationManagerDelegate
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		print("didUpdateLocations")
 		if let location = locations.first {
 			reverseGeocode(location)
 		} else {
