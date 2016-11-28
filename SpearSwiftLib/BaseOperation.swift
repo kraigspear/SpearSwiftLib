@@ -43,7 +43,7 @@ open class BaseOperation : Operation {
 
     ///Indicates if there was an error executing the operation. Nil if the operation was a
     ///Success or an error otherwise.
-    public var error:NSError?
+    public var error: Error?
 	
 	/**
 	Override of NSOperation start.

@@ -25,6 +25,7 @@ public enum FetchError: Error {
 	case jsonError(Error)
 	case invalidUrl(String)
 	case responseError(Error)
+	case responseNil
 	case none
 }
 
@@ -128,7 +129,6 @@ extension NetworkOperation {
 					} catch let jsonCachedError as NSError {
 						failure(FetchError.jsonError(jsonCachedError))
 					}
-					
 				} else {
 					failure(FetchError.responseError(error))
 				}

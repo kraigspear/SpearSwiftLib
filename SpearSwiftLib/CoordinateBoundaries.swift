@@ -15,8 +15,8 @@ public struct CoordinateBoundaries {
 	let longitude: Double
 	let distance: Double
 	
-	public init(lattitude: Double, longitude: Double, distance: Double) {
-		self.lattitude = lattitude
+	public init(latitude: Double, longitude: Double, distance: Double) {
+		self.lattitude = latitude
 		self.longitude = longitude
 		self.distance = distance
 	}

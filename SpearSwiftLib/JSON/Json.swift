@@ -67,7 +67,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObj
 	}
 	
 	func toDate(_ key: Key) throws -> Date {
-		let dblDate = try! toDouble(key)
+		let dblDate = try! toDouble(key) / 1000
 		return Date(timeIntervalSince1970: dblDate)
 	}
 	

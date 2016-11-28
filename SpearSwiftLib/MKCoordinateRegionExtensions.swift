@@ -17,7 +17,7 @@ public extension MKCoordinateRegion {
 	 - returns: True if the Regions are really close to each other
 	*/
 	func isSameAs(_ otherRegion: MKCoordinateRegion) -> Bool {
-		let epsilon = 0.005
+		let epsilon = 0.05
 		
 		let latDiff = fabs(otherRegion.center.latitude - center.latitude)
 		let lngDiff = fabs(otherRegion.center.longitude - center.longitude)
