@@ -7,10 +7,34 @@
 //
 
 import Foundation
+import SwiftyBeaver
 
 public enum ConvertError: Error {
 	case invalidConversion
 }
+
+fileprivate final class DateFormatters {
+	static let instance = DateFormatters()
+	private init() {}
+	lazy var format1: DateFormatter = {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+		return dateFormatter
+	}()
+	
+	lazy var format2: DateFormatter = {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S"
+		return dateFormatter
+	}()
+	
+	lazy var format3: DateFormatter = {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SZ"
+		return dateFormatter
+	}()
+}
+
 
 public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObject {
 	func toInt(_ key: Key) throws -> Int {
@@ -67,8 +91,16 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObj
 	}
 	
 	func toDate(_ key: Key) throws -> Date {
-		let dblDate = try! toDouble(key) / 1000
-		return Date(timeIntervalSince1970: dblDate)
+		let strVal = try! toString(key)
+		var date = DateFormatters.instance.format1.date(from: strVal)
+		if date != nil {return date!}
+		date = DateFormatters.instance.format2.date(from: strVal)
+		if date != nil {return date!}
+		date = DateFormatters.instance.format3.date(from: strVal)
+		if date == nil {
+			assertionFailure("Unsuppported date format \(strVal)")
+		}
+		return date!
 	}
 	
 }
@@ -78,6 +110,6 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObj
 
 ///The base type of Json a key value pair
 public typealias JsonKeyValue = Dictionary<String, AnyObject>
-///Block for receving a JsonKeyValue
+///Block for receiving a JsonKeyValue
 public typealias JsonBlock = ((_ json:JsonKeyValue) -> Void)
 
