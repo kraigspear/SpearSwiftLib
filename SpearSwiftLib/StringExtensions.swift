@@ -30,4 +30,8 @@ extension String
 	{
 		self.remove(at: self.index(before: self.endIndex))
 	}
+	
+	public var lastPathComponent: String {
+		return NSString(string: self).lastPathComponent
+	}
 }

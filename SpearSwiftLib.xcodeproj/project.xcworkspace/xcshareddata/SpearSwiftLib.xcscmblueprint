@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2A66F0001099E026D80202D86B89977F2A07CF7D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2A66F0001099E026D80202D86B89977F2A07CF7D" : 9223372036854775807,
+    "08312D9BB8DCB1C881CDF17A6A8906DF82D31D43" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D2F93536-50F2-497A-AB01-E890C3FE3F26",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2A66F0001099E026D80202D86B89977F2A07CF7D" : "SpearSwiftLib\/",
+    "08312D9BB8DCB1C881CDF17A6A8906DF82D31D43" : "FastCast2\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SpearSwiftLib",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SpearSwiftLib.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kraigspear\/FastCast2",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08312D9BB8DCB1C881CDF17A6A8906DF82D31D43"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kraigspear\/SpearSwiftLib",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2A66F0001099E026D80202D86B89977F2A07CF7D"
+    }
+  ]
+}

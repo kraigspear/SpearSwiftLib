@@ -22,7 +22,6 @@
 		A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */; };
 		A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */; };
 		A96916AB1D26B27700D1F164 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96916AA1D26B27700D1F164 /* OrderedDictionary.swift */; };
-		A96EE6111DB3B09C00E55997 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */; };
 		A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */; };
 		A9A426991CAFB04A0098F179 /* GenerateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A426981CAFB04A0098F179 /* GenerateImage.swift */; };
 		A9ADA0081DD141C0006BD025 /* CoordinateBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA0071DD141C0006BD025 /* CoordinateBoundaries.swift */; };
@@ -35,6 +34,7 @@
 		A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */; };
 		A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */; };
 		A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1DCE31C5CD99B00870301 /* Json.swift */; };
+		A9FA1A1C1E1930CA001907FF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA1A1B1E1930CA001907FF /* Logger.swift */; };
 		A9FE2F501B7C8AB400EE5F3F /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +78,8 @@
 		A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		A9E1DCE31C5CD99B00870301 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		A9FA19FA1E167C66001907FF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../FastCast2/Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		A9FA1A1B1E1930CA001907FF /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A9FE2F4F1B7C8AB400EE5F3F /* FileManagerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A96EE6111DB3B09C00E55997 /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +154,7 @@
 				A9E1DCE21C5CD97000870301 /* JSON */,
 				A942A9951A9F251900C69271 /* SpearSwiftLibTests */,
 				A942A9891A9F251800C69271 /* Supporting Files */,
+				A9FA1A1B1E1930CA001907FF /* Logger.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -190,6 +192,7 @@
 		A96EE60F1DB3B09C00E55997 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9FA19FA1E167C66001907FF /* SwiftyBeaver.framework */,
 				A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */,
 			);
 			name = Frameworks;
@@ -251,7 +254,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = spearware;
 				TargetAttributes = {
 					A942A9851A9F251800C69271 = {
@@ -303,6 +306,7 @@
 				A96316D91BCC71CD0042DB95 /* ClosureTypes.swift in Sources */,
 				A962FB8F1C8AE70300B66192 /* NavigationBarExtensions.swift in Sources */,
 				A92BE2691BEC9E3200AF5B6E /* LocalNotification.swift in Sources */,
+				A9FA1A1C1E1930CA001907FF /* Logger.swift in Sources */,
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
 				A9ADA0081DD141C0006BD025 /* CoordinateBoundaries.swift in Sources */,
 				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
@@ -421,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -446,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
