@@ -8,6 +8,14 @@
 
 import Foundation
 
+/**
+Errors from a network call
+*/
+public enum NetworkError: Error {
+	///The status code is not 200
+	case statusCodeError(statusCode: Int)
+}
+
 public enum ResultHavingType<T> {
 	case success(result: T)
 	case error(error: Error)

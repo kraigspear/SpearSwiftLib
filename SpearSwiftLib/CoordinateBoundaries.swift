@@ -9,80 +9,32 @@
 import Foundation
 import CoreLocation
 
+///The boundaries of a center
 public struct CoordinateBoundaries {
 	
-	let lattitude: Double
-	let longitude: Double
-	let distance: Double
+	public let center: CLLocationCoordinate2D
+	private let boundingBox: BoundingBox
 	
-	public init(latitude: Double, longitude: Double, distance: Double) {
-		self.lattitude = latitude
-		self.longitude = longitude
-		self.distance = distance
-	}
+	/**
+	Initialize a CoordinateBoundaries with a center and distance
 	
-	private var latitudeConversionFactor: Double {
-		return distance / 69
-	}
-	
-	private var longitudeconversionFactor: Double {
-		return distance / 69 / abs(cos(lattitude.toRadian()))
-	}
-	
-	var minLatitude: Double {
-		let v = lattitude - latitudeConversionFactor
-		return v.boundaryMin(by: -90)
-	}
-	
-	var maxLatitude: Double {
-		let v = lattitude + latitudeConversionFactor
-		return v.boundaryMax(by: 90)
-	}
-	
-	var minLongitude: Double {
-		let v = longitude + longitudeconversionFactor
-		return v.boundaryMin(by: -180)
-	}
-	
-	var maxLongitude: Double {
-		let v = longitude - longitudeconversionFactor
-		return v.boundaryMax(by: 180)
+	- parameter latitude: The lattitude of the center coordinate
+	- parameter longitude: The longitude of the center coordinate
+	- parameter distance: Half length of the bounding box you want in kilometers
+	*/
+	public init(latitude: Double,
+	            longitude: Double,
+	            distance: Double) {
+		self.center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+		self.boundingBox = center.calcBoundingBox(halfSideInKm: distance)
 	}
 	
 	public var min: CLLocationCoordinate2D {
-		return CLLocationCoordinate2D(latitude: minLatitude, longitude: minLongitude)
+		return boundingBox.minPoint
 	}
 	
 	public var max: CLLocationCoordinate2D {
-		return CLLocationCoordinate2D(latitude: maxLatitude, longitude: maxLongitude)
-	}
-	
-	public var center: CLLocationCoordinate2D {
-		return CLLocationCoordinate2D(latitude: lattitude, longitude: longitude)
+		return boundingBox.maxPoint
 	}
 }
 
-private extension Double {
-	func toRadian() -> Double {
-		return self * (M_PI / 180)
-	}
-	
-	func boundaryMax(by: Double) -> Double {
-		let negative = -by
-		if self > by {
-			return negative + (self - by)
-		}
-		else {
-			return self
-		}
-	}
-	
-	func boundaryMin(by: Double) -> Double {
-		if self < by {
-			return abs(by) - (by - self)
-		}
-		else {
-			return self
-		}
-	}
-}
