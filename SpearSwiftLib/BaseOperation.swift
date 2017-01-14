@@ -117,7 +117,7 @@ open class BaseOperation : Operation {
     
     ///Set this operation as being completed. Needs to always be called no matter if the operation
     ///is successful or not
-    public final func done() {
+	open func done() {
         self.isExecuting = false
         self.isFinished = true
     }
