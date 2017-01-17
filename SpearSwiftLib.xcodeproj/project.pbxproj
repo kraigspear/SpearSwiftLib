@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A91627371D609E1700387B5F /* GifExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91627361D609E1700387B5F /* GifExtractor.swift */; };
 		A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91890B61B6CE866005CA6B3 /* ImageCache.swift */; };
+		A91D8EB51E2CD7850032811A /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FA19FA1E167C66001907FF /* SwiftyBeaver.framework */; };
 		A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9232F8E1C2D669C00232118 /* NumberExtensions.swift */; };
 		A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
 		A927F5AC1CC62893009A025E /* ForegroundNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927F5AB1CC62893009A025E /* ForegroundNotification.swift */; };
@@ -92,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91D8EB51E2CD7850032811A /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
