@@ -9,7 +9,7 @@
 import UIKit
 
 public typealias ImageBlock = ( (_ image: UIImage?) -> Void)
-public typealias ImagesBlock = ( (_ image: [UIImage]) -> Void)?
+public typealias ImagesBlock = ( (_ image: [UIImage]) -> Void)
 
 /**
 *  Loads an image from cache or downloads the image, stores in cache.
@@ -32,46 +32,43 @@ public final class ImageCache
  - parameter urlStrs: Array of URL's to download
  - parameter completed: Called when all of the images have been fetched
  */
-	public func fetchImages(_ urlStrs: [String], completed: ImagesBlock)
+	public func fetchImages(_ urlStrs: [String], completed: @escaping ImagesBlock)
 	{
-		if let unwrapCompleted = completed
-		{
-			let que = DispatchQueue(
-				label: "com.sw.imageque")
+		let que = DispatchQueue(
+			label: "com.sw.imageque")
+		
+		var images:[UIImage] = [UIImage]()
+		
+		que.async(execute: {
+			for urlStr in urlStrs
+			{
+				if let image = self.fetchImage(urlStr)
+				{
+					images.append(image)
+				}
+			}
 			
-			var images:[UIImage] = [UIImage]()
+			DispatchQueue.main.async {
+				completed(images)
+			}
 			
-			que.async(execute: {
-							for urlStr in urlStrs
-							{
-								if let image = self.fetchImage(urlStr)
-								{
-									images.append(image)
-								}
-							}
-							
-							DispatchQueue.main.async
-							{
-								unwrapCompleted(images)
-							}
-							
-			});
-		}
+		});
+		
 	}
 	
 	/**
 	Fetch one image
 	
-	 - parameter ulrStr: URL of the image to fetch
-	 - returns: The image, or nil if it can't be loaded
+	- parameter ulrStr: URL of the image to fetch
+	- returns: The image, or nil if it can't be loaded
 	*/
 	public func fetchImage(_ ulrStr: String) -> UIImage?
 	{
-		if let fromMemory = self.fetchFromMemory(ulrStr)
+		if let fromMemory = fetchFromMemory(ulrStr)
 		{
 			return fromMemory
 		}
-		else if let fromCache = self.fetchFromDisk(ulrStr)
+		else if let fromCache = fetchFromDisk(ulrStr)
 		{
 			return fromCache
 		}
@@ -92,7 +89,7 @@ public final class ImageCache
 	
 	private func fetchFromDisk(_ urlStr: String) -> UIImage?
 	{
-		let fileNameCache = self.fileNameFromCache(urlStr)
+		let fileNameCache = fileNameFromCache(urlStr)
 		
 		if self.fileExistInCacheDirectory(urlStr)
 		{
