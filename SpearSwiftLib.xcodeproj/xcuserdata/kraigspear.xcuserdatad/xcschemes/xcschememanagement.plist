@@ -7,7 +7,7 @@
 		<key>SpearSwiftLib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>SpearSwiftLib.xcscheme_^#shared#^_</key>
 		<dict>
@@ -25,17 +25,17 @@
 		<key>A942A9851A9F251800C69271</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>A942A9901A9F251900C69271</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>A9D9CE491C472D6C00D39DE3</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>

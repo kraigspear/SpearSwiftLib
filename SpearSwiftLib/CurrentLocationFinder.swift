@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import SwiftyBeaver
 
 public enum LocationFindableError: Error {
 	case permissions
@@ -70,13 +71,15 @@ struct FoundLocation: FoundLocationType, CustomStringConvertible {
 	}
 }
 
-final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegate {
+final class LocationFinder: NSObject, LocationFindable {
 	
-	private var locationManager: CLLocationManager?
-	private let geoCoder = CLGeocoder()
-	private let accuracy: CLLocationAccuracy
-	private let success: LocationFinderSuccessClosure
-	private let failure: LocationFindErrorClosure
+	fileprivate var locationManager: CLLocationManager?
+	fileprivate let geoCoder = CLGeocoder()
+	fileprivate let accuracy: CLLocationAccuracy
+	fileprivate let success: LocationFinderSuccessClosure
+	fileprivate let failure: LocationFindErrorClosure
+	fileprivate var requestedLocation: Bool = false
+	fileprivate let log = SwiftyBeaver.self
 	
 	init(accuracy: CLLocationAccuracy,
 	     success: @escaping LocationFinderSuccessClosure,
@@ -87,6 +90,7 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 	}
 	
 	private func initManager() {
+		precondition(Thread.isMainThread)
 		if self.locationManager != nil {
 			return
 		}
@@ -95,15 +99,14 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 		self.locationManager!.delegate = self
 	}
 	
-	private func deinitManager() {
+	fileprivate func deinitManager() {
+		precondition(Thread.isMainThread)
 		guard let locationManager = self.locationManager else {
 			return
 		}
 		locationManager.delegate = nil
 		self.locationManager = nil
 	}
-	
-	private var requestedLocation: Bool = false
 	
 	func find() {
 		
@@ -114,46 +117,27 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 		
 		initManager()
 		
-		if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+		let status = CLLocationManager.authorizationStatus()
+		
+		switch status {
+			
+		case .authorizedWhenInUse:
 			requestedLocation = true
 			locationManager!.requestLocation()
-		} else {
+		case .authorizedAlways:
+			requestedLocation = false
+			log.warning("When did we start requesting this?")
+			assert(false, "When did we start requesting this?")
+		case .denied, .restricted:
+			requestedLocation = false
+			failure(.notAuthorized(status: status))
+		case .notDetermined:
 			requestedLocation = false
 			locationManager!.requestWhenInUseAuthorization()
 		}
 	}
 	
-	//MARK: - CLLocationManagerDelegate
-	
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		if let location = locations.first {
-			reverseGeocode(location)
-		} else {
-			// ...
-		}
-	}
-	
-	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		failure(.locationManagerError(error: error as NSError))
-	}
-	
-	
-	
-	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-		
-		if requestedLocation {
-			return
-		}
-		
-		switch status {
-		case .denied:
-			failure(.notAuthorized(status: status))
-		case .authorizedAlways, .authorizedWhenInUse, .notDetermined, .restricted:
-			find()
-		}
-	}
-	
-	private func reverseGeocode(_ location: CLLocation) {
+	fileprivate func reverseGeocode(_ location: CLLocation) {
 		let complete: CLGeocodeCompletionHandler = {[weak self] (placemarks: [CLPlacemark]?, error: Error?) in
 			if let error = error {
 				self?.failure(LocationFindableError.geocodeError(error: error as NSError))
@@ -166,10 +150,35 @@ final class LocationFinder: NSObject, LocationFindable, CLLocationManagerDelegat
 					self?.success(foundLocation)
 				}
 			}
-			
+			self?.deinitManager()
 		}
 		
 		geoCoder.reverseGeocodeLocation(location, completionHandler: complete)
 	}
 	
+}
+
+extension LocationFinder: CLLocationManagerDelegate {
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		
+		guard let location = locations.first else {return}
+		reverseGeocode(location)
+	}
+	
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		failure(.locationManagerError(error: error as NSError))
+		deinitManager()
+	}
+	
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+		
+		guard requestedLocation == false else {return}
+		
+		switch status {
+		case .denied:
+			failure(.notAuthorized(status: status))
+		case .authorizedAlways, .authorizedWhenInUse, .notDetermined, .restricted:
+			find()
+		}
+	}
 }

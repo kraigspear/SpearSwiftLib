@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A907398C1E7FC19200D7912D /* CurrentLocationPermissionRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907398B1E7FC19200D7912D /* CurrentLocationPermissionRequestor.swift */; };
 		A91627371D609E1700387B5F /* GifExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91627361D609E1700387B5F /* GifExtractor.swift */; };
 		A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91890B61B6CE866005CA6B3 /* ImageCache.swift */; };
 		A91D8EB51E2CD7850032811A /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FA19FA1E167C66001907FF /* SwiftyBeaver.framework */; };
@@ -26,9 +27,12 @@
 		A96BD1D91E28D69500284C0F /* CurrentLocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96BD1D81E28D69500284C0F /* CurrentLocationFinder.swift */; };
 		A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */; };
 		A9A426991CAFB04A0098F179 /* GenerateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A426981CAFB04A0098F179 /* GenerateImage.swift */; };
+		A9ACDBF91E743DF800C80624 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ACDBF81E743DF800C80624 /* UIView+Blur.swift */; };
 		A9ADA0081DD141C0006BD025 /* CoordinateBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA0071DD141C0006BD025 /* CoordinateBoundaries.swift */; };
 		A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */; };
 		A9B6DA301BFAB0220033CB85 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */; };
+		A9BC53721E758CF70098B9CF /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC53711E758CF70098B9CF /* UIView+Animations.swift */; };
+		A9BE978D1E7A8B870087BF1B /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE978C1E7A8B870087BF1B /* BaseNotification.swift */; };
 		A9C0964F1D475EE500E39778 /* MKCoordinateRegionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */; };
 		A9CF4FF31D4B547E006EB51B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */; };
 		A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */; };
@@ -43,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A907398B1E7FC19200D7912D /* CurrentLocationPermissionRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationPermissionRequestor.swift; sourceTree = "<group>"; };
 		A91627361D609E1700387B5F /* GifExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifExtractor.swift; sourceTree = "<group>"; };
 		A91890B61B6CE866005CA6B3 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A91D8EBD1E2E1A740032811A /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
@@ -69,11 +74,14 @@
 		A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A97714B51D3E19DC0090AAB1 /* NSURLParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLParameters.swift; sourceTree = "<group>"; };
 		A9A426981CAFB04A0098F179 /* GenerateImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateImage.swift; sourceTree = "<group>"; };
+		A9ACDBF81E743DF800C80624 /* UIView+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		A9ADA0071DD141C0006BD025 /* CoordinateBoundaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateBoundaries.swift; sourceTree = "<group>"; };
 		A9B2F1201C086337000F5367 /* OperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTest.swift; sourceTree = "<group>"; };
 		A9B63EAA1B301743001DD0CE /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		A9B6DA2F1BFAB0220033CB85 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		A9B6DA311BFB29490033CB85 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
+		A9BC53711E758CF70098B9CF /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+		A9BE978C1E7A8B870087BF1B /* BaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotification.swift; sourceTree = "<group>"; };
 		A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCoordinateRegionExtensions.swift; sourceTree = "<group>"; };
 		A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -116,6 +124,8 @@
 				A962FB8E1C8AE70200B66192 /* NavigationBarExtensions.swift */,
 				A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */,
 				A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */,
+				A9ACDBF81E743DF800C80624 /* UIView+Blur.swift */,
+				A9BC53711E758CF70098B9CF /* UIView+Animations.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -144,14 +154,15 @@
 			children = (
 				A92CC47C1B3BF53700593257 /* Extensions */,
 				A9E1DCE21C5CD97000870301 /* JSON */,
-				A996F49E1E27941000CBF5FF /* Locations */,
 				A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */,
 				A92424A61BF3519E00175774 /* BaseOperation.swift */,
+				A9BE978C1E7A8B870087BF1B /* BaseNotification.swift */,
 				A9FA1A221E1BACA9001907FF /* BoundingBox.swift */,
 				A96316D81BCC71CD0042DB95 /* ClosureTypes.swift */,
 				A9ADA0071DD141C0006BD025 /* CoordinateBoundaries.swift */,
 				A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */,
 				A96BD1D81E28D69500284C0F /* CurrentLocationFinder.swift */,
+				A907398B1E7FC19200D7912D /* CurrentLocationPermissionRequestor.swift */,
 				A927F5AB1CC62893009A025E /* ForegroundNotification.swift */,
 				A9A426981CAFB04A0098F179 /* GenerateImage.swift */,
 				A91627361D609E1700387B5F /* GifExtractor.swift */,
@@ -208,13 +219,6 @@
 				A96EE6101DB3B09C00E55997 /* SwiftyBeaver.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A996F49E1E27941000CBF5FF /* Locations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Locations;
 			sourceTree = "<group>";
 		};
 		A9D9CE4B1C472D6C00D39DE3 /* SpearSwiftLibOSX */ = {
@@ -318,7 +322,9 @@
 				A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */,
 				A96316DB1BCCF5D60042DB95 /* AsyncAwait.swift in Sources */,
 				A91D8EBE1E2E1A740032811A /* Platform.swift in Sources */,
+				A907398C1E7FC19200D7912D /* CurrentLocationPermissionRequestor.swift in Sources */,
 				A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */,
+				A9ACDBF91E743DF800C80624 /* UIView+Blur.swift in Sources */,
 				A93FB8931B3244FE0017E3E9 /* StringExtensions.swift in Sources */,
 				A96916AB1D26B27700D1F164 /* OrderedDictionary.swift in Sources */,
 				A93479591BDF75770069B2BC /* StringBuilder.swift in Sources */,
@@ -328,6 +334,7 @@
 				A9FA1A1C1E1930CA001907FF /* Logger.swift in Sources */,
 				A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */,
 				A9ADA0081DD141C0006BD025 /* CoordinateBoundaries.swift in Sources */,
+				A9BE978D1E7A8B870087BF1B /* BaseNotification.swift in Sources */,
 				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
 				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
 				A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */,
@@ -345,6 +352,7 @@
 				A97714B61D3E19DC0090AAB1 /* NSURLParameters.swift in Sources */,
 				A927F5AC1CC62893009A025E /* ForegroundNotification.swift in Sources */,
 				A9CF4FF31D4B547E006EB51B /* UIImageExtensions.swift in Sources */,
+				A9BC53721E758CF70098B9CF /* UIView+Animations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +466,7 @@
 				);
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
@@ -484,7 +492,7 @@
 				);
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
