@@ -14,7 +14,6 @@ public enum NotificationValue<T> {
 	case value(value: T)
 }
 
-
 ///BaseNotfication, should not create directly. To be dirrived by a child class
 open class BaseNotification<NotifiedOf>: NSObject {
 	

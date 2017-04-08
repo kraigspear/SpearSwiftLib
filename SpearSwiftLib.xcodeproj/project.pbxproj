@@ -10,7 +10,6 @@
 		A907398C1E7FC19200D7912D /* CurrentLocationPermissionRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907398B1E7FC19200D7912D /* CurrentLocationPermissionRequestor.swift */; };
 		A91627371D609E1700387B5F /* GifExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91627361D609E1700387B5F /* GifExtractor.swift */; };
 		A91890B71B6CE866005CA6B3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91890B61B6CE866005CA6B3 /* ImageCache.swift */; };
-		A91D8EB51E2CD7850032811A /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FA19FA1E167C66001907FF /* SwiftyBeaver.framework */; };
 		A91D8EBE1E2E1A740032811A /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91D8EBD1E2E1A740032811A /* Platform.swift */; };
 		A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9232F8E1C2D669C00232118 /* NumberExtensions.swift */; };
 		A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92424A61BF3519E00175774 /* BaseOperation.swift */; };
@@ -36,10 +35,13 @@
 		A9C0964F1D475EE500E39778 /* MKCoordinateRegionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C0964E1D475EE500E39778 /* MKCoordinateRegionExtensions.swift */; };
 		A9CF4FF31D4B547E006EB51B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF4FF21D4B547E006EB51B /* UIImageExtensions.swift */; };
 		A9D4094C1BC8A4AD00019387 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D4094B1BC8A4AD00019387 /* DateExtensions.swift */; };
+		A9DC2DB01E89DF420008E98F /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FA19FA1E167C66001907FF /* SwiftyBeaver.framework */; };
 		A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCC9001C80811D00BDD29C /* CurrentDateTime.swift */; };
 		A9DE9C271B7DEAE5008C3FBC /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */; };
 		A9DE9C2B1B7F3DB6008C3FBC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */; };
 		A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E1DCE31C5CD99B00870301 /* Json.swift */; };
+		A9E525231E9862CE00B5A5F8 /* LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E525211E9862CE00B5A5F8 /* LinkList.swift */; };
+		A9E525241E9862CE00B5A5F8 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E525221E9862CE00B5A5F8 /* Queue.swift */; };
 		A9E9276D1E1FA6BD00F8CBBD /* NotificationMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E9276C1E1FA6BD00F8CBBD /* NotificationMessageView.swift */; };
 		A9FA1A1C1E1930CA001907FF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA1A1B1E1930CA001907FF /* Logger.swift */; };
 		A9FA1A231E1BACA9001907FF /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA1A221E1BACA9001907FF /* BoundingBox.swift */; };
@@ -91,6 +93,8 @@
 		A9DE9C261B7DEAE5008C3FBC /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		A9DE9C2A1B7F3DB6008C3FBC /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		A9E1DCE31C5CD99B00870301 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		A9E525211E9862CE00B5A5F8 /* LinkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkList.swift; sourceTree = "<group>"; };
+		A9E525221E9862CE00B5A5F8 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		A9E9276C1E1FA6BD00F8CBBD /* NotificationMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationMessageView.swift; sourceTree = "<group>"; };
 		A9FA19FA1E167C66001907FF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../FastCast2/Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9FA1A1B1E1930CA001907FF /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -103,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91D8EB51E2CD7850032811A /* SwiftyBeaver.framework in Frameworks */,
+				A9DC2DB01E89DF420008E98F /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +156,8 @@
 		A942A9881A9F251800C69271 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
+				A9E525211E9862CE00B5A5F8 /* LinkList.swift */,
+				A9E525221E9862CE00B5A5F8 /* Queue.swift */,
 				A92CC47C1B3BF53700593257 /* Extensions */,
 				A9E1DCE21C5CD97000870301 /* JSON */,
 				A96316DA1BCCF5D60042DB95 /* AsyncAwait.swift */,
@@ -337,6 +343,8 @@
 				A9BE978D1E7A8B870087BF1B /* BaseNotification.swift in Sources */,
 				A9232F8F1C2D669C00232118 /* NumberExtensions.swift in Sources */,
 				A92424A71BF3519E00175774 /* BaseOperation.swift in Sources */,
+				A9E525241E9862CE00B5A5F8 /* Queue.swift in Sources */,
+				A9E525231E9862CE00B5A5F8 /* LinkList.swift in Sources */,
 				A9DCC9011C80811D00BDD29C /* CurrentDateTime.swift in Sources */,
 				A9B63EAB1B301743001DD0CE /* NetworkOperation.swift in Sources */,
 				A9E1DCE41C5CD99B00870301 /* Json.swift in Sources */,
@@ -398,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -441,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,13 +468,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
@@ -486,13 +491,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
