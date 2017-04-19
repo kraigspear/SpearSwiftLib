@@ -8,6 +8,11 @@
 
 import Foundation
 
+public enum OperationResult<T> {
+	case success(result: T)
+	case error(error: Error)
+}
+
 /**
 Provides a better implementation of NSOperation
 
@@ -39,11 +44,15 @@ final class AddLocationOperation: BaseOperation {
 ```
 
 */
-open class BaseOperation : Operation {
+open class BaseOperation<ResultType> : Operation {
 
-    ///Indicates if there was an error executing the operation. Nil if the operation was a
-    ///Success or an error otherwise.
-    public var error: Error?
+	
+	public var result: OperationResult<ResultType>? {
+		didSet {
+			done()
+		}
+	}
+	
 	
 	/**
 	Override of NSOperation start.
@@ -61,21 +70,6 @@ open class BaseOperation : Operation {
         }
     }
     
-    final var anyDependencyHasErrors:Bool
-    {
-        for dependency in self.dependencies
-        {
-            if let baseOperation = dependency as? BaseOperation
-            {
-                if baseOperation.error != nil
-                {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-	
 	/**
 	Always true.
 	Not intended to be overriden
@@ -121,5 +115,13 @@ open class BaseOperation : Operation {
         self.isExecuting = false
         self.isFinished = true
     }
+	
+	open func done(success: ResultType) {
+		result = OperationResult<ResultType>.success(result: success)
+	}
+	
+	open func done(error: Error) {
+		result = OperationResult<ResultType>.error(error: error)
+	}
     
 }
