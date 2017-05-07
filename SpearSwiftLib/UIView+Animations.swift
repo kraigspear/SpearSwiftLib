@@ -22,7 +22,7 @@ public extension UIView {
 		animate.duration = withDuration
 		animate.repeatCount = Float.infinity
 		animate.fromValue = 0.0
-		animate.toValue = Float(M_PI * 2.0)
+		animate.toValue = Float(.pi * 2.0)
 		layer.add(animate, forKey: animateKey)
 	}
 	
