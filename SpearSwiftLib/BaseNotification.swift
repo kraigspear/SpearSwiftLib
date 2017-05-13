@@ -55,7 +55,10 @@ open class BaseNotification<NotifiedOf>: NSObject {
 	
 	public func observe()  {
 		
-		guard observing == false else {return}
+		guard observing == false else {
+			log.debug("Calling observe while observing")
+			return
+		}
 		
 		log.verbose("Observing DataChangedNotification \(clientName)")
 		
@@ -72,6 +75,7 @@ open class BaseNotification<NotifiedOf>: NSObject {
 	public func unobserve() {
 		
 		guard observing else {return}
+		log.verbose("Unobserving DataChangedNotification \(clientName)")
 		NotificationCenter.default.removeObserver(self)
 		observing = false
 	}

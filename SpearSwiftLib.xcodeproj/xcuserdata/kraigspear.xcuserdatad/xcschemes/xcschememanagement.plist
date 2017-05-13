@@ -4,15 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SpearSwiftLib.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
 		<key>SpearSwiftLib.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<key>SpearSwiftLibOSX.xcscheme_^#shared#^_</key>
 		<dict>

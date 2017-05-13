@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 public protocol LocationNotificationProtocol {
     var body:String? {get set}
