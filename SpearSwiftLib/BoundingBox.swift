@@ -18,6 +18,12 @@ public struct BoundingBox {
 	let maxPoint: CLLocationCoordinate2D
 }
 
+extension BoundingBox: CustomStringConvertible {
+	public var description: String {
+		return "min: \(minPoint) max: \(maxPoint) "
+	}
+}
+
 extension CLLocationCoordinate2D {
 	public func calcBoundingBox(halfSideInKm: Double) -> BoundingBox {
 		let lat = Measurement(value: latitude, unit: UnitAngle.degrees).converted(to: .radians).value

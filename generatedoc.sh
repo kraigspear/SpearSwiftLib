@@ -1,0 +1,1 @@
+jazzy SpearSwiftLib.xcodeproj --swift-version 3.1 --module SpearSwiftLib --clean
