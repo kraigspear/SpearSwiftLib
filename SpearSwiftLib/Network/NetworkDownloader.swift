@@ -49,12 +49,12 @@ public final class NetworkDownloader: NetworkDownloadable  {
 	}
 	```
 	*/
-	public func download(from: URL, completed: @escaping (NetworkResult<Data>) -> Void) {
+	public func download(from: RequestBuildable, completed: @escaping (NetworkResult<Data>) -> Void) {
 
 		let sessionConfig = URLSessionConfiguration.default
 		let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
-		let task = session.dataTask(with: from) {(data: Data?, response: URLResponse?, error: Error?) in
+		let task = session.dataTask(with: from.request) {(data: Data?, response: URLResponse?, error: Error?) in
 
 			DispatchQueue.main.async {
 

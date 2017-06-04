@@ -46,7 +46,7 @@ extension ImageDownloader: ImageDownloadable {
 	- parameter from: The URL where the image is to be downloaded from.
 	- parameter completed: Called on completion with the result of the call
 	*/
-	public func download(from: URL, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
+	public func download(from: RequestBuildable, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
 
 		networkDownloader.download(from: from) {(result) in
 			switch result {

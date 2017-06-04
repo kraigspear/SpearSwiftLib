@@ -18,7 +18,7 @@ public protocol ImageDownloadable {
 	/**
 	Download 1 or more images from the network.
 
-	- parameter from: The URL where the image is to be downloaded from.
+	- parameter from: The RequestBuildable that provides a `URLRequest` to download from
 	- parameter completed: Called on completion with the result of the call
 
 	```swift
@@ -37,7 +37,7 @@ public protocol ImageDownloadable {
 		}
 	```
 	*/
-	func download(from: URL, completed: @escaping (NetworkResult<[UIImage]>) -> Void)
+	func download(from: RequestBuildable, completed: @escaping (NetworkResult<[UIImage]>) -> Void)
 
 	//MARK: - Members
 	///Provides the ability to download data from the network

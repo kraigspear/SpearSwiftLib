@@ -28,13 +28,6 @@ class StringTests: XCTestCase {
       XCTAssertFalse(myStr.contains("kraig"))
     }
   
-    func testAny()
-    {
-      let myStr = "here is some text ya all"
-      XCTAssertTrue(myStr.any("bla", "crap", "text"))
-      XCTAssertFalse(myStr.any("abc", "def", "hijk"))
-    }
-  
     func testLeft()
     {
       var myStr = "abcdefg"

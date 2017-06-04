@@ -47,6 +47,6 @@ public protocol NetworkDownloadable {
 	}
 	```
 	*/
-	func download(from: URL, completed: @escaping (NetworkResult<Data>) -> Void)
+	func download(from: RequestBuildable, completed: @escaping (NetworkResult<Data>) -> Void)
 }
 

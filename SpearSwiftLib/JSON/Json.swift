@@ -35,8 +35,8 @@ fileprivate final class DateFormatters {
 }
 
 
-public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObject {
-	func toInt(_ key: Key) throws -> Int {
+public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
+	public func toInt(_ key: Key) throws -> Int {
 		
 		if let intVal = self[key] as? Int {
 			return intVal
@@ -54,7 +54,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObj
 		throw ConvertError.invalidConversion
 	}
 	
-	func toFloat(_ key: Key) throws -> Float {
+	public func toFloat(_ key: Key) throws -> Float {
 		if let floatVal = self[key] as? Float {
 			return floatVal
 		}
@@ -82,14 +82,26 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObj
 		throw ConvertError.invalidConversion
 	}
 	
-	func toString(_ key: Key) throws -> String {
+	/**
+	Convert the value with this key to a bool
+	
+	- throws ConvertError.invalidConversion: If the value doesn't exist as a NSNumber
+	*/
+	func toBool(_ key: Key) throws -> Bool {
+		guard let val = self[key] as? NSNumber else {
+			throw ConvertError.invalidConversion
+		}
+		return val.boolValue
+	}
+	
+	public func toString(_ key: Key) throws -> String {
 		guard let strVal = self[key] as? String else {
 			throw ConvertError.invalidConversion
 		}
 		return strVal
 	}
 	
-	func toDate(_ key: Key) throws -> Date {
+	public func toDate(_ key: Key) throws -> Date {
 		let strVal = try! toString(key)
 		var date = DateFormatters.instance.format1.date(from: strVal)
 		if date != nil {return date!}
@@ -109,6 +121,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObj
 
 ///The base type of Json a key value pair
 public typealias JsonKeyValue = Dictionary<String, Any>
+
 ///Block for receiving a JsonKeyValue
 public typealias JsonBlock = ((_ json:JsonKeyValue) -> Void)
 
