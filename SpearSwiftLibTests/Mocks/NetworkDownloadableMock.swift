@@ -8,6 +8,7 @@
 
 import Foundation
 
+@testable import SpearSwiftLib
 
 final class  NetworkDownloadableMock: NetworkDownloadable {
 	var downloadResult: NetworkResult<Data>!

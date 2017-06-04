@@ -39,12 +39,12 @@ open class BaseNotification<NotifiedOf>: NSObject {
 	open class var notificationName: String {preconditionFailure("Should be overriden in a child class")}
 	
 	///Post that this notification has occured
-	public static func post(notfiedValue: NotificationValue<NotifiedOf> = NotificationValue.empty) {
+	public static func post(notifiedValue: NotificationValue<NotifiedOf> = NotificationValue.empty) {
 		DispatchQueue.main.async {
 			
 			SwiftyBeaver.self.verbose("Posting DataChangedNotification")
 			
-			switch notfiedValue {
+			switch notifiedValue {
 			case .empty:
 				NotificationCenter.default.post(name: Notification.Name(rawValue: notificationName), object: nil)
 			case .value(value: let value):

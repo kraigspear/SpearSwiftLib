@@ -26,9 +26,21 @@ public final class JsonDownloader {
 }
 
 extension JsonDownloader: JSONDownloadable {
+	
 	public func download(from: RequestBuildable, completed: @escaping (NetworkResult<JsonKeyValue>) -> Void) {
-
-
-
+		
+		networkDownloader.download(from: from) {(result) in
+			assert(Thread.isMainThread, "Expected main thread")
+			switch result {
+			case .success(result: let dataResult):
+				let json = try! JSONSerialization.jsonObject(with: dataResult, options: []) as! JsonKeyValue
+				completed(NetworkResult<JsonKeyValue>.success(result: json))
+			case .error(error: let error):
+				completed(NetworkResult<JsonKeyValue>.error(error: error))
+			case .response(code: let code):
+				completed(NetworkResult<JsonKeyValue>.response(code: code))
+			}
+		}
+		
 	}
 }
