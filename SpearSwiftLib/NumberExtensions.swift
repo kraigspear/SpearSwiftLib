@@ -13,10 +13,10 @@ let halfDegrees = 180.0
 extension Double {
     
     public func toDegrees() -> Double {
-        return halfDegrees * self / M_PI
+        return halfDegrees * self / Double.pi
     }
     
     public func toRadians() -> Double {
-        return M_PI * self / halfDegrees
+        return Double.pi * self / halfDegrees
     }
 }

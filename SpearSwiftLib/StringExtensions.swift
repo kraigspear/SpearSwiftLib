@@ -10,18 +10,6 @@ import Foundation
 
 extension String
 {
-	public func any(_ equalTo:String...) -> Bool
-	{
-		for astr in equalTo
-		{
-			if self.contains(astr)
-			{
-				return true
-			}
-		}
-		return false
-	}
-	
 	public var isInt: Bool {
 		return Int(self) != nil
 	}
