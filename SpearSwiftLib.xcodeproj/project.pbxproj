@@ -10,6 +10,7 @@
 		A9503DEC1ED6E1100011B5AF /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
 		A9503DF21ED6E2440011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
 		A9503DF31ED6E2590011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
+		A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
 		A9A14CE81EE4804B00E1FAF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9A14CDC1EE4804B00E1FAF7 /* Info.plist */; };
 		A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */; };
 		A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */; };
@@ -78,6 +79,7 @@
 		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9611AF51EE7EBD80096154A /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
 		A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBoxTest.swift; sourceTree = "<group>"; };
 		A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTest.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				E63823337456B752B372C462 /* NetworkDownloadable.swift */,
 				E6382CEF98D01D84D83D47A0 /* NetworkDownloader.swift */,
 				E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */,
+				A9611AF51EE7EBD80096154A /* GetRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				E6382FFC99CF5DC5734244AE /* UIView+Animations.swift in Sources */,
 				E638211AAE27D2B1400A05E6 /* Json.swift in Sources */,
 				E638272FEFEBB94CFEE02BB1 /* BaseOperation.swift in Sources */,
+				A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */,
 				E6382147EF2C335DADA5F4ED /* AsyncAwait.swift in Sources */,
 				E6382EB8515EE02070BD62C7 /* BaseNotification.swift in Sources */,
 				E6382071064046B909E5675E /* BoundingBox.swift in Sources */,

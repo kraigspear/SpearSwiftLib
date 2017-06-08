@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import SwiftyBeaver
 
 /**
 
@@ -13,13 +14,24 @@ Downloads an image from a network.
 
 - SeeAlso: `NetworkDownloadable`
 - SeeAlso: `ImageDownloadable`
+
+```swift
+func downloadImage(from: URL, whenCompleted: @escaping (NetworkResult<[UIImage]>) -> Void ) {
+	let getRequest = GetRequest(url: from)
+	log.debug("Downloading radar image from URL \(from)")
+	imageDownloader.download(from: getRequest, completed: whenCompleted)
+}
+```
 */
 public final class ImageDownloader {
 
 	//MARK: - Members
 
 	///Provides the ability to download data from the network
-	public let networkDownloader: NetworkDownloadable
+	fileprivate let networkDownloader: NetworkDownloadable
+	
+	///Logging
+	fileprivate let log = SwiftyBeaver.self
 
 	//MARK: - Init
 	/**
@@ -29,6 +41,11 @@ public final class ImageDownloader {
 	*/
 	public init(networkDownloader: NetworkDownloadable) {
 		self.networkDownloader = networkDownloader
+	}
+	
+	///Initializer using a default implementation of a `NetworkDownloadable`
+	public convenience init() {
+		self.init(networkDownloader: NetworkDownloader())
 	}
 
 }
@@ -48,14 +65,20 @@ extension ImageDownloader: ImageDownloadable {
 	*/
 	public func download(from: RequestBuildable, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
 
-		networkDownloader.download(from: from) {(result) in
+		log.verbose("Downloading from \(from)")
+		
+		networkDownloader.download(from: from) {[unowned self] (result) in
 			switch result {
 			case .error(let error):
+				self.log.error("Error downloading image \(error)")
 				completed(NetworkResult<[UIImage]>.error(error: error))
 			case .response(let response):
+				self.log.error("Unsuccessful response downloading \(response)")
 				completed(NetworkResult<[UIImage]>.response(code: response))
 			case .success(let data):
+				self.log.verbose("Converting data to UIImage(s)")
 				data.toImages {(images) in
+					self.log.verbose("Data converted to images")
 					completed(NetworkResult<[UIImage]>.success(result: images))
 				}
 			}

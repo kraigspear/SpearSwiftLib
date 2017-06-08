@@ -38,10 +38,6 @@ public protocol ImageDownloadable {
 	```
 	*/
 	func download(from: RequestBuildable, completed: @escaping (NetworkResult<[UIImage]>) -> Void)
-
-	//MARK: - Members
-	///Provides the ability to download data from the network
-	var networkDownloader: NetworkDownloadable {get}
 }
 
 
