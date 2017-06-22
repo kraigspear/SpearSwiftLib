@@ -11,6 +11,9 @@
 		A9503DF21ED6E2440011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
 		A9503DF31ED6E2590011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
 		A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
+		A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
+		A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */; };
+		A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
 		A9A14CE81EE4804B00E1FAF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9A14CDC1EE4804B00E1FAF7 /* Info.plist */; };
 		A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */; };
 		A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */; };
@@ -80,6 +83,8 @@
 		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9611AF51EE7EBD80096154A /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
+		A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
+		A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensionsTest.swift; sourceTree = "<group>"; };
 		A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
 		A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBoxTest.swift; sourceTree = "<group>"; };
 		A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTest.swift; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 				A9A14CE21EE4804B00E1FAF7 /* OperationTest.swift */,
 				A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */,
 				A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */,
+				A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */,
 			);
 			path = SpearSwiftLibTests;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				E6382951D445D72906C275F7 /* UIImageExtensions.swift */,
 				E638281140B545331D1D11C5 /* UIView+Blur.swift */,
 				E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */,
+				A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -480,6 +487,7 @@
 				E6382D93294D744CCD1E1838 /* LocalNotification.swift in Sources */,
 				E638250509C7F81A6F885948 /* NotificationMessageView.swift in Sources */,
 				E638255C63D83775B55E645B /* NSURLParameters.swift in Sources */,
+				A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				E638247D73BCF0E418EF40B3 /* OrderedDictionary.swift in Sources */,
 				E6382098F0F0DEA735B346F9 /* Platform.swift in Sources */,
 				E6382B6664E3968A2F2EDE0D /* Queue.swift in Sources */,
@@ -502,9 +510,11 @@
 				A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */,
 				A9A14CF61EE4811B00E1FAF7 /* DateTest.swift in Sources */,
 				A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */,
+				A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */,
 				A9A14CFA1EE4850C00E1FAF7 /* RequestBuildableMock.swift in Sources */,
 				A9A14CF51EE4810A00E1FAF7 /* NetworkDownloadableMock.swift in Sources */,
 				A9A14CF41EE4810600E1FAF7 /* JsonDownloaderTest.swift in Sources */,
+				A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				A9A14CF21EE4810000E1FAF7 /* StringBuilderTest.swift in Sources */,
 				A9A14CF31EE4810200E1FAF7 /* OperationTest.swift in Sources */,
 				A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */,

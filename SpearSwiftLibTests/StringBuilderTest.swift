@@ -60,7 +60,7 @@ class StringBuilderTest: XCTestCase {
         let deliminter = "\t"
         
         let sb = StringBuilder(delimiter:deliminter)
-        sb.append(firstStr).append(secondStr)
+        _ = sb.append(firstStr).append(secondStr)
         
         XCTAssertEqual(2, sb.numberOfStrings)
         

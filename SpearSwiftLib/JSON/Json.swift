@@ -157,6 +157,13 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
 		return strVal
 	}
 	
+	public func toJson(_ key: Key) throws -> JsonKeyValue {
+		guard let jsonValue = self[key] as? JsonKeyValue else {
+			throw ConvertError.missingNode
+		}
+		return jsonValue
+	}
+	
 	/**
 	Convert the value with this key to be a Date.
 	
