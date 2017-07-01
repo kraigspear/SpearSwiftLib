@@ -195,16 +195,16 @@
 		A9A14CD81EE4804B00E1FAF7 /* SpearSwiftLibTests */ = {
 			isa = PBXGroup;
 			children = (
-				A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */,
-				A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */,
-				A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */,
-				A9A14CDC1EE4804B00E1FAF7 /* Info.plist */,
 				A9A14CDE1EE4804B00E1FAF7 /* Mocks */,
 				A9A14CE01EE4804B00E1FAF7 /* Network */,
+				A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */,
+				A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */,
+				A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */,
+				A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */,
+				A9A14CDC1EE4804B00E1FAF7 /* Info.plist */,
 				A9A14CE21EE4804B00E1FAF7 /* OperationTest.swift */,
 				A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */,
 				A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */,
-				A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */,
 			);
 			path = SpearSwiftLibTests;
 			sourceTree = "<group>";
@@ -318,19 +318,19 @@
 		E6382C67407362707E839FD1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */,
 				E638240EE40B0E69C9769BCC /* CollectionExtensions.swift */,
 				E63824BF4C88FBF8B4DB2665 /* DateExtensions.swift */,
 				E6382975ADF9F875F89B5224 /* FileManagerExtensions.swift */,
 				E63826B0F14639C38C3A3052 /* LocalExtensions.swift */,
+				E63827CA348DC54EDA8D1D69 /* MKCoordinateRegionExtensions.swift */,
+				E63826032B758FBCB68E8C0A /* NavigationBarExtensions.swift */,
+				E63821721770246A2EEE4BEB /* NumberExtensions.swift */,
 				E6382594E62CEF6138C665FD /* ScrollViewExtensions.swift */,
 				E63825DD573AAF519D5C43E2 /* StringExtensions.swift */,
-				E63821721770246A2EEE4BEB /* NumberExtensions.swift */,
-				E63826032B758FBCB68E8C0A /* NavigationBarExtensions.swift */,
-				E63827CA348DC54EDA8D1D69 /* MKCoordinateRegionExtensions.swift */,
 				E6382951D445D72906C275F7 /* UIImageExtensions.swift */,
-				E638281140B545331D1D11C5 /* UIView+Blur.swift */,
 				E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */,
-				A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */,
+				E638281140B545331D1D11C5 /* UIView+Blur.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
