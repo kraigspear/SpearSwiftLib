@@ -80,15 +80,15 @@ public final class NetworkDownloader: NetworkDownloadable  {
 					completed(NetworkResult<Data>.response(code: response.statusCode))
 					return
 				} else {
-					self?.log.verbose("Status code == 200")
+					self?.log.verbose("Status code == 200 \(String(describing: request.url))")
 				}
 
 				if let data = data {
-					self?.log.verbose("returning data from network call")
+					self?.log.verbose("returning data from network call \(String(describing: request.url))")
 					completed(NetworkResult<Data>.success(result: data))
 				}
 				else {
-					preconditionFailure("No error, status code = 200, but data was nil?")
+					preconditionFailure("No error, status code = 200, but data was nil? \(String(describing: request.url))")
 				}
 			}
 

@@ -11,6 +11,7 @@
 		A9503DF21ED6E2440011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
 		A9503DF31ED6E2590011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
 		A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
+		A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */; };
 		A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
 		A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */; };
 		A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
@@ -57,7 +58,6 @@
 		E6382B6664E3968A2F2EDE0D /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63824D493802DF10076CB1F /* Queue.swift */; };
 		E6382BCD76C929D4B1CEDF36 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382951D445D72906C275F7 /* UIImageExtensions.swift */; };
 		E6382CA68B2E500000E60510 /* CoordinateBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63827E2B016FB3128497FEC /* CoordinateBoundaries.swift */; };
-		E6382D93294D744CCD1E1838 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63827084FDB25738B748041 /* LocalNotification.swift */; };
 		E6382EB48608F84BE9ABE531 /* NavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63826032B758FBCB68E8C0A /* NavigationBarExtensions.swift */; };
 		E6382EB8515EE02070BD62C7 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63825EFCDBAA85CBCA042AD /* BaseNotification.swift */; };
 		E6382EC6DE90810A25741A60 /* SpearSwiftLib.h in Headers */ = {isa = PBXBuildFile; fileRef = E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,6 +83,7 @@
 		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9611AF51EE7EBD80096154A /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
+		A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
 		A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensionsTest.swift; sourceTree = "<group>"; };
 		A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		E63825EFCDBAA85CBCA042AD /* BaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotification.swift; sourceTree = "<group>"; };
 		E63826032B758FBCB68E8C0A /* NavigationBarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarExtensions.swift; sourceTree = "<group>"; };
 		E63826B0F14639C38C3A3052 /* LocalExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalExtensions.swift; sourceTree = "<group>"; };
-		E63827084FDB25738B748041 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		E63827CA348DC54EDA8D1D69 /* MKCoordinateRegionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCoordinateRegionExtensions.swift; sourceTree = "<group>"; };
 		E63827E2B016FB3128497FEC /* CoordinateBoundaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateBoundaries.swift; sourceTree = "<group>"; };
 		E63827F8D8E1521CBF91C794 /* ForegroundNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundNotification.swift; sourceTree = "<group>"; };
@@ -262,7 +262,6 @@
 				E638244E34B1FFABBE5C8066 /* GifExtractor.swift */,
 				E638222091888F5E24B285C8 /* ImageCache.swift */,
 				E63824D7918342D59C03FCEC /* LinkList.swift */,
-				E63827084FDB25738B748041 /* LocalNotification.swift */,
 				E6382A05CD63F45A3F63AB4E /* NotificationMessageView.swift */,
 				E6382BAA186B5807200ED203 /* NSURLParameters.swift */,
 				E6382EF62A27F6A2E47D6252 /* OrderedDictionary.swift */,
@@ -331,6 +330,7 @@
 				E6382951D445D72906C275F7 /* UIImageExtensions.swift */,
 				E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */,
 				E638281140B545331D1D11C5 /* UIView+Blur.swift */,
+				A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -469,6 +469,7 @@
 				E6382BCD76C929D4B1CEDF36 /* UIImageExtensions.swift in Sources */,
 				E6382FFFDE2A5FFEEEE57A01 /* UIView+Blur.swift in Sources */,
 				E6382FFC99CF5DC5734244AE /* UIView+Animations.swift in Sources */,
+				A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */,
 				E638211AAE27D2B1400A05E6 /* Json.swift in Sources */,
 				E638272FEFEBB94CFEE02BB1 /* BaseOperation.swift in Sources */,
 				A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */,
@@ -484,7 +485,6 @@
 				E6382F95F9D960B08EAAE58B /* GifExtractor.swift in Sources */,
 				E6382849D833393FFA14B30F /* ImageCache.swift in Sources */,
 				E63825DC73D0E5D8DBAEEEBE /* LinkList.swift in Sources */,
-				E6382D93294D744CCD1E1838 /* LocalNotification.swift in Sources */,
 				E638250509C7F81A6F885948 /* NotificationMessageView.swift in Sources */,
 				E638255C63D83775B55E645B /* NSURLParameters.swift in Sources */,
 				A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
