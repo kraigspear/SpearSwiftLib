@@ -16,8 +16,9 @@ public enum ConvertError: Error {
 	case missingNode
 }
 
-fileprivate final class DateFormatters {
-	static let instance = DateFormatters()
+fileprivate final class JsonDateFormatters {
+	
+	static let instance = JsonDateFormatters()
 	private init() {}
 	lazy var format1: DateFormatter = {
 		let dateFormatter = DateFormatter()
@@ -178,11 +179,11 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
 	*/
 	public func toDate(_ key: Key) throws -> Date {
 		let strVal = try toString(key)
-		var date = DateFormatters.instance.format1.date(from: strVal)
+		var date = JsonDateFormatters.instance.format1.date(from: strVal)
 		if date != nil {return date!}
-		date = DateFormatters.instance.format2.date(from: strVal)
+		date = JsonDateFormatters.instance.format2.date(from: strVal)
 		if date != nil {return date!}
-		date = DateFormatters.instance.format3.date(from: strVal)
+		date = JsonDateFormatters.instance.format3.date(from: strVal)
 		if date == nil {
 			assertionFailure("Unsuppported date format \(strVal)")
 			throw ConvertError.invalidConversion

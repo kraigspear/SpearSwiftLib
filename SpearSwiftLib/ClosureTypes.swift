@@ -35,7 +35,8 @@ public enum Result {
 public typealias ResultBlock = (Result) -> Void
 public typealias ResultHavingTypeBlock = (ResultHavingType<Any>) -> Void
 public typealias VoidBlock = () -> Void
-public typealias NSErrorBlock = (_ error:NSError?) -> Void
-public typealias DateBlock = (_ date:Date?) -> Void
-public typealias DateErrorBlock = (_ date:Date?, _ error:NSError?) -> Void
+public typealias BoolBlock = (Bool) -> Void
+public typealias NSErrorBlock = (_ error: NSError?) -> Void
+public typealias DateBlock = (_ date: Date?) -> Void
+public typealias DateErrorBlock = (_ date:Date?, _ error: NSError?) -> Void
 
