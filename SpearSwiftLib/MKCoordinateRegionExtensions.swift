@@ -19,15 +19,29 @@ public extension MKCoordinateRegion {
 	func isSameAs(_ otherRegion: MKCoordinateRegion) -> Bool {
 		let epsilon = 0.05
 		
-		let latDiff = fabs(otherRegion.center.latitude - center.latitude)
-		let lngDiff = fabs(otherRegion.center.longitude - center.longitude)
+		guard center.isSameAs(otherRegion.center) else { return false }
 		
 		let spanLatDiff = fabs(otherRegion.span.latitudeDelta - span.latitudeDelta)
 		let spanLngDiff = fabs(otherRegion.span.longitudeDelta - span.longitudeDelta)
 		
-		return latDiff <= epsilon &&
-			lngDiff <= epsilon &&
-			spanLatDiff <= epsilon &&
+		return spanLatDiff <= epsilon &&
 			spanLngDiff <= epsilon
+	}
+}
+
+public extension CLLocationCoordinate2D {
+	
+	/**
+	Is this CLLocationCoordinate2D the same (or very close) to otherCoordinate
+	- returns: True/False based on being the same as the other coordinate
+	*/
+	func isSameAs(_ otherCoordinate: CLLocationCoordinate2D) -> Bool {
+		let epsilon = 0.05
+		
+		let latDiff = fabs(latitude - otherCoordinate.latitude)
+		let lngDiff = fabs(longitude - otherCoordinate.longitude)
+		
+		return latDiff <= epsilon &&
+		       lngDiff <= epsilon
 	}
 }

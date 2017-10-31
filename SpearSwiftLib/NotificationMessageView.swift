@@ -167,7 +167,7 @@ public extension NotificationMessageView  {
 		})
 	}
 	
-	public func onSwipe(gesture: UISwipeGestureRecognizer) {
+	@objc public func onSwipe(gesture: UISwipeGestureRecognizer) {
 		messageView?.removeGestureRecognizer(gesture)
 		closeMessage(shouldAnimate: true)
 	}
