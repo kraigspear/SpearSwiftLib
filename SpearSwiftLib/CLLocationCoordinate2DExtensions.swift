@@ -28,3 +28,5 @@ public extension CLLocationCoordinate2D {
 		return CLLocationCoordinate2D(latitude: latMiddle, longitude: lngMiddle)
 	}
 }
+
+

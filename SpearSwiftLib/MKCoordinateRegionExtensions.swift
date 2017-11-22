@@ -27,6 +27,14 @@ public extension MKCoordinateRegion {
 		return spanLatDiff <= epsilon &&
 			spanLngDiff <= epsilon
 	}
+	
+	///Are these coordinates valid coordinates
+	/// - discussion: Lat & Lng at 0, 0 would not be coordinates that would be valid.
+	var isValid: Bool {
+		let lat = fabs(center.latitude)
+		let lng = fabs(center.longitude)
+		return lat >= 10 && lng >= 10
+	}
 }
 
 public extension CLLocationCoordinate2D {

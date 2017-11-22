@@ -66,7 +66,7 @@
 		E6382F5ACAE0EBC9B0687A21 /* CurrentLocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DBD830F184737502A05 /* CurrentLocationFinder.swift */; };
 		E6382F95F9D960B08EAAE58B /* GifExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638244E34B1FFABBE5C8066 /* GifExtractor.swift */; };
 		E6382FFC99CF5DC5734244AE /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */; };
-		E6382FFFDE2A5FFEEEE57A01 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638281140B545331D1D11C5 /* UIView+Blur.swift */; };
+		E6382FFFDE2A5FFEEEE57A01 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638281140B545331D1D11C5 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +122,7 @@
 		E63827CA348DC54EDA8D1D69 /* MKCoordinateRegionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCoordinateRegionExtensions.swift; sourceTree = "<group>"; };
 		E63827E2B016FB3128497FEC /* CoordinateBoundaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateBoundaries.swift; sourceTree = "<group>"; };
 		E63827F8D8E1521CBF91C794 /* ForegroundNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundNotification.swift; sourceTree = "<group>"; };
-		E638281140B545331D1D11C5 /* UIView+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
+		E638281140B545331D1D11C5 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		E6382951D445D72906C275F7 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		E6382975ADF9F875F89B5224 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		E6382A05CD63F45A3F63AB4E /* NotificationMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationMessageView.swift; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 				E63825DD573AAF519D5C43E2 /* StringExtensions.swift */,
 				E6382951D445D72906C275F7 /* UIImageExtensions.swift */,
 				E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */,
-				E638281140B545331D1D11C5 /* UIView+Blur.swift */,
+				E638281140B545331D1D11C5 /* UIViewExtensions.swift */,
 				A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */,
 			);
 			name = Extensions;
@@ -471,7 +471,7 @@
 				E6382EB48608F84BE9ABE531 /* NavigationBarExtensions.swift in Sources */,
 				E63829F5B464D8486D0B5324 /* MKCoordinateRegionExtensions.swift in Sources */,
 				E6382BCD76C929D4B1CEDF36 /* UIImageExtensions.swift in Sources */,
-				E6382FFFDE2A5FFEEEE57A01 /* UIView+Blur.swift in Sources */,
+				E6382FFFDE2A5FFEEEE57A01 /* UIViewExtensions.swift in Sources */,
 				E6382FFC99CF5DC5734244AE /* UIView+Animations.swift in Sources */,
 				A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */,
 				E638211AAE27D2B1400A05E6 /* Json.swift in Sources */,

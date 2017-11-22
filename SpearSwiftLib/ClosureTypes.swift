@@ -14,6 +14,7 @@ Errors from a network call
 public enum NetworkError: Error {
 	///The status code is not 200
 	case statusCodeError(statusCode: Int)
+	case jsonElementNotFoundOrExpectedType
 }
 
 public enum ResultHavingType<T> {

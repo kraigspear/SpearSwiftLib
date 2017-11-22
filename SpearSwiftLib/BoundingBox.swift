@@ -60,6 +60,13 @@ public extension BoundingBox {
 	}
 }
 
+extension BoundingBox: Equatable {
+	public static func == (lhs: BoundingBox, rhs: BoundingBox) -> Bool {
+		return lhs.minPoint.isSameAs(rhs.minPoint) &&
+			   lhs.maxPoint.isSameAs(rhs.maxPoint)
+	}
+}
+
 extension CLLocationCoordinate2D {
 	public func calcBoundingBox(halfSideInKm: Double) -> BoundingBox {
 		

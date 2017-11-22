@@ -1,1 +1,2 @@
 github "SwiftyBeaver/SwiftyBeaver"
+github "ReactiveX/RxSwift" ~> 4.0

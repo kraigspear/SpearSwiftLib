@@ -67,18 +67,21 @@ extension ImageDownloader: ImageDownloadable {
 
 		log.verbose("Downloading from \(from)")
 		
-		networkDownloader.download(from: from) {[unowned self] (result) in
+		networkDownloader.download(from: from) {[weak self] (result) in
+			
+			guard let mySelf = self else { return }
+			
 			switch result {
 			case .error(let error):
-				self.log.error("Error downloading image \(error)")
+				mySelf.log.error("Error downloading image \(error)")
 				completed(NetworkResult<[UIImage]>.error(error: error))
 			case .response(let response):
-				self.log.error("Unsuccessful response downloading \(response)")
+				mySelf.log.error("Unsuccessful response downloading \(response)")
 				completed(NetworkResult<[UIImage]>.response(code: response))
 			case .success(let data):
-				self.log.verbose("Converting data to UIImage(s)")
+				mySelf.log.verbose("Converting data to UIImage(s)")
 				data.toImages {(images) in
-					self.log.verbose("Data converted to images")
+					mySelf.log.verbose("Data converted to images")
 					completed(NetworkResult<[UIImage]>.success(result: images))
 				}
 			}
