@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		A9503DEC1ED6E1100011B5AF /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
 		A9503DF31ED6E2590011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
+		A957F6391FD4115100A49ACB /* LocationFindableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957F6381FD4115100A49ACB /* LocationFindableFake.swift */; };
 		A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
 		A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */; };
+		A97B76B21FCEBBFF002F8A40 /* LocationFinderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */; };
+		A97B76B51FCEC234002F8A40 /* LocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76B41FCEC234002F8A40 /* LocationFinder.swift */; };
+		A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76BA1FD00C09002F8A40 /* GeocodeFinder.swift */; };
+		A97B76BD1FD012DF002F8A40 /* GeocodeFinderFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76BC1FD012DF002F8A40 /* GeocodeFinderFake.swift */; };
+		A97B76C11FD2BB68002F8A40 /* LocationManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76C01FD2BB68002F8A40 /* LocationManageable.swift */; };
 		A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
 		A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */; };
 		A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
@@ -25,6 +31,7 @@
 		A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */; };
 		A9A14CFA1EE4850C00E1FAF7 /* RequestBuildableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */; };
 		A9C7CCA11F3478220099402B /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
+		A9C8A4471FD2DD520069CC27 /* LocationManageableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */; };
 		A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
 		E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */; };
@@ -63,7 +70,6 @@
 		E6382EB8515EE02070BD62C7 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63825EFCDBAA85CBCA042AD /* BaseNotification.swift */; };
 		E6382EC6DE90810A25741A60 /* SpearSwiftLib.h in Headers */ = {isa = PBXBuildFile; fileRef = E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6382ED5D7CA5ED578917FA1 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63824BF4C88FBF8B4DB2665 /* DateExtensions.swift */; };
-		E6382F5ACAE0EBC9B0687A21 /* CurrentLocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DBD830F184737502A05 /* CurrentLocationFinder.swift */; };
 		E6382F95F9D960B08EAAE58B /* GifExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638244E34B1FFABBE5C8066 /* GifExtractor.swift */; };
 		E6382FFC99CF5DC5734244AE /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */; };
 		E6382FFFDE2A5FFEEEE57A01 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638281140B545331D1D11C5 /* UIViewExtensions.swift */; };
@@ -83,8 +89,14 @@
 		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A957F6381FD4115100A49ACB /* LocationFindableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFindableFake.swift; sourceTree = "<group>"; };
 		A9611AF51EE7EBD80096154A /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderTest.swift; sourceTree = "<group>"; };
+		A97B76B41FCEC234002F8A40 /* LocationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
+		A97B76BA1FD00C09002F8A40 /* GeocodeFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeFinder.swift; sourceTree = "<group>"; };
+		A97B76BC1FD012DF002F8A40 /* GeocodeFinderFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeFinderFake.swift; sourceTree = "<group>"; };
+		A97B76C01FD2BB68002F8A40 /* LocationManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManageable.swift; sourceTree = "<group>"; };
 		A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
 		A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensionsTest.swift; sourceTree = "<group>"; };
 		A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
@@ -97,6 +109,7 @@
 		A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringBuilderTest.swift; sourceTree = "<group>"; };
 		A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuildableMock.swift; sourceTree = "<group>"; };
+		A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManageableFake.swift; sourceTree = "<group>"; };
 		A9D01DE51F30733F007F7A74 /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,7 +150,6 @@
 		E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		E6382D6F3DA3A191E71CC1DC /* JSONDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDownloader.swift; sourceTree = "<group>"; };
 		E6382DAF767CBC864F764F7B /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
-		E6382DBD830F184737502A05 /* CurrentLocationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationFinder.swift; sourceTree = "<group>"; };
 		E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		E6382DFC210ECAAB73928B17 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		E6382E2D01ECC838D35133E9 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
@@ -194,6 +206,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A97B76B31FCEC234002F8A40 /* LocationFinder */ = {
+			isa = PBXGroup;
+			children = (
+				A97B76B41FCEC234002F8A40 /* LocationFinder.swift */,
+				A97B76BA1FD00C09002F8A40 /* GeocodeFinder.swift */,
+				A97B76C01FD2BB68002F8A40 /* LocationManageable.swift */,
+			);
+			path = LocationFinder;
+			sourceTree = "<group>";
+		};
 		A9A14CD81EE4804B00E1FAF7 /* SpearSwiftLibTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +229,7 @@
 				A9A14CE21EE4804B00E1FAF7 /* OperationTest.swift */,
 				A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */,
 				A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */,
+				A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */,
 			);
 			path = SpearSwiftLibTests;
 			sourceTree = "<group>";
@@ -216,6 +239,9 @@
 			children = (
 				A9A14CDF1EE4804B00E1FAF7 /* NetworkDownloadableMock.swift */,
 				A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */,
+				A97B76BC1FD012DF002F8A40 /* GeocodeFinderFake.swift */,
+				A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */,
+				A957F6381FD4115100A49ACB /* LocationFindableFake.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -248,6 +274,7 @@
 		E638210CE122197B634B4A73 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
+				A97B76B31FCEC234002F8A40 /* LocationFinder */,
 				E6382C67407362707E839FD1 /* Extensions */,
 				E638220E4C39877F55761B2A /* JSON */,
 				E6382CAB2E982CDCCFC46B64 /* Operations */,
@@ -258,7 +285,6 @@
 				E6382A1FEA4424A44EEA1DA1 /* ClosureTypes.swift */,
 				E63827E2B016FB3128497FEC /* CoordinateBoundaries.swift */,
 				E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */,
-				E6382DBD830F184737502A05 /* CurrentLocationFinder.swift */,
 				E6382D136BBABE576A7ECFD3 /* CurrentLocationPermissionRequestor.swift */,
 				A9D01DE51F30733F007F7A74 /* DateFormatters.swift */,
 				E63827F8D8E1521CBF91C794 /* ForegroundNotification.swift */,
@@ -468,6 +494,7 @@
 				E638218B9054A7D862B56367 /* ScrollViewExtensions.swift in Sources */,
 				E6382115C8363969E4C75210 /* StringExtensions.swift in Sources */,
 				E63826377CA5ED6CD53F4054 /* NumberExtensions.swift in Sources */,
+				A97B76C11FD2BB68002F8A40 /* LocationManageable.swift in Sources */,
 				E6382EB48608F84BE9ABE531 /* NavigationBarExtensions.swift in Sources */,
 				E63829F5B464D8486D0B5324 /* MKCoordinateRegionExtensions.swift in Sources */,
 				E6382BCD76C929D4B1CEDF36 /* UIImageExtensions.swift in Sources */,
@@ -483,7 +510,6 @@
 				E6382688A9AB20D46AB5FF4E /* ClosureTypes.swift in Sources */,
 				E6382CA68B2E500000E60510 /* CoordinateBoundaries.swift in Sources */,
 				E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */,
-				E6382F5ACAE0EBC9B0687A21 /* CurrentLocationFinder.swift in Sources */,
 				E63823907A2E6FC054C9BB2A /* CurrentLocationPermissionRequestor.swift in Sources */,
 				E6382695823D315D47B411FA /* ForegroundNotification.swift in Sources */,
 				E6382F95F9D960B08EAAE58B /* GifExtractor.swift in Sources */,
@@ -500,9 +526,11 @@
 				E6382488D8E292E2CF93B10F /* NetworkDownloadable.swift in Sources */,
 				E63824A90C85F100812A9C27 /* NetworkDownloader.swift in Sources */,
 				E63821430DA6273A46C8EF51 /* ImageDownloadable.swift in Sources */,
+				A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */,
 				E6382120B10ED5F42BAD2ACA /* ImageDownloader.swift in Sources */,
 				E63828F97F9F836663C0F919 /* JSONDownloadable.swift in Sources */,
 				E6382AE94B745E00D06D2DCB /* JSONDownloader.swift in Sources */,
+				A97B76B51FCEC234002F8A40 /* LocationFinder.swift in Sources */,
 				E638247E684B79425FF5896B /* RequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A957F6391FD4115100A49ACB /* LocationFindableFake.swift in Sources */,
 				A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */,
 				A9A14CF61EE4811B00E1FAF7 /* DateTest.swift in Sources */,
 				A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */,
@@ -519,8 +548,11 @@
 				A9A14CF51EE4810A00E1FAF7 /* NetworkDownloadableMock.swift in Sources */,
 				A9A14CF41EE4810600E1FAF7 /* JsonDownloaderTest.swift in Sources */,
 				A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
+				A97B76B21FCEBBFF002F8A40 /* LocationFinderTest.swift in Sources */,
+				A97B76BD1FD012DF002F8A40 /* GeocodeFinderFake.swift in Sources */,
 				A9A14CF21EE4810000E1FAF7 /* StringBuilderTest.swift in Sources */,
 				A9A14CF31EE4810200E1FAF7 /* OperationTest.swift in Sources */,
+				A9C8A4471FD2DD520069CC27 /* LocationManageableFake.swift in Sources */,
 				A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
