@@ -195,4 +195,16 @@ public extension Date
 	public func numberOfMinutesBetweenNow() -> Int {
 		return numberOfMinutesBetween(Date())
 	}
+
+	/**
+	Convert this date to a string formatted as zulu date
+	
+	- returns: Date formattted as a zule date
+	- seealso: String.toDateFromZulu()
+	*/
+	public func toZuluFormattedString() -> String {
+		assert(DateFormatters.instance.zulu.count > 0, "We expect to have at least one Zulu formatter")
+		let firstFormatter = DateFormatters.instance.zulu.first!
+		return firstFormatter.string(from: self)
+	}
 }

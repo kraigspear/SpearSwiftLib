@@ -32,5 +32,16 @@ public final class DateFormatters {
 		dateFormatter.dateFormat = "h:mm"
 		return dateFormatter
 	}()
+	
+	public lazy var zulu: [DateFormatter] = {
+		
+		let dateFormatter1 = DateFormatter()
+		dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+		
+		let dateFormatter2 = DateFormatter()
+		dateFormatter2.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+		
+		return [dateFormatter1, dateFormatter2]
+	}()
 }
 
