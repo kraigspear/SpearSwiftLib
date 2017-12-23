@@ -16,26 +16,43 @@ public enum ConvertError: Error {
 	case missingNode
 }
 
-fileprivate final class JsonDateFormatters {
+private final class JsonDateFormatters {
 	
 	static let instance = JsonDateFormatters()
+	static let timeZone = TimeZone(secondsFromGMT: 0)
+	
 	private init() {}
-	lazy var format1: DateFormatter = {
+	
+	private lazy var format1: DateFormatter = {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+		dateFormatter.timeZone = JsonDateFormatters.timeZone
 		return dateFormatter
 	}()
 	
-	lazy var format2: DateFormatter = {
+	private lazy var format2: DateFormatter = {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S"
+		dateFormatter.timeZone = JsonDateFormatters.timeZone
 		return dateFormatter
 	}()
 	
-	lazy var format3: DateFormatter = {
+	private lazy var format3: DateFormatter = {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SZ"
+		dateFormatter.timeZone = JsonDateFormatters.timeZone
 		return dateFormatter
+	}()
+	
+	private lazy var format4: DateFormatter = {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+		dateFormatter.timeZone = JsonDateFormatters.timeZone
+		return dateFormatter
+	}()
+	
+	lazy var formatters: [DateFormatter] = {
+		return [format1, format2, format3, format4]
 	}()
 }
 
@@ -178,17 +195,17 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
 	- throws: `ConvertError.invalidConversion` If was not able to convert node to a Date
 	*/
 	public func toDate(_ key: Key) throws -> Date {
+		
 		let strVal = try toString(key)
-		var date = JsonDateFormatters.instance.format1.date(from: strVal)
-		if date != nil {return date!}
-		date = JsonDateFormatters.instance.format2.date(from: strVal)
-		if date != nil {return date!}
-		date = JsonDateFormatters.instance.format3.date(from: strVal)
-		if date == nil {
-			assertionFailure("Unsuppported date format \(strVal)")
-			throw ConvertError.invalidConversion
+		
+		for formatter in JsonDateFormatters.instance.formatters {
+			if let date = formatter.date(from: strVal) {
+				return date
+			}
 		}
-		return date!
+		
+		assertionFailure("Unsuppported date format \(strVal)")
+		throw ConvertError.invalidConversion
 	}
 	
 	/**
