@@ -8,30 +8,30 @@
 
 import Foundation
 
+public enum DateFormat: String {
+	
+	case hmm_a = "h:mm a"
+	case ha = "ha"
+	case hmm = "h:mm"
+	case dayOfWeek = "EEE"
+	
+	func createFormatter(inTimeZone: TimeZone) -> DateFormatter {
+		
+		let dateFormatter = DateFormatter()
+		
+		dateFormatter.dateFormat = rawValue
+		dateFormatter.timeZone = inTimeZone
+		
+		return dateFormatter
+	}
+}
+
 ///Central place to contain all DateFormatters to be reused.
 public final class DateFormatters {
 	
 	public static let instance = DateFormatters()
 	
 	private init() {}
-	
-	public lazy var hmm_a: DateFormatter = {
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "h:mm a"
-		return dateFormatter
-	}()
-	
-	public lazy var ha: DateFormatter = {
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "ha"
-		return dateFormatter
-	}()
-	
-	public lazy var hmm: DateFormatter = {
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "h:mm"
-		return dateFormatter
-	}()
 	
 	public lazy var zulu: [DateFormatter] = {
 		
