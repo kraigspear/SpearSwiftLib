@@ -13,7 +13,7 @@ public enum DateFormat: String {
 	case hmm_a = "h:mm a"
 	case ha = "ha"
 	case hmm = "h:mm"
-	case dayOfWeek = "EEE"
+	case dayOfWeek = "EEEE"
 	
 	func createFormatter(inTimeZone: TimeZone) -> DateFormatter {
 		

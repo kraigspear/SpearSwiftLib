@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928C073200A91E500F5743A /* StickyHeaderLayout.swift */; };
 		A9503DEC1ED6E1100011B5AF /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
 		A9503DF31ED6E2590011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
 		A957F6391FD4115100A49ACB /* LocationFindableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957F6381FD4115100A49ACB /* LocationFindableFake.swift */; };
@@ -86,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A928C073200A91E500F5743A /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
 		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A928C072200A91C900F5743A /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A928C073200A91E500F5743A /* StickyHeaderLayout.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		A942A97C1A9F251800C69271 = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +284,7 @@
 		E638210CE122197B634B4A73 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
+				A928C072200A91C900F5743A /* UIKit */,
 				A97B76B31FCEC234002F8A40 /* LocationFinder */,
 				E6382C67407362707E839FD1 /* Extensions */,
 				E638220E4C39877F55761B2A /* JSON */,
@@ -490,6 +501,7 @@
 				E6382ED5D7CA5ED578917FA1 /* DateExtensions.swift in Sources */,
 				E63822B759494C70E92F7E77 /* FileManagerExtensions.swift in Sources */,
 				E63829D7CB4D53692A2DB1CD /* LocalExtensions.swift in Sources */,
+				A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */,
 				A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */,
 				E638218B9054A7D862B56367 /* ScrollViewExtensions.swift in Sources */,
 				E6382115C8363969E4C75210 /* StringExtensions.swift in Sources */,
