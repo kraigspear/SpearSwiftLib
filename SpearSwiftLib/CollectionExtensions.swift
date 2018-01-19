@@ -54,7 +54,7 @@ public extension Array
 	/**
 	Return the item at a specific index, or nil if the index is not valid
 	
-	- Parameter index: The index to check / retrive
+	- Parameter index: The index to check / retrieve
 	
 	- Returns: The item at the index, or nil if the index is not valid
 	*/
