@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyBeaver
 
 public extension UIView {
 	/**
@@ -34,7 +33,6 @@ public extension UIView {
 	public func animatePan(withDuration: TimeInterval) {
 		
 		guard let superview = self.superview else {
-			SwiftyBeaver.self.error("Can't animate a view that doesn't have a superview")
 			return
 		}
 		

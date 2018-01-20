@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyBeaver
 
 public enum NotificationValue<T> {
 	case empty
@@ -17,7 +16,6 @@ public enum NotificationValue<T> {
 ///BaseNotfication, should not create directly. To be dirrived by a child class
 open class BaseNotification<NotifiedOf>: NSObject {
 	
-	let log = SwiftyBeaver.self
 	///Used to control if we are observing or not the notification
 	public var observing = false
 	
@@ -42,8 +40,6 @@ open class BaseNotification<NotifiedOf>: NSObject {
 	public static func post(notifiedValue: NotificationValue<NotifiedOf> = NotificationValue.empty) {
 		DispatchQueue.main.async {
 			
-			SwiftyBeaver.self.verbose("Posting DataChangedNotification")
-			
 			switch notifiedValue {
 			case .empty:
 				NotificationCenter.default.post(name: Notification.Name(rawValue: notificationName), object: nil)
@@ -56,11 +52,8 @@ open class BaseNotification<NotifiedOf>: NSObject {
 	public func observe()  {
 		
 		guard observing == false else {
-			log.debug("Calling observe while observing")
 			return
 		}
-		
-		log.verbose("Observing DataChangedNotification \(clientName)")
 		
 		let notificationName = type(of: self).notificationName
 		
@@ -75,7 +68,6 @@ open class BaseNotification<NotifiedOf>: NSObject {
 	public func unobserve() {
 		
 		guard observing else {return}
-		log.verbose("Unobserving DataChangedNotification \(clientName)")
 		NotificationCenter.default.removeObserver(self)
 		observing = false
 	}
@@ -84,11 +76,8 @@ open class BaseNotification<NotifiedOf>: NSObject {
 	@objc func onNotificationObserved(_ notification: Notification) {
 		
 		guard let onNotification = self.onNotification else {
-			log.warning("DataChangedNotification has been raised but the onDataChanged is nil, this is probably a bug.")
 			return
 		}
-		
-		log.debug("Posting to \(clientName)")
 		
 		if NotifiedOf.self == Void.self {
 			onNotification(NotificationValue.empty)

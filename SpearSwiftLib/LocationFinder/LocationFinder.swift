@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreLocation
-import SwiftyBeaver
 
 //MARK: - Errors
 
@@ -65,7 +64,6 @@ public final class LocationFinder: NSObject {
 	
 	private let locationManager: LocationManageable
 	private let geocodeFinder: GeocodeFindable
-	private let log = SwiftyBeaver.self
 	
 	private var result: ((ResultHavingType<FoundLocationType>) -> Void)?
 	
@@ -104,7 +102,6 @@ extension LocationFinder: LocationManagerDelegate {
 		case .denied, .restricted, .notDetermined:
 			result?(ResultHavingType<FoundLocationType>.error(error: LocationFindableError.notAuthorized))
 		case .authorizedAlways:
-			log.warning("When did we start requesting this?")
 			preconditionFailure("When did we start requesting this?")
 		}
 	}
@@ -119,8 +116,6 @@ extension LocationFinder: LocationFindable {
 	public func find(accuracy: CLLocationAccuracy,
 			    result: @escaping (ResultHavingType<FoundLocationType>) -> Void) {
 		
-		log.debug("LocationFinder.find")
-		
 		if locationManager.isLocationServicesEnabled == false {
 			result(ResultHavingType<FoundLocationType>.error(error: LocationFindableError.notEnabled))
 			return
@@ -131,16 +126,12 @@ extension LocationFinder: LocationFindable {
 		
 		switch status {
 		case .authorizedWhenInUse:
-			log.debug("status authorizedWhenInUse, requesting location")
 			locationManager.requestLocation()
 		case .authorizedAlways:
-			log.warning("When did we start requesting this?")
 			preconditionFailure("When did we start requesting this?")
 		case .denied, .restricted:
-			log.debug("status denied or restricted, returning error")
 			result(ResultHavingType<FoundLocationType>.error(error: LocationFindableError.notAuthorized))
 		case .notDetermined:
-			log.debug("status notDetermined, requesting whenInUseAuth")
 			locationManager.requestWhenInUseAuthorization()
 		}
 	}

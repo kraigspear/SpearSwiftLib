@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import SwiftyBeaver
 
 /**
 	A type that knows how to download data from the network.
@@ -18,8 +17,6 @@ import SwiftyBeaver
 */
 public final class NetworkDownloader: NetworkDownloadable  {
 
-	fileprivate let log = SwiftyBeaver.self
-	
 	///Initialize a new instance of NetworkDownloader
 	public init() {}
 
@@ -58,14 +55,12 @@ public final class NetworkDownloader: NetworkDownloadable  {
 		let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
 		let request = from.request
-		log.verbose("Downloading from URL \(String(describing: request.url))")
 		
-		let task = session.dataTask(with: request) {[weak self] (data: Data?, response: URLResponse?, error: Error?) in
+		let task = session.dataTask(with: request) {(data: Data?, response: URLResponse?, error: Error?) in
 
 			DispatchQueue.main.async {
 
 				if let error = error {
-					self?.log.error("Error downloading \(error)")
 					completed(NetworkResult<Data>.error(error: error))
 					return
 				}
@@ -76,15 +71,11 @@ public final class NetworkDownloader: NetworkDownloadable  {
 				let response = response as! HTTPURLResponse
 				
 				if response.statusCode != 200 {
-					self?.log.warning("statusCode from download = \(response.statusCode)")
 					completed(NetworkResult<Data>.response(code: response.statusCode))
 					return
-				} else {
-					self?.log.verbose("Status code == 200 \(String(describing: request.url))")
 				}
 
 				if let data = data {
-					self?.log.verbose("returning data from network call \(String(describing: request.url))")
 					completed(NetworkResult<Data>.success(result: data))
 				}
 				else {

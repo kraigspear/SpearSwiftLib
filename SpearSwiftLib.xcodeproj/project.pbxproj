@@ -31,7 +31,6 @@
 		A9A14CF61EE4811B00E1FAF7 /* DateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */; };
 		A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */; };
 		A9A14CFA1EE4850C00E1FAF7 /* RequestBuildableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */; };
-		A9C7CCA11F3478220099402B /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
 		A9C8A4471FD2DD520069CC27 /* LocationManageableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */; };
 		A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
@@ -163,7 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C7CCA11F3478220099402B /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
