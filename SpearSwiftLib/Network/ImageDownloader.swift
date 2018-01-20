@@ -4,7 +4,6 @@
 //
 
 import UIKit
-import SwiftyBeaver
 
 /**
 
@@ -30,9 +29,6 @@ public final class ImageDownloader {
 	///Provides the ability to download data from the network
 	fileprivate let networkDownloader: NetworkDownloadable
 	
-	///Logging
-	fileprivate let log = SwiftyBeaver.self
-
 	//MARK: - Init
 	/**
 	Initializer with the `NetworkDownloadable` providing access to Data from the network
@@ -65,23 +61,14 @@ extension ImageDownloader: ImageDownloadable {
 	*/
 	public func download(from: RequestBuildable, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
 
-		log.verbose("Downloading from \(from)")
-		
-		networkDownloader.download(from: from) {[weak self] (result) in
-			
-			guard let mySelf = self else { return }
-			
+		networkDownloader.download(from: from) {(result) in
 			switch result {
 			case .error(let error):
-				mySelf.log.error("Error downloading image \(error)")
 				completed(NetworkResult<[UIImage]>.error(error: error))
 			case .response(let response):
-				mySelf.log.error("Unsuccessful response downloading \(response)")
 				completed(NetworkResult<[UIImage]>.response(code: response))
 			case .success(let data):
-				mySelf.log.verbose("Converting data to UIImage(s)")
 				data.toImages {(images) in
-					mySelf.log.verbose("Data converted to images")
 					completed(NetworkResult<[UIImage]>.success(result: images))
 				}
 			}

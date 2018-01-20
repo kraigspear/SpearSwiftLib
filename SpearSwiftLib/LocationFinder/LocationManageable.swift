@@ -7,7 +7,6 @@
 //
 
 import CoreLocation
-import SwiftyBeaver
 
 protocol LocationManagerDelegate: class {
 	func onLocationsFound(_ location: [CLLocation])
@@ -26,7 +25,6 @@ protocol LocationManageable: class {
 final class LocationManager: NSObject {
 	
 	private let coreLocationManager = CLLocationManager()
-	private let log = SwiftyBeaver.self
 	weak var delegate: LocationManagerDelegate?
 	
 	public override init() {
@@ -47,7 +45,6 @@ extension LocationManager: LocationManageable {
 	}
 	
 	func requestLocation() {
-		log.debug("LocationManager.requestLocation")
 		coreLocationManager.requestLocation()
 	}
 	
@@ -59,7 +56,6 @@ extension LocationManager: LocationManageable {
 extension LocationManager: CLLocationManagerDelegate {
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		log.debug("CLLocationManagerDelegate didUpdateLocations \(locations)")
 		assert(delegate != nil, "delegate is nil?")
 		delegate?.onLocationsFound(locations)
 	}
@@ -70,7 +66,6 @@ extension LocationManager: CLLocationManagerDelegate {
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-		log.debug("CLLocationManagerDelegate status changed \(status)")
 		assert(delegate != nil, "delegate is nil?")
 		delegate?.onAuthorizationStatusChanged(status)
 	}
