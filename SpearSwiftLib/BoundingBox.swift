@@ -61,6 +61,7 @@ public extension BoundingBox {
 }
 
 extension BoundingBox: Equatable {
+	///:nodoc:
 	public static func == (lhs: BoundingBox, rhs: BoundingBox) -> Bool {
 		return lhs.minPoint.isSameAs(rhs.minPoint) &&
 			   lhs.maxPoint.isSameAs(rhs.maxPoint)
