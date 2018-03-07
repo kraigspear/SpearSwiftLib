@@ -8,17 +8,16 @@
 
 import UIKit
 
-
 public extension UIViewController {
-	/**
-	Show an error message alert
-	*/
-	public func showErrorMessage(_ message: String) {
-		let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-		
-		let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-		alertController.addAction(action)
-		
-		present(alertController, animated: true, completion: nil)
-	}
+    /**
+     Show an error message alert
+     */
+    public func showErrorMessage(_ message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(action)
+
+        present(alertController, animated: true, completion: nil)
+    }
 }

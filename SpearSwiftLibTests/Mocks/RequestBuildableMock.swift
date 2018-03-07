@@ -9,12 +9,10 @@
 import Foundation
 @testable import SpearSwiftLib
 
-
 final class RequestBuildableMock: RequestBuildable {
-	
-	var requestForRequest: URLRequest!
-	
-	var request: URLRequest {
-		return requestForRequest
-	}
+    var requestForRequest: URLRequest!
+
+    var request: URLRequest {
+        return requestForRequest
+    }
 }

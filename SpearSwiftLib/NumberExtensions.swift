@@ -11,11 +11,10 @@ import Foundation
 let halfDegrees = 180.0
 
 extension Double {
-    
     public func toDegrees() -> Double {
         return halfDegrees * self / Double.pi
     }
-    
+
     public func toRadians() -> Double {
         return Double.pi * self / halfDegrees
     }

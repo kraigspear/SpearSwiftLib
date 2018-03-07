@@ -8,14 +8,14 @@
 
 import Foundation
 
-///Information about the platform that is being run on
+/// Information about the platform that is being run on
 public struct Platfrom {
-	///True if the platform is a simulator and not a real device
-	public static let isSimulator: Bool = {
-		var isSim = false
-		#if arch(i386) || arch(x86_64)
-			isSim = true
-		#endif
-		return isSim
-	}()
+    /// True if the platform is a simulator and not a real device
+    public static let isSimulator: Bool = {
+        var isSim = false
+        #if arch(i386) || arch(x86_64)
+            isSim = true
+        #endif
+        return isSim
+    }()
 }

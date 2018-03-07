@@ -9,13 +9,13 @@
 import UIKit
 
 public extension UINavigationItem {
-	func removeBackbuttonTitle() {
-		backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-	}
+    func removeBackbuttonTitle() {
+        backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
 }
 
 public extension UIViewController {
-	func removeBackBarTitle() {
-		navigationItem.removeBackbuttonTitle()
-	}
+    func removeBackBarTitle() {
+        navigationItem.removeBackbuttonTitle()
+    }
 }

@@ -5,48 +5,49 @@
 
 import Foundation
 
-///Type that downloads JSON from the network.
+/// Type that downloads JSON from the network.
 public protocol JSONDownloadable {
 
-	//MARK: - Methods
-	/**
-	Download JSON data from a network location.
+    // MARK: - Methods
 
-	- parameter from: The `RequestBuildable` which contains the URL parameters ext.. about what to download
-	- parameter completed: Called with the result of the network call
+    /**
+     Download JSON data from a network location.
 
-	- SeeAlso: `RequestBuildable`
-	- note: Code Example from WeatherExtractor
+     - parameter from: The `RequestBuildable` which contains the URL parameters ext.. about what to download
+     - parameter completed: Called with the result of the network call
 
-	```swift
+     - SeeAlso: `RequestBuildable`
+     - note: Code Example from WeatherExtractor
 
-	let jsonDownloader = JsonDownloader()
+     ```swift
 
-	//JSONDownloadable knows what to download from the `RequestBuildable` where the URL parameters body ext..
-	//is set.
-	fileprivate extension WeatherLocationType {
-		func createRequest() -> RequestBuildable {
-			return LocationRequest(locationId: locationId)
-		}
-	}
+     let jsonDownloader = JsonDownloader()
 
-	func fetch(forLocation: WeatherLocationType, success: @escaping (WeatherLocationType) -> Void) {
-		self.location = forLocation
+     //JSONDownloadable knows what to download from the `RequestBuildable` where the URL parameters body ext..
+     //is set.
+     fileprivate extension WeatherLocationType {
+     func createRequest() -> RequestBuildable {
+     return LocationRequest(locationId: locationId)
+     }
+     }
 
-		jsonDownloadable.download(from: forLocation.createRequest()) {[weak self] (result) in
-			guard let this = self else {return}
-			switch result {
-			case .success(result: let json):
-				let fetchedLocation = this.extract(json: json, for: forLocation)
-				DispatchQueue.main.async {
-					success(fetchedLocation)
-				}
-			default:
-				break
-			}
-		}
-	}
-	```
-	*/
-	func download(from: RequestBuildable, completed: @escaping (NetworkResult<JsonKeyValue>) -> Void)
+     func fetch(forLocation: WeatherLocationType, success: @escaping (WeatherLocationType) -> Void) {
+     self.location = forLocation
+
+     jsonDownloadable.download(from: forLocation.createRequest()) {[weak self] (result) in
+     guard let this = self else {return}
+     switch result {
+     case .success(result: let json):
+     let fetchedLocation = this.extract(json: json, for: forLocation)
+     DispatchQueue.main.async {
+     success(fetchedLocation)
+     }
+     default:
+     break
+     }
+     }
+     }
+     ```
+     */
+    func download(from: RequestBuildable, completed: @escaping (NetworkResult<JsonKeyValue>) -> Void)
 }

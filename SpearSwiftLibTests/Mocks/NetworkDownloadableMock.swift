@@ -7,14 +7,13 @@
 //
 
 import Foundation
-
 @testable import SpearSwiftLib
 
-final class  NetworkDownloadableMock: NetworkDownloadable {
-	var downloadResult: NetworkResult<Data>!
-	var downloadCalled = 0
-	func download(from: RequestBuildable, completed: @escaping (NetworkResult<Data>) -> Void) {
-		downloadCalled += 1
-		completed(downloadResult)
-	}
+final class NetworkDownloadableMock: NetworkDownloadable {
+    var downloadResult: NetworkResult<Data>!
+    var downloadCalled = 0
+    func download(from _: RequestBuildable, completed: @escaping (NetworkResult<Data>) -> Void) {
+        downloadCalled += 1
+        completed(downloadResult)
+    }
 }

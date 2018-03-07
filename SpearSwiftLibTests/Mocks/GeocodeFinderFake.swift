@@ -6,36 +6,35 @@
 //  Copyright © 2017 spearware. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
-
+import Foundation
 @testable import SpearSwiftLib
 
 final class GeocodeFinderFake {
-	private var findCalled = 0
-	private var result: ResultHavingType<CLPlacemark>!
+    private var findCalled = 0
+    private var result: ResultHavingType<CLPlacemark>!
 }
 
 extension GeocodeFinderFake: GeocodeFindable {
-	
-	func find(_ location: CLLocation,
-			  result: @escaping ((ResultHavingType<CLPlacemark>) -> Void)) {
-		findCalled += 1
-		result(self.result)
-	}
-	
+    func find(_: CLLocation,
+              result: @escaping ((ResultHavingType<CLPlacemark>) -> Void)) {
+        findCalled += 1
+        result(self.result)
+    }
 }
 
-//MARK: - Expects
+// MARK: - Expects
+
 extension GeocodeFinderFake {
-	func expectFindCalled(_ value: Int) -> Bool {
-		return value == findCalled
-	}
+    func expectFindCalled(_ value: Int) -> Bool {
+        return value == findCalled
+    }
 }
 
-//MARK: - Setups
+// MARK: - Setups
+
 extension GeocodeFinderFake {
-	func setupForHavingResult(_ result: ResultHavingType<CLPlacemark>) {
-		self.result = result
-	}
+    func setupForHavingResult(_ result: ResultHavingType<CLPlacemark>) {
+        self.result = result
+    }
 }

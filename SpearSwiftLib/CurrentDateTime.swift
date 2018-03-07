@@ -9,17 +9,14 @@
 import Foundation
 
 public protocol CurrentDateFetchable {
-	func currentDateTime() -> Date
+    func currentDateTime() -> Date
 }
 
 public struct CurrentDateFetcher: CurrentDateFetchable {
-	
-	public init() {
-		
-	}
-	
-	public func currentDateTime() -> Date {
-		return Date()
-	}
-}
+    public init() {
+    }
 
+    public func currentDateTime() -> Date {
+        return Date()
+    }
+}

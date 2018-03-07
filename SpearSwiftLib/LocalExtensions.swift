@@ -9,18 +9,15 @@
 import Foundation
 
 extension Locale {
-	/// Is this device setup for metric
-	public var isMetric: Bool {
-		return usesMetricSystem
-	}
-	
-	/**
-	The distance as Miles (mi) or Kilometers (km) for the device settings
-	*/
-	public var distanceAbbreviation: String {
-		return isMetric ? "km" : "mi"
-	}
-	
-	
-}
+    /// Is this device setup for metric
+    public var isMetric: Bool {
+        return usesMetricSystem
+    }
 
+    /**
+     The distance as Miles (mi) or Kilometers (km) for the device settings
+     */
+    public var distanceAbbreviation: String {
+        return isMetric ? "km" : "mi"
+    }
+}
