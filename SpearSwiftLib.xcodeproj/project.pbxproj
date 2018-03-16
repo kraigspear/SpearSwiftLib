@@ -31,6 +31,9 @@
 		A9A14CF61EE4811B00E1FAF7 /* DateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */; };
 		A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */; };
 		A9A14CFA1EE4850C00E1FAF7 /* RequestBuildableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */; };
+		A9C162FC205BA2F30091F4C3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C162FB205BA2F30091F4C3 /* Observable.swift */; };
+		A9C162FE205BA6070091F4C3 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C162FD205BA6070091F4C3 /* DisposeBag.swift */; };
+		A9C45BFF205BBFBE00514561 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45BFE205BBFBE00514561 /* Disposable.swift */; };
 		A9C8A4471FD2DD520069CC27 /* LocationManageableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */; };
 		A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		A9D5AC8A204C218800BEAA75 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC89204C218800BEAA75 /* BaseNotification.swift */; };
@@ -111,6 +114,9 @@
 		A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringBuilderTest.swift; sourceTree = "<group>"; };
 		A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuildableMock.swift; sourceTree = "<group>"; };
+		A9C162FB205BA2F30091F4C3 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A9C162FD205BA6070091F4C3 /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
+		A9C45BFE205BBFBE00514561 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManageableFake.swift; sourceTree = "<group>"; };
 		A9D01DE51F30733F007F7A74 /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		A9D5AC89204C218800BEAA75 /* BaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotification.swift; sourceTree = "<group>"; };
@@ -293,8 +299,13 @@
 		E638210CE122197B634B4A73 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
+				E6382C67407362707E839FD1 /* Extensions */,
+				E638220E4C39877F55761B2A /* JSON */,
+				A97B76B31FCEC234002F8A40 /* LocationFinder */,
+				E6382C578CA904338A12CF4E /* Network */,
 				A9D5AC88204C217300BEAA75 /* Notifications */,
-				E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */,
+				E6382CAB2E982CDCCFC46B64 /* Operations */,
+				A928C072200A91C900F5743A /* UIKit */,
 				E6382BBAAE1BAE1847F63D03 /* AsyncAwait.swift */,
 				E6382DAF767CBC864F764F7B /* BoundingBox.swift */,
 				E6382A1FEA4424A44EEA1DA1 /* ClosureTypes.swift */,
@@ -308,17 +319,15 @@
 				E63824D7918342D59C03FCEC /* LinkList.swift */,
 				E6382A05CD63F45A3F63AB4E /* NotificationMessageView.swift */,
 				E6382BAA186B5807200ED203 /* NSURLParameters.swift */,
+				A9C162FB205BA2F30091F4C3 /* Observable.swift */,
 				E6382EF62A27F6A2E47D6252 /* OrderedDictionary.swift */,
 				E6382A47A433272D3C296340 /* Platform.swift */,
 				E63824D493802DF10076CB1F /* Queue.swift */,
+				E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */,
 				E63825BD8B8EB9D99BFF6E52 /* StringBuilder.swift */,
-				E6382C67407362707E839FD1 /* Extensions */,
-				E638220E4C39877F55761B2A /* JSON */,
-				A97B76B31FCEC234002F8A40 /* LocationFinder */,
-				E6382C578CA904338A12CF4E /* Network */,
-				E6382CAB2E982CDCCFC46B64 /* Operations */,
 				E6382097358E63E4FAF9EA73 /* Supporting Files */,
-				A928C072200A91C900F5743A /* UIKit */,
+				A9C162FD205BA6070091F4C3 /* DisposeBag.swift */,
+				A9C45BFE205BBFBE00514561 /* Disposable.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -509,6 +518,8 @@
 				E6382996D24541FF5E7FE8D1 /* CollectionExtensions.swift in Sources */,
 				A9D5AC8A204C218800BEAA75 /* BaseNotification.swift in Sources */,
 				E6382ED5D7CA5ED578917FA1 /* DateExtensions.swift in Sources */,
+				A9C162FC205BA2F30091F4C3 /* Observable.swift in Sources */,
+				A9C45BFF205BBFBE00514561 /* Disposable.swift in Sources */,
 				E63822B759494C70E92F7E77 /* FileManagerExtensions.swift in Sources */,
 				E63829D7CB4D53692A2DB1CD /* LocalExtensions.swift in Sources */,
 				A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */,
@@ -553,6 +564,7 @@
 				E63828F97F9F836663C0F919 /* JSONDownloadable.swift in Sources */,
 				E6382AE94B745E00D06D2DCB /* JSONDownloader.swift in Sources */,
 				A97B76B51FCEC234002F8A40 /* LocationFinder.swift in Sources */,
+				A9C162FE205BA6070091F4C3 /* DisposeBag.swift in Sources */,
 				E638247E684B79425FF5896B /* RequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
