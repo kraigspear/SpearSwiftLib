@@ -26,7 +26,7 @@ final class CLLocationCoordinate2DExtensionsTest: XCTestCase {
 
         let center = minCoordinate.centerPoint(maxCoordinate)
 
-        XCTAssertEqualWithAccuracy(42.96, center.latitude, accuracy: 0.1)
-        XCTAssertEqualWithAccuracy(-85.66, center.longitude, accuracy: 0.1)
+        XCTAssertEqual(42.96, center.latitude, accuracy: 0.1)
+        XCTAssertEqual(-85.66, center.longitude, accuracy: 0.1)
     }
 }

@@ -16,7 +16,7 @@ public final class Disposeable<T>: DisposeType {
 	let uuid = UUID().uuidString
 	let handler: ((T) -> Void)?
 	
-	weak var observable: Observable<T>?
+	var observable: Observable<T>?
 	
 	init(handler: @escaping ((T) -> Void),
 		 observable: Observable<T>) {
