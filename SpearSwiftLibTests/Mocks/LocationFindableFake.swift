@@ -12,13 +12,13 @@ import Foundation
 
 public final class LocationFindableFake {
     private var findCalled = 0
-    private var resultValue: ResultHavingType<FoundLocationType>!
+    private var resultValue: ResultHavingType<GPSLocation>!
 }
 
 // MARK: - Setups
 
 extension LocationFindableFake {
-    public func setupResult(_ value: ResultHavingType<FoundLocationType>) {
+    public func setupResult(_ value: ResultHavingType<GPSLocation>) {
         resultValue = value
     }
 }
@@ -35,7 +35,7 @@ extension LocationFindableFake {
 
 extension LocationFindableFake: LocationFindable {
     public func find(accuracy _: CLLocationAccuracy,
-                     result: @escaping (ResultHavingType<FoundLocationType>) -> Void) {
+                     result: @escaping (ResultHavingType<GPSLocation>) -> Void) {
         findCalled += 1
         result(resultValue)
     }

@@ -8,10 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928C073200A91E500F5743A /* StickyHeaderLayout.swift */; };
+		A92B809020A8E5CE004139D3 /* SpearSwiftLibmacOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A92B809420A8E609004139D3 /* NetworkDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63823337456B752B372C462 /* NetworkDownloadable.swift */; };
+		A92B809520A8E61B004139D3 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */; };
+		A92B809620A8E623004139D3 /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
+		A92B809720A8E62B004139D3 /* NetworkDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382CEF98D01D84D83D47A0 /* NetworkDownloader.swift */; };
+		A92B809820A8E637004139D3 /* NetworkParameterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382488EAD8E235300DECE8 /* NetworkParameterType.swift */; };
+		A92B809920A8E63F004139D3 /* JSONDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638201F4A9B805667B6B1D1 /* JSONDownloadable.swift */; };
+		A92B809A20A8E644004139D3 /* JSONDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382D6F3DA3A191E71CC1DC /* JSONDownloader.swift */; };
+		A92B809B20A8E6B1004139D3 /* ClosureTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382A1FEA4424A44EEA1DA1 /* ClosureTypes.swift */; };
+		A92B809C20A8E6C4004139D3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DFC210ECAAB73928B17 /* Json.swift */; };
+		A92B809D20A8E74A004139D3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C162FB205BA2F30091F4C3 /* Observable.swift */; };
+		A937A8C6208889EF0089AA68 /* OperationWithClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937A8C5208889EF0089AA68 /* OperationWithClosure.swift */; };
+		A941586720A8E7AB00202F1B /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45BFE205BBFBE00514561 /* Disposable.swift */; };
+		A941586C20A8E87B00202F1B /* NSPointerArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */; };
 		A9503DEC1ED6E1100011B5AF /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
-		A9503DF31ED6E2590011B5AF /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */; };
+		A9573A8C20AAD7FE0078501A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9891B26208C93C200B7E629 /* Logger.swift */; };
+		A9573A8D20AADA0B0078501A /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		A957F6391FD4115100A49ACB /* LocationFindableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957F6381FD4115100A49ACB /* LocationFindableFake.swift */; };
 		A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
+		A961CD682085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */; };
+		A961CD6A2085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */; };
 		A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */; };
 		A96CB5FF2060ED16004D509D /* NSPointerArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */; };
 		A97B76B21FCEBBFF002F8A40 /* LocationFinderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */; };
@@ -22,6 +39,8 @@
 		A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
 		A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */; };
 		A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
+		A9891B27208C93C200B7E629 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9891B26208C93C200B7E629 /* Logger.swift */; };
+		A99B282620A8EE04000601BB /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382BAA186B5807200ED203 /* NSURLParameters.swift */; };
 		A9A14CE81EE4804B00E1FAF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9A14CDC1EE4804B00E1FAF7 /* Info.plist */; };
 		A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */; };
 		A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */; };
@@ -93,11 +112,17 @@
 
 /* Begin PBXFileReference section */
 		A928C073200A91E500F5743A /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
+		A92B808C20A8E5CE004139D3 /* SpearSwiftLibmacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLibmacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibmacOS.h; sourceTree = "<group>"; };
+		A92B808F20A8E5CE004139D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A937A8C5208889EF0089AA68 /* OperationWithClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithClosure.swift; sourceTree = "<group>"; };
 		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A957F6381FD4115100A49ACB /* LocationFindableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFindableFake.swift; sourceTree = "<group>"; };
 		A9611AF51EE7EBD80096154A /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
+		A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnetLocationPermissionStatus.swift; sourceTree = "<group>"; };
+		A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationPermissionStatusFake.swift; sourceTree = "<group>"; };
 		A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPointerArrayExtensions.swift; sourceTree = "<group>"; };
 		A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderTest.swift; sourceTree = "<group>"; };
@@ -107,6 +132,7 @@
 		A97B76C01FD2BB68002F8A40 /* LocationManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManageable.swift; sourceTree = "<group>"; };
 		A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
 		A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensionsTest.swift; sourceTree = "<group>"; };
+		A9891B26208C93C200B7E629 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
 		A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBoxTest.swift; sourceTree = "<group>"; };
 		A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTest.swift; sourceTree = "<group>"; };
@@ -170,6 +196,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A92B808820A8E5CE004139D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A942A9821A9F251800C69271 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,7 +214,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9503DF31ED6E2590011B5AF /* SwiftyBeaver.framework in Frameworks */,
 				A9503DEC1ED6E1100011B5AF /* SpearSwiftLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,12 +229,22 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		A92B808D20A8E5CE004139D3 /* SpearSwiftLibmacOS */ = {
+			isa = PBXGroup;
+			children = (
+				A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */,
+				A92B808F20A8E5CE004139D3 /* Info.plist */,
+			);
+			path = SpearSwiftLibmacOS;
+			sourceTree = "<group>";
+		};
 		A942A97C1A9F251800C69271 = {
 			isa = PBXGroup;
 			children = (
 				E638210CE122197B634B4A73 /* SpearSwiftLib */,
 				A9A14CD81EE4804B00E1FAF7 /* SpearSwiftLibTests */,
 				A9D9CE4B1C472D6C00D39DE3 /* SpearSwiftLibOSX */,
+				A92B808D20A8E5CE004139D3 /* SpearSwiftLibmacOS */,
 				A942A9871A9F251800C69271 /* Products */,
 				A96EE60F1DB3B09C00E55997 /* Frameworks */,
 			);
@@ -214,6 +256,7 @@
 			children = (
 				A942A9861A9F251800C69271 /* SpearSwiftLib.framework */,
 				A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */,
+				A92B808C20A8E5CE004139D3 /* SpearSwiftLibmacOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,6 +306,7 @@
 				A97B76BC1FD012DF002F8A40 /* GeocodeFinderFake.swift */,
 				A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */,
 				A957F6381FD4115100A49ACB /* LocationFindableFake.swift */,
+				A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -333,6 +377,8 @@
 				E63825BD8B8EB9D99BFF6E52 /* StringBuilder.swift */,
 				E6382097358E63E4FAF9EA73 /* Supporting Files */,
 				A9C45BFE205BBFBE00514561 /* Disposable.swift */,
+				A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */,
+				A9891B26208C93C200B7E629 /* Logger.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -403,6 +449,7 @@
 			children = (
 				E638217124D04DC7A8288430 /* BaseOperation.swift */,
 				A9E4C6322064F55F007735E1 /* OperationWithType.swift */,
+				A937A8C5208889EF0089AA68 /* OperationWithClosure.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -410,6 +457,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		A92B808920A8E5CE004139D3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A92B809020A8E5CE004139D3 /* SpearSwiftLibmacOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A942A9831A9F251800C69271 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +476,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A92B808B20A8E5CE004139D3 /* SpearSwiftLibmacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A92B809320A8E5CE004139D3 /* Build configuration list for PBXNativeTarget "SpearSwiftLibmacOS" */;
+			buildPhases = (
+				A92B808720A8E5CE004139D3 /* Sources */,
+				A92B808820A8E5CE004139D3 /* Frameworks */,
+				A92B808920A8E5CE004139D3 /* Headers */,
+				A92B808A20A8E5CE004139D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpearSwiftLibmacOS;
+			productName = SpearSwiftLibmacOS;
+			productReference = A92B808C20A8E5CE004139D3 /* SpearSwiftLibmacOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		A942A9851A9F251800C69271 /* SpearSwiftLib */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A942A99C1A9F251900C69271 /* Build configuration list for PBXNativeTarget "SpearSwiftLib" */;
@@ -465,9 +538,14 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = spearware;
 				TargetAttributes = {
+					A92B808B20A8E5CE004139D3 = {
+						CreatedOnToolsVersion = 9.3.1;
+						DevelopmentTeam = FUNW4GUS24;
+						ProvisioningStyle = Automatic;
+					};
 					A942A9851A9F251800C69271 = {
 						CreatedOnToolsVersion = 6.1.1;
 						LastSwiftMigration = 0900;
@@ -494,11 +572,19 @@
 			targets = (
 				A942A9851A9F251800C69271 /* SpearSwiftLib */,
 				A9503DE61ED6E1100011B5AF /* SpearSwiftLibTests */,
+				A92B808B20A8E5CE004139D3 /* SpearSwiftLibmacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A92B808A20A8E5CE004139D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A942A9841A9F251800C69271 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,6 +603,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A92B808720A8E5CE004139D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A92B809C20A8E6C4004139D3 /* Json.swift in Sources */,
+				A92B809A20A8E644004139D3 /* JSONDownloader.swift in Sources */,
+				A941586C20A8E87B00202F1B /* NSPointerArrayExtensions.swift in Sources */,
+				A92B809420A8E609004139D3 /* NetworkDownloadable.swift in Sources */,
+				A92B809820A8E637004139D3 /* NetworkParameterType.swift in Sources */,
+				A92B809520A8E61B004139D3 /* RequestBuilder.swift in Sources */,
+				A9573A8D20AADA0B0078501A /* DateFormatters.swift in Sources */,
+				A92B809920A8E63F004139D3 /* JSONDownloadable.swift in Sources */,
+				A92B809D20A8E74A004139D3 /* Observable.swift in Sources */,
+				A99B282620A8EE04000601BB /* NSURLParameters.swift in Sources */,
+				A92B809620A8E623004139D3 /* GetRequest.swift in Sources */,
+				A941586720A8E7AB00202F1B /* Disposable.swift in Sources */,
+				A9573A8C20AAD7FE0078501A /* Logger.swift in Sources */,
+				A92B809720A8E62B004139D3 /* NetworkDownloader.swift in Sources */,
+				A92B809B20A8E6B1004139D3 /* ClosureTypes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A942A9811A9F251800C69271 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,6 +646,7 @@
 				E63829F5B464D8486D0B5324 /* MKCoordinateRegionExtensions.swift in Sources */,
 				E6382BCD76C929D4B1CEDF36 /* UIImageExtensions.swift in Sources */,
 				E6382FFFDE2A5FFEEEE57A01 /* UIViewExtensions.swift in Sources */,
+				A937A8C6208889EF0089AA68 /* OperationWithClosure.swift in Sources */,
 				E6382FFC99CF5DC5734244AE /* UIView+Animations.swift in Sources */,
 				A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */,
 				E638211AAE27D2B1400A05E6 /* Json.swift in Sources */,
@@ -565,6 +674,7 @@
 				A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */,
 				E6382488D8E292E2CF93B10F /* NetworkDownloadable.swift in Sources */,
 				E63824A90C85F100812A9C27 /* NetworkDownloader.swift in Sources */,
+				A9891B27208C93C200B7E629 /* Logger.swift in Sources */,
 				E63821430DA6273A46C8EF51 /* ImageDownloadable.swift in Sources */,
 				A96CB5FF2060ED16004D509D /* NSPointerArrayExtensions.swift in Sources */,
 				A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */,
@@ -572,6 +682,7 @@
 				E63828F97F9F836663C0F919 /* JSONDownloadable.swift in Sources */,
 				E6382AE94B745E00D06D2DCB /* JSONDownloader.swift in Sources */,
 				A97B76B51FCEC234002F8A40 /* LocationFinder.swift in Sources */,
+				A961CD682085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift in Sources */,
 				E638247E684B79425FF5896B /* RequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,6 +704,7 @@
 				A97B76B21FCEBBFF002F8A40 /* LocationFinderTest.swift in Sources */,
 				A97B76BD1FD012DF002F8A40 /* GeocodeFinderFake.swift in Sources */,
 				A9A14CF21EE4810000E1FAF7 /* StringBuilderTest.swift in Sources */,
+				A961CD6A2085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift in Sources */,
 				A9A14CF31EE4810200E1FAF7 /* OperationTest.swift in Sources */,
 				A9C8A4471FD2DD520069CC27 /* LocationManageableFake.swift in Sources */,
 				A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */,
@@ -610,6 +722,73 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A92B809120A8E5CE004139D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FUNW4GUS24;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SpearSwiftLibmacOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibmacOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		A92B809220A8E5CE004139D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FUNW4GUS24;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SpearSwiftLibmacOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibmacOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		A942A99A1A9F251900C69271 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -622,12 +801,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -655,7 +836,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -678,12 +859,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -704,7 +887,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -726,9 +909,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DIOS_SIMULATOR -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -750,7 +935,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spearware.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -776,6 +961,7 @@
 				);
 				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.thunderful.SpearSwiftLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -801,6 +987,7 @@
 				);
 				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.thunderful.SpearSwiftLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -812,6 +999,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A92B809320A8E5CE004139D3 /* Build configuration list for PBXNativeTarget "SpearSwiftLibmacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A92B809120A8E5CE004139D3 /* Debug */,
+				A92B809220A8E5CE004139D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A942A9801A9F251800C69271 /* Build configuration list for PBXProject "SpearSwiftLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

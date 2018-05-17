@@ -36,7 +36,7 @@ public final class CurrentLocationPermissionRequestor: NSObject {
         super.init()
     }
 
-    fileprivate func initManager() {
+    private func initManager() {
         precondition(Thread.isMainThread)
         if locationManager != nil {
             return
@@ -46,7 +46,7 @@ public final class CurrentLocationPermissionRequestor: NSObject {
         locationManager!.delegate = self
     }
 
-    fileprivate func deinitManager() {
+    private func deinitManager() {
         precondition(Thread.isMainThread)
         onCompleted = nil
         guard let locationManager = self.locationManager else {
@@ -57,7 +57,7 @@ public final class CurrentLocationPermissionRequestor: NSObject {
     }
 
     /// No need to ask for permission because we already have it.
-    fileprivate var isPermissionAlreadyGiven: Bool {
+    private var isPermissionAlreadyGiven: Bool {
         let authorizationStatus = CLLocationManager.authorizationStatus()
 
         switch authorizationStatus {

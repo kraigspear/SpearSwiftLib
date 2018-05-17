@@ -48,7 +48,8 @@ public final class NetworkDownloader: NetworkDownloadable {
      }
      ```
      */
-    public func download(from: RequestBuildable, completed: @escaping (NetworkResult<Data>) -> Void) {
+    public func download(from: RequestBuildable,
+						 completed: @escaping (NetworkResult<Data>) -> Void) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 

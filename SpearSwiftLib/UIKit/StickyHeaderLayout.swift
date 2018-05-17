@@ -34,7 +34,7 @@ public class StickyHeaderLayout: UICollectionViewFlowLayout {
             .forEach { missingSections.remove($0) }
 
         missingSections.map { IndexPath(row: 0, section: $0) }
-            .flatMap { layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: $0) }
+			.compactMap { layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: $0) }
             .forEach { answer.append($0) }
 
         answer.filter { $0.representedElementKind ?? "" == UICollectionElementKindSectionHeader }

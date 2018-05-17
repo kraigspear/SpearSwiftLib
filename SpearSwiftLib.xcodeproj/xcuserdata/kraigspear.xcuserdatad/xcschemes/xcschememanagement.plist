@@ -7,14 +7,14 @@
 		<key>All in JsonDownloaderTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false />
+			<false/>
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
 		<key>SpearSwiftLib.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<true />
+			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -26,7 +26,12 @@
 		<key>SpearSwiftLibTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
+		</dict>
+		<key>SpearSwiftLibmacOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -34,27 +39,27 @@
 		<key>A942A9851A9F251800C69271</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>A942A9901A9F251900C69271</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>A9503DAD1ED65A550011B5AF</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>A9503DE61ED6E1100011B5AF</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>A9D9CE491C472D6C00D39DE3</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -43,4 +43,10 @@ public final class DateFormatters {
 
         return [dateFormatter1, dateFormatter2]
     }()
+	
+	public lazy var shortDateLongTime: DateFormatter = {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "MM-dd-yy HH:mm:ss.SSS"
+		return dateFormatter
+	}()
 }

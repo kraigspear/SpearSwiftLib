@@ -32,21 +32,54 @@ public enum LocationFinderBuilderError: Error {
     case missingFailure
 }
 
-public protocol FoundLocationType {
+/**
+A location that was found using CoreLocation
+- SeeAlso: `LocationFinder`
+
+```swift
+func reverseGeocode(_ location: CLLocation) {
+        geocodeFinder.find(location) { [weak self] geocodeResult in
+
+            guard let mySelf = self else { return }
+
+            switch geocodeResult {
+            case let .success(result: placemark):
+                let foundLocation = FoundLocation(placemark: placemark,
+                                                  location: location)
+                mySelf.result?(ResultHavingType<FoundLocationType>.success(result: foundLocation))
+            case let .error(error: error):
+                mySelf.result?(ResultHavingType<FoundLocationType>.error(error: error))
+            }
+        }
+    }
+```
+*/
+public protocol GPSLocation {
+	/// The Placemark of the found location
     var placemark: CLPlacemark { get }
+	/// The Coordinates of the found location
     var location: CLLocation { get }
 }
 
 // MARK: - LocationFindable
 
+/**
+Finds the current location
+*/
 public protocol LocationFindable {
+	/**
+	Finds the current location
+	
+	- parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
+	- parameter result: The result of the call
+	*/
     func find(accuracy: CLLocationAccuracy,
-              result: @escaping (ResultHavingType<FoundLocationType>) -> Void)
+              result: @escaping (ResultHavingType<GPSLocation>) -> Void)
 }
 
 // MARK: - FoundLocation
 
-public struct FoundLocation: FoundLocationType, CustomStringConvertible {
+public struct FoundLocation: GPSLocation, CustomStringConvertible {
     public let placemark: CLPlacemark
     public let location: CLLocation
 
@@ -65,7 +98,7 @@ public final class LocationFinder: NSObject {
     private let locationManager: LocationManageable
     private let geocodeFinder: GeocodeFindable
 
-    private var result: ((ResultHavingType<FoundLocationType>) -> Void)?
+    private var result: ((ResultHavingType<GPSLocation>) -> Void)?
 
     init(locationManager: LocationManageable,
          geocodeFinder: GeocodeFindable) {
@@ -89,32 +122,40 @@ extension LocationFinder: LocationManagerDelegate {
     }
 
     func onAuthorizationStatusChanged(_ status: CLAuthorizationStatus) {
-        assert(result != nil, "result should have been assigned")
 
         switch status {
         case .authorizedWhenInUse:
             locationManager.requestLocation()
         case .denied, .restricted, .notDetermined:
-            result?(ResultHavingType<FoundLocationType>.error(error: LocationFindableError.notAuthorized))
+            result?(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notAuthorized))
         case .authorizedAlways:
             preconditionFailure("When did we start requesting this?")
         }
     }
 
     func onLocationManagerError(_ error: Error) {
-        result?(ResultHavingType<FoundLocationType>.error(error: error))
+        result?(ResultHavingType<GPSLocation>.error(error: error))
     }
 }
 
 extension LocationFinder: LocationFindable {
+	
+	/**
+	Finds the current location
+	
+	- parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
+	- parameter result: The result of the call
+	*/
     public func find(accuracy _: CLLocationAccuracy,
-                     result: @escaping (ResultHavingType<FoundLocationType>) -> Void) {
+                     result: @escaping (ResultHavingType<GPSLocation>) -> Void) {
+		
+		self.result = result
+		
         if locationManager.isLocationServicesEnabled == false {
-            result(ResultHavingType<FoundLocationType>.error(error: LocationFindableError.notEnabled))
+            result(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notEnabled))
             return
         }
 
-        self.result = result
         let status = locationManager.authorizationStatus
 
         switch status {
@@ -123,7 +164,7 @@ extension LocationFinder: LocationFindable {
         case .authorizedAlways:
             preconditionFailure("When did we start requesting this?")
         case .denied, .restricted:
-            result(ResultHavingType<FoundLocationType>.error(error: LocationFindableError.notAuthorized))
+            result(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notAuthorized))
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         }
@@ -142,9 +183,9 @@ private extension LocationFinder {
             case let .success(result: placemark):
                 let foundLocation = FoundLocation(placemark: placemark,
                                                   location: location)
-                mySelf.result?(ResultHavingType<FoundLocationType>.success(result: foundLocation))
+                mySelf.result?(ResultHavingType<GPSLocation>.success(result: foundLocation))
             case let .error(error: error):
-                mySelf.result?(ResultHavingType<FoundLocationType>.error(error: error))
+                mySelf.result?(ResultHavingType<GPSLocation>.error(error: error))
             }
         }
     }
