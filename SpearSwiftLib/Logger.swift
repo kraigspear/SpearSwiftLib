@@ -113,7 +113,7 @@ public final class Logger {
 		              message: message)
 		
 		#if IOS_SIMULATOR
-		//Logger.send(log)
+		// Logger.send(log)
 		
 		#else
 		
@@ -130,12 +130,16 @@ public final class Logger {
 	}
 	
 	private static func send(_ log: Log) {
+		guard let apiKey = Logger.apiKey else {
+			return
+		}
+		
 		let sessionConfig = URLSessionConfiguration.default
 		let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-
+		
 		let baseUrl = URL(string: "https://spearlogger2.azurewebsites.net/api/Logger")!
 		var networkPrameters = NetworkParameters()
-		_ = networkPrameters.addParam("code", value: "iDDy9fM2AOGccLfsvWXbkkCtQ/FNEfJr5mOxnTXLJW4bzyx6bJjR9w==")
+		_ = networkPrameters.addParam("code", value: apiKey)
 		let url = networkPrameters.NSURLByAppendingQueryParameters(baseUrl)
 		var request = URLRequest(url: url)
 		request.httpMethod = "POST"
@@ -143,12 +147,32 @@ public final class Logger {
 		
 		request.httpBody = try! JSONEncoder().encode(log)
 		
-		let task = session.dataTask(with: request) { (_, _, _) in
-			
+		let task = session.dataTask(with: request) { _, _, _ in
 		}
 		
 		task.resume()
 		session.finishTasksAndInvalidate()
+	}
+	
+	private static var apiKeyValue: String?
+	
+	static var apiKey: String? {
+		if let apiKeyValue = Logger.apiKeyValue {
+			return apiKeyValue
+		}
+		
+		let bundle = Bundle(for: Logger.self)
+		
+		guard let filePath = bundle.path(forResource: "AppKeys", ofType: "plist"),
+			let plist = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
+			let apiKey = plist["Log"] as? String
+		else {
+			assertionFailure("Missing API Key")
+			return nil
+		}
+		
+		Logger.apiKeyValue = apiKey
+		return Logger.apiKeyValue
 	}
 }
 

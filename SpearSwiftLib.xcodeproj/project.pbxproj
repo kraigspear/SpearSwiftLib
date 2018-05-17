@@ -59,6 +59,7 @@
 		A9D5AC8A204C218800BEAA75 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC89204C218800BEAA75 /* BaseNotification.swift */; };
 		A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */; };
 		A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4C6322064F55F007735E1 /* OperationWithType.swift */; };
+		A9E575AA20AD82ED003E91B4 /* AppKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E575A920AD82ED003E91B4 /* AppKeys.plist */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
 		E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */; };
 		E6382098F0F0DEA735B346F9 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382A47A433272D3C296340 /* Platform.swift */; };
@@ -153,6 +154,7 @@
 		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E4C6322064F55F007735E1 /* OperationWithType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithType.swift; sourceTree = "<group>"; };
+		A9E575A920AD82ED003E91B4 /* AppKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppKeys.plist; sourceTree = "<group>"; };
 		E638201F4A9B805667B6B1D1 /* JSONDownloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDownloadable.swift; sourceTree = "<group>"; };
 		E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDateTime.swift; sourceTree = "<group>"; };
 		E638217124D04DC7A8288430 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 		E638210CE122197B634B4A73 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
+				A9E575A920AD82ED003E91B4 /* AppKeys.plist */,
 				E6382C67407362707E839FD1 /* Extensions */,
 				E638220E4C39877F55761B2A /* JSON */,
 				A97B76B31FCEC234002F8A40 /* LocationFinder */,
@@ -589,6 +592,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E575AA20AD82ED003E91B4 /* AppKeys.plist in Resources */,
 				A9A14CE81EE4804B00E1FAF7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
