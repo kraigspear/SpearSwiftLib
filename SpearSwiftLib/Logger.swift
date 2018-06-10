@@ -49,14 +49,14 @@ struct Log: CustomStringConvertible {
 	let message: String
 	
 	enum CodingKeys: String, CodingKey {
-		case time = "Time"
-		case deviceID = "DeviceID"
-		case level = "Level"
-		case sourceFile = "SourceFile"
-		case lineNumber = "LineNumber"
-		case column = "Column"
-		case functionName = "FunctionName"
-		case message = "Message"
+		case time = "date"
+		case deviceID = "deviceID"
+		case level = "level"
+		case sourceFile = "sourceFile"
+		case lineNumber = "lineNumber"
+		case column = "column"
+		case functionName = "functionName"
+		case message = "message"
 	}
 	
 	var description: String {
@@ -113,11 +113,12 @@ public final class Logger {
 		              message: message)
 		
 		#if IOS_SIMULATOR
-		// Logger.send(log)
+		
+		Logger.send(log)
 		
 		#else
 		
-		Logger.send(log)
+		//Logger.send(log)
 		
 		#endif
 		
@@ -130,17 +131,11 @@ public final class Logger {
 	}
 	
 	private static func send(_ log: Log) {
-		guard let apiKey = Logger.apiKey else {
-			return
-		}
 		
 		let sessionConfig = URLSessionConfiguration.default
 		let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 		
-		let baseUrl = URL(string: "https://spearlogger2.azurewebsites.net/api/Logger")!
-		var networkPrameters = NetworkParameters()
-		_ = networkPrameters.addParam("code", value: apiKey)
-		let url = networkPrameters.NSURLByAppendingQueryParameters(baseUrl)
+		let url = URL(string: "https://o01pamvmw4.execute-api.us-east-1.amazonaws.com/Prod")!
 		var request = URLRequest(url: url)
 		request.httpMethod = "POST"
 		request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -152,27 +147,6 @@ public final class Logger {
 		
 		task.resume()
 		session.finishTasksAndInvalidate()
-	}
-	
-	private static var apiKeyValue: String?
-	
-	static var apiKey: String? {
-		if let apiKeyValue = Logger.apiKeyValue {
-			return apiKeyValue
-		}
-		
-		let bundle = Bundle(for: Logger.self)
-		
-		guard let filePath = bundle.path(forResource: "AppKeys", ofType: "plist"),
-			let plist = NSDictionary(contentsOfFile: filePath) as? [String: AnyObject],
-			let apiKey = plist["Log"] as? String
-		else {
-			assertionFailure("Missing API Key")
-			return nil
-		}
-		
-		Logger.apiKeyValue = apiKey
-		return Logger.apiKeyValue
 	}
 }
 

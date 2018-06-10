@@ -17,6 +17,7 @@ protocol LocationManagerDelegate: class {
 protocol LocationManageable: class {
     var isLocationServicesEnabled: Bool { get }
     var authorizationStatus: CLAuthorizationStatus { get }
+	var desiredAccuracy: CLLocationAccuracy { get set }
     var delegate: LocationManagerDelegate? { get set }
     func requestLocation()
     func requestWhenInUseAuthorization()
@@ -33,6 +34,15 @@ final class LocationManager: NSObject {
 }
 
 extension LocationManager: LocationManageable {
+	var desiredAccuracy: CLLocationAccuracy {
+		get {
+			return coreLocationManager.desiredAccuracy
+		}
+		set {
+			coreLocationManager.desiredAccuracy = newValue
+		}
+	}
+	
     var isLocationServicesEnabled: Bool {
         return CLLocationManager.locationServicesEnabled()
     }

@@ -9,44 +9,44 @@
 import Foundation
 
 public enum DateFormat: String {
-    case hmm_a = "h:mm a"
-    case ha
-    case hmm = "h:mm"
-    case dayOfWeek = "EEEE"
+	case hmm_a = "h:mm a"
+	case ha
+	case hmm = "h:mm"
+	case dayOfWeek = "EEEE"
 
-    func createFormatter(inTimeZone: TimeZone) -> DateFormatter {
-        let dateFormatter = DateFormatter()
+	func createFormatter(inTimeZone: TimeZone) -> DateFormatter {
+		let dateFormatter = DateFormatter()
 
-        dateFormatter.dateFormat = rawValue
-        dateFormatter.timeZone = inTimeZone
+		dateFormatter.dateFormat = rawValue
+		dateFormatter.timeZone = inTimeZone
 
-        return dateFormatter
-    }
+		return dateFormatter
+	}
 }
 
 /// Central place to contain all DateFormatters to be reused.
 public final class DateFormatters {
-    public static let instance = DateFormatters()
+	public static let instance = DateFormatters()
 
-    private init() {}
+	private init() {}
 
-    public lazy var zulu: [DateFormatter] = {
-        let utcTimeZone = TimeZone(secondsFromGMT: 0)
+	public lazy var zulu: [DateFormatter] = {
+		let utcTimeZone = TimeZone(secondsFromGMT: 0)
 
-        let dateFormatter1 = DateFormatter()
-        dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        dateFormatter1.timeZone = utcTimeZone
+		let dateFormatter1 = DateFormatter()
+		dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+		dateFormatter1.timeZone = utcTimeZone
 
-        let dateFormatter2 = DateFormatter()
-        dateFormatter2.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        dateFormatter2.timeZone = utcTimeZone
+		let dateFormatter2 = DateFormatter()
+		dateFormatter2.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+		dateFormatter2.timeZone = utcTimeZone
 
-        return [dateFormatter1, dateFormatter2]
-    }()
-	
-	public lazy var shortDateLongTime: DateFormatter = {
+		return [dateFormatter1, dateFormatter2]
+	}()
+
+	public lazy var dayOfWeekFormatter: DateFormatter = {
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "MM-dd-yy HH:mm:ss.SSS"
+		dateFormatter.dateFormat = DateFormat.dayOfWeek.rawValue
 		return dateFormatter
 	}()
 }

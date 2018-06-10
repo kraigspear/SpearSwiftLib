@@ -69,6 +69,7 @@ public final class NetworkDownloader: NetworkDownloadable {
                 let response = response as! HTTPURLResponse
 
                 if response.statusCode != 200 {
+					Logger.log(message: "Statuscode = \(response.statusCode)", event: .warning)
                     completed(NetworkResult<Data>.response(code: response.statusCode))
                     return
                 }

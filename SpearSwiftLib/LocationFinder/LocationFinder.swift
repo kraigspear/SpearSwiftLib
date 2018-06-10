@@ -146,7 +146,7 @@ extension LocationFinder: LocationFindable {
 	- parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
 	- parameter result: The result of the call
 	*/
-    public func find(accuracy _: CLLocationAccuracy,
+    public func find(accuracy: CLLocationAccuracy,
                      result: @escaping (ResultHavingType<GPSLocation>) -> Void) {
 		
 		self.result = result
@@ -160,6 +160,7 @@ extension LocationFinder: LocationFindable {
 
         switch status {
         case .authorizedWhenInUse:
+			locationManager.desiredAccuracy = accuracy
             locationManager.requestLocation()
         case .authorizedAlways:
             preconditionFailure("When did we start requesting this?")
