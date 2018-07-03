@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90BD31F20D2657000D705E0 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90BD31E20D2657000D705E0 /* CommonError.swift */; };
 		A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928C073200A91E500F5743A /* StickyHeaderLayout.swift */; };
 		A92B809020A8E5CE004139D3 /* SpearSwiftLibmacOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A92B809420A8E609004139D3 /* NetworkDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63823337456B752B372C462 /* NetworkDownloadable.swift */; };
@@ -41,7 +42,6 @@
 		A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
 		A9891B27208C93C200B7E629 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9891B26208C93C200B7E629 /* Logger.swift */; };
 		A99B282620A8EE04000601BB /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382BAA186B5807200ED203 /* NSURLParameters.swift */; };
-		A9A14CE81EE4804B00E1FAF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9A14CDC1EE4804B00E1FAF7 /* Info.plist */; };
 		A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */; };
 		A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */; };
 		A9A14CF21EE4810000E1FAF7 /* StringBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */; };
@@ -112,6 +112,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A90BD31E20D2657000D705E0 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		A928C073200A91E500F5743A /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
 		A92B808C20A8E5CE004139D3 /* SpearSwiftLibmacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLibmacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibmacOS.h; sourceTree = "<group>"; };
@@ -243,6 +244,7 @@
 		A942A97C1A9F251800C69271 = {
 			isa = PBXGroup;
 			children = (
+				A90BD31E20D2657000D705E0 /* CommonError.swift */,
 				E638210CE122197B634B4A73 /* SpearSwiftLib */,
 				A9A14CD81EE4804B00E1FAF7 /* SpearSwiftLibTests */,
 				A9D9CE4B1C472D6C00D39DE3 /* SpearSwiftLibOSX */,
@@ -593,7 +595,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E575AA20AD82ED003E91B4 /* AppKeys.plist in Resources */,
-				A9A14CE81EE4804B00E1FAF7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +649,7 @@
 				A97B76C11FD2BB68002F8A40 /* LocationManageable.swift in Sources */,
 				E6382EB48608F84BE9ABE531 /* NavigationBarExtensions.swift in Sources */,
 				E63829F5B464D8486D0B5324 /* MKCoordinateRegionExtensions.swift in Sources */,
+				A90BD31F20D2657000D705E0 /* CommonError.swift in Sources */,
 				E6382BCD76C929D4B1CEDF36 /* UIImageExtensions.swift in Sources */,
 				E6382FFFDE2A5FFEEEE57A01 /* UIViewExtensions.swift in Sources */,
 				A937A8C6208889EF0089AA68 /* OperationWithClosure.swift in Sources */,

@@ -14,6 +14,7 @@ import Foundation
 public enum NetworkError: Error {
     /// The status code is not 200
     case statusCodeError(statusCode: Int)
+	case nilData
     case jsonElementNotFoundOrExpectedType
 }
 

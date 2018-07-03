@@ -19,7 +19,7 @@ open class BaseNotification<NotifiedOf>: NSObject {
     public var observing = false
 
     /// Name of the client that is observing this notification
-    open let clientName: String
+	public let clientName: String
 
     /// Closure that is called when the DataChangedNotification is raised.
     public var onNotification: ((NotificationValue<NotifiedOf>) -> Void)?
