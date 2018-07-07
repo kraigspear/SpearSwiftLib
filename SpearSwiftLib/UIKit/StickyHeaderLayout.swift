@@ -25,19 +25,19 @@ public class StickyHeaderLayout: UICollectionViewFlowLayout {
 
         let missingSections = NSMutableIndexSet()
 
-        answer.filter { $0.representedElementCategory == UICollectionElementCategory.cell }
+		answer.filter { $0.representedElementCategory == UICollectionView.ElementCategory.cell }
             .map { $0.indexPath.section }
             .forEach { missingSections.add($0) }
 
-        answer.filter { $0.representedElementKind ?? "" == UICollectionElementKindSectionHeader }
+		answer.filter { $0.representedElementKind ?? "" == UICollectionView.elementKindSectionHeader }
             .map { $0.indexPath.section }
             .forEach { missingSections.remove($0) }
 
         missingSections.map { IndexPath(row: 0, section: $0) }
-			.compactMap { layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: $0) }
+			.compactMap { layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: $0) }
             .forEach { answer.append($0) }
 
-        answer.filter { $0.representedElementKind ?? "" == UICollectionElementKindSectionHeader }
+		answer.filter { $0.representedElementKind ?? "" == UICollectionView.elementKindSectionHeader }
             .forEach { layoutHeader($0) }
 
         return answer

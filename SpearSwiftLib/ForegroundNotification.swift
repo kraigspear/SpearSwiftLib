@@ -142,8 +142,12 @@ public final class ForegroundNotification: ForegroundNotifyable {
     }
 
     private func initNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(ForegroundNotification.foregroundNotification(_:)), name:
-            NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+		
+		NotificationCenter.default.addObserver(self,
+											   selector: #selector(ForegroundNotification.foregroundNotification(_:)),
+											   name: UIApplication.willEnterForegroundNotification,
+											   object: nil)
+		
         listening = true
     }
 
