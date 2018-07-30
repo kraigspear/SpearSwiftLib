@@ -7,7 +7,6 @@ import Foundation
 
 /// Type that downloads JSON from the network.
 public protocol JSONDownloadable {
-
     // MARK: - Methods
 
     /**

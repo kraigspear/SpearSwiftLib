@@ -6,17 +6,14 @@
 //  Copyright © 2018 spearware. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
-
+import Foundation
 @testable import SpearSwiftLib
 
 public final class CurrentLocationPermissionStatusFake: CurrentLocationPermissionStatusProtocol {
-	
-	public var authorizationStatusValue: CLAuthorizationStatus!
-	
-	public var authorizationStatus: CLAuthorizationStatus {
-		return authorizationStatusValue
-	}
-}
+    public var authorizationStatusValue: CLAuthorizationStatus!
 
+    public var authorizationStatus: CLAuthorizationStatus {
+        return authorizationStatusValue
+    }
+}

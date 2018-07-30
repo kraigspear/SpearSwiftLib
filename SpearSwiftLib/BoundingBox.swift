@@ -16,7 +16,6 @@ fileprivate let WGS84_b = 6_356_752.3 //  Minor semiaxis [m]
 
 /// A coordinate box with a min and max point.
 public struct BoundingBox {
-
     // MARK: - Instance Properties
 
     /// The minimum point or bottom left / south west
@@ -40,7 +39,6 @@ public struct BoundingBox {
 }
 
 extension BoundingBox: CustomStringConvertible {
-
     // MARK: - CustomStringConvertible
 
     /// A textual representation of this instance.
@@ -54,9 +52,9 @@ extension BoundingBox: CustomStringConvertible {
 public extension BoundingBox {
     /// This bounding box converted into a mapRect
     public var mapRect: MKMapRect {
-		let p1 = MKMapPoint(minPoint)
-		let p2 = MKMapPoint(maxPoint)
-		return MKMapRect(x: fmin(p1.x, p2.x), y: fmin(p1.y, p2.y), width: fabs(p1.x - p2.x), height: fabs(p1.y - p2.y))
+        let p1 = MKMapPoint(minPoint)
+        let p2 = MKMapPoint(maxPoint)
+        return MKMapRect(x: fmin(p1.x, p2.x), y: fmin(p1.y, p2.y), width: fabs(p1.x - p2.x), height: fabs(p1.y - p2.y))
     }
 }
 

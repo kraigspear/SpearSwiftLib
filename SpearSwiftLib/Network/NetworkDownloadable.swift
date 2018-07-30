@@ -16,7 +16,6 @@ import Foundation
  - SeeAlso: `ImageDownloader`
  */
 public protocol NetworkDownloadable {
-
     // MARK: - Downloading
 
     /**

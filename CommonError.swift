@@ -10,6 +10,6 @@ import Foundation
 
 /// Common errors that can apply to a wide set of functions
 public enum CommonError: Error {
-	/// The argument passed in is not valid
-	case argumentOutOfRange
+    /// The argument passed in is not valid
+    case argumentOutOfRange
 }

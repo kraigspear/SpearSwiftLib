@@ -14,7 +14,7 @@ public extension UIView {
 
      - parameter style: UIBlurEffectStyle style for the blur effect
      */
-	public func applyBlur(style: UIBlurEffect.Style = .dark) {
+    public func applyBlur(style: UIBlurEffect.Style = .dark) {
         backgroundColor = UIColor.clear
         let blurEffect = UIBlurEffect(style: style)
         let blurView = UIVisualEffectView(effect: blurEffect)

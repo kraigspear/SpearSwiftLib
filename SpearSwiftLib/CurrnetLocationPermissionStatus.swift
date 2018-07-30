@@ -12,16 +12,16 @@ import Foundation
 /// Provides the value of CLAuthorizationStatus
 /// Wrapper to faciliate unit testing
 public protocol CurrentLocationPermissionStatusProtocol {
-	/// The current authorization status
-	var authorizationStatus: CLAuthorizationStatus { get }
+    /// The current authorization status
+    var authorizationStatus: CLAuthorizationStatus { get }
 }
 
 /// Implementation of `CurrentLocationPermissionStatusProtocol`
 public struct CurrentLocationPermissionStatus: CurrentLocationPermissionStatusProtocol {
-	public init() {}
+    public init() {}
 
-	/// The current authorization status
-	public var authorizationStatus: CLAuthorizationStatus {
-		return CLLocationManager.authorizationStatus()
-	}
+    /// The current authorization status
+    public var authorizationStatus: CLAuthorizationStatus {
+        return CLLocationManager.authorizationStatus()
+    }
 }

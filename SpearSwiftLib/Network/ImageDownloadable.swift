@@ -13,7 +13,6 @@ import UIKit
  will contain an array of those frames.
  */
 public protocol ImageDownloadable {
-
     // MARK: - Methods
 
     /**

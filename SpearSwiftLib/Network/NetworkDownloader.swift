@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import os.log
 
 /**
  A type that knows how to download data from the network.
@@ -49,7 +50,7 @@ public final class NetworkDownloader: NetworkDownloadable {
      ```
      */
     public func download(from: RequestBuildable,
-						 completed: @escaping (NetworkResult<Data>) -> Void) {
+                         completed: @escaping (NetworkResult<Data>) -> Void) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
@@ -69,7 +70,10 @@ public final class NetworkDownloader: NetworkDownloadable {
                 let response = response as! HTTPURLResponse
 
                 if response.statusCode != 200 {
-					Logger.log(message: "Statuscode = \(response.statusCode)", event: .warning)
+                    os_log("Unsuccessful status code: %d",
+                           log: Log.network,
+                           type: .error,
+                           response.statusCode)
                     completed(NetworkResult<Data>.response(code: response.statusCode))
                     return
                 }

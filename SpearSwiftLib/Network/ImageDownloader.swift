@@ -23,7 +23,6 @@ import UIKit
  ```
  */
 public final class ImageDownloader {
-
     // MARK: - Members
 
     /// Provides the ability to download data from the network
@@ -49,7 +48,6 @@ public final class ImageDownloader {
 // MARK: - ImageDownloadable
 
 extension ImageDownloader: ImageDownloadable {
-
     // MARK: - Downloading
 
     /**

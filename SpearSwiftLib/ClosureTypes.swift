@@ -14,7 +14,7 @@ import Foundation
 public enum NetworkError: Error {
     /// The status code is not 200
     case statusCodeError(statusCode: Int)
-	case nilData
+    case nilData
     case jsonElementNotFoundOrExpectedType
 }
 
@@ -29,9 +29,17 @@ public enum NetworkResult<T> {
     case response(code: Int)
 }
 
-public enum Result {
+public enum Result: CustomStringConvertible {
     case success
     case error(error: Error)
+    public var description: String {
+        switch self {
+        case .success:
+            return "Success"
+        case let .error(error: error):
+            return "Error \(error.localizedDescription)"
+        }
+    }
 }
 
 public typealias ResultBlock = (Result) -> Void

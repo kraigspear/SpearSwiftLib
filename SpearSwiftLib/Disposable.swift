@@ -9,23 +9,23 @@
 import Foundation
 
 public protocol DisposeType: class {
-	func unsubscribe()
+    func unsubscribe()
 }
 
 public final class Disposeable<T>: DisposeType {
-	let uuid = UUID().uuidString
-	let handler: ((T) -> Void)?
-	
-	var observable: Observable<T>?
-	
-	init(handler: @escaping ((T) -> Void),
-		 observable: Observable<T>) {
-		self.handler = handler
-		self.observable = observable
-	}
-	
-	public func unsubscribe() {
-		guard let observable = self.observable else { return }
-		observable.unsubscribe(self)
-	}
+    let uuid = UUID().uuidString
+    let handler: ((T) -> Void)?
+
+    var observable: Observable<T>?
+
+    init(handler: @escaping ((T) -> Void),
+         observable: Observable<T>) {
+        self.handler = handler
+        self.observable = observable
+    }
+
+    public func unsubscribe() {
+        guard let observable = self.observable else { return }
+        observable.unsubscribe(self)
+    }
 }

@@ -9,10 +9,10 @@
 import Foundation
 
 public enum ServiceResponse<Model> {
-	case success(result: Model)
-	case error(error: Error)
+    case success(result: Model)
+    case error(error: Error)
 }
 
 open class OperationWithType<T>: BaseOperation {
-	var result: ServiceResponse<T>?
+    var result: ServiceResponse<T>?
 }

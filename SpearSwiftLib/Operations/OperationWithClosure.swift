@@ -9,18 +9,18 @@
 import Foundation
 
 /// Closure that takes another closure
-public typealias OperationWithClosureClosure = ((( @escaping () -> Void  )  ) -> Void)
+public typealias OperationWithClosureClosure = (((@escaping () -> Void)) -> Void)
 
 public final class OperationWithClosure: BaseOperation {
-	private let closure: OperationWithClosureClosure
-	
-	public init(closure: @escaping OperationWithClosureClosure) {
-		self.closure = closure
-	}
-	
-	public override func main() {
-		closure {[weak self] in
-			self?.done()
-		}
-	}
+    private let closure: OperationWithClosureClosure
+
+    public init(closure: @escaping OperationWithClosureClosure) {
+        self.closure = closure
+    }
+
+    public override func main() {
+        closure { [weak self] in
+            self?.done()
+        }
+    }
 }

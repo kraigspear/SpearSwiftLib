@@ -55,9 +55,9 @@ func reverseGeocode(_ location: CLLocation) {
 ```
 */
 public protocol GPSLocation {
-	/// The Placemark of the found location
+    /// The Placemark of the found location
     var placemark: CLPlacemark { get }
-	/// The Coordinates of the found location
+    /// The Coordinates of the found location
     var location: CLLocation { get }
 }
 
@@ -69,7 +69,7 @@ Finds the current location
 public protocol LocationFindable {
 	/**
 	Finds the current location
-	
+
 	- parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
 	- parameter result: The result of the call
 	*/
@@ -122,7 +122,6 @@ extension LocationFinder: LocationManagerDelegate {
     }
 
     func onAuthorizationStatusChanged(_ status: CLAuthorizationStatus) {
-
         switch status {
         case .authorizedWhenInUse:
             locationManager.requestLocation()
@@ -139,18 +138,16 @@ extension LocationFinder: LocationManagerDelegate {
 }
 
 extension LocationFinder: LocationFindable {
-	
 	/**
 	Finds the current location
-	
+
 	- parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
 	- parameter result: The result of the call
 	*/
     public func find(accuracy: CLLocationAccuracy,
                      result: @escaping (ResultHavingType<GPSLocation>) -> Void) {
-		
-		self.result = result
-		
+        self.result = result
+
         if locationManager.isLocationServicesEnabled == false {
             result(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notEnabled))
             return
@@ -160,7 +157,7 @@ extension LocationFinder: LocationFindable {
 
         switch status {
         case .authorizedWhenInUse:
-			locationManager.desiredAccuracy = accuracy
+            locationManager.desiredAccuracy = accuracy
             locationManager.requestLocation()
         case .authorizedAlways:
             preconditionFailure("When did we start requesting this?")

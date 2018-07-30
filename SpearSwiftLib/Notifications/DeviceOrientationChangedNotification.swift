@@ -11,10 +11,10 @@ import Foundation
 public final class DeviceOrientationChangedNotification: BaseNotification<Void> {
     public override init(clientName: String) {
         super.init(clientName: clientName)
-		
+
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(onDeviceOrientationChanged),
-											   name: UIDevice.orientationDidChangeNotification,
+                                               name: UIDevice.orientationDidChangeNotification,
                                                object: nil)
     }
 
