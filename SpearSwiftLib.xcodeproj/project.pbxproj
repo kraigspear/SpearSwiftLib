@@ -354,7 +354,6 @@
 		E638210CE122197B634B4A73 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
-				A9E575A920AD82ED003E91B4 /* AppKeys.plist */,
 				E6382C67407362707E839FD1 /* Extensions */,
 				E638220E4C39877F55761B2A /* JSON */,
 				A97B76B31FCEC234002F8A40 /* LocationFinder */,
@@ -362,13 +361,17 @@
 				A9D5AC88204C217300BEAA75 /* Notifications */,
 				E6382CAB2E982CDCCFC46B64 /* Operations */,
 				A928C072200A91C900F5743A /* UIKit */,
+				E6382097358E63E4FAF9EA73 /* Supporting Files */,
+				A9E575A920AD82ED003E91B4 /* AppKeys.plist */,
 				E6382BBAAE1BAE1847F63D03 /* AsyncAwait.swift */,
 				E6382DAF767CBC864F764F7B /* BoundingBox.swift */,
 				E6382A1FEA4424A44EEA1DA1 /* ClosureTypes.swift */,
 				E63827E2B016FB3128497FEC /* CoordinateBoundaries.swift */,
 				E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */,
 				E6382D136BBABE576A7ECFD3 /* CurrentLocationPermissionRequestor.swift */,
+				A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */,
 				A9D01DE51F30733F007F7A74 /* DateFormatters.swift */,
+				A9C45BFE205BBFBE00514561 /* Disposable.swift */,
 				E63827F8D8E1521CBF91C794 /* ForegroundNotification.swift */,
 				E638244E34B1FFABBE5C8066 /* GifExtractor.swift */,
 				E638222091888F5E24B285C8 /* ImageCache.swift */,
@@ -382,9 +385,6 @@
 				E63824D493802DF10076CB1F /* Queue.swift */,
 				E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */,
 				E63825BD8B8EB9D99BFF6E52 /* StringBuilder.swift */,
-				E6382097358E63E4FAF9EA73 /* Supporting Files */,
-				A9C45BFE205BBFBE00514561 /* Disposable.swift */,
-				A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */,
 				A92AE9772109C5C000BA1B1D /* SyncType.swift */,
 			);
 			path = SpearSwiftLib;
