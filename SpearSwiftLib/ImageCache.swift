@@ -32,7 +32,8 @@ public final class ImageCache {
      */
     public func fetchImages(_ urlStrs: [String], completed: @escaping ImagesBlock) {
         let que = DispatchQueue(
-            label: "com.sw.imageque")
+            label: "com.sw.imageque"
+        )
 
         var images: [UIImage] = [UIImage]()
 

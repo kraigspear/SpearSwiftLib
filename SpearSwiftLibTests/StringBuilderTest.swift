@@ -63,7 +63,7 @@ class StringBuilderTest: XCTestCase {
         XCTAssertEqual(2, sb.numberOfStrings)
 
         let builtString = sb.build()
-        let lastChar = builtString[builtString.characters.index(builtString.endIndex, offsetBy: -1)]
+        let lastChar = builtString[builtString.index(builtString.endIndex, offsetBy: -1)]
         XCTAssertFalse(lastChar == "\t")
     }
 }

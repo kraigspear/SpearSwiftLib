@@ -31,7 +31,7 @@ class BoundingBoxTest: XCTestCase {
         let expectedMax = CLLocationCoordinate2D(latitude: 51.9605063206253, longitude: -73.373434272284)
         let expectedMin = CLLocationCoordinate2D(latitude: 33.9662972682419, longitude: -97.96276262713)
 
-        XCTAssertEqualWithAccuracy(expectedMax.latitude, boundingBox.maxPoint.latitude, accuracy: 0.00001)
-        XCTAssertEqualWithAccuracy(expectedMin.longitude, boundingBox.minPoint.longitude, accuracy: 0.00001)
+        XCTAssertEqual(expectedMax.latitude, boundingBox.maxPoint.latitude, accuracy: 0.00001)
+        XCTAssertEqual(expectedMin.longitude, boundingBox.minPoint.longitude, accuracy: 0.00001)
     }
 }

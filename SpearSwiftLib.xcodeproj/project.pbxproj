@@ -51,6 +51,7 @@
 		A9A14CF61EE4811B00E1FAF7 /* DateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */; };
 		A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */; };
 		A9A14CFA1EE4850C00E1FAF7 /* RequestBuildableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */; };
+		A9ADC6A7216136F000DECD69 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */; };
 		A9C162FC205BA2F30091F4C3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C162FB205BA2F30091F4C3 /* Observable.swift */; };
 		A9C45BFF205BBFBE00514561 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45BFE205BBFBE00514561 /* Disposable.swift */; };
 		A9C45C01205D0AD300514561 /* ObservableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45C00205D0AD300514561 /* ObservableTest.swift */; };
@@ -58,6 +59,7 @@
 		A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		A9D5AC8A204C218800BEAA75 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC89204C218800BEAA75 /* BaseNotification.swift */; };
 		A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */; };
+		A9D7B06A215F73FD00388595 /* ObservableEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B069215F73FD00388595 /* ObservableEquatable.swift */; };
 		A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4C6322064F55F007735E1 /* OperationWithType.swift */; };
 		A9E575AA20AD82ED003E91B4 /* AppKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E575A920AD82ED003E91B4 /* AppKeys.plist */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
@@ -146,6 +148,7 @@
 		A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringBuilderTest.swift; sourceTree = "<group>"; };
 		A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuildableMock.swift; sourceTree = "<group>"; };
+		A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		A9C162FB205BA2F30091F4C3 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A9C45BFE205BBFBE00514561 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		A9C45C00205D0AD300514561 /* ObservableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 		A9D01DE51F30733F007F7A74 /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		A9D5AC89204C218800BEAA75 /* BaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotification.swift; sourceTree = "<group>"; };
 		A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationChangedNotification.swift; sourceTree = "<group>"; };
+		A9D7B069215F73FD00388595 /* ObservableEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableEquatable.swift; sourceTree = "<group>"; };
 		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E4C6322064F55F007735E1 /* OperationWithType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithType.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				A928C073200A91E500F5743A /* StickyHeaderLayout.swift */,
+				A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */,
 				E6382BAA186B5807200ED203 /* NSURLParameters.swift */,
 				A9C162FB205BA2F30091F4C3 /* Observable.swift */,
+				A9D7B069215F73FD00388595 /* ObservableEquatable.swift */,
 				E6382EF62A27F6A2E47D6252 /* OrderedDictionary.swift */,
 				E6382A47A433272D3C296340 /* Platform.swift */,
 				E63824D493802DF10076CB1F /* Queue.swift */,
@@ -658,6 +664,7 @@
 				A937A8C6208889EF0089AA68 /* OperationWithClosure.swift in Sources */,
 				E6382FFC99CF5DC5734244AE /* UIView+Animations.swift in Sources */,
 				A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */,
+				A9D7B06A215F73FD00388595 /* ObservableEquatable.swift in Sources */,
 				E638211AAE27D2B1400A05E6 /* Json.swift in Sources */,
 				E638272FEFEBB94CFEE02BB1 /* BaseOperation.swift in Sources */,
 				A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */,
@@ -676,6 +683,7 @@
 				A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				E638247D73BCF0E418EF40B3 /* OrderedDictionary.swift in Sources */,
 				A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */,
+				A9ADC6A7216136F000DECD69 /* UIView+Layout.swift in Sources */,
 				E6382098F0F0DEA735B346F9 /* Platform.swift in Sources */,
 				E6382B6664E3968A2F2EDE0D /* Queue.swift in Sources */,
 				E63820D41AE3C8A2A5D6F527 /* StringBuilder.swift in Sources */,

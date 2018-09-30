@@ -16,7 +16,7 @@ public class StickyHeaderLayout: UICollectionViewFlowLayout {
         super.init(coder: aDecoder)
         scrollDirection = .horizontal
         minimumInteritemSpacing = 0.0
-        minimumLineSpacing = 0
+        minimumLineSpacing = 0.0
         sectionInset = UIEdgeInsets(top: 0, left: -headerReferenceSize.width, bottom: 0, right: 0)
     }
 

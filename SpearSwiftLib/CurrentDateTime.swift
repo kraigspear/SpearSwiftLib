@@ -13,8 +13,7 @@ public protocol CurrentDateFetchable {
 }
 
 public struct CurrentDateFetcher: CurrentDateFetchable {
-    public init() {
-    }
+    public init() {}
 
     public func currentDateTime() -> Date {
         return Date()

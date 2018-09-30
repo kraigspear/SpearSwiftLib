@@ -17,7 +17,7 @@ public protocol Subscribeable: class {
     var value: T { get }
 }
 
-public final class AnySubscribeable<T>: Subscribeable {
+public class AnySubscribeable<T>: Subscribeable {
     private weak var observer: Observable<T>!
 
     public init(observer: Observable<T>) {
@@ -57,7 +57,7 @@ public final class AnySubscribeable<T>: Subscribeable {
  }
  ```
  */
-public final class Observable<T>: Subscribeable {
+public class Observable<T>: Subscribeable {
     /// Reference to observers as pointers
     private var observables = NSPointerArray.strongObjects()
 
