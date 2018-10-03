@@ -49,4 +49,12 @@ public extension UIView {
         animate.autoreverses = true
         layer.add(animate, forKey: animateKey)
     }
+
+    public func animateFade(withDuration: TimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = withDuration
+        layer.add(animation, forKey: CATransitionType.fade.rawValue)
+    }
 }
