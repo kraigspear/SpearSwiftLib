@@ -60,6 +60,7 @@
 		A9D5AC8A204C218800BEAA75 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC89204C218800BEAA75 /* BaseNotification.swift */; };
 		A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */; };
 		A9D7B06A215F73FD00388595 /* ObservableEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B069215F73FD00388595 /* ObservableEquatable.swift */; };
+		A9D7FA8B216A3E670077769A /* EventTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7FA8A216A3E670077769A /* EventTrackable.swift */; };
 		A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4C6322064F55F007735E1 /* OperationWithType.swift */; };
 		A9E575AA20AD82ED003E91B4 /* AppKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E575A920AD82ED003E91B4 /* AppKeys.plist */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
@@ -157,6 +158,7 @@
 		A9D5AC89204C218800BEAA75 /* BaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotification.swift; sourceTree = "<group>"; };
 		A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationChangedNotification.swift; sourceTree = "<group>"; };
 		A9D7B069215F73FD00388595 /* ObservableEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableEquatable.swift; sourceTree = "<group>"; };
+		A9D7FA8A216A3E670077769A /* EventTrackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTrackable.swift; sourceTree = "<group>"; };
 		A9D9CE4C1C472D6C00D39DE3 /* SpearSwiftLibOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibOSX.h; sourceTree = "<group>"; };
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E4C6322064F55F007735E1 /* OperationWithType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithType.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */,
 				E63825BD8B8EB9D99BFF6E52 /* StringBuilder.swift */,
 				A92AE9772109C5C000BA1B1D /* SyncType.swift */,
+				A9D7FA8A216A3E670077769A /* EventTrackable.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
 				E638247D73BCF0E418EF40B3 /* OrderedDictionary.swift in Sources */,
 				A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */,
+				A9D7FA8B216A3E670077769A /* EventTrackable.swift in Sources */,
 				A9ADC6A7216136F000DECD69 /* UIView+Layout.swift in Sources */,
 				E6382098F0F0DEA735B346F9 /* Platform.swift in Sources */,
 				E6382B6664E3968A2F2EDE0D /* Queue.swift in Sources */,
