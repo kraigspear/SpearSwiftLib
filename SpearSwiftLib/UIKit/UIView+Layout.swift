@@ -9,28 +9,40 @@
 import Foundation
 
 public extension UIView {
-    public func pin(to view: UIView) {
-        translatesAutoresizingMaskIntoConstraints = false
+	public func pin(to view: UIView) {
+		add(to: view)
 
-        if superview == nil {
-            view.addSubview(self)
-        }
+		NSLayoutConstraint.activate([
+			leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			topAnchor.constraint(equalTo: view.topAnchor),
+			bottomAnchor.constraint(equalTo: view.bottomAnchor),
+		])
 
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            topAnchor.constraint(equalTo: view.topAnchor),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+		view.layoutIfNeeded()
+	}
 
-        view.layoutIfNeeded()
-    }
+	public func centerXY(on view: UIView) {
+		add(to: view)
+		NSLayoutConstraint.activate([
+			centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			centerYAnchor.constraint(equalTo: view.centerYAnchor),
+		])
+	}
 
-    public func toImage() -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
-        defer { UIGraphicsEndImageContext() }
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        layer.render(in: context)
-        return UIGraphicsGetImageFromCurrentImageContext()
-    }
+	private func add(to view: UIView) {
+		translatesAutoresizingMaskIntoConstraints = false
+
+		if superview == nil {
+			view.addSubview(self)
+		}
+	}
+
+	public func toImage() -> UIImage? {
+		UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
+		defer { UIGraphicsEndImageContext() }
+		guard let context = UIGraphicsGetCurrentContext() else { return nil }
+		layer.render(in: context)
+		return UIGraphicsGetImageFromCurrentImageContext()
+	}
 }

@@ -13,7 +13,7 @@ import Foundation
  Does not raise onNext if old and new values are the same
  */
 public class ObservableEquatable<T: Equatable>: Observable<T> {
-    private var oldValue: T?
+    public private (set) var oldValue: T?
 
     public override func onNext(_ value: T) {
         defer { oldValue = value }

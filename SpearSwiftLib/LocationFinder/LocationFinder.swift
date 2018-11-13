@@ -25,6 +25,21 @@ public enum LocationFindableError: Error {
     case locationManagerError(error: NSError)
     /// A placemark was not found while using reverse GeoCode to look up a placemark for a location
     case placemarkNotFound
+	
+	var localizedDescription: String {
+		switch self {
+		case .permissions, .notAuthorized:
+			return NSLocalizedString("Missing the required permissions to find the current location", comment: "")
+		case .notEnabled:
+			return NSLocalizedString("Location services are not enabled, can't find the current location", comment: "")
+		case let .geocodeError(error: error):
+			return error.localizedDescription
+		case let .locationManagerError(error: error):
+			return error.localizedDescription
+		case .placemarkNotFound:
+			return NSLocalizedString("Placemark wasn't found", comment: "")
+		}
+	}
 }
 
 public enum LocationFinderBuilderError: Error {
