@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import os.log
+import SwiftyBeaver
 
 /**
  A type that knows how to download data from the network.
@@ -17,6 +17,7 @@ import os.log
  - SeeAlso: `ImageDownloader`
  */
 public final class NetworkDownloader: NetworkDownloadable {
+	
     /// Initialize a new instance of NetworkDownloader
     public init() {}
 
@@ -70,10 +71,9 @@ public final class NetworkDownloader: NetworkDownloadable {
                 let response = response as! HTTPURLResponse
 
                 if response.statusCode != 200 {
-                    os_log("Unsuccessful status code: %d",
-                           log: Log.network,
-                           type: .error,
-                           response.statusCode)
+					
+					SwiftyBeaver.error("Unsuccessful status code: \(response.statusCode)")
+					
                     completed(NetworkResult<Data>.response(code: response.statusCode))
                     return
                 }
@@ -81,6 +81,7 @@ public final class NetworkDownloader: NetworkDownloadable {
                 if let data = data {
                     completed(NetworkResult<Data>.success(result: data))
                 } else {
+					SwiftyBeaver.error("No error, status code = 200, but data was nil? \(String(describing: request.url))")
                     preconditionFailure("No error, status code = 200, but data was nil? \(String(describing: request.url))")
                 }
             }

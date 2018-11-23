@@ -22,12 +22,24 @@ public extension UIView {
 		view.layoutIfNeeded()
 	}
 
+	public func dock(to view: UIView,
+	                 top: CGFloat,
+	                 trailing: CGFloat) {
+		add(to: view)
+		NSLayoutConstraint.activate([
+			trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailing),
+			topAnchor.constraint(equalTo: view.topAnchor, constant: top),
+		])
+		view.layoutIfNeeded()
+	}
+
 	public func centerXY(on view: UIView) {
 		add(to: view)
 		NSLayoutConstraint.activate([
 			centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			centerYAnchor.constraint(equalTo: view.centerYAnchor),
 		])
+		view.layoutIfNeeded()
 	}
 
 	private func add(to view: UIView) {
