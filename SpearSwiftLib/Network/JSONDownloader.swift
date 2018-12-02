@@ -27,12 +27,14 @@ public final class JsonDownloader {
 }
 
 extension JsonDownloader: JSONDownloadable {
-	public func download(from: RequestBuildable, completed: @escaping (NetworkResult<JsonKeyValue>) -> Void) {
+	public func download(from: RequestBuildable,
+						 pinningCertTo: Data? = nil,
+						 completed: @escaping (NetworkResult<JsonKeyValue>) -> Void) {
 		let log = self.log
 
 		log.verbose("Sending request: \(from.request.url!.absoluteString)")
 
-		networkDownloader.download(from: from) { result in
+		networkDownloader.download(from: from, pinningCertTo: pinningCertTo) { result in
 			assert(Thread.isMainThread, "Expected main thread")
 			switch result {
 			case let .success(result: dataResult):

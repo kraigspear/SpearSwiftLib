@@ -48,5 +48,7 @@ public protocol JSONDownloadable {
      }
      ```
      */
-    func download(from: RequestBuildable, completed: @escaping (NetworkResult<JsonKeyValue>) -> Void)
+    func download(from: RequestBuildable,
+				  pinningCertTo: Data?,
+				  completed: @escaping (NetworkResult<JsonKeyValue>) -> Void)
 }

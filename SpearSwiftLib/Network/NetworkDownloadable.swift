@@ -45,5 +45,7 @@ public protocol NetworkDownloadable {
      }
      ```
      */
-    func download(from: RequestBuildable, completed: @escaping (NetworkResult<Data>) -> Void)
+    func download(from: RequestBuildable,
+				  pinningCertTo: Data?,
+				  completed: @escaping (NetworkResult<Data>) -> Void)
 }

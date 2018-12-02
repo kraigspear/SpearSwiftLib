@@ -17,77 +17,86 @@ import SwiftyBeaver
  - SeeAlso: `ImageDownloader`
  */
 public final class NetworkDownloader: NetworkDownloadable {
-	
-    /// Initialize a new instance of NetworkDownloader
-    public init() {}
+	/// Initialize a new instance of NetworkDownloader
+	public init() {}
 
-    // MARK: - Downloading
+	// MARK: - Downloading
 
-    /**
-     Download data from a URL
+	/**
+	 Download data from a URL
 
-     - parameter from: The URL where data is downloaded from.
-     - parameter completed: Called when completed with the result.
+	 - parameter from: The URL where data is downloaded from.
+	 - parameter completed: Called when completed with the result.
 
-     ```swift
-     extension ImageDownloader: ImageDownloadable {
-     public func download(from: URL, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
+	 ```swift
+	 extension ImageDownloader: ImageDownloadable {
+	 public func download(from: URL, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
 
-     //networkDownloader is a type that implements the NetworkDownloadable protocol.
-     networkDownloader.download(from: from) {(result) in
-     switch result {
-     case .error(let error):
-     completed(NetworkResult<[UIImage]>.error(error: error))
-     case .response(let response):
-     completed(NetworkResult<[UIImage]>.response(code: response))
-     case .success(let data):
-     data.toImages {(images) in
-     completed(NetworkResult<[UIImage]>.success(result: images))
-     }
-     }
-     }
-     }
-     }
-     ```
-     */
-    public func download(from: RequestBuildable,
-                         completed: @escaping (NetworkResult<Data>) -> Void) {
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+	 //networkDownloader is a type that implements the NetworkDownloadable protocol.
+	 networkDownloader.download(from: from) {(result) in
+	 switch result {
+	 case .error(let error):
+	 completed(NetworkResult<[UIImage]>.error(error: error))
+	 case .response(let response):
+	 completed(NetworkResult<[UIImage]>.response(code: response))
+	 case .success(let data):
+	 data.toImages {(images) in
+	 completed(NetworkResult<[UIImage]>.success(result: images))
+	 }
+	 }
+	 }
+	 }
+	 }
+	 ```
+	 */
+	public func download(from: RequestBuildable,
+	                     pinningCertTo: Data? = nil,
+	                     completed: @escaping (NetworkResult<Data>) -> Void) {
+		let pinningDelegate: URLSessionPinningDelegate?
+		if let pinningCertTo = pinningCertTo {
+			pinningDelegate = URLSessionPinningDelegate(certificate: pinningCertTo)
 
-        let request = from.request
+		} else {
+			pinningDelegate = nil
+		}
 
-        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+		let sessionConfig = URLSessionConfiguration.default
+		let session = URLSession(configuration: sessionConfig,
+								 delegate: pinningDelegate,
+								 delegateQueue: nil)
 
-            DispatchQueue.main.async {
-                if let error = error {
-                    completed(NetworkResult<Data>.error(error: error))
-                    return
-                }
+		let request = from.request
 
-                // If response is not a HTTPURLResponse, then we need to deal with it.
-                // When this was written it was always true. If that was to change, we would need to
-                // write new code to handle it.
-                let response = response as! HTTPURLResponse
+		let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
 
-                if response.statusCode != 200 {
-					
+			DispatchQueue.main.async {
+				if let error = error {
+					completed(NetworkResult<Data>.error(error: error))
+					return
+				}
+
+				// If response is not a HTTPURLResponse, then we need to deal with it.
+				// When this was written it was always true. If that was to change, we would need to
+				// write new code to handle it.
+				let response = response as! HTTPURLResponse
+
+				if response.statusCode != 200 {
 					SwiftyBeaver.error("Unsuccessful status code: \(response.statusCode)")
-					
-                    completed(NetworkResult<Data>.response(code: response.statusCode))
-                    return
-                }
 
-                if let data = data {
-                    completed(NetworkResult<Data>.success(result: data))
-                } else {
+					completed(NetworkResult<Data>.response(code: response.statusCode))
+					return
+				}
+
+				if let data = data {
+					completed(NetworkResult<Data>.success(result: data))
+				} else {
 					SwiftyBeaver.error("No error, status code = 200, but data was nil? \(String(describing: request.url))")
-                    preconditionFailure("No error, status code = 200, but data was nil? \(String(describing: request.url))")
-                }
-            }
-        }
+					preconditionFailure("No error, status code = 200, but data was nil? \(String(describing: request.url))")
+				}
+			}
+		}
 
-        task.resume()
-        session.finishTasksAndInvalidate()
-    }
+		task.resume()
+		session.finishTasksAndInvalidate()
+	}
 }

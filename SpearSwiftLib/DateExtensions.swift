@@ -190,7 +190,7 @@ public extension Date {
     public func numberOfMinutesBetween(_ otherDate: Date) -> Int {
         let calendarUnit: Set<Calendar.Component> = [Calendar.Component.minute]
         let difference = Calendar.current.dateComponents(calendarUnit, from: self, to: otherDate)
-        return difference.minute!
+        return abs(difference.minute!)
     }
 
     public func numberOfMinutesBetweenNow() -> Int {

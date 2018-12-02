@@ -59,7 +59,7 @@ extension ImageDownloader: ImageDownloadable {
      - parameter completed: Called on completion with the result of the call
      */
     public func download(from: RequestBuildable, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
-        networkDownloader.download(from: from) { result in
+        networkDownloader.download(from: from, pinningCertTo: nil) { result in
             switch result {
             case let .error(error):
                 completed(NetworkResult<[UIImage]>.error(error: error))
