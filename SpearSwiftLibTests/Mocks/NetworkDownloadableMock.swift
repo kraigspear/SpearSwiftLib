@@ -10,6 +10,13 @@ import Foundation
 @testable import SpearSwiftLib
 
 final class NetworkDownloadableMock: NetworkDownloadable {
+	
+	func download(from: RequestBuildable,
+				  pinningCertTo: Data?,
+				  completed: @escaping (NetworkResult<Data>) -> Void) {
+		
+	}
+	
     var downloadResult: NetworkResult<Data>!
     var downloadCalled = 0
     func download(from _: RequestBuildable, completed: @escaping (NetworkResult<Data>) -> Void) {
