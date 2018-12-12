@@ -70,12 +70,12 @@ public extension UIView {
 	public func fadeOut(withDuration: TimeInterval = 0.25) {
 		layer.opacity = 1.0
 		
-		let animation = { [unowned self] in
-			self.layer.opacity = 0.0
+		let animation: () -> Void = { [weak self] in
+			self?.layer.opacity = 0.0
 		}
 		
-		UIView.animate(withDuration: withDuration, animations: animation) { [unowned self] _ in
-			self.isHidden = true
+		UIView.animate(withDuration: withDuration, animations: animation) { [weak self] _ in
+			self?.isHidden = true
 		}
 	}
 }

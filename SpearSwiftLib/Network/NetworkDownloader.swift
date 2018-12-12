@@ -17,6 +17,9 @@ import SwiftyBeaver
  - SeeAlso: `ImageDownloader`
  */
 public final class NetworkDownloader: NetworkDownloadable {
+	/// Task running network task
+	private var task: URLSessionDataTask?
+
 	/// Initialize a new instance of NetworkDownloader
 	public init() {}
 
@@ -62,12 +65,12 @@ public final class NetworkDownloader: NetworkDownloadable {
 
 		let sessionConfig = URLSessionConfiguration.default
 		let session = URLSession(configuration: sessionConfig,
-								 delegate: pinningDelegate,
-								 delegateQueue: nil)
+		                         delegate: pinningDelegate,
+		                         delegateQueue: nil)
 
 		let request = from.request
 
-		let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+		task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
 
 			DispatchQueue.main.async {
 				if let error = error {
@@ -96,7 +99,11 @@ public final class NetworkDownloader: NetworkDownloadable {
 			}
 		}
 
-		task.resume()
+		task!.resume()
 		session.finishTasksAndInvalidate()
+	}
+
+	public func cancel() {
+		task?.cancel()
 	}
 }
