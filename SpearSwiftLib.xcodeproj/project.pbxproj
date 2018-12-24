@@ -42,6 +42,7 @@
 		A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */; };
 		A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
 		A99B282620A8EE04000601BB /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382BAA186B5807200ED203 /* NSURLParameters.swift */; };
+		A9A01A2121C3BF76009383A1 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A01A2021C3BF76009383A1 /* Decimal.swift */; };
 		A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */; };
 		A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */; };
 		A9A14CF21EE4810000E1FAF7 /* StringBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */; };
@@ -140,6 +141,7 @@
 		A97B76C01FD2BB68002F8A40 /* LocationManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManageable.swift; sourceTree = "<group>"; };
 		A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
 		A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensionsTest.swift; sourceTree = "<group>"; };
+		A9A01A2021C3BF76009383A1 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
 		A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBoxTest.swift; sourceTree = "<group>"; };
 		A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTest.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				E63825BD8B8EB9D99BFF6E52 /* StringBuilder.swift */,
 				A92AE9772109C5C000BA1B1D /* SyncType.swift */,
 				A9D7FA8A216A3E670077769A /* EventTrackable.swift */,
+				A9A01A2021C3BF76009383A1 /* Decimal.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				E638272FEFEBB94CFEE02BB1 /* BaseOperation.swift in Sources */,
 				A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */,
 				E6382147EF2C335DADA5F4ED /* AsyncAwait.swift in Sources */,
+				A9A01A2121C3BF76009383A1 /* Decimal.swift in Sources */,
 				E6382071064046B909E5675E /* BoundingBox.swift in Sources */,
 				E6382688A9AB20D46AB5FF4E /* ClosureTypes.swift in Sources */,
 				E6382CA68B2E500000E60510 /* CoordinateBoundaries.swift in Sources */,
