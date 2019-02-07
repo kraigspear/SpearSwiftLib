@@ -26,4 +26,13 @@ public extension UIView {
 
         layoutIfNeeded()
     }
+	
+	public func applyShadow() {
+		let shadowPath = UIBezierPath(rect: bounds)
+		layer.masksToBounds = false
+		layer.shadowColor = UIColor.white.cgColor
+		layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+		layer.shadowOpacity = 0.5
+		layer.shadowPath = shadowPath.cgPath
+	}
 }
