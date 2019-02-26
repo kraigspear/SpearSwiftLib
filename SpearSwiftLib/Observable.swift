@@ -8,6 +8,9 @@
 
 import Foundation
 
+infix operator -->
+infix operator <--
+
 public protocol Subscribeable: class {
     associatedtype T
 
@@ -39,6 +42,12 @@ public class AnySubscribeable<T>: Subscribeable {
     public var value: T {
         return observer.value
     }
+	
+	public static func --> (rhs: AnySubscribeable<T>, lhs: @escaping ((T) -> Void)) {
+		rhs.subscribe(lhs)
+	}
+	
+	
 }
 
 /**
@@ -122,4 +131,8 @@ public class Observable<T>: Subscribeable {
             .compactMap { $0.handler }
             .forEach { $0(value) }
     }
+	
+	public static func <-- (lhs: Observable<T>, rhs: T) {
+		lhs.value = rhs
+	}
 }

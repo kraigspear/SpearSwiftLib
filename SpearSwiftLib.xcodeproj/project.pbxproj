@@ -28,6 +28,7 @@
 		A9503DEC1ED6E1100011B5AF /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
 		A9573A8D20AADA0B0078501A /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		A957F6391FD4115100A49ACB /* LocationFindableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957F6381FD4115100A49ACB /* LocationFindableFake.swift */; };
+		A960FE6521DCBAD700323213 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A960FE6421DCBAD700323213 /* UIColorExtensions.swift */; };
 		A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
 		A961CD682085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */; };
 		A961CD6A2085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */; };
@@ -73,11 +74,9 @@
 		E638211AAE27D2B1400A05E6 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DFC210ECAAB73928B17 /* Json.swift */; };
 		E6382120B10ED5F42BAD2ACA /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382E2D01ECC838D35133E9 /* ImageDownloader.swift */; };
 		E63821430DA6273A46C8EF51 /* ImageDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382B9053C8917FCC9D5707 /* ImageDownloadable.swift */; };
-		E6382147EF2C335DADA5F4ED /* AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382BBAAE1BAE1847F63D03 /* AsyncAwait.swift */; };
 		E638218B9054A7D862B56367 /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382594E62CEF6138C665FD /* ScrollViewExtensions.swift */; };
 		E63822B759494C70E92F7E77 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382975ADF9F875F89B5224 /* FileManagerExtensions.swift */; };
 		E63823907A2E6FC054C9BB2A /* CurrentLocationPermissionRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382D136BBABE576A7ECFD3 /* CurrentLocationPermissionRequestor.swift */; };
-		E638247D73BCF0E418EF40B3 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382EF62A27F6A2E47D6252 /* OrderedDictionary.swift */; };
 		E638247E684B79425FF5896B /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */; };
 		E6382488D8E292E2CF93B10F /* NetworkDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63823337456B752B372C462 /* NetworkDownloadable.swift */; };
 		E63824A90C85F100812A9C27 /* NetworkDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382CEF98D01D84D83D47A0 /* NetworkDownloader.swift */; };
@@ -129,6 +128,7 @@
 		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A957F6381FD4115100A49ACB /* LocationFindableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFindableFake.swift; sourceTree = "<group>"; };
+		A960FE6421DCBAD700323213 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		A9611AF51EE7EBD80096154A /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnetLocationPermissionStatus.swift; sourceTree = "<group>"; };
 		A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationPermissionStatusFake.swift; sourceTree = "<group>"; };
@@ -196,7 +196,6 @@
 		E6382A47A433272D3C296340 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		E6382B9053C8917FCC9D5707 /* ImageDownloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadable.swift; sourceTree = "<group>"; };
 		E6382BAA186B5807200ED203 /* NSURLParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLParameters.swift; sourceTree = "<group>"; };
-		E6382BBAAE1BAE1847F63D03 /* AsyncAwait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncAwait.swift; sourceTree = "<group>"; };
 		E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLib.h; sourceTree = "<group>"; };
 		E6382CEF98D01D84D83D47A0 /* NetworkDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDownloader.swift; sourceTree = "<group>"; };
 		E6382D136BBABE576A7ECFD3 /* CurrentLocationPermissionRequestor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationPermissionRequestor.swift; sourceTree = "<group>"; };
@@ -206,7 +205,6 @@
 		E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		E6382DFC210ECAAB73928B17 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		E6382E2D01ECC838D35133E9 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		E6382EF62A27F6A2E47D6252 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,8 +236,10 @@
 		A928C072200A91C900F5743A /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				A950FD8721FDC554000EADF8 /* Extensions */,
 				A928C073200A91E500F5743A /* StickyHeaderLayout.swift */,
 				A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */,
+				A960FE6421DCBAD700323213 /* UIColorExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -276,6 +276,17 @@
 				A92B808C20A8E5CE004139D3 /* SpearSwiftLibmacOS.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A950FD8721FDC554000EADF8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */,
+				E6382951D445D72906C275F7 /* UIImageExtensions.swift */,
+				A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */,
+				E638281140B545331D1D11C5 /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A96EE60F1DB3B09C00E55997 /* Frameworks */ = {
@@ -374,7 +385,6 @@
 				A928C072200A91C900F5743A /* UIKit */,
 				E6382097358E63E4FAF9EA73 /* Supporting Files */,
 				A9E575A920AD82ED003E91B4 /* AppKeys.plist */,
-				E6382BBAAE1BAE1847F63D03 /* AsyncAwait.swift */,
 				E6382DAF767CBC864F764F7B /* BoundingBox.swift */,
 				E6382A1FEA4424A44EEA1DA1 /* ClosureTypes.swift */,
 				E63827E2B016FB3128497FEC /* CoordinateBoundaries.swift */,
@@ -392,7 +402,6 @@
 				E6382BAA186B5807200ED203 /* NSURLParameters.swift */,
 				A9C162FB205BA2F30091F4C3 /* Observable.swift */,
 				A9D7B069215F73FD00388595 /* ObservableEquatable.swift */,
-				E6382EF62A27F6A2E47D6252 /* OrderedDictionary.swift */,
 				E6382A47A433272D3C296340 /* Platform.swift */,
 				E63824D493802DF10076CB1F /* Queue.swift */,
 				E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */,
@@ -458,10 +467,6 @@
 				E63821721770246A2EEE4BEB /* NumberExtensions.swift */,
 				E6382594E62CEF6138C665FD /* ScrollViewExtensions.swift */,
 				E63825DD573AAF519D5C43E2 /* StringExtensions.swift */,
-				E6382951D445D72906C275F7 /* UIImageExtensions.swift */,
-				E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */,
-				E638281140B545331D1D11C5 /* UIViewExtensions.swift */,
-				A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -678,7 +683,6 @@
 				E638211AAE27D2B1400A05E6 /* Json.swift in Sources */,
 				E638272FEFEBB94CFEE02BB1 /* BaseOperation.swift in Sources */,
 				A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */,
-				E6382147EF2C335DADA5F4ED /* AsyncAwait.swift in Sources */,
 				A9A01A2121C3BF76009383A1 /* Decimal.swift in Sources */,
 				E6382071064046B909E5675E /* BoundingBox.swift in Sources */,
 				E6382688A9AB20D46AB5FF4E /* ClosureTypes.swift in Sources */,
@@ -686,13 +690,13 @@
 				E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */,
 				E63823907A2E6FC054C9BB2A /* CurrentLocationPermissionRequestor.swift in Sources */,
 				E6382695823D315D47B411FA /* ForegroundNotification.swift in Sources */,
+				A960FE6521DCBAD700323213 /* UIColorExtensions.swift in Sources */,
 				E6382F95F9D960B08EAAE58B /* GifExtractor.swift in Sources */,
 				E6382849D833393FFA14B30F /* ImageCache.swift in Sources */,
 				E63825DC73D0E5D8DBAEEEBE /* LinkList.swift in Sources */,
 				E638250509C7F81A6F885948 /* NotificationMessageView.swift in Sources */,
 				E638255C63D83775B55E645B /* NSURLParameters.swift in Sources */,
 				A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
-				E638247D73BCF0E418EF40B3 /* OrderedDictionary.swift in Sources */,
 				A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */,
 				A9D7FA8B216A3E670077769A /* EventTrackable.swift in Sources */,
 				A9ADC6A7216136F000DECD69 /* UIView+Layout.swift in Sources */,

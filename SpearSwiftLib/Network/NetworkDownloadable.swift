@@ -48,4 +48,9 @@ public protocol NetworkDownloadable {
     func download(from: RequestBuildable,
 				  pinningCertTo: Data?,
 				  completed: @escaping (NetworkResult<Data>) -> Void)
+	
+	/**
+	Cancel this download
+	*/
+	func cancel()
 }

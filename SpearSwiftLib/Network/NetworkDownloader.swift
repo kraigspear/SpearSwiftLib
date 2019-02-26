@@ -31,28 +31,8 @@ public final class NetworkDownloader: NetworkDownloadable {
 	 - parameter from: The URL where data is downloaded from.
 	 - parameter completed: Called when completed with the result.
 
-	 ```swift
-	 extension ImageDownloader: ImageDownloadable {
-	 public func download(from: URL, completed: @escaping (NetworkResult<[UIImage]>) -> Void) {
-
-	 //networkDownloader is a type that implements the NetworkDownloadable protocol.
-	 networkDownloader.download(from: from) {(result) in
-	 switch result {
-	 case .error(let error):
-	 completed(NetworkResult<[UIImage]>.error(error: error))
-	 case .response(let response):
-	 completed(NetworkResult<[UIImage]>.response(code: response))
-	 case .success(let data):
-	 data.toImages {(images) in
-	 completed(NetworkResult<[UIImage]>.success(result: images))
-	 }
-	 }
-	 }
-	 }
-	 }
-	 ```
 	 */
-	public func download(from: RequestBuildable,
+	public func download(from requestBuilder: RequestBuildable,
 	                     pinningCertTo: Data? = nil,
 	                     completed: @escaping (NetworkResult<Data>) -> Void) {
 		let pinningDelegate: URLSessionPinningDelegate?
@@ -68,11 +48,11 @@ public final class NetworkDownloader: NetworkDownloadable {
 		                         delegate: pinningDelegate,
 		                         delegateQueue: nil)
 
-		let request = from.request
+		let request = requestBuilder.request
 
 		task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
 
-			DispatchQueue.main.async {
+			DispatchQueue.main.async {[weak self] in
 				if let error = error {
 					completed(NetworkResult<Data>.error(error: error))
 					return
@@ -84,8 +64,7 @@ public final class NetworkDownloader: NetworkDownloadable {
 				let response = response as! HTTPURLResponse
 
 				if response.statusCode != 200 {
-					SwiftyBeaver.error("Unsuccessful status code: \(response.statusCode)")
-
+					self?.logError(statusCode: response.statusCode, request: request)
 					completed(NetworkResult<Data>.response(code: response.statusCode))
 					return
 				}
@@ -101,6 +80,17 @@ public final class NetworkDownloader: NetworkDownloadable {
 
 		task!.resume()
 		session.finishTasksAndInvalidate()
+	}
+
+	private func logError(statusCode: Int, request: URLRequest) {
+		if let body = request.httpBody {
+			if let bodyText = String(data: body, encoding: String.Encoding.utf8) {
+				SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request) body: \(bodyText)")
+				return
+			}
+		}
+
+		SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request)")
 	}
 
 	public func cancel() {

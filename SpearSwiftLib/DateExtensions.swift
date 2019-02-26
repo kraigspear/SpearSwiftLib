@@ -187,14 +187,14 @@ public extension Date {
             timeIntervalSinceReferenceDate <= endDate.timeIntervalSinceReferenceDate
     }
 
-    public func numberOfMinutesBetween(_ otherDate: Date) -> Int {
+	public func numberOfMinutesBetween(_ otherDate: Date, absolute: Bool = true) -> Int {
         let calendarUnit: Set<Calendar.Component> = [Calendar.Component.minute]
         let difference = Calendar.current.dateComponents(calendarUnit, from: self, to: otherDate)
-        return abs(difference.minute!)
+		return absolute ? abs(difference.minute!) : difference.minute!
     }
 
-    public func numberOfMinutesBetweenNow() -> Int {
-        return numberOfMinutesBetween(Date())
+    public func numberOfMinutesBetweenNow(absolute: Bool = true) -> Int {
+        return numberOfMinutesBetween(Date(), absolute: absolute)
     }
 
     /**
