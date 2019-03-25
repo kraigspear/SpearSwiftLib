@@ -14,7 +14,7 @@ public extension UIView {
 	 This animation is continuous.
 	 - paramter withDuration: The time to spin around 1 time
 	 */
-	public func animateSpin(withDuration: TimeInterval) {
+	func animateSpin(withDuration: TimeInterval) {
 		let animateKey = "rotation"
 		let animate = CABasicAnimation(keyPath: "transform.rotation")
 		animate.duration = withDuration
@@ -29,7 +29,7 @@ public extension UIView {
 	
 	 - paramter withDuration: The time to move from the start to stop position
 	 */
-	public func animatePan(withDuration: TimeInterval) {
+	func animatePan(withDuration: TimeInterval) {
 		guard let superview = self.superview else {
 			return
 		}
@@ -50,7 +50,7 @@ public extension UIView {
 		layer.add(animate, forKey: animateKey)
 	}
 	
-	public func animateFade(withDuration: TimeInterval) {
+	func animateFade(withDuration: TimeInterval) {
 		let animation = CATransition()
 		animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 		animation.type = CATransitionType.fade
@@ -58,7 +58,7 @@ public extension UIView {
 		layer.add(animation, forKey: CATransitionType.fade.rawValue)
 	}
 	
-	public func fadeIn(withDuration: TimeInterval = 0.25) {
+	func fadeIn(withDuration: TimeInterval = 0.25) {
 		layer.opacity = 0.0
 		isHidden = false
 		
@@ -67,7 +67,7 @@ public extension UIView {
 		}
 	}
 	
-	public func fadeOut(withDuration: TimeInterval = 0.25) {
+	func fadeOut(withDuration: TimeInterval = 0.25) {
 		layer.opacity = 1.0
 		
 		let animation: () -> Void = { [weak self] in

@@ -66,7 +66,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
      - throws: `ConvertError.invalidConversion` If the value at the given node isn't a valid Int
 
      */
-    public func toInt(_ key: Key) throws -> Int {
+	func toInt(_ key: Key) throws -> Int {
         if let intVal = self[key] as? Int {
             return intVal
         }
@@ -96,7 +96,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
      - throws: `ConvertError.invalidConversion` If the value at the given node isn't a valid Int
 
      */
-    public func toFloat(_ key: Key) throws -> Float {
+	func toFloat(_ key: Key) throws -> Float {
         if let floatVal = self[key] as? Float {
             return floatVal
         }
@@ -162,14 +162,14 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
 
      - throws: `ConvertError.missingNode` If the node does not exist
      */
-    public func toString(_ key: Key) throws -> String {
+	func toString(_ key: Key) throws -> String {
         guard let strVal = self[key] as? String else {
             throw ConvertError.missingNode
         }
         return strVal
     }
 
-    public func toJson(_ key: Key) throws -> JsonKeyValue {
+	func toJson(_ key: Key) throws -> JsonKeyValue {
         guard let jsonValue = self[key] as? JsonKeyValue else {
             throw ConvertError.missingNode
         }
@@ -188,7 +188,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
      - throws: `ConvertError.missingNode` If the node does not exist
      - throws: `ConvertError.invalidConversion` If was not able to convert node to a Date
      */
-    public func toDate(_ key: Key) throws -> Date {
+	func toDate(_ key: Key) throws -> Date {
         let strVal = try toString(key)
 
         for formatter in JsonDateFormatters.instance.formatters {
@@ -225,7 +225,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
      }
      ```
      */
-    public func toURL(_ key: Key) throws -> URL {
+	func toURL(_ key: Key) throws -> URL {
         guard let strVal = try? toString(key) else {
             throw ConvertError.missingNode
         }

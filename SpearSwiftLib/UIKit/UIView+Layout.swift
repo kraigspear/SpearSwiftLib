@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIView {
-	public func pin(to view: UIView) {
+	func pin(to view: UIView) {
 		add(to: view)
 
 		NSLayoutConstraint.activate([
@@ -22,7 +22,7 @@ public extension UIView {
 		view.layoutIfNeeded()
 	}
 
-	public func dock(to view: UIView,
+	func dock(to view: UIView,
 	                 top: CGFloat,
 	                 trailing: CGFloat) {
 		add(to: view)
@@ -33,7 +33,7 @@ public extension UIView {
 		view.layoutIfNeeded()
 	}
 
-	public func centerXY(on view: UIView) {
+	func centerXY(on view: UIView) {
 		add(to: view)
 		NSLayoutConstraint.activate([
 			centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -50,7 +50,7 @@ public extension UIView {
 		}
 	}
 
-	public func toImage() -> UIImage? {
+	func toImage() -> UIImage? {
 		UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0.0)
 		defer { UIGraphicsEndImageContext() }
 		guard let context = UIGraphicsGetCurrentContext() else { return nil }

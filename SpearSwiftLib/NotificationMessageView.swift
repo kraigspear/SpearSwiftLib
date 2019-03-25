@@ -122,7 +122,7 @@ public extension NotificationMessageView {
      - parameter withbackgroundColorOf: The background color of the view
      - parameter andTextColorOf: The color of the text of the message
      */
-    public func show(message: String,
+	func show(message: String,
                      withbackgroundColorOf backGroundColor: UIColor,
                      andTextColorOf textColor: UIColor,
                      usingFont font: UIFont) {
@@ -144,7 +144,7 @@ public extension NotificationMessageView {
                        completion: nil)
     }
 
-    public func closeMessage(shouldAnimate animate: Bool) {
+	func closeMessage(shouldAnimate animate: Bool) {
         if animate == false {
             cleanUp()
             return
@@ -163,7 +163,7 @@ public extension NotificationMessageView {
         })
     }
 
-    @objc public func onSwipe(gesture: UISwipeGestureRecognizer) {
+	@objc func onSwipe(gesture: UISwipeGestureRecognizer) {
         messageView?.removeGestureRecognizer(gesture)
         closeMessage(shouldAnimate: true)
     }

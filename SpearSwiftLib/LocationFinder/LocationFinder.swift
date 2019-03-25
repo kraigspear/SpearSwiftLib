@@ -8,6 +8,7 @@
 
 import CoreLocation
 import Foundation
+import SwiftyBeaver
 
 // MARK: - Errors
 
@@ -144,7 +145,10 @@ extension LocationFinder: LocationManagerDelegate {
             result?(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notAuthorized))
         case .authorizedAlways:
             preconditionFailure("When did we start requesting this?")
-        }
+		@unknown default:
+			SwiftyBeaver.warning("Unknown status: \(status)")
+			assertionFailure("Unknown status: \(status)")
+		}
     }
 
     func onLocationManagerError(_ error: Error) {
@@ -180,7 +184,10 @@ extension LocationFinder: LocationFindable {
             result(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notAuthorized))
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        }
+		@unknown default:
+			SwiftyBeaver.warning("Unknown status: \(status)")
+			assertionFailure("Unknown status: \(status)")
+		}
     }
 }
 

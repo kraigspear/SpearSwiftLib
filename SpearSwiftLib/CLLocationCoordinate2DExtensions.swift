@@ -10,7 +10,7 @@ import CoreLocation
 import Foundation
 
 public extension CLLocationCoordinate2D {
-    public func centerPoint(_ otherCoordinate: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+	func centerPoint(_ otherCoordinate: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
         let lat1 = latitude
         let lat2 = otherCoordinate.latitude
         let latDiff = lat2 - lat1

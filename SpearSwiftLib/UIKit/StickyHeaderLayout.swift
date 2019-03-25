@@ -8,6 +8,7 @@
 
 import CoreGraphics
 import UIKit
+import SwiftyBeaver
 
 public class StickyHeaderLayout: UICollectionViewFlowLayout {
 	private let topZIndex = 1024
@@ -95,6 +96,9 @@ public class StickyHeaderLayout: UICollectionViewFlowLayout {
 
 			attributes.zIndex = topZIndex
 			attributes.frame = CGRect(origin: origin, size: attributes.frame.size)
+		@unknown default:
+			SwiftyBeaver.warning("Unknown scrollDirection: \(scrollDirection)")
+			assertionFailure("Unknown scrollDirection: \(scrollDirection)")
 		}
 	}
 

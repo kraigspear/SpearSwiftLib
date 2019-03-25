@@ -50,7 +50,7 @@ public extension UIView {
 	```
 	
 	 */
-	public func applyBlur(style: UIBlurEffect.Style = .dark) {
+	func applyBlur(style: UIBlurEffect.Style = .dark) {
 		backgroundColor = UIColor.clear
 		let blurEffect = UIBlurEffect(style: style)
 		let blurView = UIVisualEffectView(effect: blurEffect)
@@ -67,7 +67,7 @@ public extension UIView {
 	Apply a shadow using the paramters of `shadow`
 	- parameter shadow: Paramters that make up the shadow
 	*/
-	public func applyShadow(_ shadow: Shadow) {
+	func applyShadow(_ shadow: Shadow) {
 		// corner radius
 		layer.cornerRadius = shadow.cornerRadius
 		// Border

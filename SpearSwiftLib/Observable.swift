@@ -112,7 +112,7 @@ public class Observable<T>: Subscribeable {
 	 */
     public func unsubscribe(_ handler: Disposeable<T>) {
         let index = observables.allObjects.compactMap { $0 as? Disposeable<T> }
-            .index { $0.uuid == handler.uuid }
+            .firstIndex { $0.uuid == handler.uuid }
 
         if let index = index {
             observables.removePointer(at: index)

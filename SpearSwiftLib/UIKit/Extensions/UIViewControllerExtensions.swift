@@ -12,7 +12,7 @@ public extension UIViewController {
 	/**
 	 Show an error message alert
 	 */
-	public func showErrorMessage(_ message: String) {
+	func showErrorMessage(_ message: String) {
 		let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
 		
 		let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -28,7 +28,7 @@ public extension UIViewController {
 	- parameter options: Options
 	- parameter completed: Result of the Alert, nil if an option wasn't selected
 	*/
-	public func promptForOptions(title: String,
+	func promptForOptions(title: String,
 	                             message: String,
 	                             options: [String],
 	                             completed: @escaping (String?) -> Void) {
