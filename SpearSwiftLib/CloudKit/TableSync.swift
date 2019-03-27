@@ -449,11 +449,8 @@ open class TableSyncBase<SyncRecordType> {
 				case let .success(recordZoneChange):
 					
 					if recordZoneChange.didChange {
-						
 						// Our recordZone has changed.
-						self.updateRecords {[weak self] result in
-							
-						}
+						self.updateRecords(completed: completed)
 						
 					} else {
 						completed(SyncResult.success(()))
@@ -615,7 +612,6 @@ open class TableSyncBase<SyncRecordType> {
 		 - paramter completed: Called with the result of the fetch.
 		 */
 		func fetchRecordZonesChanged(completed: @escaping (FetchRecordZoneHasChangedResult) -> Void) {
-			
 			let log = self.log
 			
 			log.info("fetchRecordZoneChanged")
@@ -666,8 +662,6 @@ open class TableSyncBase<SyncRecordType> {
 				cancelTask.cancel()
 				
 				log.info("fetchDatabaseChangesCompletionBlock")
-				
-				assert(newZonesChangedSinceToken != nil, "Expect recordChangeToken first")
 				
 				newZonesChangedSinceToken = changeToken
 				
