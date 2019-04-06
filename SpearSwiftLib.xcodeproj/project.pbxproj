@@ -54,6 +54,7 @@
 		A9A14CF61EE4811B00E1FAF7 /* DateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDB1EE4804B00E1FAF7 /* DateTest.swift */; };
 		A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */; };
 		A9A14CFA1EE4850C00E1FAF7 /* RequestBuildableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */; };
+		A9A35D0D2253541B003DEE4D /* NameDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A35D0C2253541B003DEE4D /* NameDescribable.swift */; };
 		A9ADC6A7216136F000DECD69 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */; };
 		A9C162FC205BA2F30091F4C3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C162FB205BA2F30091F4C3 /* Observable.swift */; };
 		A9C45BFF205BBFBE00514561 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45BFE205BBFBE00514561 /* Disposable.swift */; };
@@ -154,6 +155,7 @@
 		A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringBuilderTest.swift; sourceTree = "<group>"; };
 		A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuildableMock.swift; sourceTree = "<group>"; };
+		A9A35D0C2253541B003DEE4D /* NameDescribable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDescribable.swift; sourceTree = "<group>"; };
 		A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		A9C162FB205BA2F30091F4C3 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A9C45BFE205BBFBE00514561 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				A92AE9772109C5C000BA1B1D /* SyncType.swift */,
 				A9D7FA8A216A3E670077769A /* EventTrackable.swift */,
 				A9A01A2021C3BF76009383A1 /* Decimal.swift */,
+				A9A35D0C2253541B003DEE4D /* NameDescribable.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				E63821430DA6273A46C8EF51 /* ImageDownloadable.swift in Sources */,
 				A99A985E223EDF82009587A9 /* TableSync.swift in Sources */,
 				A96CB5FF2060ED16004D509D /* NSPointerArrayExtensions.swift in Sources */,
+				A9A35D0D2253541B003DEE4D /* NameDescribable.swift in Sources */,
 				A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */,
 				E6382120B10ED5F42BAD2ACA /* ImageDownloader.swift in Sources */,
 				E63828F97F9F836663C0F919 /* JSONDownloadable.swift in Sources */,
