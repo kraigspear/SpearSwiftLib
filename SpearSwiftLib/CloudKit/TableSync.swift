@@ -213,17 +213,17 @@ open class TableSyncBase<SyncRecordType> {
 		}
 		
 		override func main() {
-			log.info("SyncToOperation.main")
+			log.info("SyncToOperation.main", context: SyncRecordType.self)
 			
 			guard isCancelled == false else {
-				log.info("SyncToOperation was cancelled")
+				log.info("SyncToOperation was cancelled", context: SyncRecordType.self)
 				done()
 				return
 			}
 			
-			log.info("Calling toCloudKit")
+			log.info("Calling toCloudKit", context: SyncRecordType.self)
 			toCloudKit.sync { [weak self] result in
-				self?.log.info("toCloudKit completed")
+				self?.log.info("toCloudKit completed", context: SyncRecordType.self)
 				self?.syncResult = result
 				self?.done()
 			}
@@ -231,6 +231,7 @@ open class TableSyncBase<SyncRecordType> {
 	}
 	
 	private final class SyncFromOperation<SyncRecordType>: BaseOperation {
+		private let log = SwiftyBeaver.self
 		private let fromCloudKit: SyncFromCloudKit<SyncRecordType>
 		
 		private(set) var syncResult: SyncResult?
@@ -238,6 +239,7 @@ open class TableSyncBase<SyncRecordType> {
 		var syncToOperation: SyncToOperation<SyncRecordType>? {
 			didSet {
 				if let syncToOperation = self.syncToOperation {
+					log.info("syncToOperation assigned", context: SyncRecordType.self)
 					addDependency(syncToOperation)
 				}
 			}
@@ -248,14 +250,19 @@ open class TableSyncBase<SyncRecordType> {
 		}
 		
 		override func main() {
+			log.info("SyncFromOperation.main", context: SyncRecordType.self)
+			
 			guard isCancelled == false else {
+				log.info("isCancelled", context: SyncRecordType.self)
 				done()
 				return
 			}
 			
 			// If running with a syncToOperation, cancel if it didn't finish successfully
 			if let syncToOperation = self.syncToOperation {
+				log.debug("Had a SyncToOperation", context: SyncRecordType.self)
 				if let syncToError = syncToOperation.error {
+					log.error("syncToOperation had error: \(syncToError)", context: SyncRecordType.self)
 					self.error = syncToError
 					done()
 					return
@@ -263,6 +270,7 @@ open class TableSyncBase<SyncRecordType> {
 			}
 			
 			fromCloudKit.sync { [weak self] result in
+				self?.log.info("fromCloudKit sync complete", context: SyncRecordType.self)
 				self?.syncResult = result
 				self?.done()
 			}
@@ -276,50 +284,78 @@ open class TableSyncBase<SyncRecordType> {
 	 */
 	public func sync(direction: SyncDirection,
 	                 completed: @escaping SyncCompleted) {
-		log.info("sync direction: \(direction)")
+		log.info("sync direction: \(direction)", context: SyncRecordType.self)
 		
 		switch direction {
 		case .fromCouldKit:
 			
 			let fromOperation = SyncFromOperation(fromCloudKit: fromCloudKit)
 			
-			fromOperation.completionBlock = {
+			fromOperation.completionBlock = { [weak self] in
 				if let result = fromOperation.syncResult {
 					DispatchQueue.main.async {
 						completed(result)
 					}
+				} else {
+					self?.log.error("complete without a result", context: SyncRecordType.self)
+					preconditionFailure("complete without a result")
 				}
 			}
 			
+			log.info("Adding from operation to queue", context: SyncRecordType.self)
 			queue.addOperation(fromOperation)
 		case .toCloudKit:
 			
 			let toOperation = SyncToOperation(toCloudKit: toCloudKit)
 			
 			toOperation.completionBlock = { [weak self] in
-				self?.log.info("SyncToOperation: completed")
+				self?.log.info("SyncToOperation: completed", context: SyncRecordType.self)
 				
 				if let result = toOperation.syncResult {
 					DispatchQueue.main.async {
 						completed(result)
 					}
+				} else {
+					self?.log.error("complete without a result")
+					preconditionFailure("complete without a result")
 				}
 			}
-			log.info("SyncToOperation adding operation")
+			log.info("SyncToOperation adding operation", context: SyncRecordType.self)
 			queue.addOperation(toOperation)
 		case .both:
 			
+			log.info("Calling both from & to sync operations", context: SyncRecordType.self)
 			let fromOperation = SyncFromOperation(fromCloudKit: fromCloudKit)
 			let toOperation = SyncToOperation(toCloudKit: toCloudKit)
 			
 			fromOperation.syncToOperation = toOperation
 			
-			toOperation.completionBlock = {
+			fromOperation.completionBlock = { [weak self] in
+				self?.log.info("fromOperation completed", context: SyncRecordType.self)
+			}
+			
+			toOperation.completionBlock = { [weak self] in
+				self?.log.info("from and to operations complete", context: SyncRecordType.self)
 				if let result = toOperation.syncResult {
 					DispatchQueue.main.async {
 						completed(result)
 					}
+				} else {
+					self?.log.error("complete without a result", context: SyncRecordType.self)
+					preconditionFailure("complete without a result")
 				}
+			}
+			
+			log.info("Adding operations to queue: current count is: \(queue.operationCount)", context: SyncRecordType.self)
+			
+			if queue.operationCount > 0 {
+				log.warning("Existing operations?")
+				
+				queue.operations.forEach {
+					log.warning("Operation still in queue: \($0)", context: SyncRecordType.self)
+				}
+				
+				assertionFailure("Existing operations?")
 			}
 			
 			queue.addOperations([fromOperation, toOperation], waitUntilFinished: false)
@@ -327,10 +363,12 @@ open class TableSyncBase<SyncRecordType> {
 	}
 	
 	public func syncToCloudKit(completed: @escaping SyncCompleted) {
+		log.info("syncToCloudKit", context: SyncRecordType.self)
 		toCloudKit.sync(completed: completed)
 	}
 	
-	public func syncFromCloudKitKit(completed: @escaping SyncCompleted) {
+	public func syncFromCloudKit(completed: @escaping SyncCompleted) {
+		log.info("syncFromCloudKit", context: SyncRecordType.self)
 		fromCloudKit.sync(completed: completed)
 	}
 	
@@ -344,8 +382,10 @@ open class TableSyncBase<SyncRecordType> {
 				} else {
 					switch status {
 					case .available:
+						SwiftyBeaver.self.debug("CloudKit is available")
 						completed(true)
 					default:
+						SwiftyBeaver.self.debug("CloudKit is NOT available")
 						completed(false)
 					}
 				}
@@ -400,7 +440,7 @@ open class TableSyncBase<SyncRecordType> {
 				
 				do {
 					let changeToken = try NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: data)
-					log.debug("Succesfully saved recordChangeToken to \(recordChangeTokenKey)")
+					log.debug("Succesfully fetched recordChangeToken to \(recordChangeTokenKey)")
 					return changeToken
 				} catch let error {
 					log.error("Can't unarchive recordChangeToken?: \(error)")
@@ -546,17 +586,20 @@ open class TableSyncBase<SyncRecordType> {
 		}
 		
 		public func sync(completed: @escaping SyncCompleted) {
-			log.info("SyncFromCloudKit")
+			log.info("SyncFromCloudKit",
+			         context: SyncRecordType.self)
 			
 			guard let tableSync = self.tableSync else {
 				log.error("tableSync is nil")
 				preconditionFailure("tableSync is nil")
 			}
 			
-			log.info("fetchRecordZonesChanged")
+			log.info("tableSync.recordZone.fetchRecordZonesChanged",
+			         context: SyncRecordType.self)
 			tableSync.recordZone.fetchRecordZonesChanged { [weak self] result in
 				
 				guard let self = self else { return }
+				self.log.info("tableSync.recordZone.fetchRecordZonesChanged completed", context: SyncRecordType.self)
 				
 				switch result {
 				case let .failure(error):
@@ -565,11 +608,12 @@ open class TableSyncBase<SyncRecordType> {
 				case let .success(recordZoneChange):
 					
 					if recordZoneChange.didChange {
-						self.log.info("Our recordZone has changed, updating")
+						self.log.info("Our recordZone has changed, updating",
+						              context: SyncRecordType.self)
 						self.updateRecords(completed: completed)
-						
 					} else {
-						self.log.info("RecordZone has not changed, return success")
+						self.log.info("RecordZone has not changed, return success",
+						              context: SyncRecordType.self)
 						completed(SyncResult.success(()))
 					}
 				}
@@ -578,20 +622,18 @@ open class TableSyncBase<SyncRecordType> {
 		
 		typealias FetchRecordsToUpdateResult = (Result<Int, Error>)
 		private func updateRecords(completed: @escaping SyncCompleted) {
-			log.info("FromCloudKit: updateRecords")
+			log.info("FromCloudKit: updateRecords",
+			         context: SyncRecordType.self)
 			
 			guard let tableSync = self.tableSync else {
-				log.error("tableSync is nil")
+				log.error("tableSync is nil",
+				          context: SyncRecordType.self)
 				preconditionFailure("tableSync is nil")
 			}
 			
 			let zoneConfig = CKFetchRecordZoneChangesOperation.ZoneConfiguration(previousServerChangeToken: changeTokens.recordChangeToken,
 			                                                                     resultsLimit: nil,
 			                                                                     desiredKeys: nil)
-			
-//			let zoneConfig = CKFetchRecordZoneChangesOperation.ZoneConfiguration(previousServerChangeToken: nil,
-//			                                                                     resultsLimit: nil,
-//			                                                                     desiredKeys: nil)
 			
 			let recordZoneId = tableSync.recordZoneId
 			
@@ -600,7 +642,8 @@ open class TableSyncBase<SyncRecordType> {
 			log.debug("""
 			CKFetchRecordZoneChangesOperation
 			recordZoneId: \(recordZoneId)
-			""")
+			""",
+			context: SyncRecordType.self)
 			
 			let fetchRecordZoneChangesOperation = CKFetchRecordZoneChangesOperation(recordZoneIDs: [recordZoneId],
 			                                                                        configurationsByRecordZoneID: config)
@@ -612,21 +655,25 @@ open class TableSyncBase<SyncRecordType> {
 			var newRecordChangeToken: CKServerChangeToken?
 			
 			fetchRecordZoneChangesOperation.recordChangedBlock = { [weak self] record in
-				self?.log.debug("recordChangedBlock: \(record)")
+				self?.log.debug("recordChangedBlock: \(record)",
+				                context: SyncRecordType.self)
 				recordsToUpdate.append(record)
 			}
 			
 			fetchRecordZoneChangesOperation.recordWithIDWasDeletedBlock = { [weak self] recordId, _ in
-				self?.log.debug("recordWithIDWasDeletedBlock: \(recordId)")
+				self?.log.debug("recordWithIDWasDeletedBlock: \(recordId)",
+				                context: SyncRecordType.self)
 				recordIDsToDelete.append(recordId)
 			}
 			
 			fetchRecordZoneChangesOperation.recordZoneFetchCompletionBlock = { [weak self] _, recordChangeToken, _, moreComing, error in
 				
-				self?.log.debug("recordZoneFetchCompletionBlock: changeToken \(String(describing: recordChangeToken)) moreComing: \(moreComing)")
+				self?.log.debug("recordZoneFetchCompletionBlock: changeToken \(String(describing: recordChangeToken)) moreComing: \(moreComing)",
+				                context: SyncRecordType.self)
 				
 				if moreComing == false && error == nil {
-					self?.log.debug("moreComing false, no error assigning token")
+					self?.log.debug("moreComing false, no error assigning token",
+					                context: SyncRecordType.self)
 					newRecordChangeToken = recordChangeToken
 				}
 			}
@@ -635,42 +682,48 @@ open class TableSyncBase<SyncRecordType> {
 				
 				guard let self = self else { return }
 				
-				self.log.info("fetchRecordZoneChangesCompletionBlock")
+				self.log.info("fetchRecordZoneChangesCompletionBlock",
+				              context: SyncRecordType.self)
 				
 				if let error = error {
 					if let ckError = error as? CKError {
-						if ckError.code == CKError.changeTokenExpired {
-							// The token is no good, so we'll use nil which is starting over.
-							self.log.warning("changeTokenExpired, clear out tokens, trying again")
-							// Starting over, local data should be removed treating CloudKit as the truth.
-							self.changeTokens.clear()
-							self.localSyncing.deleteAll()
-							self.changeTokens.recordChangeToken = nil
-							self.updateRecords(completed: completed)
-							return
-						}
+						self.log.error("CloudKit error: \(ckError)", context: SyncRecordType.self)
+						
+						// The token is no good, so we'll use nil which is starting over.
+						self.log.warning("changeTokenExpired, clear out tokens, trying again",
+						                 context: SyncRecordType.self)
+						// Starting over, local data should be removed treating CloudKit as the truth.
+						self.changeTokens.clear()
+						self.localSyncing.deleteAll()
+						self.changeTokens.recordChangeToken = nil
+						self.updateRecords(completed: completed)
+						return
 					} else {
 						assertionFailure("fetchRecordZoneChanges (not CKError) error: \(error)")
-						self.log.error("fetchRecordZoneChanges (not CKError) error: \(error)")
+						self.log.error("fetchRecordZoneChanges (not CKError) error: \(error)",
+						               context: SyncRecordType.self)
 						completed(SyncResult.failure(SyncError.unexpectedError(error: error)))
 					}
 					return
 				}
 				
 				if let newRecordChangeToken = newRecordChangeToken {
-					self.log.debug("newChangeToken, updating records")
+					self.log.debug("newChangeToken, updating records",
+					               context: SyncRecordType.self)
 					self.updateRecords(toBeUpdated: recordsToUpdate,
 					                   toBeDeleted: recordIDsToDelete,
 					                   changeToken: newRecordChangeToken,
 					                   completed: completed)
 				} else {
-					self.log.error("Completed without a changeToken")
+					self.log.error("Completed without a changeToken",
+					               context: SyncRecordType.self)
 					assertionFailure("Completed without a changeToken")
 					completed(Result.failure(SyncError.cloudKitFetchFailed))
 				}
 			}
 			
-			log.info("Running: fetchRecordZoneChangesOperation")
+			log.info("Running: fetchRecordZoneChangesOperation",
+			         context: SyncRecordType.self)
 			fetchRecordZoneChangesOperation.run()
 		}
 		
@@ -683,7 +736,8 @@ open class TableSyncBase<SyncRecordType> {
 			toBeUpdated: \(toBeUpdated.count)
 			toBeDeleted: \(toBeDeleted.count)
 			changeToken: \(changeToken)
-			""")
+			""",
+			context: SyncRecordType.self)
 			
 			localSyncing.saveCloudKitRecordsLocally(remoteRecordsUpdated: toBeUpdated,
 			                                        remoteRecordsDeleted: toBeDeleted)
@@ -722,7 +776,7 @@ open class TableSyncBase<SyncRecordType> {
 		 */
 		func checkRecordZoneExisting(_ recordZoneId: CKRecordZone.ID,
 		                             completed: @escaping (RecordZoneCompleted) -> Void) {
-			log.info("checkRecordZoneExisting: \(recordZoneId)")
+			log.info("checkRecordZoneExisting", context: recordZoneId)
 			
 			let operation = CKFetchRecordZonesOperation(recordZoneIDs: [recordZoneId])
 			
@@ -761,7 +815,7 @@ open class TableSyncBase<SyncRecordType> {
 		func fetchRecordZonesChanged(completed: @escaping (FetchRecordZoneHasChangedResult) -> Void) {
 			let log = self.log
 			
-			log.info("fetchRecordZoneChanged")
+			log.info("fetchRecordZoneChanged", context: recordZoneId)
 			
 			var recordZoneChanged = false
 			
@@ -777,62 +831,66 @@ open class TableSyncBase<SyncRecordType> {
 			
 			// CloudKit doesn't respond if there isn't a network connection, manually cancel
 			// Avoiding a timeout
-			let cancelTask = DispatchWorkItem {
-				log.warning("Operation didn't respond, attempt to cancel")
-				
+			let cancelTask = DispatchWorkItem { [unowned self] in
+				log.warning("Operation didn't respond, attempt to cancel", context: self.recordZoneId)
 				changesOperation.cancel()
+				completed(FetchRecordZoneHasChangedResult.failure(.cloudKitFetchFailed))
 			}
 			
 			changesOperation.recordZoneWithIDChangedBlock = { [weak self] changedRecordZoneID in
 				
 				guard let self = self else { return }
 				
-				log.verbose("recordZoneWithIDChangedBlock: \(changedRecordZoneID)")
+				log.info("recordZoneWithIDChangedBlock", context: changedRecordZoneID)
 				
 				if changedRecordZoneID == self.recordZoneId {
-					log.debug("Found zone with matching ID: \(changedRecordZoneID)")
+					log.debug("Found zone with matching ID", context: changedRecordZoneID)
 					recordZoneChanged = true
 				} else {
-					log.debug("Changed zone found, but not what we're looking for: \(changedRecordZoneID.zoneName)")
+					log.debug("Changed zone found, but not what we're looking for: \(changedRecordZoneID.zoneName)", context: self.recordZoneId)
 				}
 			}
 			
-			changesOperation.changeTokenUpdatedBlock = { updatedToken in
+			changesOperation.changeTokenUpdatedBlock = { [unowned self] updatedToken in
 				
-				log.info("changeTokenUpdatedBlock: updatedToken: \(updatedToken)")
+				log.info("changeTokenUpdatedBlock: updatedToken: \(updatedToken)",
+				         context: self.recordZoneId)
 				
 				newZonesChangedSinceToken = updatedToken
 			}
 			
-			changesOperation.fetchDatabaseChangesCompletionBlock = { changeToken, moreComing, error in
+			changesOperation.fetchDatabaseChangesCompletionBlock = { [unowned self] changeToken, moreComing, error in
 				
 				cancelTask.cancel()
 				
-				log.info("fetchDatabaseChangesCompletionBlock")
+				self.log.info("fetchDatabaseChangesCompletionBlock", context: self.recordZoneId)
 				
 				newZonesChangedSinceToken = changeToken
 				
 				guard moreComing == false else {
-					log.info("moreComing: exiting")
+					log.info("moreComing: exiting", context: self.recordZoneId)
 					return
 				}
 				
 				if let error = error {
-					log.error("Error fetchDatabaseChangesCompletionBlock: \(error)")
+					log.error("Error fetchDatabaseChangesCompletionBlock: \(error)", context: self.recordZoneId)
 					completed(FetchRecordZoneHasChangedResult.failure(.cloudKitFetchFailed))
 					return
 				}
 				
 				if let newZoneToken = newZonesChangedSinceToken {
-					log.debug("newZoneToken: \(newZoneToken)")
+					log.debug("newZoneToken: \(newZoneToken)",
+					          context: self.recordZoneId)
 					completed(FetchRecordZoneHasChangedResult.success((recordZoneChanged, newZoneToken)))
 				} else {
-					log.error("Don't have a change token")
+					log.error("Don't have a change token",
+					          context: self.recordZoneId)
 					preconditionFailure("Not sure what to do here")
 				}
 			}
 			
-			log.info("Running changeOperation")
+			log.info("Running changeOperation",
+			         context: self.recordZoneId)
 			changesOperation.run()
 			DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: cancelTask)
 		}
