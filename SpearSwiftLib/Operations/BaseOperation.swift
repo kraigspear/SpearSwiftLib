@@ -43,10 +43,10 @@ open class BaseOperation: Operation {
     /// Success or an error otherwise.
     public var error: Error?
 
-	/**
-	 Override of NSOperation start.
-	 Not intended to be overridden in BaseOperation child classes
-	 */
+    /**
+     Override of NSOperation start.
+     Not intended to be overridden in BaseOperation child classes
+     */
     public final override func start() {
         if isCancelled {
             isFinished = true
@@ -54,6 +54,10 @@ open class BaseOperation: Operation {
             isExecuting = true
             main()
         }
+    }
+
+    open override func main() {
+        done()
     }
 
     final var anyDependencyHasErrors: Bool {
@@ -67,10 +71,10 @@ open class BaseOperation: Operation {
         return false
     }
 
-	/**
-	 Always true.
-	 Not intended to be overriden
-	 */
+    /**
+     Always true.
+     Not intended to be overriden
+     */
     public final override var isAsynchronous: Bool {
         return true
     }
@@ -92,9 +96,9 @@ open class BaseOperation: Operation {
     private var _finished: Bool = false
     private let finishedKey = "isFinished"
 
-	/**
-	 True if the operation is finished
-	 */
+    /**
+     True if the operation is finished
+     */
     public final override var isFinished: Bool {
         get {
             return _finished

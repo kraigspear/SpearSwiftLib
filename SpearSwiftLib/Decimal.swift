@@ -9,12 +9,12 @@
 import Foundation
 
 extension Decimal {
-	/// Convert this Decimal to a Double
-	public func toDouble() -> Double {
-		return Double(truncating: self as NSNumber)
-	}
-	
-	public func toInt() -> Int {
-		return Int(truncating: self as NSNumber)
-	}
+    /// Convert this Decimal to a Double
+    public func toDouble() -> Double {
+        return Double(truncating: self as NSNumber)
+    }
+
+    public func toInt() -> Int {
+        return Int(truncating: self as NSNumber)
+    }
 }

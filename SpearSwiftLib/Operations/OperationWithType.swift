@@ -11,7 +11,7 @@ import Foundation
 public enum ServiceResponse<Model> {
     case success(result: Model)
     case error(error: Error)
-	case cancelled
+    case cancelled
 }
 
 open class OperationWithType<T>: BaseOperation {

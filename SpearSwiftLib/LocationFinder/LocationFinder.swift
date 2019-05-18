@@ -26,21 +26,21 @@ public enum LocationFindableError: Error {
     case locationManagerError(error: NSError)
     /// A placemark was not found while using reverse GeoCode to look up a placemark for a location
     case placemarkNotFound
-	
-	var localizedDescription: String {
-		switch self {
-		case .permissions, .notAuthorized:
-			return NSLocalizedString("Missing the required permissions to find the current location", comment: "")
-		case .notEnabled:
-			return NSLocalizedString("Location services are not enabled, can't find the current location", comment: "")
-		case let .geocodeError(error: error):
-			return error.localizedDescription
-		case let .locationManagerError(error: error):
-			return error.localizedDescription
-		case .placemarkNotFound:
-			return NSLocalizedString("Placemark wasn't found", comment: "")
-		}
-	}
+
+    var localizedDescription: String {
+        switch self {
+        case .permissions, .notAuthorized:
+            return NSLocalizedString("Missing the required permissions to find the current location", comment: "")
+        case .notEnabled:
+            return NSLocalizedString("Location services are not enabled, can't find the current location", comment: "")
+        case let .geocodeError(error: error):
+            return error.localizedDescription
+        case let .locationManagerError(error: error):
+            return error.localizedDescription
+        case .placemarkNotFound:
+            return NSLocalizedString("Placemark wasn't found", comment: "")
+        }
+    }
 }
 
 public enum LocationFinderBuilderError: Error {
@@ -49,27 +49,27 @@ public enum LocationFinderBuilderError: Error {
 }
 
 /**
-A location that was found using CoreLocation
-- SeeAlso: `LocationFinder`
+ A location that was found using CoreLocation
+ - SeeAlso: `LocationFinder`
 
-```swift
-func reverseGeocode(_ location: CLLocation) {
-        geocodeFinder.find(location) { [weak self] geocodeResult in
+ ```swift
+ func reverseGeocode(_ location: CLLocation) {
+     geocodeFinder.find(location) { [weak self] geocodeResult in
 
-            guard let mySelf = self else { return }
+         guard let mySelf = self else { return }
 
-            switch geocodeResult {
-            case let .success(result: placemark):
-                let foundLocation = FoundLocation(placemark: placemark,
-                                                  location: location)
-                mySelf.result?(ResultHavingType<FoundLocationType>.success(result: foundLocation))
-            case let .error(error: error):
-                mySelf.result?(ResultHavingType<FoundLocationType>.error(error: error))
-            }
-        }
-    }
-```
-*/
+         switch geocodeResult {
+         case let .success(result: placemark):
+             let foundLocation = FoundLocation(placemark: placemark,
+                                               location: location)
+             mySelf.result?(ResultHavingType<FoundLocationType>.success(result: foundLocation))
+         case let .error(error: error):
+             mySelf.result?(ResultHavingType<FoundLocationType>.error(error: error))
+         }
+     }
+ }
+ ```
+ */
 public protocol GPSLocation {
     /// The Placemark of the found location
     var placemark: CLPlacemark { get }
@@ -80,15 +80,15 @@ public protocol GPSLocation {
 // MARK: - LocationFindable
 
 /**
-Finds the current location
-*/
+ Finds the current location
+ */
 public protocol LocationFindable {
-	/**
-	Finds the current location
+    /**
+     Finds the current location
 
-	- parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
-	- parameter result: The result of the call
-	*/
+     - parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
+     - parameter result: The result of the call
+     */
     func find(accuracy: CLLocationAccuracy,
               result: @escaping (ResultHavingType<GPSLocation>) -> Void)
 }
@@ -145,10 +145,10 @@ extension LocationFinder: LocationManagerDelegate {
             result?(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notAuthorized))
         case .authorizedAlways:
             preconditionFailure("When did we start requesting this?")
-		@unknown default:
-			SwiftyBeaver.warning("Unknown status: \(status)")
-			assertionFailure("Unknown status: \(status)")
-		}
+        @unknown default:
+            SwiftyBeaver.warning("Unknown status: \(status)")
+            assertionFailure("Unknown status: \(status)")
+        }
     }
 
     func onLocationManagerError(_ error: Error) {
@@ -157,12 +157,12 @@ extension LocationFinder: LocationManagerDelegate {
 }
 
 extension LocationFinder: LocationFindable {
-	/**
-	Finds the current location
+    /**
+     Finds the current location
 
-	- parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
-	- parameter result: The result of the call
-	*/
+     - parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
+     - parameter result: The result of the call
+     */
     public func find(accuracy: CLLocationAccuracy,
                      result: @escaping (ResultHavingType<GPSLocation>) -> Void) {
         self.result = result
@@ -184,10 +184,10 @@ extension LocationFinder: LocationFindable {
             result(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notAuthorized))
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-		@unknown default:
-			SwiftyBeaver.warning("Unknown status: \(status)")
-			assertionFailure("Unknown status: \(status)")
-		}
+        @unknown default:
+            SwiftyBeaver.warning("Unknown status: \(status)")
+            assertionFailure("Unknown status: \(status)")
+        }
     }
 }
 

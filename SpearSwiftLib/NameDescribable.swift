@@ -10,16 +10,16 @@ import Foundation
 
 /// Provides the type name of the type implementing
 public protocol NameDescribable {
-	var typeName: String { get }
-	static var typeName: String { get }
+    var typeName: String { get }
+    static var typeName: String { get }
 }
 
 public extension NameDescribable {
-	var typeName: String {
-		return String(describing: type(of: self))
-	}
-	
-	static var typeName: String {
-		return String(describing: self)
-	}
+    var typeName: String {
+        return String(describing: type(of: self))
+    }
+
+    static var typeName: String {
+        return String(describing: self)
+    }
 }

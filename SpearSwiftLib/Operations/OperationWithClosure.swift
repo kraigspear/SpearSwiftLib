@@ -9,7 +9,7 @@
 import Foundation
 
 /// Closure that takes another closure
-public typealias OperationWithClosureClosure = (((@escaping () -> Void)) -> Void)
+public typealias OperationWithClosureClosure = ((@escaping () -> Void) -> Void)
 
 public final class OperationWithClosure: BaseOperation {
     private let closure: OperationWithClosureClosure

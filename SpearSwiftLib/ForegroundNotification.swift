@@ -12,7 +12,7 @@ import UIKit
  Protocol to be implemented by a type that wants to know when the App has entered
  the foreground
  */
-public protocol ForegroundNotificationDelegate: class {
+public protocol ForegroundNotificationDelegate: AnyObject {
     /**
      Called when the device has entered the foreground
      */
@@ -61,7 +61,7 @@ public protocol ForegroundNotificationDelegate: class {
  ```
 
  */
-public protocol ForegroundNotifyable: class {
+public protocol ForegroundNotifyable: AnyObject {
     /**
      Receives the message from NSNotification that the device has entered the
      foreground

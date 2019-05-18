@@ -24,7 +24,7 @@ class ArrayTest: XCTestCase {
         let numbers = [1, 5, 3, 2, 8, 9]
 
         let doesExist = numbers.any { (i) -> Bool in
-            return i == 3
+            i == 3
         }
 
         XCTAssertTrue(doesExist)
@@ -34,7 +34,7 @@ class ArrayTest: XCTestCase {
         let numbers = [1, 5, 3, 2, 8, 9]
 
         let doesExist = numbers.any { (i) -> Bool in
-            return i == 11
+            i == 11
         }
 
         XCTAssertFalse(doesExist)

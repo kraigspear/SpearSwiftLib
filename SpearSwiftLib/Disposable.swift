@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol DisposeType: class {
+public protocol DisposeType: AnyObject {
     func unsubscribe()
 }
 

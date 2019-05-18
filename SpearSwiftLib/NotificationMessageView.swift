@@ -55,7 +55,7 @@ public final class NotificationMessageView: NSObject {
 
 // MARK: - Create
 
-fileprivate extension NotificationMessageView {
+private extension NotificationMessageView {
     func createMessageView(containingMessage: String,
                            backgroundColor: UIColor,
                            textColor: UIColor,
@@ -122,10 +122,10 @@ public extension NotificationMessageView {
      - parameter withbackgroundColorOf: The background color of the view
      - parameter andTextColorOf: The color of the text of the message
      */
-	func show(message: String,
-                     withbackgroundColorOf backGroundColor: UIColor,
-                     andTextColorOf textColor: UIColor,
-                     usingFont font: UIFont) {
+    func show(message: String,
+              withbackgroundColorOf backGroundColor: UIColor,
+              andTextColorOf textColor: UIColor,
+              usingFont font: UIFont) {
         createMessageView(containingMessage: message,
                           backgroundColor: backGroundColor,
                           textColor: textColor,
@@ -140,11 +140,12 @@ public extension NotificationMessageView {
                        options: .curveEaseInOut,
                        animations: { [unowned self] () -> Void in
                            self.messageViewTopConstraint!.constant = 0
-                           self.notificationParentView.layoutIfNeeded() },
+                           self.notificationParentView.layoutIfNeeded()
+                       },
                        completion: nil)
     }
 
-	func closeMessage(shouldAnimate animate: Bool) {
+    func closeMessage(shouldAnimate animate: Bool) {
         if animate == false {
             cleanUp()
             return
@@ -157,13 +158,14 @@ public extension NotificationMessageView {
                        options: .curveEaseInOut,
                        animations: { [unowned self] () -> Void in
                            self.messageViewTopConstraint!.constant = -self.notificationHeight
-                           self.notificationParentView.layoutIfNeeded() },
+                           self.notificationParentView.layoutIfNeeded()
+                       },
                        completion: { [weak self] _ in
                            self?.cleanUp()
         })
     }
 
-	@objc func onSwipe(gesture: UISwipeGestureRecognizer) {
+    @objc func onSwipe(gesture: UISwipeGestureRecognizer) {
         messageView?.removeGestureRecognizer(gesture)
         closeMessage(shouldAnimate: true)
     }
@@ -171,7 +173,7 @@ public extension NotificationMessageView {
 
 // MARK: - Clean Up
 
-fileprivate extension NotificationMessageView {
+private extension NotificationMessageView {
     func cleanUp() {
         messageView?.removeFromSuperview()
         messageView = nil

@@ -82,7 +82,6 @@ final class LocationFinderTest: XCTestCase {
             case let .success(result: foundLocation):
                 XCTAssertEqual(placemark, foundLocation.placemark)
                 XCTAssertEqual(grandRapids, foundLocation.location)
-                break
             case .error(error: _):
                 XCTFail("Error not expected")
             }

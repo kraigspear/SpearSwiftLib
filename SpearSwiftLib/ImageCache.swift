@@ -37,7 +37,7 @@ public final class ImageCache {
 
         var images: [UIImage] = [UIImage]()
 
-        que.async(execute: {
+        que.async {
             for urlStr in urlStrs {
                 if let image = self.fetchImage(urlStr) {
                     images.append(image)
@@ -47,8 +47,7 @@ public final class ImageCache {
             DispatchQueue.main.async {
                 completed(images)
             }
-
-        })
+        }
     }
 
     /**

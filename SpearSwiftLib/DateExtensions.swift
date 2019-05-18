@@ -28,21 +28,21 @@ public extension Date {
      ```
 
      */
-	func addDays(_ numberOfDays: Int) -> Date {
+    func addDays(_ numberOfDays: Int) -> Date {
         var dayComponent = DateComponents()
         dayComponent.day = numberOfDays
         let calendar = Calendar.current
         return calendar.date(byAdding: dayComponent, to: self)!
     }
 
-	func addMinutes(_ numberOfMinutes: Int) -> Date {
+    func addMinutes(_ numberOfMinutes: Int) -> Date {
         var dayComponent = DateComponents()
         dayComponent.minute = numberOfMinutes
         let calendar = Calendar.current
         return calendar.date(byAdding: dayComponent, to: self)!
     }
 
-	func addHours(_ numberOfHours: Int) -> Date {
+    func addHours(_ numberOfHours: Int) -> Date {
         var dayComponent = DateComponents()
         dayComponent.hour = numberOfHours
         let calendar = Calendar.current
@@ -56,7 +56,7 @@ public extension Date {
 
      - Returns: true if the two days occure on the same day
      */
-	func isSameDay(_ date: Date) -> Bool {
+    func isSameDay(_ date: Date) -> Bool {
         let calendar = Calendar.current
         let components1 = calendar.dateComponents([.month, .day, .year], from: self)
         let components2 = calendar.dateComponents([.month, .day, .year], from: date)
@@ -71,17 +71,17 @@ public extension Date {
     /// - Parameter otherDate: The other date to compare with
     ///
     /// - Returns: The difference in the two dates as m/d/y/h/m/s
-	func subtractDate(_ otherDate: Date) -> (month: Int, day: Int, year: Int, hour: Int, minute: Int, second: Int) {
+    func subtractDate(_ otherDate: Date) -> (month: Int, day: Int, year: Int, hour: Int, minute: Int, second: Int) {
         let calendar = Calendar.current
 
-        let types: Set<Calendar.Component> = ([
+        let types: Set<Calendar.Component> = [
             Calendar.Component.month,
             Calendar.Component.day,
             Calendar.Component.year,
             Calendar.Component.hour,
             Calendar.Component.minute,
             Calendar.Component.second,
-        ])
+        ]
 
         let dateComponents = calendar.dateComponents(types, from: self, to: otherDate)
 
@@ -93,7 +93,7 @@ public extension Date {
                 second: dateComponents.second!)
     }
 
-	func toMonthDayYearHourMinutesSeconds() -> (month: Int, day: Int, year: Int, hour: Int, minutes: Int, seconds: Int) {
+    func toMonthDayYearHourMinutesSeconds() -> (month: Int, day: Int, year: Int, hour: Int, minutes: Int, seconds: Int) {
         let flags: Set<Calendar.Component> = [.month, .day, .year, .hour, .minute, .second]
         let components = Calendar.current.dateComponents(flags, from: self)
 
@@ -112,7 +112,7 @@ public extension Date {
 
      - Returns: A tuple as three ints that include month day year
      */
-	func toMonthDayYear() -> (month: Int, day: Int, year: Int) {
+    func toMonthDayYear() -> (month: Int, day: Int, year: Int) {
         let flags: Set<Calendar.Component> = [
             Calendar.Component.month,
             Calendar.Component.day,
@@ -126,7 +126,7 @@ public extension Date {
         return (month: m, day: d, year: y)
     }
 
-	func toJullianDayNumber() -> Double {
+    func toJullianDayNumber() -> Double {
         let components = toMonthDayYear()
 
         let a = floor(Double((14 - components.month) / 12))
@@ -145,7 +145,7 @@ public extension Date {
         return jdn
     }
 
-	static func fromMonth(_ month: Int, day: Int, year: Int) -> Date? {
+    static func fromMonth(_ month: Int, day: Int, year: Int) -> Date? {
         var components = DateComponents()
         components.month = month
         components.day = day
@@ -153,7 +153,7 @@ public extension Date {
         return Calendar.current.date(from: components)
     }
 
-	func fromDay(_ percentage: Double) -> Date? {
+    func fromDay(_ percentage: Double) -> Date? {
         let secondsInDay = Double(24 * 60 * 60)
 
         let secondsPct = Double(percentage * secondsInDay)
@@ -182,18 +182,18 @@ public extension Date {
     /**
      Is this date between startDate and endDate
      */
-	func isBetween(_ startDate: Date, endDate: Date) -> Bool {
+    func isBetween(_ startDate: Date, endDate: Date) -> Bool {
         return timeIntervalSinceReferenceDate >= startDate.timeIntervalSinceReferenceDate &&
             timeIntervalSinceReferenceDate <= endDate.timeIntervalSinceReferenceDate
     }
 
-	func numberOfMinutesBetween(_ otherDate: Date, absolute: Bool = true) -> Int {
+    func numberOfMinutesBetween(_ otherDate: Date, absolute: Bool = true) -> Int {
         let calendarUnit: Set<Calendar.Component> = [Calendar.Component.minute]
         let difference = Calendar.current.dateComponents(calendarUnit, from: self, to: otherDate)
-		return absolute ? abs(difference.minute!) : difference.minute!
+        return absolute ? abs(difference.minute!) : difference.minute!
     }
 
-	func numberOfMinutesBetweenNow(absolute: Bool = true) -> Int {
+    func numberOfMinutesBetweenNow(absolute: Bool = true) -> Int {
         return numberOfMinutesBetween(Date(), absolute: absolute)
     }
 
@@ -203,7 +203,7 @@ public extension Date {
      - returns: Date formattted as a zule date
      - seealso: String.toDateFromZulu()
      */
-	func toZuluFormattedString() -> String {
+    func toZuluFormattedString() -> String {
         assert(DateFormatters.instance.zulu.count > 0, "We expect to have at least one Zulu formatter")
         let firstFormatter = DateFormatters.instance.zulu.first!
         return firstFormatter.string(from: self)

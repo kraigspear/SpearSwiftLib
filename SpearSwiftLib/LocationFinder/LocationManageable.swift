@@ -8,13 +8,13 @@
 
 import CoreLocation
 
-protocol LocationManagerDelegate: class {
+protocol LocationManagerDelegate: AnyObject {
     func onLocationsFound(_ location: [CLLocation])
     func onAuthorizationStatusChanged(_ status: CLAuthorizationStatus)
     func onLocationManagerError(_ error: Error)
 }
 
-protocol LocationManageable: class {
+protocol LocationManageable: AnyObject {
     var isLocationServicesEnabled: Bool { get }
     var authorizationStatus: CLAuthorizationStatus { get }
     var desiredAccuracy: CLLocationAccuracy { get set }

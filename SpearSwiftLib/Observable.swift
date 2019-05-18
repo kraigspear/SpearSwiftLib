@@ -11,7 +11,7 @@ import Foundation
 infix operator -->
 infix operator <--
 
-public protocol Subscribeable: class {
+public protocol Subscribeable: AnyObject {
     associatedtype T
 
     func subscribe(_ handler: @escaping ((T) -> Void))
@@ -42,12 +42,10 @@ public class AnySubscribeable<T>: Subscribeable {
     public var value: T {
         return observer.value
     }
-	
-	public static func --> (rhs: AnySubscribeable<T>, lhs: @escaping ((T) -> Void)) {
-		rhs.subscribe(lhs)
-	}
-	
-	
+
+    public static func --> (rhs: AnySubscribeable<T>, lhs: @escaping ((T) -> Void)) {
+        rhs.subscribe(lhs)
+    }
 }
 
 /**
@@ -72,11 +70,11 @@ public class Observable<T>: Subscribeable {
 
     private let uuid = UUID().uuidString
 
-	/**
-	 Initialize with the inital value
+    /**
+     Initialize with the inital value
 
-	 - parameter value: The initial value of this observable
-	 */
+     - parameter value: The initial value of this observable
+     */
     public init(value: T) {
         self.value = value
     }
@@ -85,13 +83,13 @@ public class Observable<T>: Subscribeable {
         AnySubscribeable(observer: self)
     }()
 
-	/**
-	 Subscribe to changes of this observable
+    /**
+     Subscribe to changes of this observable
 
-	 - parameter handler: Code to call when this observer changes
-	 - returns: DisposeType that can be sent to a `DisposeBag` to clean up
-	 - SeeAlso: `DisposeBag`
-	 */
+     - parameter handler: Code to call when this observer changes
+     - returns: DisposeType that can be sent to a `DisposeBag` to clean up
+     - SeeAlso: `DisposeBag`
+     */
     public func subscribe(_ handler: @escaping ((T) -> Void)) {
         _ = subscribeWithDispose(handler)
     }
@@ -105,11 +103,11 @@ public class Observable<T>: Subscribeable {
         return disposable
     }
 
-	/**
-	 Unsubscribe from a previous subscription
+    /**
+     Unsubscribe from a previous subscription
 
-	 - parameter handler: Handler to unsubscribe
-	 */
+     - parameter handler: Handler to unsubscribe
+     */
     public func unsubscribe(_ handler: Disposeable<T>) {
         let index = observables.allObjects.compactMap { $0 as? Disposeable<T> }
             .firstIndex { $0.uuid == handler.uuid }
@@ -131,8 +129,8 @@ public class Observable<T>: Subscribeable {
             .compactMap { $0.handler }
             .forEach { $0(value) }
     }
-	
-	public static func <-- (lhs: Observable<T>, rhs: T) {
-		lhs.value = rhs
-	}
+
+    public static func <-- (lhs: Observable<T>, rhs: T) {
+        lhs.value = rhs
+    }
 }

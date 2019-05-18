@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIImage {
-	func applyAlpha(_ alpha: CGFloat) -> UIImage {
+    func applyAlpha(_ alpha: CGFloat) -> UIImage {
         UIGraphicsBeginImageContext(size)
 
         guard let context = UIGraphicsGetCurrentContext() else { return self }
@@ -34,7 +34,7 @@ public extension UIImage {
 
      parameter view: The source of the new UIImage
      */
-	convenience init(view: UIView) {
+    convenience init(view: UIView) {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
         let image = UIGraphicsGetImageFromCurrentImageContext()

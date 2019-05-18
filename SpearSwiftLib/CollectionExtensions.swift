@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func AllSameSize(_ arraysToCheck: Array<AnyObject>...) -> Bool {
+public func AllSameSize(_ arraysToCheck: [AnyObject]...) -> Bool {
     guard let firstItem = arraysToCheck.first else {
         return false
     }
@@ -28,7 +28,7 @@ public func AllSameSize(_ arraysToCheck: Array<AnyObject>...) -> Bool {
 public extension Array {
     /// Do any of the items in this array match
     /// - Parameter fn: Closure to check
-	func any(_ fn: (Element) -> Bool) -> Bool {
+    func any(_ fn: (Element) -> Bool) -> Bool {
         for e in self {
             if fn(e) {
                 return true
@@ -37,7 +37,7 @@ public extension Array {
         return false
     }
 
-	func first(_ fn: (Element) -> Bool) -> Element? {
+    func first(_ fn: (Element) -> Bool) -> Element? {
         for e in self {
             if fn(e) {
                 return e
@@ -53,7 +53,7 @@ public extension Array {
 
      - Returns: The item at the index, or nil if the index is not valid
      */
-	func at(_ index: Int) -> Element? {
+    func at(_ index: Int) -> Element? {
         guard isValidIndex(index) else {
             return nil
         }
@@ -61,7 +61,7 @@ public extension Array {
         return self[index]
     }
 
-	func isValidIndex(_ index: Int) -> Bool {
+    func isValidIndex(_ index: Int) -> Bool {
         if index < 0 {
             return false
         }
