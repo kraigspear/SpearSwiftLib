@@ -13,6 +13,7 @@ import UIKit
 public class StickyHeaderLayout: UICollectionViewFlowLayout {
     private let topZIndex = 1024
 
+	//MARK: - Init
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         scrollDirection = .horizontal

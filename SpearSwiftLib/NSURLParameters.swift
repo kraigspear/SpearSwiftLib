@@ -14,6 +14,7 @@ public struct NetworkParameters: NetworkParameterType {
 
     public init() {}
 
+	@discardableResult
     public mutating func addParam(_ key: String, value: String) -> NetworkParameterType {
         assert(keys.count == values.count)
         keys.append(key)

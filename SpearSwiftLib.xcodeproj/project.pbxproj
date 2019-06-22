@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A90BD31F20D2657000D705E0 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90BD31E20D2657000D705E0 /* CommonError.swift */; };
+		A925BEC022A1CB1F00CA0FF9 /* ElaspedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */; };
 		A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928C073200A91E500F5743A /* StickyHeaderLayout.swift */; };
 		A92AE9782109C5C000BA1B1D /* SyncType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92AE9772109C5C000BA1B1D /* SyncType.swift */; };
 		A92AE981210CC40B00BA1B1D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92AE980210CC40B00BA1B1D /* Log.swift */; };
@@ -61,9 +62,9 @@
 		A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */; };
 		A9D7B06A215F73FD00388595 /* ObservableEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B069215F73FD00388595 /* ObservableEquatable.swift */; };
 		A9D7FA8B216A3E670077769A /* EventTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7FA8A216A3E670077769A /* EventTrackable.swift */; };
+		A9DBB20D22B0731100FB58B1 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBB20C22B0731100FB58B1 /* SwiftyBeaver */; };
 		A9DD450121B2BA9900C92DE8 /* URLSessionPinningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD450021B2BA9900C92DE8 /* URLSessionPinningDelegate.swift */; };
 		A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4C6322064F55F007735E1 /* OperationWithType.swift */; };
-		A9E575AA20AD82ED003E91B4 /* AppKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9E575A920AD82ED003E91B4 /* AppKeys.plist */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
 		E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */; };
 		E6382098F0F0DEA735B346F9 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382A47A433272D3C296340 /* Platform.swift */; };
@@ -111,6 +112,7 @@
 
 /* Begin PBXFileReference section */
 		A90BD31E20D2657000D705E0 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
+		A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElaspedTime.swift; sourceTree = "<group>"; };
 		A928C073200A91E500F5743A /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
 		A92AE9772109C5C000BA1B1D /* SyncType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncType.swift; sourceTree = "<group>"; };
 		A92AE980210CC40B00BA1B1D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -160,7 +162,6 @@
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9DD450021B2BA9900C92DE8 /* URLSessionPinningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionPinningDelegate.swift; sourceTree = "<group>"; };
 		A9E4C6322064F55F007735E1 /* OperationWithType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithType.swift; sourceTree = "<group>"; };
-		A9E575A920AD82ED003E91B4 /* AppKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppKeys.plist; sourceTree = "<group>"; };
 		E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDateTime.swift; sourceTree = "<group>"; };
 		E638217124D04DC7A8288430 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		E63821721770246A2EEE4BEB /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
@@ -209,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DBB20D22B0731100FB58B1 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +383,6 @@
 				E6382CAB2E982CDCCFC46B64 /* Operations */,
 				A928C072200A91C900F5743A /* UIKit */,
 				E6382097358E63E4FAF9EA73 /* Supporting Files */,
-				A9E575A920AD82ED003E91B4 /* AppKeys.plist */,
 				E6382DAF767CBC864F764F7B /* BoundingBox.swift */,
 				E6382A1FEA4424A44EEA1DA1 /* ClosureTypes.swift */,
 				E63827E2B016FB3128497FEC /* CoordinateBoundaries.swift */,
@@ -407,6 +408,7 @@
 				A9D7FA8A216A3E670077769A /* EventTrackable.swift */,
 				A9A01A2021C3BF76009383A1 /* Decimal.swift */,
 				A9A35D0C2253541B003DEE4D /* NameDescribable.swift */,
+				A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -529,6 +531,9 @@
 			dependencies = (
 			);
 			name = SpearSwiftLib;
+			packageProductDependencies = (
+				A9DBB20C22B0731100FB58B1 /* SwiftyBeaver */,
+			);
 			productName = SpearSwiftLib;
 			productReference = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */;
 			productType = "com.apple.product-type.framework";
@@ -559,7 +564,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = spearware;
 				TargetAttributes = {
 					A92B808B20A8E5CE004139D3 = {
@@ -589,6 +594,9 @@
 				Base,
 			);
 			mainGroup = A942A97C1A9F251800C69271;
+			packageReferences = (
+				A9DBB20B22B0731100FB58B1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+			);
 			productRefGroup = A942A9871A9F251800C69271 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -612,7 +620,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E575AA20AD82ED003E91B4 /* AppKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +705,7 @@
 				E6382B6664E3968A2F2EDE0D /* Queue.swift in Sources */,
 				E63820D41AE3C8A2A5D6F527 /* StringBuilder.swift in Sources */,
 				E6382548CAB377F4029D854C /* NetworkParameterType.swift in Sources */,
+				A925BEC022A1CB1F00CA0FF9 /* ElaspedTime.swift in Sources */,
 				A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */,
 				E63824A90C85F100812A9C27 /* NetworkDownloadOperation.swift in Sources */,
 				A99A985E223EDF82009587A9 /* TableSync.swift in Sources */,
@@ -766,7 +774,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = SpearSwiftLibmacOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibmacOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -800,13 +812,18 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = SpearSwiftLibmacOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibmacOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -925,7 +942,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -937,7 +954,11 @@
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DIOS_SIMULATOR -DDEBUG";
@@ -954,7 +975,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -966,12 +987,17 @@
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.spearswiftlib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -990,7 +1016,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.thunderful.SpearSwiftLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1015,11 +1046,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.thunderful.SpearSwiftLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1064,6 +1101,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A9DBB20B22B0731100FB58B1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				branch = "xcode11-beta";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A9DBB20C22B0731100FB58B1 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9DBB20B22B0731100FB58B1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A942A97D1A9F251800C69271 /* Project object */;
 }
