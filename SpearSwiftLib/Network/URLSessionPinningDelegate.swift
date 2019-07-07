@@ -14,7 +14,7 @@ final class URLSessionPinningDelegate: NSObject, URLSessionDelegate {
     init(certificate: Data) {
         self.certificate = certificate
     }
-	
+
     func urlSession(_: URLSession,
                     didReceive challenge: URLAuthenticationChallenge,
                     completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {

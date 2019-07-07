@@ -421,13 +421,6 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		E6382343CE967A855A88C391 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Image;
-			sourceTree = "<group>";
-		};
 		E6382B650D3270E4201605F6 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,7 +432,6 @@
 		E6382C578CA904338A12CF4E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				E6382343CE967A855A88C391 /* Image */,
 				E6382B650D3270E4201605F6 /* JSON */,
 				E6382488EAD8E235300DECE8 /* NetworkParameterType.swift */,
 				E6382CEF98D01D84D83D47A0 /* NetworkDownloadOperation.swift */,
