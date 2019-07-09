@@ -4,10 +4,9 @@
 //
 
 import Foundation
-import SwiftyBeaver
+import os.log
 
 open class NetworkDownloadOperation<Type>: BaseOperation {
-    let log = SwiftyBeaver.self
 
     private let requestBuilder: RequestBuildable
     private let timeout: Double
@@ -16,6 +15,8 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
     public private(set) var result: Type?
 
     private var task: URLSessionDataTask!
+	
+	private let log = Log.network
 
     public init(requestBuilder: RequestBuildable,
                 timeout: Double = 10.0,
@@ -27,15 +28,23 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
 
     open override func main() {
         guard isCancelled == false else {
-            log.warning("Operation cancelled")
+			
+			os_log("Operation cancelled",
+				   log: log,
+				   type: .default)
+			
             done()
             return
         }
 
         let request = requestBuilder.request
+		let url = request.url!.debugDescription
 
-        let context = request.url!.absoluteString
-
+		os_log("Downloading: %s",
+			   log: log,
+			   type: .default,
+			   url)
+		
         let pinningDelegate: URLSessionPinningDelegate?
         if let pinningCertTo = pinningCert {
             pinningDelegate = URLSessionPinningDelegate(certificate: pinningCertTo)
@@ -60,15 +69,29 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
                 self.done()
             }
 
-            self.log.info("Request completed", context: context)
+			os_log("Request completed: %s",
+				   log: self.log,
+				   type: .debug,
+				   url)
 
             guard self.isCancelled == false else {
-                self.log.info("Request cancelled", context: context)
+				
+				os_log("Request cancelled: %s",
+					   log: self.log,
+					   type: .debug,
+					   url)
+				
                 return
             }
 
             if let error = error {
-                self.log.error("Error downloading data: \(error)", context: context)
+				
+				os_log("Error downloading data: %s url: %s",
+					   log: self.log,
+					   type: .error,
+					   error.localizedDescription,
+					   url)
+				
                 self.error = error
                 return
             }
@@ -77,31 +100,60 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
             // When this was written it was always true. If that was to change, we would need to
             // write new code to handle it.
             let response = response as! HTTPURLResponse
+			
+			os_log("Download Status code: %d for url: %s",
+				   log: self.log,
+				   type: .debug,
+				   response.statusCode,
+				   url)
 
             guard response.statusCode == 200 else {
-                self.log.error("Status code not 200", context: context)
+				
+				os_log("Download Status code not 200: %d for url: %s",
+					   log: self.log,
+					   type: .debug,
+					   response.statusCode,
+					   url)
+
                 self.error = NetworkError.statusCodeError(statusCode: response.statusCode)
                 return
             }
 
             if let data = data {
-                self.log.debug("Attempt to convert data from service to Operation Type")
+				
+				os_log("Attempt to convert data from service to Operation Type",
+					   log: self.log,
+					   type: .debug)
+				
                 self.result = self.convertTo(data)
 
                 if self.result == nil {
-                    self.log.error("Data is nil, failed to convert", context: context)
+					
+					os_log("Data is nil, failed to convert url: %s",
+						   log: self.log,
+						   type: .debug,
+						   url)
+					
                     fatalError("Data is nil, failed to convert")
                 } else {
-                    self.log.info("Successfully convert data from service to: \(Type.self)")
+					
+					os_log("Successfully convert data from service to: %s",
+						   log: self.log,
+						   type: .debug,
+						   String(describing: Type.self))
+					
                 }
 
             } else {
-                self.log.error("No error, status code = 200, but data was nil? \(String(describing: request.url))")
                 preconditionFailure("No error, status code = 200, but data was nil? \(String(describing: request.url))")
             }
         }
 
-        log.debug("Starting Network download", context: context)
+		os_log("Starting download url: %s",
+			   log: log,
+			   type: .debug,
+			   url)
+		
         task.resume()
         session.finishTasksAndInvalidate()
     }
@@ -110,18 +162,17 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
      Convert data from the network into a specific type (Image, JSON ext....)
      */
     open func convertTo(_: Data) -> Type? {
-        log.error("Override in child class: \(self)")
         fatalError("Override in child class")
     }
 
-    private static func logError(statusCode: Int, request: URLRequest) {
-        if let body = request.httpBody {
-            if let bodyText = String(data: body, encoding: String.Encoding.utf8) {
-                SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request) body: \(bodyText)")
-                return
-            }
-        }
-
-        SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request)")
-    }
+//    private static func logError(statusCode: Int, request: URLRequest) {
+//        if let body = request.httpBody {
+//            if let bodyText = String(data: body, encoding: String.Encoding.utf8) {
+//                SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request) body: \(bodyText)")
+//                return
+//            }
+//        }
+//
+//        SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request)")
+//    }
 }
