@@ -4,10 +4,9 @@
 //
 
 import Foundation
-import os.log
+import SwiftyBeaver
 
 open class NetworkDownloadOperation<Type>: BaseOperation {
-
     private let requestBuilder: RequestBuildable
     private let timeout: Double
     private var pinningCert: Data?
@@ -15,8 +14,9 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
     public private(set) var result: Type?
 
     private var task: URLSessionDataTask!
-	
-	private let log = Log.network
+
+    private let logContext = Log.network
+    private let log = SwiftyBeaver.self
 
     public init(requestBuilder: RequestBuildable,
                 timeout: Double = 10.0,
@@ -26,25 +26,25 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
         pinningCert = pinningCertTo
     }
 
+    open override func cancel() {
+        log.debug("Network download operation cancelled", context: logContext)
+        super.cancel()
+    }
+
     open override func main() {
+        log.info("Main", context: logContext)
+
         guard isCancelled == false else {
-			
-			os_log("Operation cancelled",
-				   log: log,
-				   type: .default)
-			
+            log.debug("Operation cancelled", context: logContext)
             done()
             return
         }
 
         let request = requestBuilder.request
-		let url = request.url!.debugDescription
+        let url = request.url!.debugDescription
 
-		os_log("Downloading: %s",
-			   log: log,
-			   type: .default,
-			   url)
-		
+        log.debug("Downloading: \(url) ", context: logContext)
+
         let pinningDelegate: URLSessionPinningDelegate?
         if let pinningCertTo = pinningCert {
             pinningDelegate = URLSessionPinningDelegate(certificate: pinningCertTo)
@@ -59,9 +59,13 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
                                  delegate: pinningDelegate,
                                  delegateQueue: nil)
 
+        var time = ElaspedTime()
+
         task = session.dataTask(with: request) { [weak self] (data: Data?, response: URLResponse?, error: Error?) in
 
             guard let self = self else { return }
+
+            self.log.debug("Finshed download of: \(url) in: \(time.stop())", context: self.logContext)
 
             defer {
                 assert(!(self.result == nil && self.error == nil) || self.isCancelled,
@@ -69,29 +73,15 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
                 self.done()
             }
 
-			os_log("Request completed: %s",
-				   log: self.log,
-				   type: .debug,
-				   url)
+            self.log.debug("Request completed: \(url)", context: self.logContext)
 
             guard self.isCancelled == false else {
-				
-				os_log("Request cancelled: %s",
-					   log: self.log,
-					   type: .debug,
-					   url)
-				
+                self.log.debug("Request cancelled: \(url)", context: self.logContext)
                 return
             }
 
             if let error = error {
-				
-				os_log("Error downloading data: %s url: %s",
-					   log: self.log,
-					   type: .error,
-					   error.localizedDescription,
-					   url)
-				
+                self.log.error("Error downloading data: \(error.localizedDescription) url: \(url)", context: self.logContext)
                 self.error = error
                 return
             }
@@ -100,48 +90,27 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
             // When this was written it was always true. If that was to change, we would need to
             // write new code to handle it.
             let response = response as! HTTPURLResponse
-			
-			os_log("Download Status code: %d for url: %s",
-				   log: self.log,
-				   type: .debug,
-				   response.statusCode,
-				   url)
+
+            self.log.debug("Download Status code: \(response.statusCode) for url: \(url)", context: self.logContext)
 
             guard response.statusCode == 200 else {
-				
-				os_log("Download Status code not 200: %d for url: %s",
-					   log: self.log,
-					   type: .debug,
-					   response.statusCode,
-					   url)
+                self.log.warning("Download Status code not 200: \(response.statusCode) for url: \(url)", context: self.logContext)
 
                 self.error = NetworkError.statusCodeError(statusCode: response.statusCode)
                 return
             }
 
             if let data = data {
-				
-				os_log("Attempt to convert data from service to Operation Type",
-					   log: self.log,
-					   type: .debug)
-				
+                self.log.debug("Attempt to convert data from service to Operation Type", context: self.logContext)
+
                 self.result = self.convertTo(data)
 
                 if self.result == nil {
-					
-					os_log("Data is nil, failed to convert url: %s",
-						   log: self.log,
-						   type: .debug,
-						   url)
-					
+                    self.log.error("Data is nil, failed to convert url: \(url)", url)
+
                     fatalError("Data is nil, failed to convert")
                 } else {
-					
-					os_log("Successfully convert data from service to: %s",
-						   log: self.log,
-						   type: .debug,
-						   String(describing: Type.self))
-					
+                    self.log.debug("Successfully convert data from service to: \(String(describing: Type.self))", context: self.logContext)
                 }
 
             } else {
@@ -149,11 +118,8 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
             }
         }
 
-		os_log("Starting download url: %s",
-			   log: log,
-			   type: .debug,
-			   url)
-		
+        log.info("Starting download url: \(url)", context: logContext)
+
         task.resume()
         session.finishTasksAndInvalidate()
     }
@@ -164,15 +130,4 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
     open func convertTo(_: Data) -> Type? {
         fatalError("Override in child class")
     }
-
-//    private static func logError(statusCode: Int, request: URLRequest) {
-//        if let body = request.httpBody {
-//            if let bodyText = String(data: body, encoding: String.Encoding.utf8) {
-//                SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request) body: \(bodyText)")
-//                return
-//            }
-//        }
-//
-//        SwiftyBeaver.error("Unsuccessful status code: \(statusCode) request: \(request)")
-//    }
 }

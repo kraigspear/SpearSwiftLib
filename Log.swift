@@ -10,6 +10,7 @@ import Foundation
 import os.log
 
 struct Log {
-    static let general = OSLog(subsystem: "com.spearware.thunderful.fastcast", category: "📜General")
-    static let network = OSLog(subsystem: "com.spearware.thunderful.fastcast", category: "🧚‍♀️Network")
+    static let general = "📜General"
+    static let network = "🧚‍♀️Network"
+    static let sync = "🐸Sync"
 }

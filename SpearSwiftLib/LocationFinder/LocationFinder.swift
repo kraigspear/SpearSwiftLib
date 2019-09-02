@@ -8,7 +8,6 @@
 
 import CoreLocation
 import Foundation
-import SwiftyBeaver
 
 // MARK: - Errors
 
@@ -146,7 +145,6 @@ extension LocationFinder: LocationManagerDelegate {
         case .authorizedAlways:
             preconditionFailure("When did we start requesting this?")
         @unknown default:
-            SwiftyBeaver.warning("Unknown status: \(status)")
             assertionFailure("Unknown status: \(status)")
         }
     }
@@ -185,7 +183,6 @@ extension LocationFinder: LocationFindable {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         @unknown default:
-            SwiftyBeaver.warning("Unknown status: \(status)")
             assertionFailure("Unknown status: \(status)")
         }
     }

@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import SwiftyBeaver
 
 /// Class that downloading JSON from the network.
 public final class JsonDownloadOperation: NetworkDownloadOperation<JsonKeyValue> {

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9084DA722E076E200FF8DB9 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = A9084DA622E076E200FF8DB9 /* SwiftyBeaver */; };
 		A90BD31F20D2657000D705E0 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90BD31E20D2657000D705E0 /* CommonError.swift */; };
 		A925BEC022A1CB1F00CA0FF9 /* ElaspedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */; };
 		A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928C073200A91E500F5743A /* StickyHeaderLayout.swift */; };
-		A92AE9782109C5C000BA1B1D /* SyncType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92AE9772109C5C000BA1B1D /* SyncType.swift */; };
 		A92AE981210CC40B00BA1B1D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92AE980210CC40B00BA1B1D /* Log.swift */; };
 		A92B809020A8E5CE004139D3 /* SpearSwiftLibmacOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A92B809520A8E61B004139D3 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */; };
@@ -41,7 +41,6 @@
 		A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
 		A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */; };
 		A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */; };
-		A99A985E223EDF82009587A9 /* TableSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A985D223EDF82009587A9 /* TableSync.swift */; };
 		A99B282620A8EE04000601BB /* NSURLParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382BAA186B5807200ED203 /* NSURLParameters.swift */; };
 		A9A01A2121C3BF76009383A1 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A01A2021C3BF76009383A1 /* Decimal.swift */; };
 		A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */; };
@@ -62,7 +61,6 @@
 		A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */; };
 		A9D7B06A215F73FD00388595 /* ObservableEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7B069215F73FD00388595 /* ObservableEquatable.swift */; };
 		A9D7FA8B216A3E670077769A /* EventTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7FA8A216A3E670077769A /* EventTrackable.swift */; };
-		A9DBB20D22B0731100FB58B1 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = A9DBB20C22B0731100FB58B1 /* SwiftyBeaver */; };
 		A9DD450121B2BA9900C92DE8 /* URLSessionPinningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD450021B2BA9900C92DE8 /* URLSessionPinningDelegate.swift */; };
 		A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4C6322064F55F007735E1 /* OperationWithType.swift */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
@@ -114,14 +112,12 @@
 		A90BD31E20D2657000D705E0 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElaspedTime.swift; sourceTree = "<group>"; };
 		A928C073200A91E500F5743A /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
-		A92AE9772109C5C000BA1B1D /* SyncType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncType.swift; sourceTree = "<group>"; };
 		A92AE980210CC40B00BA1B1D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A92B808C20A8E5CE004139D3 /* SpearSwiftLibmacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLibmacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibmacOS.h; sourceTree = "<group>"; };
 		A92B808F20A8E5CE004139D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A937A8C5208889EF0089AA68 /* OperationWithClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithClosure.swift; sourceTree = "<group>"; };
 		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A957F6381FD4115100A49ACB /* LocationFindableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFindableFake.swift; sourceTree = "<group>"; };
 		A960FE6421DCBAD700323213 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -137,7 +133,6 @@
 		A97B76C01FD2BB68002F8A40 /* LocationManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManageable.swift; sourceTree = "<group>"; };
 		A97C6D371EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensions.swift; sourceTree = "<group>"; };
 		A97C6D391EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtensionsTest.swift; sourceTree = "<group>"; };
-		A99A985D223EDF82009587A9 /* TableSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSync.swift; sourceTree = "<group>"; };
 		A9A01A2021C3BF76009383A1 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		A9A14CD91EE4804B00E1FAF7 /* ArrayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
 		A9A14CDA1EE4804B00E1FAF7 /* BoundingBoxTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBoxTest.swift; sourceTree = "<group>"; };
@@ -210,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9DBB20D22B0731100FB58B1 /* SwiftyBeaver in Frameworks */,
+				A9084DA722E076E200FF8DB9 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +279,6 @@
 		A96EE60F1DB3B09C00E55997 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A9503DE11ED6DEAD0011B5AF /* SwiftyBeaver.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -297,14 +291,6 @@
 				A97B76C01FD2BB68002F8A40 /* LocationManageable.swift */,
 			);
 			path = LocationFinder;
-			sourceTree = "<group>";
-		};
-		A99A985C223EDF72009587A9 /* CloudKit */ = {
-			isa = PBXGroup;
-			children = (
-				A99A985D223EDF82009587A9 /* TableSync.swift */,
-			);
-			path = CloudKit;
 			sourceTree = "<group>";
 		};
 		A9A14CD81EE4804B00E1FAF7 /* SpearSwiftLibTests */ = {
@@ -374,7 +360,6 @@
 		E638210CE122197B634B4A73 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
-				A99A985C223EDF72009587A9 /* CloudKit */,
 				E6382C67407362707E839FD1 /* Extensions */,
 				E638220E4C39877F55761B2A /* JSON */,
 				A97B76B31FCEC234002F8A40 /* LocationFinder */,
@@ -404,7 +389,6 @@
 				E63824D493802DF10076CB1F /* Queue.swift */,
 				E6382C1AA0142F475A54A631 /* SpearSwiftLib.h */,
 				E63825BD8B8EB9D99BFF6E52 /* StringBuilder.swift */,
-				A92AE9772109C5C000BA1B1D /* SyncType.swift */,
 				A9D7FA8A216A3E670077769A /* EventTrackable.swift */,
 				A9A01A2021C3BF76009383A1 /* Decimal.swift */,
 				A9A35D0C2253541B003DEE4D /* NameDescribable.swift */,
@@ -524,7 +508,7 @@
 			);
 			name = SpearSwiftLib;
 			packageProductDependencies = (
-				A9DBB20C22B0731100FB58B1 /* SwiftyBeaver */,
+				A9084DA622E076E200FF8DB9 /* SwiftyBeaver */,
 			);
 			productName = SpearSwiftLib;
 			productReference = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */;
@@ -658,7 +642,6 @@
 				A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */,
 				A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */,
 				E638218B9054A7D862B56367 /* ScrollViewExtensions.swift in Sources */,
-				A92AE9782109C5C000BA1B1D /* SyncType.swift in Sources */,
 				E6382115C8363969E4C75210 /* StringExtensions.swift in Sources */,
 				E63826377CA5ED6CD53F4054 /* NumberExtensions.swift in Sources */,
 				A97B76C11FD2BB68002F8A40 /* LocationManageable.swift in Sources */,
@@ -700,7 +683,6 @@
 				A925BEC022A1CB1F00CA0FF9 /* ElaspedTime.swift in Sources */,
 				A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */,
 				E63824A90C85F100812A9C27 /* NetworkDownloadOperation.swift in Sources */,
-				A99A985E223EDF82009587A9 /* TableSync.swift in Sources */,
 				A96CB5FF2060ED16004D509D /* NSPointerArrayExtensions.swift in Sources */,
 				A9A35D0D2253541B003DEE4D /* NameDescribable.swift in Sources */,
 				A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */,
@@ -868,7 +850,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -920,7 +902,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1106,7 +1088,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A9DBB20C22B0731100FB58B1 /* SwiftyBeaver */ = {
+		A9084DA622E076E200FF8DB9 /* SwiftyBeaver */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A9DBB20B22B0731100FB58B1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
