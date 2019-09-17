@@ -26,14 +26,12 @@
 		A941586C20A8E87B00202F1B /* NSPointerArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */; };
 		A9503DEC1ED6E1100011B5AF /* SpearSwiftLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */; };
 		A9573A8D20AADA0B0078501A /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
-		A957F6391FD4115100A49ACB /* LocationFindableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957F6381FD4115100A49ACB /* LocationFindableFake.swift */; };
 		A960FE6521DCBAD700323213 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A960FE6421DCBAD700323213 /* UIColorExtensions.swift */; };
 		A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
 		A961CD682085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */; };
 		A961CD6A2085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */; };
 		A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */; };
 		A96CB5FF2060ED16004D509D /* NSPointerArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */; };
-		A97B76B21FCEBBFF002F8A40 /* LocationFinderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */; };
 		A97B76B51FCEC234002F8A40 /* LocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76B41FCEC234002F8A40 /* LocationFinder.swift */; };
 		A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76BA1FD00C09002F8A40 /* GeocodeFinder.swift */; };
 		A97B76BD1FD012DF002F8A40 /* GeocodeFinderFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76BC1FD012DF002F8A40 /* GeocodeFinderFake.swift */; };
@@ -55,7 +53,6 @@
 		A9C162FC205BA2F30091F4C3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C162FB205BA2F30091F4C3 /* Observable.swift */; };
 		A9C45BFF205BBFBE00514561 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45BFE205BBFBE00514561 /* Disposable.swift */; };
 		A9C45C01205D0AD300514561 /* ObservableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45C00205D0AD300514561 /* ObservableTest.swift */; };
-		A9C8A4471FD2DD520069CC27 /* LocationManageableFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */; };
 		A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		A9D5AC8A204C218800BEAA75 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC89204C218800BEAA75 /* BaseNotification.swift */; };
 		A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */; };
@@ -119,14 +116,12 @@
 		A937A8C5208889EF0089AA68 /* OperationWithClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithClosure.swift; sourceTree = "<group>"; };
 		A942A9861A9F251800C69271 /* SpearSwiftLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9503DE71ED6E1100011B5AF /* SpearSwiftLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearSwiftLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A957F6381FD4115100A49ACB /* LocationFindableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFindableFake.swift; sourceTree = "<group>"; };
 		A960FE6421DCBAD700323213 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		A9611AF51EE7EBD80096154A /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnetLocationPermissionStatus.swift; sourceTree = "<group>"; };
 		A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationPermissionStatusFake.swift; sourceTree = "<group>"; };
 		A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPointerArrayExtensions.swift; sourceTree = "<group>"; };
-		A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderTest.swift; sourceTree = "<group>"; };
 		A97B76B41FCEC234002F8A40 /* LocationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
 		A97B76BA1FD00C09002F8A40 /* GeocodeFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeFinder.swift; sourceTree = "<group>"; };
 		A97B76BC1FD012DF002F8A40 /* GeocodeFinderFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeFinderFake.swift; sourceTree = "<group>"; };
@@ -147,7 +142,6 @@
 		A9C162FB205BA2F30091F4C3 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A9C45BFE205BBFBE00514561 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		A9C45C00205D0AD300514561 /* ObservableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
-		A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManageableFake.swift; sourceTree = "<group>"; };
 		A9D01DE51F30733F007F7A74 /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		A9D5AC89204C218800BEAA75 /* BaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotification.swift; sourceTree = "<group>"; };
 		A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationChangedNotification.swift; sourceTree = "<group>"; };
@@ -306,7 +300,6 @@
 				A9A14CE21EE4804B00E1FAF7 /* OperationTest.swift */,
 				A9A14CE31EE4804B00E1FAF7 /* StringBuilderTest.swift */,
 				A9A14CE41EE4804B00E1FAF7 /* StringTests.swift */,
-				A97B76B11FCEBBFF002F8A40 /* LocationFinderTest.swift */,
 				A9C45C00205D0AD300514561 /* ObservableTest.swift */,
 			);
 			path = SpearSwiftLibTests;
@@ -317,8 +310,6 @@
 			children = (
 				A9A14CF91EE4850C00E1FAF7 /* RequestBuildableMock.swift */,
 				A97B76BC1FD012DF002F8A40 /* GeocodeFinderFake.swift */,
-				A9C8A4461FD2DD520069CC27 /* LocationManageableFake.swift */,
-				A957F6381FD4115100A49ACB /* LocationFindableFake.swift */,
 				A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */,
 			);
 			path = Mocks;
@@ -697,7 +688,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A957F6391FD4115100A49ACB /* LocationFindableFake.swift in Sources */,
 				A9A14CF11EE480F400E1FAF7 /* StringTests.swift in Sources */,
 				A9A14CF61EE4811B00E1FAF7 /* DateTest.swift in Sources */,
 				A9A14CF01EE480AD00E1FAF7 /* ArrayTest.swift in Sources */,
@@ -705,12 +695,10 @@
 				A97C6D3A1EF6E06D00CE9629 /* CLLocationCoordinate2DExtensionsTest.swift in Sources */,
 				A9A14CFA1EE4850C00E1FAF7 /* RequestBuildableMock.swift in Sources */,
 				A97C6D3B1EF6E08200CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
-				A97B76B21FCEBBFF002F8A40 /* LocationFinderTest.swift in Sources */,
 				A97B76BD1FD012DF002F8A40 /* GeocodeFinderFake.swift in Sources */,
 				A9A14CF21EE4810000E1FAF7 /* StringBuilderTest.swift in Sources */,
 				A961CD6A2085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift in Sources */,
 				A9A14CF31EE4810200E1FAF7 /* OperationTest.swift in Sources */,
-				A9C8A4471FD2DD520069CC27 /* LocationManageableFake.swift in Sources */,
 				A9A14CF71EE4811E00E1FAF7 /* BoundingBoxTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -927,7 +915,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -960,7 +948,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

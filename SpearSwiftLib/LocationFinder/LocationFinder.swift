@@ -6,6 +6,7 @@
 //  Copyright © 2016 spearware. All rights reserved.
 //
 
+import Combine
 import CoreLocation
 import Foundation
 
@@ -88,8 +89,7 @@ public protocol LocationFindable {
      - parameter accuracy: How accurate does the location search need to be? The larger the number the quicker the response time
      - parameter result: The result of the call
      */
-    func find(accuracy: CLLocationAccuracy,
-              result: @escaping (ResultHavingType<GPSLocation>) -> Void)
+    func find(accuracy: CLLocationAccuracy) -> AnyPublisher<GPSLocation, Error>
 }
 
 // MARK: - FoundLocation
@@ -155,6 +155,15 @@ extension LocationFinder: LocationManagerDelegate {
 }
 
 extension LocationFinder: LocationFindable {
+    public func find(accuracy: CLLocationAccuracy) -> AnyPublisher<GPSLocation, Error> {
+        locationManager.desiredAccuracy = accuracy
+
+        return locationManager.foundLocations
+            .compactMap { $0.first }
+            .flatMap { self.reverseGeocode($0) }
+            .eraseToAnyPublisher()
+    }
+
     /**
      Finds the current location
 
@@ -170,7 +179,7 @@ extension LocationFinder: LocationFindable {
             return
         }
 
-        let status = locationManager.authorizationStatus
+        let status = locationManager.authorizationStatus.value
 
         switch status {
         case .authorizedWhenInUse:
@@ -181,6 +190,7 @@ extension LocationFinder: LocationFindable {
         case .denied, .restricted:
             result(ResultHavingType<GPSLocation>.error(error: LocationFindableError.notAuthorized))
         case .notDetermined:
+
             locationManager.requestWhenInUseAuthorization()
         @unknown default:
             assertionFailure("Unknown status: \(status)")
@@ -191,19 +201,21 @@ extension LocationFinder: LocationFindable {
 // MARK: - Reverse Geocode
 
 private extension LocationFinder {
-    func reverseGeocode(_ location: CLLocation) {
-        geocodeFinder.find(location) { [weak self] geocodeResult in
+    func reverseGeocode(_ location: CLLocation) -> AnyPublisher<GPSLocation, Error> {
+        let geocodeFinder = self.geocodeFinder
 
-            guard let mySelf = self else { return }
-
-            switch geocodeResult {
-            case let .success(result: placemark):
-                let foundLocation = FoundLocation(placemark: placemark,
-                                                  location: location)
-                mySelf.result?(ResultHavingType<GPSLocation>.success(result: foundLocation))
-            case let .error(error: error):
-                mySelf.result?(ResultHavingType<GPSLocation>.error(error: error))
+        return Future<GPSLocation, Error> { promise in
+            geocodeFinder.find(location) { geocodeResult in
+                switch geocodeResult {
+                case let .success(result: placemark):
+                    let foundLocation = FoundLocation(placemark: placemark,
+                                                      location: location)
+                    promise(.success(foundLocation))
+                case let .error(error: error):
+                    promise(.failure(error))
+                }
             }
-        }
+
+        }.eraseToAnyPublisher()
     }
 }
