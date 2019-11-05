@@ -15,7 +15,5 @@ public protocol CurrentDateFetchable {
 public struct CurrentDateFetcher: CurrentDateFetchable {
     public init() {}
 
-    public func currentDateTime() -> Date {
-        return Date()
-    }
+    public func currentDateTime() -> Date { Date() }
 }

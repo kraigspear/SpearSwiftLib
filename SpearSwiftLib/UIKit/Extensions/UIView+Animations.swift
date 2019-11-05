@@ -81,6 +81,8 @@ public extension UIView {
     }
 
     func fadeOut(withDuration: TimeInterval = 0.25) {
+        guard canFadeOut else { return }
+
         layer.opacity = 1.0
 
         let animation: () -> Void = { [weak self] in
@@ -90,5 +92,10 @@ public extension UIView {
         UIView.animate(withDuration: withDuration, animations: animation) { [weak self] _ in
             self?.isHidden = true
         }
+    }
+
+    /// Is this view visible, can it be faded out?
+    var canFadeOut: Bool {
+        return !isHidden && layer.opacity != 0.0
     }
 }

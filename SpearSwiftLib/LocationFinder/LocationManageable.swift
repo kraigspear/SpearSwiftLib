@@ -70,6 +70,7 @@ final class LocationManager: NSObject, LocationManageable {
     public override init() {
         authorizationStatus = LocationAuthorizationStatus(CLLocationManager.authorizationStatus())
         super.init()
+        coreLocationManager.allowsBackgroundLocationUpdates = true
         coreLocationManager.delegate = self
     }
 
@@ -89,33 +90,6 @@ final class LocationManager: NSObject, LocationManageable {
     }
 
     // MARK: - Publishers
-
-    /// <#Description#>
-    public var isAuthorized: AnyPublisher<Bool, Error> {
-        return Future<Bool, Error> { [weak self] promise in
-
-            guard let self = self else { return }
-
-            self.cancelAuthStatus = self.authorizationStatus.sink(receiveCompletion: { completed in
-
-                switch completed {
-                case let .failure(error):
-                    promise(.failure(LocationFindError.locationManagerError(error: error)))
-                case .finished:
-                    break
-                }
-
-            }) { status in
-
-                switch status {
-                case .authorizedAlways, .authorizedWhenInUse:
-                    promise(.success(true))
-                default:
-                    promise(.success(false))
-                }
-            }
-        }.eraseToAnyPublisher()
-    }
 
     public var foundLocations: AnyPublisher<[CLLocation], Error> {
         return Future<[CLLocation], Error> { [weak self] promise in
@@ -167,12 +141,14 @@ final class LocationManager: NSObject, LocationManageable {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         assert(delegate != nil, "delegate is nil?")
+        log.info("locationManager.didUpdateLocations.count: \(locations.count)", context: logContext)
         didUpdateLocationsSubject.send(locations)
         delegate?.onLocationsFound(locations)
     }
 
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {
         assert(delegate != nil, "delegate is nil?")
+        log.error("locationManager.didFailWithError: \(error)")
         let locationFindError = LocationFindError.locationManagerError(error: error)
         didUpdateLocationsSubject.send(completion: Subscribers.Completion.failure(locationFindError))
         delegate?.onLocationManagerError(error)
@@ -180,6 +156,7 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         assert(delegate != nil, "delegate is nil?")
+        log.info("locationManager.didChangeAuthorization: \(status)", context: logContext)
         authorizationStatus.send(status)
         delegate?.onAuthorizationStatusChanged(status)
     }
