@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A9031748235B4FFA00C127C4 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = A9031747235B4FFA00C127C4 /* SwiftyBeaver */; };
 		A90BD31F20D2657000D705E0 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90BD31E20D2657000D705E0 /* CommonError.swift */; };
+		A90DD32A2382AC4200F534EA /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DD3292382AC4200F534EA /* MKMapViewExtensions.swift */; };
 		A925BEC022A1CB1F00CA0FF9 /* ElaspedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */; };
 		A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928C073200A91E500F5743A /* StickyHeaderLayout.swift */; };
 		A92AE981210CC40B00BA1B1D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92AE980210CC40B00BA1B1D /* Log.swift */; };
@@ -109,6 +110,7 @@
 
 /* Begin PBXFileReference section */
 		A90BD31E20D2657000D705E0 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
+		A90DD3292382AC4200F534EA /* MKMapViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewExtensions.swift; sourceTree = "<group>"; };
 		A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElaspedTime.swift; sourceTree = "<group>"; };
 		A928C073200A91E500F5743A /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
 		A92AE980210CC40B00BA1B1D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				E63821721770246A2EEE4BEB /* NumberExtensions.swift */,
 				E6382594E62CEF6138C665FD /* ScrollViewExtensions.swift */,
 				E63825DD573AAF519D5C43E2 /* StringExtensions.swift */,
+				A90DD3292382AC4200F534EA /* MKMapViewExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				A9611AF61EE7EBD80096154A /* GetRequest.swift in Sources */,
 				A9A01A2121C3BF76009383A1 /* Decimal.swift in Sources */,
 				E6382071064046B909E5675E /* BoundingBox.swift in Sources */,
+				A90DD32A2382AC4200F534EA /* MKMapViewExtensions.swift in Sources */,
 				E6382688A9AB20D46AB5FF4E /* ClosureTypes.swift in Sources */,
 				E6382CA68B2E500000E60510 /* CoordinateBoundaries.swift in Sources */,
 				E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */,
