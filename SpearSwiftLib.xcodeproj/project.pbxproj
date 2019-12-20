@@ -3,15 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9031748235B4FFA00C127C4 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = A9031747235B4FFA00C127C4 /* SwiftyBeaver */; };
 		A90BD31F20D2657000D705E0 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90BD31E20D2657000D705E0 /* CommonError.swift */; };
 		A90DD32A2382AC4200F534EA /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DD3292382AC4200F534EA /* MKMapViewExtensions.swift */; };
 		A925BEC022A1CB1F00CA0FF9 /* ElaspedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */; };
-		A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928C073200A91E500F5743A /* StickyHeaderLayout.swift */; };
 		A92AE981210CC40B00BA1B1D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92AE980210CC40B00BA1B1D /* Log.swift */; };
 		A92B809020A8E5CE004139D3 /* SpearSwiftLibmacOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A92B809520A8E61B004139D3 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */; };
@@ -57,6 +55,7 @@
 		A9C162FC205BA2F30091F4C3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C162FB205BA2F30091F4C3 /* Observable.swift */; };
 		A9C45BFF205BBFBE00514561 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45BFE205BBFBE00514561 /* Disposable.swift */; };
 		A9C45C01205D0AD300514561 /* ObservableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C45C00205D0AD300514561 /* ObservableTest.swift */; };
+		A9C73EEB23A6B92100FD0D2E /* DateMathProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C73EEA23A6B92100FD0D2E /* DateMathProtocol.swift */; };
 		A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D01DE51F30733F007F7A74 /* DateFormatters.swift */; };
 		A9D5AC8A204C218800BEAA75 /* BaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC89204C218800BEAA75 /* BaseNotification.swift */; };
 		A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */; };
@@ -112,7 +111,6 @@
 		A90BD31E20D2657000D705E0 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		A90DD3292382AC4200F534EA /* MKMapViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewExtensions.swift; sourceTree = "<group>"; };
 		A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElaspedTime.swift; sourceTree = "<group>"; };
-		A928C073200A91E500F5743A /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
 		A92AE980210CC40B00BA1B1D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A92B808C20A8E5CE004139D3 /* SpearSwiftLibmacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpearSwiftLibmacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpearSwiftLibmacOS.h; sourceTree = "<group>"; };
@@ -149,6 +147,7 @@
 		A9C162FB205BA2F30091F4C3 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A9C45BFE205BBFBE00514561 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		A9C45C00205D0AD300514561 /* ObservableTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
+		A9C73EEA23A6B92100FD0D2E /* DateMathProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMathProtocol.swift; sourceTree = "<group>"; };
 		A9D01DE51F30733F007F7A74 /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		A9D5AC89204C218800BEAA75 /* BaseNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotification.swift; sourceTree = "<group>"; };
 		A9D5AC8B204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientationChangedNotification.swift; sourceTree = "<group>"; };
@@ -205,7 +204,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9031748235B4FFA00C127C4 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				A950FD8721FDC554000EADF8 /* Extensions */,
-				A928C073200A91E500F5743A /* StickyHeaderLayout.swift */,
 				A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */,
 				A960FE6421DCBAD700323213 /* UIColorExtensions.swift */,
 				A93FABF8233796B1002D144E /* IsHideable.swift */,
@@ -392,6 +389,7 @@
 				A9A35D0C2253541B003DEE4D /* NameDescribable.swift */,
 				A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */,
 				A93EF65B2351E8B500095404 /* DataCache.swift */,
+				A9C73EEA23A6B92100FD0D2E /* DateMathProtocol.swift */,
 			);
 			path = SpearSwiftLib;
 			sourceTree = "<group>";
@@ -500,7 +498,6 @@
 				A942A9811A9F251800C69271 /* Sources */,
 				A942A9821A9F251800C69271 /* Frameworks */,
 				A942A9831A9F251800C69271 /* Headers */,
-				A942A9841A9F251800C69271 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -508,7 +505,6 @@
 			);
 			name = SpearSwiftLib;
 			packageProductDependencies = (
-				A9031747235B4FFA00C127C4 /* SwiftyBeaver */,
 			);
 			productName = SpearSwiftLib;
 			productReference = A942A9861A9F251800C69271 /* SpearSwiftLib.framework */;
@@ -571,7 +567,6 @@
 			);
 			mainGroup = A942A97C1A9F251800C69271;
 			packageReferences = (
-				A9031746235B4FFA00C127C4 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 			);
 			productRefGroup = A942A9871A9F251800C69271 /* Products */;
 			projectDirPath = "";
@@ -586,13 +581,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		A92B808A20A8E5CE004139D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A942A9841A9F251800C69271 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -639,7 +627,6 @@
 				A9C45BFF205BBFBE00514561 /* Disposable.swift in Sources */,
 				E63822B759494C70E92F7E77 /* FileManagerExtensions.swift in Sources */,
 				E63829D7CB4D53692A2DB1CD /* LocalExtensions.swift in Sources */,
-				A928C074200A91E500F5743A /* StickyHeaderLayout.swift in Sources */,
 				A9D01DE61F30733F007F7A74 /* DateFormatters.swift in Sources */,
 				E638218B9054A7D862B56367 /* ScrollViewExtensions.swift in Sources */,
 				E6382115C8363969E4C75210 /* StringExtensions.swift in Sources */,
@@ -663,6 +650,7 @@
 				A9A01A2121C3BF76009383A1 /* Decimal.swift in Sources */,
 				E6382071064046B909E5675E /* BoundingBox.swift in Sources */,
 				A90DD32A2382AC4200F534EA /* MKMapViewExtensions.swift in Sources */,
+				A9C73EEB23A6B92100FD0D2E /* DateMathProtocol.swift in Sources */,
 				E6382688A9AB20D46AB5FF4E /* ClosureTypes.swift in Sources */,
 				E6382CA68B2E500000E60510 /* CoordinateBoundaries.swift in Sources */,
 				E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */,
@@ -748,11 +736,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = SpearSwiftLibmacOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibmacOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -786,18 +770,13 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = SpearSwiftLibmacOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.SpearSwiftLibmacOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -850,7 +829,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -902,9 +881,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -927,12 +907,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DIOS_SIMULATOR -DDEBUG";
@@ -960,18 +936,13 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SpearSwiftLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.spearswiftlib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -990,12 +961,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.thunderful.SpearSwiftLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1020,17 +986,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SpearSwiftLibTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.thunderful.SpearSwiftLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1075,25 +1035,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A9031746235B4FFA00C127C4 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A9031747235B4FFA00C127C4 /* SwiftyBeaver */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A9031746235B4FFA00C127C4 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
-			productName = SwiftyBeaver;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A942A97D1A9F251800C69271 /* Project object */;
 }

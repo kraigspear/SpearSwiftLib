@@ -7,13 +7,10 @@
 //
 
 import Foundation
-import SwiftyBeaver
+import os.log
 
 final class URLSessionPinningDelegate: NSObject, URLSessionDelegate {
     private let certificate: Data
-
-    private let log = SwiftyBeaver.self
-    private let logContext = "🧚‍♀️Network"
 
     init(certificate: Data) {
         self.certificate = certificate
@@ -22,13 +19,16 @@ final class URLSessionPinningDelegate: NSObject, URLSessionDelegate {
     func urlSession(_: URLSession,
                     didReceive challenge: URLAuthenticationChallenge,
                     completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        let log = self.log
-        let logContext = self.logContext
+		let log = Log.network
 
-        log.info("Checking CERT", context: logContext)
+		os_log("Checking CERT",
+			   log: log,
+			   type: .info)
 
         let failed = {
-            log.info("Failed!!!", context: logContext)
+			os_log("Failed!!!",
+				   log: log,
+				   type: .error)
             completionHandler(URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
         }
 
@@ -60,7 +60,9 @@ final class URLSessionPinningDelegate: NSObject, URLSessionDelegate {
         let cert1 = Data(bytes: data, count: size)
 
         if cert1 == certificate {
-            log.info("CERT is valid", context: logContext)
+			os_log("CERT is valid",
+				   log: log,
+				   type: .info)
             completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: serverTrust))
         } else {
             failed()

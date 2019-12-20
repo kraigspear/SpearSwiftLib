@@ -21,13 +21,13 @@ public protocol CenterOnCoordinateSettable {
     /// - Parameter centerCoordinate: Coordinate to center on
     /// - Parameter span: Zoom level
     /// - Parameter animated: should the change be animated
-    func setCenter(_ location: MapLocation,
+    func setCenter(on location: MapLocation,
                    span: Double,
                    animated: Bool)
 }
 
 extension MKMapView: CenterOnCoordinateSettable {
-    public func setCenter(_ location: MapLocation,
+    public func setCenter(on location: MapLocation,
                           span: Double,
                           animated: Bool) {
         // https://stackoverflow.com/questions/4189621/setting-the-zoom-level-for-a-mkmapview

@@ -9,8 +9,10 @@
 import Foundation
 import os.log
 
+
 struct Log {
-    static let general = "📜General"
-    static let network = "🧚‍♀️Network"
-    static let sync = "🐸Sync"
+	static let general = OSLog(subsystem: "com.spearware.spearswiftlib", category: "📜General")
+	static let network = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🧚‍♀️Network")
+	static let sync = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🐸Sync")
+	static let location = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🗺Location")
 }

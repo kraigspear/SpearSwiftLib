@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import SwiftyBeaver
+import os.log
 
 open class NetworkDownloadOperation<Type>: BaseOperation {
     private let requestBuilder: RequestBuildable
@@ -15,8 +15,7 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
 
     private var task: URLSessionDataTask!
 
-    private let logContext = Log.network
-    private let log = SwiftyBeaver.self
+    private let log = Log.network
 
     public init(requestBuilder: RequestBuildable,
                 timeout: Double = 10.0,
@@ -27,15 +26,22 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
     }
 
     open override func cancel() {
-        log.debug("Network download operation cancelled", context: logContext)
+		os_log("Network download operation cancelled",
+			   log: log,
+			   type: .debug)
         super.cancel()
     }
 
     open override func main() {
-        log.info("Main", context: logContext)
+		
+		os_log("Main",
+			   log: log,
+			   type: .info)
 
         guard isCancelled == false else {
-            log.debug("Operation cancelled", context: logContext)
+			os_log("Operation cancelled",
+				   log: log,
+				   type: .debug)
             done()
             return
         }
@@ -43,8 +49,11 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
         let request = requestBuilder.request
         let url = request.url!.debugDescription
 
-        log.debug("Downloading: \(url) ", context: logContext)
-
+		os_log("Downloading: %s",
+			   log: log,
+			   type: .debug,
+			   url)
+		
         let pinningDelegate: URLSessionPinningDelegate?
         if let pinningCertTo = pinningCert {
             pinningDelegate = URLSessionPinningDelegate(certificate: pinningCertTo)
@@ -59,13 +68,14 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
                                  delegate: pinningDelegate,
                                  delegateQueue: nil)
 
-        var time = ElaspedTime()
-
         task = session.dataTask(with: request) { [weak self] (data: Data?, response: URLResponse?, error: Error?) in
 
             guard let self = self else { return }
 
-            self.log.debug("Finshed download of: \(url) in: \(time.stop())", context: self.logContext)
+			os_log("Finshed download of: %s",
+				   log: self.log,
+				   type: .debug,
+				   url)
 
             defer {
                 assert(!(self.result == nil && self.error == nil) || self.isCancelled,
@@ -73,15 +83,22 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
                 self.done()
             }
 
-            self.log.debug("Request completed: \(url)", context: self.logContext)
-
             guard self.isCancelled == false else {
-                self.log.debug("Request cancelled: \(url)", context: self.logContext)
+				
+				os_log("equest cancelled:: %s",
+					   log: self.log,
+					   type: .debug,
+					   url)
+				
                 return
             }
 
             if let error = error {
-                self.log.error("Error downloading data: \(error.localizedDescription) url: \(url)", context: self.logContext)
+				os_log("Error downloading data: %s with error: %{public}s",
+					   log: self.log,
+					   type: .error,
+					   url,
+					   error.localizedDescription)
                 self.error = error
                 return
             }
@@ -91,26 +108,46 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
             // write new code to handle it.
             let response = response as! HTTPURLResponse
 
-            self.log.debug("Download Status code: \(response.statusCode) for url: \(url)", context: self.logContext)
-
+			os_log("Download Status code: %d for url: %s",
+				   log: self.log,
+				   type: .debug,
+				   response.statusCode,
+				   url)
+			
             guard response.statusCode == 200 else {
-                self.log.warning("Download Status code not 200: \(response.statusCode) for url: \(url)", context: self.logContext)
+				
+				os_log("Download Status code not 200: %s with url: %s",
+					   log: self.log,
+					   type: .error,
+					   response.statusCode,
+					   url)
 
                 self.error = NetworkError.statusCodeError(statusCode: response.statusCode)
                 return
             }
 
             if let data = data {
-                self.log.debug("Attempt to convert data from service to Operation Type", context: self.logContext)
 
+				os_log("Attempt to convert data from service to Operation Type",
+					   log: self.log,
+					   type: .debug)
+				
                 self.result = self.convertTo(data)
 
                 if self.result == nil {
-                    self.log.error("Data is nil, failed to convert url: \(url)", url)
-
+					
+					os_log("Data is nil, failed to convert url: %s",
+						   log: self.log,
+						   type: .error,
+						   url)
+					
                     fatalError("Data is nil, failed to convert")
                 } else {
-                    self.log.debug("Successfully convert data from service to: \(String(describing: Type.self))", context: self.logContext)
+					
+					os_log("Successfully convert data from service to: %s",
+						   log: self.log,
+						   type: .debug,
+						   String(describing: Type.self))
                 }
 
             } else {
@@ -118,8 +155,11 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
             }
         }
 
-        log.info("Starting download url: \(url)", context: logContext)
-
+		os_log("Starting download url: %s",
+			   log: log,
+			   type: .info,
+			   url)
+		
         task.resume()
         session.finishTasksAndInvalidate()
     }

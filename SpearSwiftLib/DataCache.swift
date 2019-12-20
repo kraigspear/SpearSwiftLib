@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftyBeaver
+import os.log
 
 /// Object that can be cached
 class Cached: NSObject {
@@ -26,12 +26,16 @@ class Cached: NSObject {
     }
 }
 
+public protocol DataCachable: class {
+	func data(forKey: String) -> Data?
+	func set(data: Data, forKey: String, expireingInMinutes: Int)
+}
+
 /// Helper class to cache Data objects
-public class DataCache {
-    private let log = SwiftyBeaver.self
-    private let logContext = Log.general
+public class DataCache: DataCachable {
 
     private let cache = NSCache<NSString, Cached>()
+	private let log = Log.general
 
     public init() {}
 
@@ -43,12 +47,16 @@ public class DataCache {
 
         if let cachedObject = cache.object(forKey: nsKey) {
             if cachedObject.isExpired {
-                log.debug("Removing old object")
+				os_log("Removing old object",
+					   log: log,
+					   type: .debug)
+				
                 cache.removeObject(forKey: nsKey)
                 return nil
             }
-
-            log.verbose("Using cached object", context: logContext)
+			os_log("Using cached object",
+				   log: log,
+				   type: .debug)
             return cachedObject.data
         }
 
@@ -62,6 +70,9 @@ public class DataCache {
     public func set(data: Data, forKey: String, expireingInMinutes: Int = 10) {
         let cached = Cached(data: data, expiresInMinutes: expireingInMinutes)
         cache.setObject(cached, forKey: NSString(string: forKey))
-        log.debug("stored cached object: \(forKey)", context: logContext)
+		os_log("stored cached object: %s",
+			   log: self.log,
+			   type: .debug,
+			   forKey)
     }
 }
