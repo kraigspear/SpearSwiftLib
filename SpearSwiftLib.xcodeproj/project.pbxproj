@@ -33,6 +33,7 @@
 		A961CD682085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */; };
 		A961CD6A2085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */; };
 		A9653E121F1BFDA100404BDC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */; };
+		A96AFC6B23AE1D320051F96B /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96AFC6A23AE1D320051F96B /* StickyHeaderLayout.swift */; };
 		A96CB5FF2060ED16004D509D /* NSPointerArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */; };
 		A97B76B51FCEC234002F8A40 /* LocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76B41FCEC234002F8A40 /* LocationFinder.swift */; };
 		A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97B76BA1FD00C09002F8A40 /* GeocodeFinder.swift */; };
@@ -63,6 +64,7 @@
 		A9D7FA8B216A3E670077769A /* EventTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7FA8A216A3E670077769A /* EventTrackable.swift */; };
 		A9DD450121B2BA9900C92DE8 /* URLSessionPinningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD450021B2BA9900C92DE8 /* URLSessionPinningDelegate.swift */; };
 		A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E4C6322064F55F007735E1 /* OperationWithType.swift */; };
+		A9ED96DC23B36807002D2247 /* RemoteDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ED96DB23B36807002D2247 /* RemoteDataAccess.swift */; };
 		E6382071064046B909E5675E /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DAF767CBC864F764F7B /* BoundingBox.swift */; };
 		E6382084021E0D17E2AFEEB1 /* CurrentDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */; };
 		E6382098F0F0DEA735B346F9 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382A47A433272D3C296340 /* Platform.swift */; };
@@ -126,6 +128,7 @@
 		A961CD672085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrnetLocationPermissionStatus.swift; sourceTree = "<group>"; };
 		A961CD692085F53800EEFE73 /* CurrentLocationPermissionStatusFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationPermissionStatusFake.swift; sourceTree = "<group>"; };
 		A9653E111F1BFDA100404BDC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		A96AFC6A23AE1D320051F96B /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
 		A96CB5FE2060ED16004D509D /* NSPointerArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPointerArrayExtensions.swift; sourceTree = "<group>"; };
 		A97B76B41FCEC234002F8A40 /* LocationFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
 		A97B76BA1FD00C09002F8A40 /* GeocodeFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeFinder.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		A9D9CE4E1C472D6C00D39DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9DD450021B2BA9900C92DE8 /* URLSessionPinningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionPinningDelegate.swift; sourceTree = "<group>"; };
 		A9E4C6322064F55F007735E1 /* OperationWithType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationWithType.swift; sourceTree = "<group>"; };
+		A9ED96DB23B36807002D2247 /* RemoteDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataAccess.swift; sourceTree = "<group>"; };
 		E6382132FEE6D5DAB8270707 /* CurrentDateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDateTime.swift; sourceTree = "<group>"; };
 		E638217124D04DC7A8288430 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		E63821721770246A2EEE4BEB /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
@@ -222,10 +226,11 @@
 			isa = PBXGroup;
 			children = (
 				A950FD8721FDC554000EADF8 /* Extensions */,
-				A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */,
-				A960FE6421DCBAD700323213 /* UIColorExtensions.swift */,
-				A93FABF8233796B1002D144E /* IsHideable.swift */,
 				A93FABFA23379A25002D144E /* BackgroundImageSettable.swift */,
+				A93FABF8233796B1002D144E /* IsHideable.swift */,
+				A96AFC6A23AE1D320051F96B /* StickyHeaderLayout.swift */,
+				A960FE6421DCBAD700323213 /* UIColorExtensions.swift */,
+				A9ADC6A6216136F000DECD69 /* UIView+Layout.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -345,6 +350,14 @@
 			path = SpearSwiftLibOSX;
 			sourceTree = "<group>";
 		};
+		A9ED96DA23B36774002D2247 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				A9ED96DB23B36807002D2247 /* RemoteDataAccess.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
 		E6382097358E63E4FAF9EA73 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +369,7 @@
 		E638210CE122197B634B4A73 /* SpearSwiftLib */ = {
 			isa = PBXGroup;
 			children = (
+				A9ED96DA23B36774002D2247 /* CloudKit */,
 				E6382C67407362707E839FD1 /* Extensions */,
 				E638220E4C39877F55761B2A /* JSON */,
 				A97B76B31FCEC234002F8A40 /* LocationFinder */,
@@ -663,6 +677,7 @@
 				E638250509C7F81A6F885948 /* NotificationMessageView.swift in Sources */,
 				E638255C63D83775B55E645B /* NSURLParameters.swift in Sources */,
 				A97C6D381EF6DD3E00CE9629 /* CLLocationCoordinate2DExtensions.swift in Sources */,
+				A96AFC6B23AE1D320051F96B /* StickyHeaderLayout.swift in Sources */,
 				A9D5AC8C204C21B400BEAA75 /* DeviceOrientationChangedNotification.swift in Sources */,
 				A9D7FA8B216A3E670077769A /* EventTrackable.swift in Sources */,
 				A9ADC6A7216136F000DECD69 /* UIView+Layout.swift in Sources */,
@@ -674,6 +689,7 @@
 				A9E4C6332064F55F007735E1 /* OperationWithType.swift in Sources */,
 				E63824A90C85F100812A9C27 /* NetworkDownloadOperation.swift in Sources */,
 				A96CB5FF2060ED16004D509D /* NSPointerArrayExtensions.swift in Sources */,
+				A9ED96DC23B36807002D2247 /* RemoteDataAccess.swift in Sources */,
 				A9A35D0D2253541B003DEE4D /* NameDescribable.swift in Sources */,
 				A97B76BB1FD00C09002F8A40 /* GeocodeFinder.swift in Sources */,
 				E6382AE94B745E00D06D2DCB /* JsonDownloadOperation.swift in Sources */,

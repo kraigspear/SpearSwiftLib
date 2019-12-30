@@ -116,7 +116,7 @@ open class NetworkDownloadOperation<Type>: BaseOperation {
 			
             guard response.statusCode == 200 else {
 				
-				os_log("Download Status code not 200: %s with url: %s",
+				os_log("Download Status code not 200: %d with url: %s",
 					   log: self.log,
 					   type: .error,
 					   response.statusCode,
