@@ -40,4 +40,9 @@ extension FileManager {
             return nil
         }
     }
+	
+	public func numberOfMinutesSinceCreated(_ url: URL) -> Int {
+		guard let fileDateTime = fileDateTime(url.absoluteString) else { return -1 }
+		return fileDateTime.numberOfMinutesBetweenNow()
+	}
 }

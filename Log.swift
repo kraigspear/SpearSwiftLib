@@ -12,6 +12,7 @@ import os.log
 
 struct Log {
 	static let general = OSLog(subsystem: "com.spearware.spearswiftlib", category: "📜General")
+	static let cache = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🧑‍🎤Cache")
 	static let network = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🧚‍♀️Network")
 	static let sync = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🐸Sync")
 	static let location = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🗺Location")

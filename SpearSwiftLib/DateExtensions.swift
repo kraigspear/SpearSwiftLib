@@ -196,7 +196,7 @@ public extension Date {
     func numberOfMinutesBetweenNow(absolute: Bool = true) -> Int {
         return numberOfMinutesBetween(Date(), absolute: absolute)
     }
-
+	
     /**
      Convert this date to a string formatted as zulu date
 
@@ -208,4 +208,7 @@ public extension Date {
         let firstFormatter = DateFormatters.instance.zulu.first!
         return firstFormatter.string(from: self)
     }
+	
+	/// Convience property for readability to encourage one way to get epoch. `timeIntervalSince1970`
+	var epoch: TimeInterval { timeIntervalSince1970 }
 }

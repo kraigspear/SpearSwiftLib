@@ -11,11 +11,9 @@ public final class JsonDownloadOperation: NetworkDownloadOperation<JsonKeyValue>
      Initialize with a request
      **/
     public override init(requestBuilder: RequestBuildable,
-                         timeout: Double = 10.0,
-                         pinningCertTo: Data? = nil) {
+						 urlSession: URLSession) {
         super.init(requestBuilder: requestBuilder,
-                   timeout: timeout,
-                   pinningCertTo: pinningCertTo)
+				   urlSession: urlSession)
     }
 
     public override func convertTo(_ data: Data) -> JsonKeyValue? {
