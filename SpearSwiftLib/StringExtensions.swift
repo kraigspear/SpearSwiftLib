@@ -31,4 +31,10 @@ extension String {
 
         return nil
     }
+	
+	/// True if this string contains a decimal seperator
+	public var containsDecimalSeperator: Bool {
+		let decimal = Locale.current.decimalSeparator ?? "."
+		return self.contains(decimal)
+	}
 }
