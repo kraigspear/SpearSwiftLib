@@ -29,18 +29,32 @@ class Cached: NSObject {
 public protocol DataCachable: class {
 	func data(forKey: String) -> Data?
 	func set(data: Data, forKey: String, expireingInMinutes: Int)
-	func removeItemsOlderThan(minutes: Int)
+	func removeItemsOlderThan(minutes: Int, completed: @escaping () -> Void)
 	func exist(forKey: String) -> Bool
 }
 
 /// Helper class to cache Data objects
 public class DataCache: DataCachable {
-	private let cache = NSCache<NSString, Cached>()
+	
 	private let log = Log.cache
+	
+	/// Used to store the memory cache
+	private let cache = NSCache<NSString, Cached>()
 
-	public init() {
+	/// Access to the file system. FileManageable wraps FileManager for testing
+	private let fileManager: FileManageable
+
+	/// Initialize injecting a FileManageable for access to the file system
+	/// - Parameter fileManager: Access to the file system
+	public init(fileManager: FileManageable) {
+		self.fileManager = fileManager
 	}
-
+	
+	/// convenience using the default FileManager
+	public convenience init() {
+		self.init(fileManager: FileManager.default)
+	}
+ 
 	/// Does an object with this key exist in the cache
 	/// - Parameter forKey: Key to check cache
 	public func exist(forKey: String) -> Bool {
@@ -176,37 +190,50 @@ public class DataCache: DataCachable {
 	}
 
 	private func cachPathFor(_ key: String) -> URL {
-		URL(fileURLWithPath: FileManager.default.cachePathFile(key))
+		URL(fileURLWithPath: fileManager.cachePathFile(key))
 	}
 
 	/// Remove any older files
-	public func removeItemsOlderThan(minutes: Int) {
+	public func removeItemsOlderThan(minutes: Int,
+									 completed: @escaping () -> Void) {
 		os_log("Removing cache items older than: %d minutes",
 		       log: log,
 		       type: .info,
 		       minutes)
 
 		DispatchQueue.global().async {
-			let fileManager = FileManager.default
-			let urls = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
+			let fileManager = self.fileManager
+			let cachFiles = fileManager.cacheFiles()
 
-			urls.filter { url in fileManager.numberOfMinutesSinceCreated(url) >= minutes }
+			var fileDeleted = 0
+			cachFiles.filter { cachFile in fileManager.numberOfMinutesSinceCreated(cachFile) >= minutes }
 				.forEach { oldUrl in
 
 					do {
-						try fileManager.removeItem(at: oldUrl)
+						try self.fileManager.removeItem(atPath: oldUrl)
+						fileDeleted += 1
 						os_log("File: %s deleted",
 						       log: self.log,
 						       type: .debug,
-						       oldUrl.absoluteString)
+						       oldUrl)
 					} catch {
 						os_log("Error deleting %s %s",
 						       log: self.log,
 						       type: .error,
-						       oldUrl.absoluteString,
+						       oldUrl,
 						       error.localizedDescription)
 					}
 				}
+			
+			os_log("Deleted %d files from the cache",
+				   log: self.log,
+				   type: .debug,
+				   fileDeleted)
+			
+			DispatchQueue.main.async {
+				completed()
+			}
+			
 		}
 	}
 }

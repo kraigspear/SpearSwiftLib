@@ -37,4 +37,19 @@ extension String {
 		let decimal = Locale.current.decimalSeparator ?? "."
 		return self.contains(decimal)
 	}
+	
+	public mutating func appendPath(_ value: String) {
+		
+		let pathSeperator = "/"
+		
+		guard let last = self.last else { return }
+		let s = String(last)
+		
+		if s != pathSeperator {
+		   self += pathSeperator
+		}
+		
+		self += value
+	}
+	
 }

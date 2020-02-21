@@ -33,4 +33,17 @@ class StringTests: XCTestCase {
 
         XCTAssertTrue(myStr == "abcdef")
     }
+	
+	func testPathCharacterIsAppended() {
+		var myStr = "somestring"
+		myStr.appendPath("otherstring")
+		XCTAssertEqual("somestring/otherstring", myStr)
+	}
+	
+	func testPathCharacterIsNotAppended() {
+		var myStr = "somestring/"
+		myStr.appendPath("otherstring")
+		XCTAssertEqual("somestring/otherstring", myStr)
+	}
+
 }
