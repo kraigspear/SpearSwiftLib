@@ -43,7 +43,7 @@ protocol LocationManageable: AnyObject {
 final class LocationManager: NSObject, LocationManageable {
     // MARK: - Log
 
-	private let log = Log.location
+    private let log = Log.location
 
     // MARK: - Wrapping
 
@@ -91,9 +91,8 @@ final class LocationManager: NSObject, LocationManageable {
     // MARK: - Publishers
 
     public var foundLocations: AnyPublisher<[CLLocation], Error> {
-		
-		let log = Log.network
-		
+        let log = Log.network
+
         return Future<[CLLocation], Error> { [weak self] promise in
 
             guard let self = self else { return }
@@ -112,29 +111,29 @@ final class LocationManager: NSObject, LocationManageable {
 
                 switch completed {
                 case let .failure(error):
-					os_log("didUpdateLocations completed with error: %{public}s",
-						   log: log,
-						   type: .info,
-						   error.localizedDescription)
+                    os_log("didUpdateLocations completed with error: %{public}s",
+                           log: log,
+                           type: .info,
+                           error.localizedDescription)
                     promise(.failure(error))
                 case .finished:
-					os_log("didUpdateLocations completed",
-						   log: log,
-						   type: .info)
+                    os_log("didUpdateLocations completed",
+                           log: log,
+                           type: .info)
                 }
 
             }) { locations in
-				os_log("Locations found: %d",
-					   log: log,
-					   type: .debug,
-					   locations.count)
+                os_log("Locations found: %d",
+                       log: log,
+                       type: .debug,
+                       locations.count)
                 promise(.success(locations))
             }
 
-			os_log("Requesting location",
-				   log: log,
-				   type: .debug)
-			
+            os_log("Requesting location",
+                   log: log,
+                   type: .debug)
+
             self.requestLocation()
 
         }.eraseToAnyPublisher()
@@ -154,20 +153,20 @@ final class LocationManager: NSObject, LocationManageable {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         assert(delegate != nil, "delegate is nil?")
-		os_log("locationManager.didUpdateLocations.count: %d",
-			   log: log,
-			   type: .info,
-			   locations.count)
+        os_log("locationManager.didUpdateLocations.count: %d",
+               log: log,
+               type: .info,
+               locations.count)
         didUpdateLocationsSubject.send(locations)
         delegate?.onLocationsFound(locations)
     }
 
     func locationManager(_: CLLocationManager, didFailWithError error: Error) {
         assert(delegate != nil, "delegate is nil?")
-		os_log("locationManager.didFailWithError: with error: %{public}s",
-			   log: log,
-			   type: .error,
-			   error.localizedDescription)
+        os_log("locationManager.didFailWithError: with error: %{public}s",
+               log: log,
+               type: .error,
+               error.localizedDescription)
         let locationFindError = LocationFindError.locationManagerError(error: error)
         didUpdateLocationsSubject.send(completion: Subscribers.Completion.failure(locationFindError))
         delegate?.onLocationManagerError(error)
@@ -175,10 +174,10 @@ extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         assert(delegate != nil, "delegate is nil?")
-		os_log("locationManager.didChangeAuthorization: %{public}s",
-			   log: log,
-			   type: .info,
-			   String(describing: status))
+        os_log("locationManager.didChangeAuthorization: %{public}s",
+               log: log,
+               type: .info,
+               String(describing: status))
         authorizationStatus.send(status)
         delegate?.onAuthorizationStatusChanged(status)
     }

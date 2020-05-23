@@ -31,25 +31,23 @@ extension String {
 
         return nil
     }
-	
-	/// True if this string contains a decimal seperator
-	public var containsDecimalSeperator: Bool {
-		let decimal = Locale.current.decimalSeparator ?? "."
-		return self.contains(decimal)
-	}
-	
-	public mutating func appendPath(_ value: String) {
-		
-		let pathSeperator = "/"
-		
-		guard let last = self.last else { return }
-		let s = String(last)
-		
-		if s != pathSeperator {
-		   self += pathSeperator
-		}
-		
-		self += value
-	}
-	
+
+    /// True if this string contains a decimal seperator
+    public var containsDecimalSeperator: Bool {
+        let decimal = Locale.current.decimalSeparator ?? "."
+        return contains(decimal)
+    }
+
+    public mutating func appendPath(_ value: String) {
+        let pathSeperator = "/"
+
+        guard let last = self.last else { return }
+        let s = String(last)
+
+        if s != pathSeperator {
+            self += pathSeperator
+        }
+
+        self += value
+    }
 }

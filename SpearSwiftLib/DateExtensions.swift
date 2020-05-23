@@ -196,7 +196,7 @@ public extension Date {
     func numberOfMinutesBetweenNow(absolute: Bool = true) -> Int {
         return numberOfMinutesBetween(Date(), absolute: absolute)
     }
-	
+
     /**
      Convert this date to a string formatted as zulu date
 
@@ -208,7 +208,39 @@ public extension Date {
         let firstFormatter = DateFormatters.instance.zulu.first!
         return firstFormatter.string(from: self)
     }
-	
-	/// Convience property for readability to encourage one way to get epoch. `timeIntervalSince1970`
-	var epoch: TimeInterval { timeIntervalSince1970 }
+
+    /// Midnight on this date
+    var firstHourOfDay: Date {
+        let flags: Set<Calendar.Component> = [
+            Calendar.Component.month,
+            Calendar.Component.day,
+            Calendar.Component.year,
+        ]
+
+        var components = Calendar.current.dateComponents(flags, from: self)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+
+        return Calendar.current.date(from: components)!
+    }
+
+    /// The last hour, minute, second of this day
+    var lastHourOfDay: Date {
+        let flags: Set<Calendar.Component> = [
+            Calendar.Component.month,
+            Calendar.Component.day,
+            Calendar.Component.year,
+        ]
+
+        var components = Calendar.current.dateComponents(flags, from: self)
+        components.hour = 23
+        components.minute = 59
+        components.second = 59
+
+        return Calendar.current.date(from: components)!
+    }
+
+    /// Convience property for readability to encourage one way to get epoch. `timeIntervalSince1970`
+    var epoch: TimeInterval { timeIntervalSince1970 }
 }

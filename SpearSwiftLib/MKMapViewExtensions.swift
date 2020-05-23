@@ -6,13 +6,13 @@
 //  Copyright © 2019 spearware. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 import MapKit
 
 public protocol MapLocation {
-	var coordinate: CLLocationCoordinate2D { get }
-	var locationName: String { get }
+    var coordinate: CLLocationCoordinate2D { get }
+    var locationName: String { get }
 }
 
 /// Type that can center on a `CLLocationCoordinate2D` with a given ZoomLevel and animation of a series of tiles (animated radar)
@@ -44,4 +44,3 @@ extension MKMapView: CenterOnCoordinateSettable {
         addAnnotation(annotation)
     }
 }
-

@@ -9,12 +9,12 @@
 import Foundation
 import os.log
 
-
 struct Log {
-	static let general = OSLog(subsystem: "com.spearware.spearswiftlib", category: "📜General")
-	static let cache = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🧑‍🎤Cache")
-	static let network = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🧚‍♀️Network")
-	static let sync = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🐸Sync")
-	static let location = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🗺Location")
-	static let remoteData = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🏓RemoteData")
+    static let general = OSLog(subsystem: "com.spearware.spearswiftlib", category: "📜General")
+    static let cache = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🧑‍🎤Cache")
+    static let stickyHeaderLayout = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🏏StickyHeaderLayout")
+    static let network = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🧚‍♀️Network")
+    static let sync = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🐸Sync")
+    static let location = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🗺Location")
+    static let remoteData = OSLog(subsystem: "com.spearware.spearswiftlib", category: "🏓RemoteData")
 }

@@ -11,9 +11,9 @@ public final class JsonDownloadOperation: NetworkDownloadOperation<JsonKeyValue>
      Initialize with a request
      **/
     public override init(requestBuilder: RequestBuildable,
-						 urlSession: URLSession) {
+                         urlSession: URLSession) {
         super.init(requestBuilder: requestBuilder,
-				   urlSession: urlSession)
+                   urlSession: urlSession)
     }
 
     public override func convertTo(_ data: Data) -> JsonKeyValue? {

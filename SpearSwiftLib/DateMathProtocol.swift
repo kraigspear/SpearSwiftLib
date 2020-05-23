@@ -8,17 +8,15 @@
 
 import Foundation
 
-
 /// Common date math routines
 public protocol DateMathProtocol {
-	func numberOfMinutesBetweenNow(_ date: Date) -> Int
+    func numberOfMinutesBetweenNow(_ date: Date) -> Int
 }
 
 public final class DateMath: DateMathProtocol {
-	
-	public init() {}
-	
-	public func numberOfMinutesBetweenNow(_ date: Date) -> Int {
-		date.numberOfMinutesBetweenNow()
-	}
+    public init() {}
+
+    public func numberOfMinutesBetweenNow(_ date: Date) -> Int {
+        date.numberOfMinutesBetweenNow()
+    }
 }

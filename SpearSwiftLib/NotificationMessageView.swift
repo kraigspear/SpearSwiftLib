@@ -22,7 +22,7 @@ public final class NotificationMessageView: NSObject {
     fileprivate var messageView: UIView?
 
     /// A constriant that is docking the notificationContentView to the top, that is disabled when
-    ///the NotificationMessageView is shown
+    /// the NotificationMessageView is shown
     fileprivate var constraintToDisableWhenNotificationShows: NSLayoutConstraint
     /// The top constraint for the messageview that docks the MessageView to the top
     fileprivate var messageViewTopConstraint: NSLayoutConstraint?

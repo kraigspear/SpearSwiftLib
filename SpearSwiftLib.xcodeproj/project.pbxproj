@@ -12,7 +12,7 @@
 		A925BEC022A1CB1F00CA0FF9 /* ElaspedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925BEBF22A1CB1F00CA0FF9 /* ElaspedTime.swift */; };
 		A92AE981210CC40B00BA1B1D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92AE980210CC40B00BA1B1D /* Log.swift */; };
 		A92B809020A8E5CE004139D3 /* SpearSwiftLibmacOS.h in Headers */ = {isa = PBXBuildFile; fileRef = A92B808E20A8E5CE004139D3 /* SpearSwiftLibmacOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A92B809520A8E61B004139D3 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */; };
+		A92B809520A8E61B004139D3 /* RequestBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuildable.swift */; };
 		A92B809620A8E623004139D3 /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9611AF51EE7EBD80096154A /* GetRequest.swift */; };
 		A92B809720A8E62B004139D3 /* NetworkDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382CEF98D01D84D83D47A0 /* NetworkDownloadOperation.swift */; };
 		A92B809820A8E637004139D3 /* NetworkParameterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382488EAD8E235300DECE8 /* NetworkParameterType.swift */; };
@@ -77,7 +77,7 @@
 		E638218B9054A7D862B56367 /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382594E62CEF6138C665FD /* ScrollViewExtensions.swift */; };
 		E63822B759494C70E92F7E77 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382975ADF9F875F89B5224 /* FileManagerExtensions.swift */; };
 		E63823907A2E6FC054C9BB2A /* CurrentLocationPermissionRequestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382D136BBABE576A7ECFD3 /* CurrentLocationPermissionRequestor.swift */; };
-		E638247E684B79425FF5896B /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */; };
+		E638247E684B79425FF5896B /* RequestBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382DCD16D8A941299F08F3 /* RequestBuildable.swift */; };
 		E63824A90C85F100812A9C27 /* NetworkDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382CEF98D01D84D83D47A0 /* NetworkDownloadOperation.swift */; };
 		E638250509C7F81A6F885948 /* NotificationMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382A05CD63F45A3F63AB4E /* NotificationMessageView.swift */; };
 		E6382548CAB377F4029D854C /* NetworkParameterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382488EAD8E235300DECE8 /* NetworkParameterType.swift */; };
@@ -198,7 +198,7 @@
 		E6382D57CB2CC0C6436536CF /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		E6382D6F3DA3A191E71CC1DC /* JsonDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDownloadOperation.swift; sourceTree = "<group>"; };
 		E6382DAF767CBC864F764F7B /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
-		E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		E6382DCD16D8A941299F08F3 /* RequestBuildable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuildable.swift; sourceTree = "<group>"; };
 		E6382DFC210ECAAB73928B17 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -447,7 +447,7 @@
 				E6382B650D3270E4201605F6 /* JSON */,
 				E6382488EAD8E235300DECE8 /* NetworkParameterType.swift */,
 				E6382CEF98D01D84D83D47A0 /* NetworkDownloadOperation.swift */,
-				E6382DCD16D8A941299F08F3 /* RequestBuilder.swift */,
+				E6382DCD16D8A941299F08F3 /* RequestBuildable.swift */,
 				A9611AF51EE7EBD80096154A /* GetRequest.swift */,
 				A9DD450021B2BA9900C92DE8 /* URLSessionPinningDelegate.swift */,
 			);
@@ -636,7 +636,7 @@
 				A92B809A20A8E644004139D3 /* JsonDownloadOperation.swift in Sources */,
 				A941586C20A8E87B00202F1B /* NSPointerArrayExtensions.swift in Sources */,
 				A92B809820A8E637004139D3 /* NetworkParameterType.swift in Sources */,
-				A92B809520A8E61B004139D3 /* RequestBuilder.swift in Sources */,
+				A92B809520A8E61B004139D3 /* RequestBuildable.swift in Sources */,
 				A9573A8D20AADA0B0078501A /* DateFormatters.swift in Sources */,
 				A92B809D20A8E74A004139D3 /* Observable.swift in Sources */,
 				A99B282620A8EE04000601BB /* NSURLParameters.swift in Sources */,
@@ -714,7 +714,7 @@
 				A93EF65C2351E8B500095404 /* DataCache.swift in Sources */,
 				A97B76B51FCEC234002F8A40 /* LocationFinder.swift in Sources */,
 				A961CD682085EA7B00EEFE73 /* CurrnetLocationPermissionStatus.swift in Sources */,
-				E638247E684B79425FF5896B /* RequestBuilder.swift in Sources */,
+				E638247E684B79425FF5896B /* RequestBuildable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,13 @@
 //
 
 import CoreGraphics
+import os.log
 import UIKit
 
 public class StickyHeaderLayout: UICollectionViewFlowLayout {
     private let topZIndex = 1024
+
+    private let log = Log.stickyHeaderLayout
 
     // MARK: - Init
 
@@ -46,6 +49,7 @@ public class StickyHeaderLayout: UICollectionViewFlowLayout {
     }
 
     private func layoutHeader(_ attributes: UICollectionViewLayoutAttributes) {
+
         guard let collectionView = self.collectionView else {
             assertionFailure()
             return
@@ -61,7 +65,7 @@ public class StickyHeaderLayout: UICollectionViewFlowLayout {
 
         // Forced unwrapping is used because if we are not able to get the attributes of these items
         // it is because of incorrect logic above. It is better to crash, and fix the incorrect code
-        //then to proceed.
+        // then to proceed.
         let firstCellAttributes = layoutAttributesForItem(at: firstIndexPath)!
         let lastCellIAttributes = layoutAttributesForItem(at: lastIndexPath)!
 
@@ -94,6 +98,7 @@ public class StickyHeaderLayout: UICollectionViewFlowLayout {
             // moving with the scroll
             // or intersecting with another header and is moving off view.
             origin.x = min(max(headerDockedLeft, movingHeaderLeft), headerIntersect)
+
 
             attributes.zIndex = topZIndex
             attributes.frame = CGRect(origin: origin, size: attributes.frame.size)

@@ -49,4 +49,20 @@ public final class DateFormatters {
         dateFormatter.dateFormat = DateFormat.dayOfWeek.rawValue
         return dateFormatter
     }()
+	
+	public lazy var shortTime: DateFormatter = {
+        let dateFormatter = DateFormatter()
+		dateFormatter.timeStyle = .short
+        return dateFormatter
+	}()
+	
+	public lazy var shortDateTime: DateFormatter = {
+        let dateFormatter = DateFormatter()
+		dateFormatter.dateStyle = .short
+		dateFormatter.timeStyle = .short
+        return dateFormatter
+	}()
+
+	
+	
 }

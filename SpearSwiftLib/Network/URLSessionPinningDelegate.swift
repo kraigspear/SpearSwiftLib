@@ -19,16 +19,16 @@ final class URLSessionPinningDelegate: NSObject, URLSessionDelegate {
     func urlSession(_: URLSession,
                     didReceive challenge: URLAuthenticationChallenge,
                     completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-		let log = Log.network
+        let log = Log.network
 
-		os_log("Checking CERT",
-			   log: log,
-			   type: .info)
+        os_log("Checking CERT",
+               log: log,
+               type: .info)
 
         let failed = {
-			os_log("Failed!!!",
-				   log: log,
-				   type: .error)
+            os_log("Failed!!!",
+                   log: log,
+                   type: .error)
             completionHandler(URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
         }
 
@@ -60,9 +60,9 @@ final class URLSessionPinningDelegate: NSObject, URLSessionDelegate {
         let cert1 = Data(bytes: data, count: size)
 
         if cert1 == certificate {
-			os_log("CERT is valid",
-				   log: log,
-				   type: .info)
+            os_log("CERT is valid",
+                   log: log,
+                   type: .info)
             completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: serverTrust))
         } else {
             failed()

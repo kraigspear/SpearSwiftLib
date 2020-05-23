@@ -6,8 +6,8 @@
 //  Copyright © 2015 spearware. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 /**
  Provides a better implementation of NSOperation
@@ -44,7 +44,6 @@ open class BaseOperation: Operation {
     /// Success or an error otherwise.
     public var error: Error?
 
-	
     /**
      Override of NSOperation start.
      Not intended to be overridden in BaseOperation child classes
@@ -109,18 +108,17 @@ open class BaseOperation: Operation {
             willChangeValue(forKey: finishedKey)
             _finished = newValue
             didChangeValue(forKey: finishedKey)
-			finishPublisher()
+            finishPublisher()
         }
     }
-	
-	private func finishPublisher() {
-		if let error = error {
-			completedSubject.send(completion: .failure(error))
-		} else {
-			completedSubject.send(completion: .finished)
-		}
-	}
-		
+
+    private func finishPublisher() {
+        if let error = error {
+            completedSubject.send(completion: .failure(error))
+        } else {
+            completedSubject.send(completion: .finished)
+        }
+    }
 
     /// Set this operation as being completed. Needs to always be called no matter if the operation
     /// is successful or not
@@ -128,11 +126,10 @@ open class BaseOperation: Operation {
         isExecuting = false
         isFinished = true
     }
-	
-	private var completedSubject = PassthroughSubject<Never, Error>()
-	
-	var completedPublisher: AnyPublisher<Never, Error> {
-		completedSubject.eraseToAnyPublisher()
-	}
-		
+
+    private var completedSubject = PassthroughSubject<Never, Error>()
+
+    var completedPublisher: AnyPublisher<Never, Error> {
+        completedSubject.eraseToAnyPublisher()
+    }
 }

@@ -71,7 +71,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
             return intVal
         }
 
-        guard let strVal = try? self.toString(key) else {
+        guard let strVal = try? toString(key) else {
             throw ConvertError.missingNode
         }
 
@@ -101,7 +101,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
             return floatVal
         }
 
-        guard let strVal = try? self.toString(key) else {
+        guard let strVal = try? toString(key) else {
             throw ConvertError.missingNode
         }
 
@@ -128,7 +128,7 @@ public extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
             return dblValue
         }
 
-        guard let strVal = try? self.toString(key) else {
+        guard let strVal = try? toString(key) else {
             throw ConvertError.missingNode
         }
 
